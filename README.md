@@ -11,28 +11,28 @@ password :admin
 
 
 
-download the Run the SprintBoot jar
-======================================
-download  the sprinboot executables 
------------------------------------
-demo->shopping-cart-1.0.0.jar
-extract and goto the jar dir>java -jar shopping-cart-1.0.0.jar
+download the Run the SprintBoot jar<br/>
+======================================<br/>
+download  the sprinboot executables <br/>
+-----------------------------------<br/>
+demo->shopping-cart-1.0.0.jar<br/>
+extract and goto the jar dir>java -jar shopping-cart-1.0.0.jar<br/>
 open the browser and hit the below url http://localhost:9010</br>
-Login with 
-user : admin
-password :admin
+Login with <br/>
+user : admin<br/>
+password :admin<br/>
 
 
 
-Refer Mongodb db details
-------------------------
+Refer Mongodb db details<br/>
+------------------------<br/>
 
-create Mongo Database named as shoppingcart
+create Mongo Database named as shoppingcart<br/>
 
 
-spring.data.mongodb.database=shoppingcart
-spring.data.mongodb.host=localhost
-spring.data.mongodb.port=27017
-spring.data.mongodb.repositories.enabled=true
-spring.data.mongodb.uri=mongodb://localhost/shoppingcart
-server.port=9010
+spring.data.mongodb.database=shoppingcart<br/>
+spring.data.mongodb.host=localhost<br/>
+spring.data.mongodb.port=27017<br/>
+spring.data.mongodb.repositories.enabled=true<br/>
+spring.data.mongodb.uri=mongodb://localhost/shoppingcart<br/>
+server.port=9010<br/>
