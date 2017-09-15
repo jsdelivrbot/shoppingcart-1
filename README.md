@@ -13,6 +13,9 @@ password :admin
 
 download the Run the SprintBoot jar
 ======================================
+download  the sprinboot executables 
+-----------------------------------
+demo->shopping-cart-1.0.0.jar
 extract and goto the jar dir>java -jar shopping-cart-1.0.0.jar
 open the browser and hit the below url http://localhost:9010</br>
 Login with 
