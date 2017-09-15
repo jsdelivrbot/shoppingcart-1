@@ -33,7 +33,7 @@ export class ProductComponent {
   addToCart(product) {
     // this.productService.addToCart(product)
     console.log(this.quantity)
-    this.cartStore.addToCart(product, this.quantity || 1)
+    this.cartStore.addToCart(product, product.quantity || 1)
   }
 
   getProductData() {     

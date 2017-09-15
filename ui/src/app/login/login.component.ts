@@ -9,9 +9,11 @@ import { AlertService, AuthenticationService } from '../services/index';
 })
 
 export class LoginComponent implements OnInit {
-    model: any = {};
+    model: any = {"username":"admin","password":"admin"};
     loading = false;
     returnUrl: string;
+    isValidLogin : boolean = true;
+   
 
     constructor(
         private route: ActivatedRoute,
@@ -32,11 +34,15 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    this.isValidLogin = false;
+                    this.router.navigate([this.returnUrl]);                   
                 },
                 error => {
                     this.alertService.error(error);
                     this.loading = false;
+                    this.isValidLogin = false;
                 });
     }
+
+    
 }

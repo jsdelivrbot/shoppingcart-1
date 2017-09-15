@@ -13,17 +13,24 @@ public class CommerceItem {
 
 	private String product_id;
 	private Integer quantity;
-	private BigDecimal amount;
+	private Double amount;
 
 	public String getId() {
 		return id;
 	}
 
+	public CommerceItem(String product_id, Integer quantity,Double amount) {
+		super();
+		this.product_id = product_id;
+		this.quantity = quantity;
+		this.amount = (amount * quantity);
+	}
+	
 	public CommerceItem(String product_id, Integer quantity) {
 		super();
 		this.product_id = product_id;
 		this.quantity = quantity;
-		this.amount = new BigDecimal(quantity * 10);
+		this.amount = (quantity * 10.0);
 	}
 
 
@@ -47,11 +54,11 @@ public class CommerceItem {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 

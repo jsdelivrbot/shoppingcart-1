@@ -19,4 +19,9 @@ public class ProductService {
     public List<Product> findAll() {
 	return productRepository.findAll();
     }
+    
+    @Transactional
+    public Product findbyId(final String productId) {
+	return productRepository.findOne(productId);
+    }
 }

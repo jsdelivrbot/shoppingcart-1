@@ -25,9 +25,8 @@ export class ProductService {
     }
 
     getProduct(id) {
-        /*return this.getProducts()
-                    .then(products => products.find(product => product.id === id));*/
-        return null;
+       return this.http.get('http://localhost:9010/sc/api/v1/product/'+id, this.jwt()); 
+        
     }
 
     

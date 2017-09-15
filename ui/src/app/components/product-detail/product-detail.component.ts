@@ -13,7 +13,7 @@ import { CartAction } from 'app/store/actions/cart.actions';
 })
 
 export class ProductDetailComponent {
-    selectedProduct:Product;
+    selectedProduct:any;
     quantity: number;
     constructor(
         private productService:ProductService,
@@ -23,7 +23,7 @@ export class ProductDetailComponent {
     ) { }
 
     addToCart(product) {
-        this.cartStore.addToCart(product, this.quantity || 1)
+        this.cartStore.addToCart(product, this.selectedProduct.quantity || 1)
     }
 
     // When initialized, fetch for the product info based on the product id and set it as selectedProduct
@@ -31,7 +31,7 @@ export class ProductDetailComponent {
         this.route.params.forEach(param => {
             let id = parseInt(param['id'])
             this.productService.getProduct(id)
-                .then(product => this.selectedProduct = product)
+                .subscribe(product => this.selectedProduct = product)
         })
     }
 

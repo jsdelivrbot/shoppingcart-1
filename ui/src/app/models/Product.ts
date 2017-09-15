@@ -1,7 +1,7 @@
 export class Product {
     id:number;
     name:string;
-    src:string;
+    imageUrl:string;
     info:string;
     price:number;
 }

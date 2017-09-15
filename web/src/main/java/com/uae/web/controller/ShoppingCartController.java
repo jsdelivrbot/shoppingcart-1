@@ -7,6 +7,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +19,7 @@ import com.uae.web.model.ShoppingCart;
 import com.uae.web.service.ShoppingCartService;
 
 @RestController
-@RequestMapping(value="/sc/api/v1")
+@RequestMapping(value="/cart/api/v1")
 public class ShoppingCartController {
 
 	@Autowired 
@@ -42,7 +44,7 @@ public class ShoppingCartController {
 	@RequestMapping(value = "/shoppingcart/items/{id}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> shoppingcartItemsIdDelete(@RequestParam(required=true) String id){
 		HttpHeaders httpHeaders = new HttpHeaders();
-		//shoppingCartService.delete(id);
+		shoppingCartService.delete(id);
 		return new ResponseEntity<>("Item was removed from the shopping cart.", httpHeaders, HttpStatus.OK);
 	}
 	
@@ -51,11 +53,12 @@ public class ShoppingCartController {
 	 * @param product_id
 	 * @param quantity
 	 */
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/shoppingcart/items", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CommerceItem> shoppingcartItemsPost(HttpSession httpSession, @RequestParam(required=true) String product_id, @RequestParam(required=true) Integer quantity){
+	public ResponseEntity<CommerceItem> shoppingcartItemsPost(HttpSession httpSession, @RequestBody CartVo cart){
 		HttpHeaders httpHeaders = new HttpHeaders();
-		CommerceItem commerceItem = new CommerceItem(product_id, quantity);
-		//shoppingCartService.insert(commerceItem);
+		CommerceItem commerceItem = new CommerceItem(cart.getProduct_id(), cart.getQuantity(), cart.getAmount());
+		shoppingCartService.insert(commerceItem);
 		return new ResponseEntity<>(commerceItem, httpHeaders, HttpStatus.OK);
 	}
 	
@@ -75,3 +78,52 @@ public class ShoppingCartController {
 
 	}
 }
+
+class  CartVo{
+	
+	
+	private String product_id;
+	
+	private Integer quantity;
+	private Double amount;
+	/**
+	 * @return the product_id
+	 */
+	public String getProduct_id() {
+		return product_id;
+	}
+	/**
+	 * @param product_id the product_id to set
+	 */
+	public void setProduct_id(String product_id) {
+		this.product_id = product_id;
+	}
+	/**
+	 * @return the quantity
+	 */
+	public Integer getQuantity() {
+		return quantity;
+	}
+	/**
+	 * @param quantity the quantity to set
+	 */
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+	/**
+	 * @return the amount
+	 */
+	public Double getAmount() {
+		return amount;
+	}
+	/**
+	 * @param amount the amount to set
+	 */
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+	
+	
+}
+
+
