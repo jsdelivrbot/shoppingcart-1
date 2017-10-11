@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+	 x="0px" y="0px" viewBox="0 0 80 80" xml:space="preserve">
+<g>
+	<circle fill="#333333" cx="40" cy="14" r="8"/>
+	<circle fill="#333333" cx="40" cy="40" r="8"/>
+	<circle fill="#333333" cx="40" cy="66" r="8"/>
+</g>
+</svg>

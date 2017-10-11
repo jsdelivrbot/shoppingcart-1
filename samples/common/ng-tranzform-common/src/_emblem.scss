@@ -1,0 +1,13 @@
+// This file demonstrates how styles can be overridden for branding
+
+$color-brand-1: #50327c;
+$color-brand-2: $color-brand-1;
+
+$color-primary: $color-brand-1;
+
+$color-nav-bg: white;
+$color-nav-border-left: #e3e3e3;
+$color-nav-border-right: $color-nav-border-left;
+$color-nav-expand-icon: #f7941e;
+$color-nav-icon: #5d5d5d;
+$color-nav-active-icon: $color-brand-1;

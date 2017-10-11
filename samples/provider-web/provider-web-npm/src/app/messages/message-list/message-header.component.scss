@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+
+.table-header{
+    border-top: 2px solid $color-pattens-blue;
+    border-bottom: 2px solid $color-pattens-blue;
+    margin: 0;
+    div{
+            padding:15px;
+            vertical-align:middle;
+            background:$color-alice-blue;
+        }
+        div:first-child{
+            text-align: center;
+        }
+        
+}

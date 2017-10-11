@@ -1,0 +1,29 @@
+<button type="button"
+  class="top-bar-action"
+  (click)="menuOpen = !menuOpen"
+  tzfClickOutside="menuOpen"
+  (clickOutside)="menuOpen = false"
+>
+  <span
+    [class]="'lang lang-' + t.currentLang"
+  >{{ languagesById[t.currentLang] }}</span>
+</button>
+<ul id="lang-options"
+  *ngIf="menuOpen"
+>
+  <ng-container *ngFor="let langId of languages">
+    <li
+      *ngIf="t.currentLang !== langId"
+      class="lang-option"
+    >
+      <button type="button"
+        class="top-bar-action"
+        (click)="t.use(langId); menuOpen = false"
+      >
+        <span
+          [class]="'lang lang-' + langId"
+        >{{ languagesById[langId] }}</span>
+      </button>
+    </li>
+  </ng-container>
+</ul>

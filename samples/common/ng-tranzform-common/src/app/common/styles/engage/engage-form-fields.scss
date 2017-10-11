@@ -1,0 +1,184 @@
+$info-box-padding: 0.7em;
+
+tzf-form-fields {
+  + tzf-form-fields > div {
+    margin-top: 1.5em;
+  }
+}
+
+[tzfFormField] {
+  .label-content,
+  .hint {
+    margin-bottom: 0.3em;
+  }
+
+  .label-content label {
+    margin: 0;
+  }
+
+  .hint {
+    font-size: 0.85em;
+    font-style: italic;
+    margin-top: -0.3em;
+  }
+
+  .info-container {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+  }
+
+  .info-btn {
+    width: 0.9em;
+    height: 1.1em;
+    padding: 0;
+    background: transparent;
+    border: none;
+
+    ::ng-deep {
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+
+      circle,
+      path {
+        fill: #30768c;
+      }
+    }
+  }
+
+  .info-box {
+    display: none;
+    position: absolute;
+    z-index: $z-form-field-info;
+    left: 100%;
+    top: -30px;
+    min-height: 70px;
+    margin-left: 15px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgba(black, 0.5);
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 100%;
+      top: 25px;
+      height: 1.3em;
+      width: 1.3em;
+      background: inherit;
+      border: inherit;
+      border-right-width: 0;
+      border-bottom-width: 0;
+      transform: rotate(-45deg);
+      transform-origin: top right;
+      box-shadow: -5px 5px 20px rgba(black, 0.5);
+    }
+  }
+
+  .info-box-content {
+    background: inherit;
+    margin: $info-box-padding;
+    position: relative;
+
+    @include full {
+      // Adjust to cover the shadow of .info-box::before
+      margin-left: 0;
+      padding-left: $info-box-padding;
+    }
+  }
+
+  .info-close {
+    display: none;
+  }
+
+  input[type=text],
+  input[type=password],
+  input[type=date] {
+    width: 245px;
+  }
+
+  tzf-dropdown select {
+    min-width: 245px;
+  }
+}
+
+.show-info[tzfFormField] .info-box,
+[tzfFormField] .info-btn:focus + .info-box,
+.no-touch [tzfFormField] .info-btn:hover + .info-box {
+  display: block;
+}
+
+.show-info[tzfFormField] {
+  .info-box {
+    padding-right: ($info-box-padding + 1em) !important;
+  }
+
+  .info-close {
+    display: block;
+    font-size: 1.1em;
+    position: absolute;
+    padding: $info-box-padding;
+    background: transparent;
+    border: none;
+    top: 0;
+    right: 0;
+    line-height: 1em;
+    cursor: pointer;
+  }
+}
+
+@include full {
+  tzf-form-fields > div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  [tzfFormField]:not(:last-child) {
+    margin-right: 2em;
+  }
+}
+
+@include condensed {
+  [tzfFormField] {
+    display: block;
+    margin-top: 1.5em;
+
+    tzf-date,
+    tzf-input-button,
+    tzf-dropdown {
+      display: block;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=date],
+    tzf-dropdown select {
+      width: 100%;
+    }
+
+    .info-box {
+      display: none;
+      left: -80px;
+      top: auto;
+      bottom: 150%;
+
+      &::before {
+        right: auto;
+        left: 40px;
+        top: 100%;
+        transform: rotate(225deg);
+        transform-origin: top right;
+        box-shadow: -5px -5px 20px rgba(black, 0.5);
+      }
+    }
+
+    // Adjust to cover the shadow of .info-box::before
+    .info-box-content {
+      margin-bottom: 0;
+      padding-bottom: $info-box-padding;
+    }
+  }
+}

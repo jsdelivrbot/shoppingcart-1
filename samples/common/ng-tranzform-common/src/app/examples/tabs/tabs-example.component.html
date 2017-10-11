@@ -1,0 +1,47 @@
+<h2>Route Tabs</h2>
+<p>Tabs are populated by child routes. This is preferable if a page has one set of tabs.</p>
+<tzf-tabs [items]="tabItems">
+  <router-outlet></router-outlet>
+</tzf-tabs>
+
+<h2>Auxiliary Route Tabs</h2>
+<p>Tabs are populated by auxialiary child routes. This allows routes to be used with multiple tabs on one page.</p>
+<tzf-tabs [items]="auxTabItems" outlet="auxTabs">
+  <router-outlet name="auxTabs"></router-outlet>
+</tzf-tabs>
+
+<h2>Content Tabs</h2>
+<p>Tabs control visibility of children.</p>
+<tzf-tabs selected="secondContent">
+  <div tzfTabContent [disabled]="disableFirstTab" id="firstContent" tabLabel="First" [tabBadge]="badgeValue" tabSvgPath="assets/Referrals.svg">
+    <p>This is the content of my first tab.</p>
+    <input type="text" [(ngModel)]="badgeValue">
+  </div>
+  <div tzfTabContent id="secondContent" tabLabel="Second" tabSvgPath="assets/common/icons/SearchIcon.svg">
+    And here is my second tab.
+    <label style="display:block;">
+    <input type="checkbox" [(ngModel)]="disableFirstTab" >
+     Disable First Tab
+    </label>
+  </div>
+</tzf-tabs>
+
+<h2>Progress Bar</h2>
+Enter value from 0 to 1:
+<input [(ngModel)]="progress">
+<label>
+  <input type="checkbox" [(ngModel)]="autoProgress" (ngModelChange)="toggleAutoProgress()">
+  Auto
+</label>
+
+<div style="width: 100px;">
+  <tzf-progress-bar [value]="progress"></tzf-progress-bar>
+</div>
+
+<div style="width: 200px;">
+  <tzf-progress-bar [value]="progress"></tzf-progress-bar>
+</div>
+
+<div style="width: 400px;">
+  <tzf-progress-bar [value]="progress"></tzf-progress-bar>
+</div>

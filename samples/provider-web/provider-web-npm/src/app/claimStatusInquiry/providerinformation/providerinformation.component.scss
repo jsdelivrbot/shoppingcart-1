@@ -1,0 +1,25 @@
+@import "../../../styles/variables";
+
+.in-between-ele /deep/{
+    select{
+        color:$color-pimary-grey; 
+    }
+}
+
+.h20m{
+    color: $color-primary-bluishblack;
+}
+.in-line{
+    display: flex
+}
+.combo-size {
+    width:500px;
+    height: 35px;
+    margin-right: 50px;
+    color:$color-pimary-grey;
+}
+
+hr{
+  border-top: 1px solid $color-neurtral-whitish-grey; 
+  margin:25px 0px;
+}

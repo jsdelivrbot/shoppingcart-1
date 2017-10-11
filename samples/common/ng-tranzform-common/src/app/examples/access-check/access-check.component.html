@@ -1,0 +1,18 @@
+<h3>This view is used to test capabilities with controls. The controls have access check directive applied.</h3>
+<p>Button hidden due to invalid capability</p>
+<button tzfApplyAccessCheck capability="bogus" type="button">Bad capability should Be hidden</button>
+<p>Button hidden</p>
+<button tzfApplyAccessCheck capability="quicklinksPage" type="button">Read Only button should be hidden</button>
+<p>Button visible</p>
+<button tzfApplyAccessCheck capability="claimsPage" type="button">Fully functional button</button>
+<p>Read only text box</p>
+<input tzfApplyAccessCheck capability="quicklinksPage" type="text" text="sample text should be ready only" value="read only text"/>
+<p>Fully enabled text box</p>
+<input tzfApplyAccessCheck capability="claimsPage" type="text" text="sample text should be enabled" value="enabled"/>
+
+<h3 translate>SIMPLE Dropdown in view read only based on capability</h3>
+<tzf-dropdown [options]="data" [(ngModel)]="simpleValue" tzfApplyAccessCheck capability="quicklinksPage"></tzf-dropdown>
+
+<h3 translate>SIMPLE Dropdown in view enabled based on capability</h3>
+<tzf-dropdown [options]="data" [(ngModel)]="simpleValue" tzfApplyAccessCheck capability="claimsPage"></tzf-dropdown>
+

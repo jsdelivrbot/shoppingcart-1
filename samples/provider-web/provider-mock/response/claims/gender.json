@@ -1,0 +1,12 @@
+{
+  "category": "gender",
+  "data": [{
+      "code": "Male",
+      "value": "male"
+    },
+    {
+      "code": "Female",
+      "value": "female"
+    }
+  ]
+}

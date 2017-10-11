@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg width="21px" height="27px" version="1.2" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+	 x="0px" y="0px" viewBox="0 0 80 80" xml:space="preserve">
+<g>
+	<g>
+		<path fill="#4D4D4D" d="M75.5,57.3c0.3,0,0.6,0.3,0.6,0.6v12c0,0.3-0.3,0.6-0.6,0.6h-71c-0.3,0-0.6-0.3-0.6-0.6v-12
+			c0-0.3,0.3-0.6,0.6-0.6H75.5 M75.5,53.9h-71c-2.2,0-4,1.8-4,4v12c0,2.2,1.8,4,4,4h71c2.2,0,4-1.8,4-4v-12
+			C79.5,55.7,77.7,53.9,75.5,53.9L75.5,53.9z"/>
+		<line fill="none" stroke="#4D4D4D" stroke-width="4" stroke-miterlimit="10" x1="13.2" y1="63.9" x2="37.2" y2="63.9"/>
+		<rect x="3.7" y="53.9" fill="#4D4D4D" width="4" height="20"/>
+	</g>
+	<g>
+		<path fill="#4D4D4D" d="M75.5,33.4c0.3,0,0.6,0.3,0.6,0.6v12c0,0.3-0.3,0.6-0.6,0.6h-71C4.2,46.6,4,46.3,4,46V34
+			c0-0.3,0.3-0.6,0.6-0.6H75.5 M75.5,30h-71c-2.2,0-4,1.8-4,4v12c0,2.2,1.8,4,4,4h71c2.2,0,4-1.8,4-4V34C79.5,31.8,77.7,30,75.5,30
+			L75.5,30z"/>
+		<line fill="none" stroke="#4D4D4D" stroke-width="4" stroke-miterlimit="10" x1="13.2" y1="40" x2="37.2" y2="40"/>
+		<rect x="3.7" y="30" fill="#4D4D4D" width="4" height="20"/>
+	</g>
+	<g>
+		<path fill="#4D4D4D" d="M75.5,9.5c0.3,0,0.6,0.3,0.6,0.6v12c0,0.3-0.3,0.6-0.6,0.6h-71c-0.3,0-0.6-0.3-0.6-0.6v-12
+			c0-0.3,0.3-0.6,0.6-0.6H75.5 M75.5,6.1h-71c-2.2,0-4,1.8-4,4v12c0,2.2,1.8,4,4,4h71c2.2,0,4-1.8,4-4v-12
+			C79.5,7.9,77.7,6.1,75.5,6.1L75.5,6.1z"/>
+		<line fill="none" stroke="#4D4D4D" stroke-width="4" stroke-miterlimit="10" x1="13.2" y1="16.1" x2="37.2" y2="16.1"/>
+		<rect x="3.7" y="6.1" fill="#4D4D4D" width="4" height="20"/>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,254 @@
+<div class="row">
+  <div class="col-12">
+    <span class="pdfExcelPlaceHolder p14r">{{'VIEWANDPRINTSUMMARY' | translate}}
+    <a  id="pdfDownload"
+        tabindex="0"
+        attr.title="{{'PDF' | translate }}"
+        [inlineSVG]="'assets/icon_pdf.svg'"
+        [cacheSVG]="false"
+        [prepend]="true"
+        (click) = "downloadFile(AppConfig.PDF)"
+        [replaceContents]="false">
+          {{'PDF' | translate }}
+    </a>
+  </span>
+  </div>
+</div>
+<div class="detail-summary">
+  <div class="row">
+    <div class="col-6">
+      <span class="summary-label">{{'REFERRALS.DETAIL.SUMMARY.SUBMITTEDBY' | translate}}</span><label class="p14b">{{authreferraldetail?.submittedProvider?.providerLastName}}<ng-container *ngIf="authreferraldetail?.submittedProvider?.providerLastName">,&nbsp;</ng-container>{{authreferraldetail?.submittedProvider?.providerFirstName}} {{authreferraldetail?.submittedProvider?.providerMiddleName}}</label><br>
+      <span class="summary-label">{{'REFERRALS.DETAIL.SUMMARY.SUBMISSIONDATE' | translate}}</span><label class="p14b">{{authreferraldetail?.submissionDate | date:AppConfig.DateFormat}}</label>
+    </div>
+    <div class="col-6">
+      <span class="summary-label"> {{'REFERRALS.DETAIL.SUMMARY.SUBMITTEDTYPE' | translate}}</span><label class="p14b">{{authreferraldetail?.submittedType}}</label>
+    </div>
+  </div>  
+</div>
+
+<ngb-accordion #accone="ngbAccordion" activeIds="status-info">
+  <!-- Status Information -->
+  <ngb-panel id="status-info">
+    <ng-template ngbPanelTitle>
+      <span id="referral-status-title">{{'REFERRALS.DETAIL.STATUSINFO.TITLE' | translate }} {{authreferraldetail?.status}}</span>
+      <span class="cutom-title-right" translate id="referral-status-title-right">{{'REFERRALS.DETAIL.STATUSINFO.AUTHNUMBER' | translate}}{{authreferraldetail?.authorizationNumber}}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <div  class="accordion-single-row">
+      <div class="row">
+        <div class="col-lg-2"><span>{{'REFERRALS.DETAIL.STATUSINFO.RESPONSEDATE' | translate }}</span></div>
+        <div class="col-lg-3"><span class="p14b">{{authreferraldetail?.responseDate | date:AppConfig.DateTimeFormat}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2"><span>{{'REFERRALS.DETAIL.STATUSINFO.APPROVEDUNITS' | translate }}</span></div>
+        <div class="col-lg-3"><span class="p14b">{{authreferraldetail?.approvedUnits}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2"><span>{{'REFERRALS.DETAIL.STATUSINFO.APPROVEDENDDATE' | translate }}</span></div>
+        <div class="col-lg-3"><span class="p14b">{{authreferraldetail?.approvedEndDate | date:AppConfig.DateFormat}}</span></div>
+      </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <!-- End of Status Information -->
+</ngb-accordion>
+
+
+<div class="row">
+<div  class="col-6">
+<!-- Patient Information -->
+<ngb-accordion #acctwo="ngbAccordion">
+  <ngb-panel id="patient-info">
+    <ng-template ngbPanelTitle>
+      <span id="referral-patient-title">{{'REFERRALS.DETAIL.PATIENTINFO.TITLE' | translate }}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <div  class="accordion-multi-row">
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.PATIENTINFO.PATIENTNAME' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b"><label>{{authreferraldetail?.patientInfo?.memberLastName}}<ng-container *ngIf="authreferraldetail?.patientInfo?.memberLastName">,&nbsp;</ng-container>{{authreferraldetail?.patientInfo?.memberFirstName}} {{authreferraldetail?.patientInfo?.memberMiddleName}}</label></span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.PATIENTINFO.INSUREDDOB' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.patientInfo?.dateOfBirth | date:AppConfig.DateFormat}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.PATIENTINFO.INSUREDSEX' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b" translate>{{authreferraldetail?.patientInfo?.gender === MALE?'REFERRALS.DETAIL.PATIENTINFO.MALE':'REFERRALS.DETAIL.PATIENTINFO.FEMALE'}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.PATIENTINFO.INSUREDID' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.patientInfo?.insuredId}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.PATIENTINFO.INSUREDNAME' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b"><label>{{authreferraldetail?.patientInfo?.insuredLastName}}<ng-container *ngIf="authreferraldetail?.patientInfo?.insuredLastName">,&nbsp;</ng-container>{{authreferraldetail?.patientInfo?.insuredFirstName}} {{authreferraldetail?.patientInfo?.insuredMiddleName}}</label></span></div>
+      </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+<!-- End of patient information -->
+</div>
+<div  class="col-6">
+<!-- Requesting Provider -->
+<ngb-accordion #accthree="ngbAccordion">
+  <ngb-panel id="requesting-provider-info">
+    <ng-template ngbPanelTitle>
+      <span id="requesting-provider-title">{{'REFERRALS.DETAIL.REQUESTINGPROVIDER.TITLE' | translate }}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <div  class="accordion-multi-row">
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.REQUESTINGPROVIDER.PROVIDERTYPE' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.requestingProvider?.providerType}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.REQUESTINGPROVIDER.PROVIDERNAME' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b"><label>{{authreferraldetail?.requestingProvider?.providerLastName}}<ng-container *ngIf="authreferraldetail?.requestingProvider?.providerLastName">,&nbsp;</ng-container>{{authreferraldetail?.requestingProvider?.providerFirstName}} {{authreferraldetail?.requestingProvider?.providerMiddleName}}</label></span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.REQUESTINGPROVIDER.NPI' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b" translate>{{authreferraldetail?.requestingProvider?.npi}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.REQUESTINGPROVIDER.FEDERALTAXID' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.requestingProvider?.federalTaxId}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.REQUESTINGPROVIDER.PHONENUMBER' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.requestingProvider?.phoneNumber}}</span></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.REQUESTINGPROVIDER.CONTACTNAME' | translate }}</span></div>
+        <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.requestingProvider?.contactName}}</span></div>
+      </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+<!-- End of requesting provider -->
+</div>
+</div><!-- end of row -->
+  
+<ngb-accordion #accfour="ngbAccordion">
+  <!--Patient Event Provider -->
+  <ngb-panel id="event-provider-info">
+    <ng-template ngbPanelTitle>
+      <span id="event-provider-title">{{'REFERRALS.DETAIL.EVENTPROVIDER.TITLE' | translate }}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <div  class="row">
+        <div class="col-lg-6"  id="referral-content-left">
+          <div class="row">
+            <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.PROVIDERDESC' | translate }}</span></div>
+            <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.renderingProvider?.providerDescription}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.PROVIDERTYPE' | translate }}</span></div>
+            <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.renderingProvider?.providerType}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.PROVIDERNAME' | translate }}</span></div>
+            <div class="col-lg-8"><span class="p14b"><label>{{authreferraldetail?.renderingProvider?.providerLastName}}<ng-container *ngIf="authreferraldetail?.renderingProvider?.providerLastName">,&nbsp;</ng-container>{{authreferraldetail?.renderingProvider?.providerFirstName}} {{authreferraldetail?.renderingProvider?.providerMiddleName}}</label></span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.NPI' | translate }}</span></div>
+            <div class="col-lg-8"><span class="p14b" translate>{{authreferraldetail?.renderingProvider?.npi}}</span></div>
+          </div>
+      </div>
+      <div class="col-lg-6" id="referral-content-right">  
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.FEDERALTAXID' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.renderingProvider?.federalTaxId}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.TAXONOMYCODE' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.renderingProvider?.taxonomyCode}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.ADDRESS' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.renderingProvider?.address?.addressLine1}}&nbsp;{{authreferraldetail?.renderingProvider?.address?.addressLine2}}&nbsp;{{authreferraldetail?.renderingProvider?.address?.addressLine3}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTPROVIDER.CITYSTATEZIP' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.renderingProvider?.address?.city}}&nbsp;{{authreferraldetail?.renderingProvider?.address?.state}}&nbsp;{{authreferraldetail?.renderingProvider?.address?.county}}&nbsp;{{authreferraldetail?.renderingProvider?.address?.zip}}</span></div>
+        </div>
+      </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+  <!--End of Patient Event Provider -->
+  <!-- Patient Event Details -->
+  <ngb-panel id="event-details-info">
+    <ng-template ngbPanelTitle>
+      <span id="event-details-title">{{'REFERRALS.DETAIL.EVENTDETAILS.TITLE' | translate }}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <div  class="row">
+        <div class="col-lg-6"  id="referral-content-left">
+          <div class="row">
+            <div class="col-lg-5"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.REQUESTCATEGORY' | translate }}</span></div>
+            <div class="col-lg-7"><span class="p14b">{{authreferraldetail?.requestCategory}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.REQUESTTYPE' | translate }}</span></div>
+            <div class="col-lg-7"><span class="p14b">{{authreferraldetail?.requestType}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.SERVICETYPE' | translate }}</span></div>
+            <div class="col-lg-7"><span class="p14b">{{authreferraldetail?.serviceType}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.SERVICELEVEL' | translate }}</span></div>
+            <div class="col-lg-7"><span class="p14b">{{authreferraldetail?.serviceLevel}}</span></div>
+          </div>
+          <div class="row">
+          <div class="col-lg-5"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.RELEASEOFINFO' | translate }}</span></div>
+          <div class="col-lg-7"><span class="p14b">{{authreferraldetail?.releaseInfo}}</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6" id="referral-content-right">  
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.CLAIMTYPE' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.claimType}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.FACILITYTYPE' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.facilityType}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.EVENTSTARTENDDATE' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.serviceStartDate | date:AppConfig.DateFormat}} - {{authreferraldetail?.serviceEndDate | date:AppConfig.DateFormat}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.QUANTITY' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.quantity}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.CERTIFICATIONPERIOD' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.certificationStartDate | date:AppConfig.DateFormat}} - {{authreferraldetail?.certificationEndDate | date:AppConfig.DateFormat}}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4"><span>{{'REFERRALS.DETAIL.EVENTDETAILS.COMMENTS' | translate }}</span></div>
+          <div class="col-lg-8"><span class="p14b">{{authreferraldetail?.comments}}</span></div>
+        </div>
+      </div>
+      </div>
+      <div class="col-12 diagnosis-info">
+          <span class="p14b">{{'REFERRALS.DETAIL.EVENTDETAILS.DIAGNOSISINFO' | translate }}</span>
+      </div>
+      <div class="row">  
+          <div class="col-8">
+            <span>{{'REFERRALS.DETAIL.EVENTDETAILS.CODEANDDESC' | translate }}</span><br>
+            <span class="p14b">{{authreferraldetail?.diagnosisDetails?.diagnosisCode}} - {{authreferraldetail?.diagnosisDetails?.diagnosisDescription}}</span>
+          </div>
+          <div class="col-4 text-right">
+            <span>{{'REFERRALS.DETAIL.EVENTDETAILS.DATE' | translate }}</span><br>
+            <span class="p14b">{{authreferraldetail?.diagnosisDetails?.diagnosisDate | date:AppConfig.DateFormat}}</span>
+          </div>
+      </div>  
+    </ng-template>
+  </ngb-panel>
+  <!--End of Patient Event Details -->
+</ngb-accordion>

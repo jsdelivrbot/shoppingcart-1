@@ -1,0 +1,77 @@
+@import '../styles/pro';
+
+[role=tablist] {
+  border-bottom: 1px solid #69B488;
+  height: 3.5em;
+  padding: 0 0.8em;
+}
+
+.tab,
+[role=tab] {
+  display: inline-block;
+
+  // Match height of .tabs to ensure borders line up
+  height: 3.5em;
+}
+
+[role=tab] {
+  background: none;
+  border: solid transparent;
+  border-radius: 3px 3px 0 0;
+  border-width: 5px 1px 0;
+  color: $color-primary;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 2em;
+  padding: 0.5em 1.2em;
+  text-decoration: none;
+
+  &:focus {
+    background: darken(#fafafa, 10%);
+    outline: none;
+  }
+  &:disabled {
+    color:$color-button-primary-disabled-bg;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  ::ng-deep {
+    svg {
+      height: 2em;
+      margin: 0 0.5em -0.5em 0;
+    }
+
+    use,
+    path {
+      fill: currentColor;
+    }
+  }
+}
+
+.active,
+[aria-selected=true] {
+  background: #fafafa;
+  border-color: #69B488;
+  color: $body-color;
+}
+
+.badge {
+  background: currentColor;
+  border-radius: 2em;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 1.6em;
+  margin-left: 0.3em;
+  padding: 0 0.8em;
+}
+
+.badge-value {
+  color: white;
+}
+
+a[role=tab].disabled {
+    color:$color-button-primary-disabled-bg;
+    pointer-events: none;
+    cursor: default;
+}

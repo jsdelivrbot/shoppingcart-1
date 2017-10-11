@@ -1,0 +1,4 @@
+<div class="" id="infoicon" tabindex="-1" attr.title="{{'BENEFITINFO'}}" [inlineSVG]="'/assets/common/icons/icon_info.svg'"
+  [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+</div>
+<div class="content"><span [ngClass]="{'p14b':message?.importanceFlag===true,'p14l':message?.importanceFlag!=true}" *ngFor="let message of messages">{{message.message}}</span></div>

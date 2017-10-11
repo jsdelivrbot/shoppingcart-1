@@ -1,0 +1,320 @@
+
+{
+  "category": "placeOfService",
+  "data":[
+    {
+        "code": "01",
+        "value": "Pharmacy",
+        "desc": "A facility or location where drugs and other medically related items and services are sold, dispensed, or otherwise provided directly to patients. (effective 10/1/05)"
+    },
+    {
+        "code": "02",
+        "value": "Telehealth",
+        "desc": "The location where health services and health related services are provided or received, through telecommunication technology."
+    },
+    {
+        "code": "03",
+        "value": "School",
+        "desc": "A facility whose primary purpose is education."
+    },
+    {
+        "code": "04",
+        "value": "Homeless Shelter",
+        "desc": [
+            "A facility or location whose primary purpose is to provide temporary housing to homeless individuals (e.g., emergency shelters, individual or family shelters)",
+            "Note that for the purposes of receiving durable medical equipment (DME), a homeless shelter is considered the beneficiary's home. Because DME is payable in the beneficiary's home, the crosswalk for Homeless Shelter (code 04) to Office (code 11) that was mandated effective January 1, 2003, may need to be adjusted or local policy developed so that HCPCS codes for DME are covered when other conditions are met and the beneficiary is in a homeless shelter. If desired, local contractors are permitted to work with their medical directors to determine a new crosswalk such as from Homeless Shelter (code 04) to Home (code 12) or Custodial Care Facility (code 33) for DME provided in a homeless shelter setting. If a local contractor is currently paying claims correctly, however, it is not necessary to change the current crosswalk. "
+        ]
+    },
+    {
+        "code": "05",
+        "value": "Indian Health Service Free-standing Facility",
+        "desc": [
+            "A facility or location, owned and operated by the Indian Health Service, which provides diagnostic, therapeutic (surgical and non-surgical), and rehabilitation services to American Indians and Alaska Natives who do not require hospitalization.; (See ",
+            " below.)"
+        ]
+    },
+    {
+        "code": "06",
+        "value": "Indian Health Service Provider-based Facility",
+        "desc": [
+            "A facility or location, owned and operated by the Indian Health Service, which provides diagnostic, therapeutic (surgical and non-surgical), and rehabilitation services rendered by, or under the supervision of, physicians to American Indians and Alaska Natives admitted as inpatients or outpatients.; (See ",
+            " below.)"
+        ]
+    },
+    {
+        "code": "07",
+        "value": "Tribal 638 Free-standing Facility",
+        "desc": [
+            "A facility or location owned and operated by a federally recognized American Indian or Alaska Native tribe or tribal organization under a 638 agreement, which provides diagnostic, therapeutic (surgical and nonsurgical), and rehabilitation services to tribal members who do not require hospitalization.; (See ",
+            " below.)"
+        ]
+    },
+    {
+        "code": "08",
+        "value": "Tribal 638 Provider-based Facility",
+        "desc": [
+            "A facility or location owned and operated by a federally recognized American Indian or Alaska Native tribe or tribal organization under a 638 agreement, which provides diagnostic, therapeutic (surgical and nonsurgical), and rehabilitation services to tribal members admitted as inpatients or outpatients.; (See ",
+            " below.)"
+        ]
+    },
+    {
+        "code": "09",
+        "value": "Prison/ Correctional Facility",
+        "desc": [
+            "A prison, jail, reformatory, work farm, detention center, or any other similar facility maintained by either Federal, State or local authorities for the purpose of confinement or rehabilitation of adult or juvenile criminal offenders.",
+            "The addition of code 09 to the POS code set and Medicare claims processing reflects Medicare's compliance with HIPAA laws and regulations. Local contractors must continue to comply with CMS current policy that does not allow payment for Medicare services in a penal institution in most cases. The addition of a POS code for a prison/correctional facility setting does not supersede this policy. (See Pub. 100-04, Medicare Claims Processing, section 10.4, chapter 1.) "
+        ]
+    },
+    {
+        "code": "10",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "11",
+        "value": "Office",
+        "desc": "Location, other than a hospital, skilled nursing facility (SNF), military treatment facility, community health center, State or local public health clinic, or intermediate care facility (ICF), where the health professional routinely provides health examinations, diagnosis, and treatment of illness or injury on an ambulatory basis."
+    },
+    {
+        "code": "12",
+        "value": "Home",
+        "desc": "Location, other than a hospital or other facility, where the patient receives care in a private residence."
+    },
+    {
+        "code": "13",
+        "value": "Assisted Living Facility",
+        "desc": "Congregate residential facility with self-contained living units providing assessment of each resident's needs and on-site support 24 hours a day, 7 days a week, with the capacity to deliver or arrange for services including some health care and other services. (effective 10/1/03)"
+    },
+    {
+        "code": "14",
+        "value": "Group Home",
+        "desc": "A residence, with shared living areas, where clients receive supervision and other services such as social and/or behavioral services, custodial service, and minimal services (e.g., medication administration)."
+    },
+    {
+        "code": "15",
+        "value": "Mobile Unit",
+        "desc": [
+            "A facility/unit that moves from place-to-place equipped to provide preventive, screening, diagnostic, and/or treatment services.",
+            "When services are furnished in a mobile unit, they are often provided to serve an entity for which another POS code exists. For example, a mobile unit may be sent to a physician's office or a skilled nursing facility. If the mobile unit is serving an entity for which another POS code already exists, providers should use the POS code for that entity. However, if the mobile unit is not serving an entity which could be described by an existing POS code, the providers are to use the Mobile Unit POS code 15. Apply the nonfacility rate to payments for services designated as being furnished in POS code 15; apply the appropriate facility or nonfacility rate for the POS code designated when a code other than the mobile unit code is indicated. A physician or practitioner's office, even if mobile, qualifies to serve as a telehealth originating site. Assuming such an office also fulfills the requirement that it be located in either a rural health professional shortage area as defined under section 332(a)(1)(A) of the Public Health Service Act (42 U.S.C. 254e(a)(1)(A)) or in a county that is not included in a Metropolitan Statistical Area as defined in section 1886(d)(2)(D) of the Act, the originating physician's office should use POS code 11 (Office) in order to ensure appropriate payment for services on the list of Medicare Telehealth Services."
+        ]
+    },
+    {
+        "code": "16",
+        "value": "Temporary Lodging",
+        "desc": "A short term accommodation such as a hotel, camp ground, hostel, cruise ship or resort where the patient receives care, and which is not identified by any other POS code. (effective 4/1/08)"
+    },
+    {
+        "code": "17",
+        "value": "Walk-in Retail Health Clinic",
+        "desc": [
+            "A walk-in health clinic, other than an office, urgent care facility, pharmacy or independent clinic and not described by any other Place of Service code, that is located within a retail operation and provides, on an ambulatory basis, preventive and primary care services.",
+            "It should be noted that, while some entities in the industry may elect to use POS code 17 to track the setting of immunizations, Medicare continues to require its billing rules for immunizations claims, which are found in chapter 18, section 10 of this manual. Contractors are to instruct providers and suppliers of immunizations to continue to follow these Medicare billing rules. However, Medicare contractors are to accept and adjudicate claims containing POS code 17, even if its presence on a claim is contrary to these billing instructions.Payment Rate: Not applicable for adjudication of Medicare claims; systems must recognize for HIPAA"
+        ]
+    },
+    {
+        "code": "18",
+        "value": "Place of Employment/Worksite",
+        "desc": "A location, not described by any other POS code, owned or operated by a public or private entity where the patient is employed, and where a health professional provides on-going or episodic occupational medical, therapeutic or rehabilitative services to the individual.Payment Rate: Not applicable for adjudication of Medicare claims; systems must recognize for HIPAA"
+    },
+    {
+        "code": "19",
+        "value": "Off Campus-Outpatient Hospital",
+        "desc": "A portion of an off-campus hospital provider based department which provides diagnostic, therapeutic (both surgical and nonsurgical), and rehabilitation services to sick or injured persons who do not require hospitalization or institutionalization."
+    },
+    {
+        "code": "20",
+        "value": "Urgent Care Facility",
+        "desc": "Location, distinct from a hospital emergency room, an office, or a clinic, whose purpose is to diagnose and treat illness or injury for unscheduled, ambulatory patients seeking immediate medical attention."
+    },
+    {
+        "code": "21",
+        "value": "Inpatient Hospital",
+        "desc": "A facility, other than psychiatric, which primarily provides diagnostic, therapeutic (both surgical and nonsurgical), and rehabilitation services by, or under, the supervision of physicians to patients admitted for a variety of medical conditions."
+    },
+    {
+        "code": "22",
+        "value": "On Campus-Outpatient Hospital",
+        "desc": "A portion of a hospital which provides diagnostic, therapeutic (both surgical and nonsurgical), and rehabilitation services to sick or injured persons who do not require hospitalization or institutionalization."
+    },
+    {
+        "code": "23",
+        "value": "Emergency Room - Hospital",
+        "desc": "A portion of a hospital where emergency diagnosis and treatment of illness or injury is provided."
+    },
+    {
+        "code": "24",
+        "value": "Ambulatory Surgical Center",
+        "desc": [
+            "A freestanding facility, other than a physician's office, where surgical and diagnostic services are provided on an ambulatory basis.",
+            "When a physician/practitioner furnishes services to a patient in a Medicare-participating ambulatory surgical center (ASC), the POS code 24 (ASC) shall be used.NOTE: Physicians/practitioners who perform services in an ASC shall use POS code 24 (ASC). Physicians/practitioners are not to use POS code 11 (office) for ASC based services unless the physician has an office at the same physical location of the ASC, which meets all other requirements for operating as a physician office at the same physical location as the ASC – including meeting the “distinct entity” criteria defined in the ASC State Operations Manual that precludes the ASC and an adjacent physician office from being open at the same time -- and the physician service was actually performed in the office suite portion of the facility.See Pub 100-07, Medicare State Operations Manual, Appendix L - Guidance for Surveyors: Ambulatory Surgical Centers for a complete set of applicable ASC definitions, basic requirements, and conditions of coverage. It is available at the following link:"
+        ]
+    },
+    {
+        "code": "25",
+        "value": "Birthing Center",
+        "desc": "A facility, other than a hospital's maternity facilities or a physician's office, which provides a setting for labor, delivery, and immediate postpartum care as well as immediate care of new born infants."
+    },
+    {
+        "code": "26",
+        "value": "Military Treatment Facility",
+        "desc": "A medical facility operated by one or more of the Uniformed Services. Military Treatment Facility (MTF) also refers to certain former U.S. Public Health Service (USPHS) facilities now designated as Uniformed Service Treatment Facilities (USTF)."
+    },
+    {
+        "code": "27-30",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "31",
+        "value": "Skilled Nursing Facility",
+        "desc": "A facility which primarily provides inpatient skilled nursing care and related services to patients who require medical, nursing, or rehabilitative services but does not provide the level of care or treatment available in a hospital."
+    },
+    {
+        "code": "32",
+        "value": "Nursing Facility",
+        "desc": "A facility which primarily provides to residents skilled nursing care and related services for the rehabilitation of injured, disabled, or sick persons, or, on a regular basis, health-related care services above the level of custodial care to other than mentally retarded individuals."
+    },
+    {
+        "code": "33",
+        "value": "Custodial Care Facility",
+        "desc": "A facility which provides room, board and other personal assistance services, generally on a long-term basis, and which does not include a medical component."
+    },
+    {
+        "code": "34",
+        "value": "Hospice",
+        "desc": [
+            "A facility, other than a patient's home, in which palliative and supportive care for terminally ill patients and their families are provided.",
+            "When a physician/practitioner furnishes services to a patient under the hospice benefit, use the following guidelines to identify the appropriate POS.When a beneficiary is in an “inpatient” respite or general “inpatient” care stay, the POS code 34 (hospice) shall be used. When a beneficiary who has elected coverage under the Hospice benefit is receiving inpatient hospice care in a hospital, SNF, or hospice inpatient facility, POS code 34 (Hospice) shall be used to designate the POS on the claim.For services provided to a hospice beneficiary in an outpatient setting, such as the physician/nonphysician practitioner’s office (POS 11); the beneficiary’s home (POS 12), i.e., not operated by the hospice; or other outpatient setting (e.g., outpatient hospital (POS 22)), the patient’s physician or nonphysician practitioner or hospice independent attending physician or nurse practitioner, shall assign the POS code that represents that setting, as appropriate.There may be use of nursing homes as the hospice patient’s “home,” where the patient resides in the facility but is receiving a home level of care. In addition, hospices are also operating “houses” or hospice residential entities where hospice patients receive a home level of care. In these cases, physicians and nonphysician practitioners, including the patient’s independent attending physician or nurse practitioner, shall use the appropriate POS code representing the particular setting, e.g., POS code 32 for nursing home, POS code 13 for an assisted living facility, or POS code 14 for group home."
+        ]
+    },
+    {
+        "code": "35-40",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "41",
+        "value": "Ambulance - Land",
+        "desc": "A land vehicle specifically designed, equipped and staffed for lifesaving and transporting the sick or injured."
+    },
+    {
+        "code": "42",
+        "value": "Ambulance - Air or Water",
+        "desc": "An air or water vehicle specifically designed, equipped and staffed for lifesaving and transporting the sick or injured."
+    },
+    {
+        "code": "43-48",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "49",
+        "value": "Independent Clinic",
+        "desc": "A location, not part of a hospital and not described by any other Place of Service code, that is organized and operated to provide preventive, diagnostic, therapeutic, rehabilitative, or palliative services to outpatients only. (effective 10/1/03)"
+    },
+    {
+        "code": "50",
+        "value": "Federally Qualified Health Center",
+        "desc": "A facility located in a medically underserved area that provides Medicare beneficiaries preventive primary medical care under the general direction of a physician."
+    },
+    {
+        "code": "51",
+        "value": "Inpatient Psychiatric Facility",
+        "desc": "A facility that provides inpatient psychiatric services for the diagnosis and treatment of mental illness on a 24-hour basis, by or under the supervision of a physician."
+    },
+    {
+        "code": "52",
+        "value": "Psychiatric Facility-Partial Hospitalization",
+        "desc": "A facility for the diagnosis and treatment of mental illness that provides a planned therapeutic program for patients who do not require full time hospitalization, but who need broader programs than are possible from outpatient visits to a hospital-based or hospital-affiliated facility."
+    },
+    {
+        "code": "53",
+        "value": "Community Mental Health Center",
+        "desc": "A facility that provides the following services: outpatient services, including specialized outpatient services for children, the elderly, individuals who are chronically ill, and residents of the CMHC's mental health services area who have been discharged from inpatient treatment at a mental health facility; 24 hour a day emergency care services; day treatment, other partial hospitalization services, or psychosocialrehabilitation services; screening for patients being considered for admission to State mental health facilities to determine the appropriateness of such admission; and consultation and education services."
+    },
+    {
+        "code": "54",
+        "value": "Intermediate Care Facility/Mentally Retarded",
+        "desc": "A facility which primarily provides health-related care and services above the level of custodial care to mentally retarded individuals but does not provide the level of care or treatment available in a hospital or SNF."
+    },
+    {
+        "code": "55",
+        "value": "Residential Substance Abuse Treatment Facility",
+        "desc": "A facility which provides treatment for substance (alcohol and drug) abuse to live-in residents who do not require acute medical care. Services include individual and group therapy and counseling, family counseling, laboratory tests, drugs and supplies, psychological testing, and room and board."
+    },
+    {
+        "code": "56",
+        "value": "Psychiatric Residential Treatment Center",
+        "desc": "A facility or distinct part of a facility for psychiatric care which provides a total 24-hour therapeutically planned and professionally staffed group living and learning environment."
+    },
+    {
+        "code": "57",
+        "value": "Non-residential Substance Abuse Treatment Facility",
+        "desc": "A location which provides treatment for substance (alcohol and drug) abuse on an ambulatory basis. Services include individual and group therapy and counseling, family counseling, laboratory tests, drugs and supplies, and psychological testing. (effective 10/1/03)"
+    },
+    {
+        "code": "58-59",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "60",
+        "value": "Mass Immunization Center",
+        "desc": "A location where providers administer pneumococcal pneumonia and influenza virus vaccinations and submit these services as electronic media claims, paper claims, or using the roster billing method. This generally takes place in a mass immunization setting, such as, a public health center, pharmacy, or mall but may include a physician office setting."
+    },
+    {
+        "code": "61",
+        "value": "Comprehensive Inpatient Rehabilitation Facility",
+        "desc": "A facility that provides comprehensive rehabilitation services under the supervision of a physician to inpatients with physical disabilities. Services include physical therapy, occupational therapy, speech pathology, social or psychological services, and orthotics and prosthetics services."
+    },
+    {
+        "code": "62",
+        "value": "Comprehensive Outpatient Rehabilitation Facility",
+        "desc": "A facility that provides comprehensive rehabilitation services under the supervision of a physician to outpatients with physical disabilities. Services include physical therapy, occupational therapy, and speech pathology services."
+    },
+    {
+        "code": "63-64",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "65",
+        "value": "End-Stage Renal Disease Treatment Facility",
+        "desc": "A facility other than a hospital, which provides dialysis treatment, maintenance, and/or training to patients or caregivers on an ambulatory or home-care basis."
+    },
+    {
+        "code": "66-70",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "71",
+        "value": "Public Health Clinic",
+        "desc": "A facility maintained by either State or local health departments that provides ambulatory primary medical care under the general direction of a physician."
+    },
+    {
+        "code": "72",
+        "value": "Rural Health Clinic",
+        "desc": "A certified facility which is located in a rural medically underserved area that provides ambulatory primary medical care under the general direction of a physician."
+    },
+    {
+        "code": "73-80",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "81",
+        "value": "Independent Laboratory",
+        "desc": "A laboratory certified to perform diagnostic and/or clinical tests independent of an institution or a physician's office."
+    },
+    {
+        "code": "82-98",
+        "value": "Unassigned",
+        "desc": "N/A"
+    },
+    {
+        "code": "99",
+        "value": "Other Place of Service",
+        "desc": "Other place of service not identified above."
+    }
+]}

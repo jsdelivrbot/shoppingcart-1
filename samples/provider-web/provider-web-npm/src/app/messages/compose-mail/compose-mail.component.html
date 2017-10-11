@@ -1,0 +1,107 @@
+<form #composeMailForm="ngForm" id="composemail" novalidate autocomplete="off">
+  <div class="msg-cnt" id="newMsgTabList">
+    <tzf-tabs selected="msgTab">
+      <div tzfTabContent id="msgTab" tabLabel="Message" tabSvgPath="assets/common/icons/icon_Mail.svg">
+        <div class="msg-tab">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="messageFor">
+            <span  class="p14b">{{'MSGCENTER.NEWMSG.MESSAGE_FOR' | translate}}</span>
+            <span class="form-controls-required">*</span>
+            </label>
+              <tzf-dropdown name="messageFor" id="messageFor" [options]="messageForList[0]?.data" required placeholder="{{'MSGCENTER.NEWMSG.DEFAULT_SELECT' | translate}}"
+                [(ngModel)]="messageFor" textField="value" valueField="code" (change)="setSendToList()">
+              </tzf-dropdown>
+            </div>
+            <div *ngIf="(messageFor === MSG_CNTR_CONST.MESSAGE_FOR_PROVIDER) 
+            ||(messageFor === MSG_CNTR_CONST.MESSAGE_FOR_STAFF)"
+             class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="sendTo">
+            <span  class="p14b">{{'MSGCENTER.NEWMSG.SEND_TO' | translate}}</span>
+            <span class="form-controls-required">*</span>
+            </label>
+              <tzf-dropdown name="sendTo" id="sendTo" [options]="sendToList" required placeholder="{{'MSGCENTER.NEWMSG.DEFAULT_SELECT' | translate}}"
+                [(ngModel)]="sendTo" textField="value" valueField="code">
+              </tzf-dropdown>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <label for="category">
+            <span  class="p14b">{{'MSGCENTER.NEWMSG.CATEGORY' | translate}}</span>
+            <span class="form-controls-required">*</span>
+            </label>
+              <tzf-dropdown name="category" id="category" [options]="categories[0]?.data" required placeholder="{{'MSGCENTER.NEWMSG.DEFAULT_SELECT' | translate}}"
+                [(ngModel)]="model.category" #category="ngModel" textField="value" valueField="code">
+              </tzf-dropdown>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+              <div class="form-group subject-txt-field">
+                <label for="subject">
+               <span class="p14b">{{'MSGCENTER.NEWMSG.SUBJECT' | translate}}</span>
+               <span class="form-controls-required">*</span>
+               </label>
+                <input type="text" class="form-control subject-txt" id="subject" name="subject" maxlength="{{MSG_CNTR_CONST.MSG_SUB_MAX_LENGTH}}"
+                  required [(ngModel)]="model.subject" (ngModelChange)="validateMsgText(model.subject,true)" #subject="ngModel"
+                />
+                <div class="clear-fix"></div>
+                <div *ngIf="msgSubjectInvalid" class="alert alert-danger">
+                  {{'MSGCENTER.ILLEGAL_CHARACTER_NOT_ALLOWED' | translate}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label for="message">         
+               <span  class="p14b">{{'MSGCENTER.NEWMSG.MESSAGE' | translate}}</span>
+               <span class="pipe">|</span>
+               <span >
+               <span class="p14b">{{model.message.length}}</span> {{'MSGCENTER.NEWMSG.OUT_OF' | translate}}  <span class="p14b">{{'MSGCENTER.NEWMSG.MAXLENGTH'|translate}} </span> {{'MSGCENTER.NEWMSG.CHARS_USED' | translate}} 
+               </span>
+               </label>
+                <textarea id="message" (click)="$event.stopPropagation();" name="message" class="text-area" [(ngModel)]="model.message" #message="ngModel"
+                  maxlength="{{MSG_CNTR_CONST.MSG_BODY_MAX_LENGTH}}" rows="5" (ngModelChange)="validateMsgText(model.message,false)"
+                  placeholder="{{ 'MSGCENTER.NEWMSG.MSGPLACEHOLDER' | translate }}"></textarea>
+                <div class="clear-fix"></div>
+                <div *ngIf="msgBodyInvalid" class="alert alert-danger">
+                  {{'MSGCENTER.ILLEGAL_CHARACTER_NOT_ALLOWED' | translate}}
+                </div>
+                <div class="div-right">
+                  <span class="p14b">{{model.message.length}}</span>/<span class="p14b">{{'MSGCENTER.NEWMSG.MAXLENGTH'|translate}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div tzfTabContent id="attachmentsTab" tabLabel="Attachments" tabSvgPath="assets/common/icons/icon_attachment.svg">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 patientInfoDiv">
+            <h3 class="h16b title">{{'PATIENT_SERACH_FORM.PATIENT_INFO.LABEL' | translate}}</h3>
+            <claims-patient-search (onClaimListChange)="updateAttachmentInfo($event);"></claims-patient-search>
+          </div>
+        </div>
+      </div>
+    </tzf-tabs>
+  </div>
+  <div class="div-btn" *ngIf="tabs.selected==MSG_CNTR_CONST.SELECTED_TAB_MESSAGE">
+    <div class="container">
+      <div clas="row">
+        <div class="compose-model-bottom">
+          <div class="compose-model-buttons">
+            <button type="button" id="modal-cancel" class="btn btn-secondary" (click)="openConfirm()">{{ 'MSGCENTER.NEWMSG.CANCEL' | translate }}</button>
+                  <button type="button" class="btn btn-secondary" 
+                  translate (click)="draftConfirm()"
+                  [disabled]="composeMailForm.invalid||msgSubjectInvalid||msgBodyInvalid">
+                  {{'MSGCENTER.NEWMSG.SAVE_DRAFT' | translate }}
+                  </button>
+            <button type="button" id="modal-submit" class="btn btn-primary" [disabled]="composeMailForm.invalid||msgSubjectInvalid||msgBodyInvalid"
+              (click)="composeMail()" translate>{{'MSGCENTER.NEWMSG.SEND' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

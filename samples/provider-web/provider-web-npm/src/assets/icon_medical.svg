@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="26px" height="24px" viewBox="0 0 26 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Medical Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-0.7%" y="-0.6%" width="101.5%" height="102.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <!-- <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>-->
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.874509804   0 0 0 0 0.874509804   0 0 0 0 0.874509804  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Card-Quick-View" transform="translate(-20.000000, -12.000000)" fill="#FFFFFF">
+            <g id="Card" filter="url(#filter-1)" transform="translate(0.789062, 0.907798)">
+                <path d="M36.5275396,25.8471918 L34.0383621,25.8471918 L34.0383621,28.3363693 L30.7526478,28.3363693 L30.7526478,25.8471918 L28.2634703,25.8471918 L28.2634703,22.5614775 L30.7526478,22.5614775 L30.7526478,20.0723 L34.0383621,20.0723 L34.0383621,22.5614775 L36.5275396,22.5614775 L36.5275396,25.8471918 Z M29.1595742,16.7865857 L35.7310028,16.7865857 L35.7310028,13.5008715 L29.1595742,13.5008715 L29.1595742,16.7865857 Z M42.7338556,16.7865857 L37.3240764,16.7865857 L37.3240764,13.1026031 C37.3240764,12.4454602 36.8195699,11.9077979 36.162427,11.9077979 L28.7944616,11.9077979 C28.1373188,11.9077979 27.5665006,12.4454602 27.5665006,13.1026031 L27.5665006,16.7865857 L22.123466,16.7865857 C21.4635352,16.7865857 20.8955049,17.3215598 20.8955049,17.9813909 L20.8955049,30.4272784 C20.8955049,31.0871096 21.4635352,31.6220836 22.123466,31.6220836 L42.7338556,31.6220836 C43.3937863,31.6220836 43.8955049,31.0871096 43.8955049,30.4272784 L43.8955049,17.9813909 C43.8955049,17.3215598 43.3937863,16.7865857 42.7338556,16.7865857 Z" id="Medical-Icon"></path>
+            </g>
+        </g>
+    </g>
+</svg>

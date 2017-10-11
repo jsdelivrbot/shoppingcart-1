@@ -1,0 +1,65 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+
+.patient-overview {
+    margin-bottom:10px;
+    .active{
+        background-color: $color-light-yellow;
+        .status{
+            color:$color-accent-green;
+        }
+    }
+    .inactive{
+        background-color: $color-light-pink;
+            .status{
+                color:$color-accent-pink;
+            }
+    }
+    
+    *[tzfFormField]{
+        .row{
+            .col-lg-4,.col-lg-5,.col-md-12{
+                span{
+                min-width: 100px;
+                display: inline-block;    
+                
+                &::after{
+                content: ':';
+                float: right;
+                
+                }
+                }
+                
+            }
+            
+        }
+        
+            span /deep/ {
+                svg{
+                    width: 2.5em;
+                    height:2.5em;
+                    position: relative;
+                    top: 5px;
+                }
+            }
+    }
+    .active {
+            span /deep/ {
+                svg{
+                    path{
+                        fill: $color-accent-green;
+                    }
+                }
+            } 
+        }
+
+    .inactive {
+            span /deep/ {
+                svg{
+                    path{
+                        fill: $color-accent-pink;
+                    }
+                }
+            } 
+    }
+}

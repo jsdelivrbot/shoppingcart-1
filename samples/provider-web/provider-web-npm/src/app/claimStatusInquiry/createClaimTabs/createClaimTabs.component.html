@@ -1,0 +1,24 @@
+<ul
+  role="tablist"
+>
+  <li *ngFor="let tab of items; let i = index"
+    role="presentation"
+    class="tab"
+    [attr.aria-selected]="tab.id === selected"
+  >
+    <button
+      [attr.id]="tab.id && tab.id + '-tab'"
+      (click)="select(tab.instance)"
+      role="tab"
+      [disabled]="tab.disabled"
+      [attr.aria-selected]="tab.id === selected"
+      [attr.aria-controls]="tab.id"
+      [inlineSVG]="tab.svgPath"
+      [prepend]="true"
+    >
+      {{ tab.label | translate }}
+    </button>
+  </li>
+</ul>
+
+<ng-content></ng-content>

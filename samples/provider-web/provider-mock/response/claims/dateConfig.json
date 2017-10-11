@@ -1,0 +1,17 @@
+{
+  "category": "dateConfig",
+  "data": [
+      {
+      "code": "15",
+      "value": "Last 15 Days"
+    },
+    {
+      "code": "30",
+      "value": "Last 30 Days"
+    },
+    {
+      "code": "60",
+      "value": "Last 60 Days"
+    }
+  ]
+}

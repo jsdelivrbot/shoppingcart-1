@@ -1,0 +1,16 @@
+{
+  "category": "ClaimStatus",
+  "data": [{
+      "code": "Pending",
+      "value": "Pending"
+    },
+    {
+      "code": "Received",
+      "value": "Received"
+    },
+    {
+      "code": "Finalized",
+      "value": "Finalized"
+    }
+  ]
+}

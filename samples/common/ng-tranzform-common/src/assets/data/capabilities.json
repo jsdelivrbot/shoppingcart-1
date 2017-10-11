@@ -1,0 +1,307 @@
+{
+    "Documents.Search": [
+        "Read",
+        "FamilyAccess"
+    ],
+    "Authorization.UserRole": [
+        "Read"
+    ],
+    " PhysicalIDCardHistory-Management": [
+        "Read"
+    ],
+    "BillPay.UpdatePayment": [
+        "Update"
+    ],
+    "Admin.BusinessRules": [
+        "Read"
+    ],
+    "Common.MyAccount": [
+        "Read",
+        "Update"
+    ],
+    "RelationshipInformation": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "Profile.Administration": [
+        "Read",
+        "FamilyAccess"
+    ],
+    "DocumentGen.Generate": [
+        "Read"
+    ],
+    "BillPay.DownloadInvoice": [
+        "Read"
+    ],
+    "Benefits.Deductibles": [
+        "Read",
+        "FamilyOverride"
+    ],
+    "MemberIdCardManagement": [
+        "Read",
+        "Write",
+        "Update"
+    ],
+    "Profile.MembersCovered": [
+        "Read",
+        "FamilyAccess",
+        "Update"
+    ],
+    "InAppNotificationManagement": [
+        "Read",
+        "Update"
+    ],
+    "Profile.ChangePCP": [
+        "Read",
+        "FamilyAccess",
+        "Update"
+    ],
+    "DocumentsManagement": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "Menu.Menu": [
+        "Read"
+    ],
+    "ProviderSearch.Search": [
+        "Read"
+    ],
+    "SecurityMenu": [
+        "Read",
+        "Write",
+        "Update"
+    ],
+    "PhysicalIDCardManagement": [
+        "Read",
+        "Write",
+        "Update"
+    ],
+    "Document.FavouriteDocument": [
+        "Read",
+        "FamilyAccess",
+        "Update"
+    ],
+    "Profile.AdditionalInsurance": [
+        "Read",
+        "FamilyAccess",
+        "Update"
+    ],
+    "Audit.Log": [
+        "Write",
+        "Read"
+    ],
+    "QuickLinksManagement": [
+        "Read"
+    ],
+    "Benefits.FamilyInfo": [
+        "Read",
+        "FamilyOverride"
+    ],
+    "Common.Finances": [
+        "Read"
+    ],
+    "Common.Communications": [
+        "Read"
+    ],
+    "PaymentGateway.Payments": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "MemberSearch-Feature": [
+        "Read"
+    ],
+    "Billing.Bills": [
+        "Read",
+        "Delete",
+        "Update"
+    ],
+    "Content.PrivacyPolicy": [
+        "Read"
+    ],
+    "Billing.PaymentHistory": [
+        "Read"
+    ],
+    "MemberAuth-ReferralsManagement": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "IDCard.IDCards": [
+        "Read",
+        "FamilyOverride"
+    ],
+    "Message": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "Conversation": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "Billing.MakePayment": [
+        "Write",
+        "Read"
+    ],
+    "Authorization.Capability": [
+        "Read"
+    ],
+    "Content.Help": [
+        "Read"
+    ],
+    "Content.Content": [
+        "Read"
+    ],
+    "Common.Logout": [
+        "Read",
+        "Update"
+    ],
+    "BillPay.ViewInvoiceAndPayment": [
+        "Read"
+    ],
+    "Profile.Profile": [
+        "Read",
+        "FamilyAccess",
+        "Update"
+    ],
+    "ContentManagement": [
+        "Read"
+    ],
+    "Document.ViewDocument": [
+        "Read",
+        "FamilyAccess",
+        "Update"
+    ],
+    "Billing.OneTimePayment": [
+        "Read",
+        "Update"
+    ],
+    "Benefits.SBC": [
+        "Write"
+    ],
+    "MemberProfileManagement": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "Benefits.Benefits": [
+        "Read"
+    ],
+    "InApp.NotificationReadStatus": [
+        "Update"
+    ],
+    "MemberEnrollmentManagement": [
+        "Read",
+        "Update"
+    ],
+    "Common.Coverage": [
+        "Read"
+    ],
+    "Billing.RecurringPayment": [
+        "Write",
+        "Read",
+        "Delete",
+        "Update"
+    ],
+    "IDCard.RequestIDCard": [
+        "Write",
+        "Read"
+    ],
+    "Benefits.Accumulator": [
+        "Read",
+        "FamilyOverride"
+    ],
+    "IDCardManagement": [
+        "Read"
+    ],
+    "BillPay.Billing": [
+        "Read",
+        "Update"
+    ],
+    "MsgCenter.Messages": [
+        "Write",
+        "Read",
+        "Delete",
+        "Update"
+    ],
+    "QuickLinks.QuickLinks": [
+        "Read"
+    ],
+    "Common.MemberLandingPage": [
+        "Read"
+    ],
+    "Profile.MemberSelection": [
+        "Read",
+        "Update"
+    ],
+    "Profile.ChangePCD": [
+        "Read",
+        "FamilyAccess"
+    ],
+    "Billing.BillingHistory": [
+        "Read"
+    ],
+    "Benefits.Limits": [
+        "Read",
+        "FamilyOverride"
+    ],
+    "Common.SiteDefaults": [
+        "Read"
+    ],
+    "Content.TermsAndConditions": [
+        "Read"
+    ],
+    "MDM.MasterData": [
+        "Read"
+    ],
+    "Billing.PaymentMethods": [
+        "Write",
+        "Read",
+        "Delete",
+        "Update"
+   ],
+    "Referral.AuthReferrals": [
+        "Read",
+        "FamilyAccess"
+    ],
+    "InApp.Notifications": [
+        "Read",
+        "Update"
+    ],
+    "MemberPlanAndBenefitManagement": [
+        "Read",
+        "Write",
+        "Delete",
+        "Update"
+    ],
+    "Preference.Preferences": [
+        "Read",
+        "Update"
+    ],
+    "Rules.BusinessRules": [
+        "Read"
+    ],
+    "Admin.TenantConfiguration": [
+        "Read",
+        "Update"
+    ],
+    "Claim.Claims": [
+        "Read",
+        "FamilyOverride"
+    ],
+    "MemberPreferenceManagement": [
+        "Read",
+        "Update"
+    ]
+}

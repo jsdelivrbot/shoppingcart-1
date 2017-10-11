@@ -1,0 +1,47 @@
+@import '../engage';
+@import '../reboot';
+@import 'engage-mixins';
+@import 'engage-form-fields';
+@import 'engage-loading';
+@import 'engage-shell';
+//@import 'accordion';
+@import 'engage-buttons';
+//@import 'tables';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0 0 1em;
+}
+
+li {
+  list-style: none;
+}
+
+.content-box {
+  background: #fafafa;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 #dbdbdb;
+  padding: 1rem 1rem 1.5rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.3rem;
+  }
+}
+
+tzf-date path {
+  fill: $color-input-border-hover;
+}
+
+@include condensed {
+  tzf-message > div {
+    display: block !important;
+  }
+}

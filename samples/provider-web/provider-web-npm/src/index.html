@@ -1,0 +1,43 @@
+<!doctype html>
+<html style="height:100%">
+<style>
+    .loader {
+        border: 16px solid #f3f3f3;
+        /* Light grey */
+        border-top: 16px solid #3498db;
+        /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+    }
+    
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<head>
+    <meta charset="utf-8">
+    <title>Engage Tranzform</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+
+<body style="height:100%">
+	<script type="text/javascript" src="/tzf/provider/uiprovider/config/env.js"></script>
+    <script type="text/javascript" src="oidc-client.min.js"></script>
+    <app-root><div class="loader" layout-align="center"></div></app-root>
+</body>
+
+</html>

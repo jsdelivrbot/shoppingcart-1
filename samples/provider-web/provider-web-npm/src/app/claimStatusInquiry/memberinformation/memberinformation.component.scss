@@ -1,0 +1,225 @@
+@import '../../../styles/_variables.scss';
+@import "../../../styles/variables";
+
+h3,p{
+    color:$color-primary-bluishblack
+}
+
+.memberIDSearchSubmit{
+    margin-left: 10px;
+    margin-top: 29px;
+    height: 35px;
+    min-width: 16px;
+    width: 40.2px;
+    margin-right: 0px;
+    padding: 5px 5px;
+}
+.has-error{
+    color: $color-accent-pink;
+}
+#memberinfoid{
+    margin: 0px;
+}
+
+#middlename{
+    width: 50px;
+    min-width: 50px;
+    margin-top: 8px;
+}
+
+
+#memberid{
+    margin-top: 4px; 
+}
+
+#demographicSearch{
+    margin:0px;
+    .col-lg-4, .col-lg-5, .col-lg-1{
+        padding:0px;
+    }
+   
+}
+
+
+.demographicSearchSubmit{
+    margin-left: 30px;
+    height: 35px;
+    min-width: 16px;
+    width: 40.2px;
+    margin-right: 0px;
+    border: 0px;
+    padding:5px 6px;
+    margin-top:29px;
+}
+#resetSearch{
+    color: $color-pimary-light-blue;
+    cursor:pointer;
+}
+
+ a /deep/ {
+     float:right;
+
+    svg {
+      width: 1.5em;
+      height:1.5em;
+      position: relative;
+      top: 5px;
+      path{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }
+
+.h20m{
+    color: $color-primary-bluishblack;
+    margin-bottom: 0px;
+}
+
+hr::after{
+    content: 'OR';
+    border: 2px solid $color-neurtral-whitish-grey;
+    border-radius: 100px;
+    left: 50%;
+    position: relative;
+    padding: 6px;
+    background: white;
+    top: -10px;
+}
+hr{
+  border-top: 2px solid $color-neurtral-whitish-grey; 
+  margin:10px 0px;
+}
+form{
+button ::ng-deep {
+    outline: none;
+    svg {
+      width: 20px;
+      height:20px;
+      margin-bottom: 2px;
+      margin-top: 2px;
+      path{
+          fill: #fff;
+      }
+    }
+  }
+}
+
+  .in-between-ele-small-lg{
+        padding-left: 10px !important;
+    }
+@include media-breakpoint-up(xl) {
+    .in-between-ele /deep/{
+        margin-right: 30px;
+        select{
+            min-width: 180px;
+        }
+    }
+}
+@include media-breakpoint-down(lg) {
+    .in-between-ele-lg /deep/{
+        margin-left: 30px;
+        select{
+            min-width: 320px;
+        }
+    }
+    .in-between-ele-small-lg{
+        padding-left: 10px !important;
+    }
+    .border-rounded-input{
+        width:100%;
+    }
+}
+@include media-breakpoint-down(md) {
+    .in-between-ele-lg /deep/{
+        margin-left: 30px;
+        select{
+            min-width: 225px;
+        }
+    }
+    .in-between-ele-small-lg{
+        padding-left: 10px !important;
+    }
+    .border-rounded-input{
+        width:100%;
+    }
+}
+
+
+
+   
+
+
+/*
+[tzfFormField] /deep/ {
+    padding:0;
+    label:empty{
+       display:none;
+    }
+}
+[tzf-form-field-datepicker] /deep/ {
+    .margin-space{
+    margin-right: 0px;
+    height: 35px;
+    margin-top: 5px;
+    }
+}
+[tzf-dropdown] /deep/ {
+    select {
+        color: $color-pimary-grey;
+    } 
+}
+.label-placeholder{
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+.in-between-ele /deep/{
+    select{
+        color:$color-pimary-grey; 
+        min-height: 35px;
+        &::hover{
+            border-color: $color-neurtral-mild-grey;
+            .arrow:before {
+                border-top: 9px solid $color-neurtral-mild-grey;
+            }
+        }
+    }
+    select:not([disabled]):hover{
+        border-color: $color-neurtral-mild-grey;
+    }
+}
+[tzfFormField] /deep/{
+    input{
+       // font-size: 100%;
+        // margin-left:9px;
+    }
+    tzf-form-field-popover > div > input:focus + button.toggle,
+    button.toggle:focus{
+      //  border-bottom-color: $color-pimary-white;
+
+    }
+    button.toggle{
+       // font-size: 100%;
+       // padding: 3.5px 3.5px 3.5px 9px;
+       // min-height: 30px;
+    }
+    .label-content{
+       // margin-bottom: 0.3em;
+    }
+}
+
+[tzfFormField]:not(:first-child){
+    border: 1px solid $color-neurtral-mild-grey;
+    border-radius: 2px;
+}
+
+#demographicSearch, #memberinfoid{
+    label::after{
+        content: '*';
+        color:$color-accent-pink;
+        padding-left: 1px;
+    }
+} */
+
+
+
+ 

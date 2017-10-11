@@ -1,0 +1,87 @@
+<h3 class="h20m" id="memberinfoformtitle" translate>REFERRALS.MEMBERINFO.TITLE</h3>
+<div class="titledesc">
+  <span class="p17l" id="memebrinfoformdesc" translate>REFERRALS.MEMBERINFO.TITLEDESC</span>
+</div>
+<br>
+<form [formGroup]="memberForm" (ngSubmit)="memberForm.markAsPristine()">
+<div class="row">
+  <div class="col-md-3">
+    <div tzfFormField label="REFERRALS.MEMBERINFO.MEMBERID" class="bootstrap-style required">
+      <input type="input" class="memberid input-text" maxlength="12" id="memberid" formControlName="subscriberid" id="memberid" placeholder="{{'REFERRALS.MEMBERINFO.MEMBERIDPC'| translate}}">
+    </div>
+  </div>
+  <div class="col-md-2 firstname">
+    <div tzfFormField label="REFERRALS.MEMBERINFO.FIRSTANDMIDDLE" class="bootstrap-style">
+      <input type="input" id="firstname" class="input-text" formControlName="firstname" id="firstname" placeholder="{{'REFERRALS.MEMBERINFO.FIRSTANDMIDDLEPC'| translate}}">
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div tzfFormField label="" class="bootstrap-style">
+      <input type="input" class=" input-text middle-name" formControlName="middlename" id="middlename" placeholder="{{'REFERRALS.MEMBERINFO.MIDDLEPC'| translate}}">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div tzfFormField label="REFERRALS.MEMBERINFO.LASTNAME" class="bootstrap-style required">
+      <input type="input" class="input-text" id="lastname" formControlName="lastname"  placeholder="{{'REFERRALS.MEMBERINFO.LASTNAMEPC'| translate}}">
+    </div>
+  </div>
+</div>
+<div class="col-12" id="errors" *ngIf="memberid.errors" style="padding: 0px">
+      <div [hidden]="!memberid.errors.pattern">
+        <p class="has-error" translate>
+          REFERRALS.MEMBERINFO.ERROR.MEMBERID
+        </p>
+      </div>
+    </div>
+<br>
+<div class="row">
+  <div class="col-md-3">
+    <div id="dateofbirthid">
+        <div id="dob" label="REFERRALS.MEMBERINFO.DOB" tzfFormField class="bootstrap-style required" [validation]="dob"  [validationMessages]="valMsg.dateofbirth">
+          <tzf-form-field-datepicker class="margin-space" [yearPicker]="true" formControlName="dob" name="dob"
+            placeholder="{{'REFERRALS.MEMBERINFO.DOBPC' | translate}}"></tzf-form-field-datepicker>
+        </div>
+      </div>
+  </div>
+
+  <div class="col-md-3">
+     <div id="genderselect">
+          <div tzfFormField class="bootstrap-style required" label="REFERRALS.MEMBERINFO.GENDER">
+            <tzf-form-field-dropdown textField="code" formControlName="gender" name="gender" valueField="value" [options]="genderOptions?.data" placeholder="{{'REFERRALS.MEMBERINFO.GENDERPC'| translate}}"></tzf-form-field-dropdown>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-1 ">
+      <div id="search">
+        <button [disabled]="memberForm.invalid || memberForm.pristine" [inlineSVG]="'assets/common/icons/icon_search.svg'"
+          [cacheSVG]="false" type="submit" (click)="membersearch(memberForm.value)"class="btn btn-primary memberSearchSubmit"></button>
+      </div>
+    </div>
+</div>
+</form>
+<br>
+<ng-template *ngIf="selectedMember" let-mem [ngTemplateOutletContext]="{ $implicit: selectedMember }" [ngTemplateOutlet]="t"
+      #t>
+      <hr>
+      <p class="memberinfo-title" id="title">
+        <span class="label h18r" id="label" *ngIf="mem?.memberDetails?.tenantEnrollmentId===mem?.subscriberDetails?.tenantEnrollmentId"
+          translate>REFERRALS.MEMBERINFO.DETAIL.MEMBERANDSUBSCRIBER</span>
+        <span class="label h18r" id="label" *ngIf="mem?.memberDetails?.tenantEnrollmentId!==mem?.subscriberDetails?.tenantEnrollmentId"
+          translate>REFERRALS.MEMBERINFO.DETAIL.MEMBER</span>
+        <span class="value h18b" id="value">
+          {{mem.memberDetails.lastName+','+mem.memberDetails.firstName}}</span>
+      </p>
+     <app-member-info-detail [memberInfo]="mem.memberDetails"></app-member-info-detail>
+    </ng-template>
+    <br>
+    <ng-template *ngIf="selectedMember?.memberDetails?.tenantEnrollmentId!==selectedMember?.subscriberDetails?.tenantEnrollmentId"
+      let-mem [ngTemplateOutletContext]="{ $implicit: selectedMember }" [ngTemplateOutlet]="s" #s>
+      <p class="memberinfo-title" id="title">
+        <span class="label h18r" id="label" translate>REFERRALS.MEMBERINFO.DETAIL.SUBSCRIBER</span>
+        <span class="value h18b" id="value">
+          {{mem.subscriberDetails.lastName+','+mem.subscriberDetails.firstName}}</span>
+      </p>
+      <app-member-info-detail [memberInfo]="mem.subscriberDetails"></app-member-info-detail>
+    </ng-template>
+
+

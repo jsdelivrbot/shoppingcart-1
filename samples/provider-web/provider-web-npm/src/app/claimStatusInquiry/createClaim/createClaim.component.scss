@@ -1,0 +1,166 @@
+@import "../../../styles/variables";
+@import "../../../../node_modules/@tranzform/common/form-fields/form-field-dropdown/form-field-dropdown.component.scss";
+@import '../../../styles/_variables.scss';
+tzf-tabs /deep/ {
+ul{
+  margin-bottom:0;
+}
+  [role=tablist] {
+  border-bottom: 2px solid #69B488;
+}
+[aria-selected=true]:after {
+  content: '';
+    display: block;
+    position: relative;
+    top: 4px;
+    right: -68px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-top: 2px solid #69B488;
+    border-right: 2px solid #69B488;
+    -moz-transform:rotate(-45deg);
+    -webkit-transform:rotate(-45deg);
+}
+
+button{
+  outline: none;
+}
+button[role=tab] {
+  background: none;
+  border: none;
+  min-width: 188px;
+
+  &:focus {
+    outline: none;
+    background:none;
+  }
+}
+
+
+}
+.input-tab-inner{
+    width: 28%;
+    padding: 5px 5px;
+}
+.has-error{
+    color: $color-accent-pink;
+}
+
+  .memberinfo-title{
+    color:$color-h2;
+    span:first-child{
+      &:after{
+        content:':';
+      }
+      margin-right:10px;
+    }
+  }
+.member-modal{
+  margin: 1rem 2rem;
+  .row, .col-lg-1, .col-lg-5, .col-lg-6,
+  .col-lg-4, .col-lg-12{
+    margin: 0px;
+    padding: 0px;
+  }
+  .title{
+    font-size: 2em;
+  }
+  .border-left{
+    border-left: 1px solid $color-border-grey;
+    padding-left:25px;
+  }
+  .input-radio{
+    text-align: center;
+  }
+  .member-list{
+    background-color: $color-background-grey;
+    border: 1px solid $color-border-grey;
+    border-radius: 4px;
+    padding: 10px 0px;
+    margin: 10px 0px;
+  }
+  .member-list:hover{
+    border: 1px solid $color-pimary-light-blue;
+  }
+
+}
+div.member-list  input[type=checkbox]{
+    border:1px solid red !important;
+  }
+.compose-model-bottom {
+    background: #fafafa;
+    height: 75px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-top-color: #e2e2e2;
+    border-top-style: solid;
+    .compose-model-buttons {
+        margin-top: 1rem;
+        text-align: right;
+        padding: 5px 5px;
+        .btn:not(:last-child) {
+            margin-right: 0.6em;
+        }
+    }
+}
+
+h3,p{
+    color:$color-primary-bluishblack
+}
+
+.h20m{
+    color: $color-primary-bluishblack;
+    margin-bottom: 0px;
+}
+
+hr{
+  border-top: 2px solid $color-neurtral-whitish-grey;
+  margin:10px 0px;
+}
+
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+}
+tzf-modal-content.member-look-up ::ng-deep {
+  #modal-body{
+    overflow-y: auto !important;
+    height: 460px;
+  }
+}
+
+.selected{
+  border:1px solid $color-pimary-light-blue !important;
+}
+input {
+  opacity: 1;
+  &[type=checkbox],&[type=radio] {
+    opacity: 0;
+  }
+  &[type=checkbox] {
+    &:checked {
+      + .styledInput {
+        &::before {
+          top:-6px !important;
+          margin-left:0px !important;
+        }
+      }
+    }
+  }
+}
+
+hr{
+  border-top: 2px solid $color-neurtral-whitish-grey;
+  margin:30px 0px;
+}
+
+
+.submitclaim{
+  float: right;
+}

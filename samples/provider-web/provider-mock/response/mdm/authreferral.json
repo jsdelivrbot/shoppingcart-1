@@ -1,0 +1,69 @@
+[
+  {
+    "category": "ep_referraltypes",
+    "data": [
+      {
+        "code": "Referral",
+        "value": "Referral"
+      },
+      {
+        "code": "Authorization",
+        "value": "Authorization"
+      },
+      {
+        "code": "Pre-determination",
+        "value": "Pre-determination"
+      },
+      {
+        "code": "In-patient_stay",
+        "value": "In-patient stay"
+      }
+    ],
+    "createdBy": "Admin",
+    "createdDate": "11/23/2016",
+    "modifiedDate": "11/23/2016",
+    "active": true
+  },
+  {
+    "category": "ep_referralservicetypes",
+    "data": [
+      {
+        "code": "Diagnostic",
+        "value": "Diagnostic"
+      },
+      {
+        "code": "Medical",
+        "value": "Medical"
+      },
+      {
+        "code": "Dental",
+        "value": "Dental"
+      }
+    ],
+    "createdBy": "Admin",
+    "createdDate": "11/23/2016",
+    "modifiedDate": "11/23/2016",
+    "active": true
+  },
+  {
+    "category": "ep_referralstatus",
+    "data": [
+      {
+        "code": "Pending",
+        "value": "Pending"
+      },
+      {
+        "code": "Rejected",
+        "value": "Rejected"
+      },
+      {
+        "code": "Received",
+        "value": "Received"
+      }
+    ],
+    "createdBy": "Admin",
+    "createdDate": "11/23/2016",
+    "modifiedDate": "11/23/2016",
+    "active": true
+  }
+]

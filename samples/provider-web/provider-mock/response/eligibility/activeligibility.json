@@ -1,0 +1,606 @@
+{
+	"tenantEnrollmentId": "M1003",
+	"subscriberId": "900A001",
+	"eligibilityStatus": "Yes",
+	"profile": {
+		"EmergencyContact": [{
+			"groupId": "EmergencyContact",
+			"attributeDetails": {}
+		}],
+		"SubscriberSubGroup": [{
+			"groupId": "SubscriberSubGroup",
+			"attributeDetails": {
+				"packageCode": null,
+				"groupId": "group1",
+				"subGroupId": "subGroup1"
+			}
+		}],
+		"Address": [{
+				"groupId": "Address",
+				"attributeDetails": {
+					"zipCode": "987654",
+					"country": "US",
+					"address3": "APT 4a",
+					"address2": "Lake View",
+					"city": "Chicago",
+					"addressType": "Home",
+					"address1": "Chruch Road",
+					"county": "Adams",
+					"state": "IL"
+				}
+			},
+			{
+				"groupId": "Address",
+				"attributeDetails": {
+					"zipCode": "21312",
+					"country": "USA",
+					"address3": "APT 4a",
+					"address2": "Lake View",
+					"city": "Chicago",
+					"addressType": "Work",
+					"address1": "Chruch Road",
+					"county": "Adams",
+					"state": "IL"
+				}
+			}
+		],
+		"Subscriber": [{
+			"groupId": "Subscriber",
+			"attributeDetails": {
+				"subscriberFirstName": "Robert"
+			}
+		}],
+		"PayerInfo": [{
+			"groupId": "PayerInfo",
+			"attributeDetails": {
+				"insuranceHierarchy": "UHC",
+				"payerId": "EMBL009",
+				"payerName": "Emblem"
+			}
+		}],
+		"SubscriberGroup": [{
+			"groupId": "SubscriberGroup",
+			"attributeDetails": {
+				"groupId": "group1",
+				"marketSegment": "FEP"
+			}
+		}],
+		"MemberPersonalDetails": [{
+			"groupId": "MemberPersonalDetails",
+			"attributeDetails": {
+				"firstName": "William",
+				"lastName": "Stark",
+				"occupation": "SA",
+				"handicapped": "Yes",
+				"gender": "Male",
+				"student": "Yes",
+				"alternateName": "Bill Stark",
+				"middleName": "M",
+				"preferredAddressType": "Home",
+				"dateOfBirth": "01/01/2010",
+				"relationship": "DEPENDENT"
+			}
+		}],
+		"Contact": [{
+				"groupId": "Contact",
+				"attributeDetails": {
+					"contact": "123456789",
+					"contactType": "mobilePhone"
+				}
+			},
+			{
+				"groupId": "Contact",
+				"attributeDetails": {
+					"contact": "123456789",
+					"contactType": "HomePhoneNo"
+				}
+			},
+			{
+				"groupId": "Contact",
+				"attributeDetails": {
+					"contact": "bikash.sahu@trizetto.com",
+					"contactType": "email"
+				}
+			}
+		]
+	},
+	"enrollment": [{
+		"groupId": "Enrollment",
+		"attributeDetails": {
+			"planId": "8885",
+			"planName": "HMO-AdvancedGold-Plan",
+			"productId": "6787",
+			"productCategory": "Medical",
+			"productName": "HMO-AdvancedGold-80-20Plan",
+			"productType": "PPO",
+			"coverageTier": "Individual",
+			"activeCoverageInd": "Yes",
+			"coverageEffectiveDate": "12/31/2016",
+			"coverageTerminationDate": "12/31/2017",
+			"fsaInd": "No",
+			"hsaInd": "No",
+			"hraInd": "No"
+		}
+	}],
+	"additionalInsurance": [{
+			"groupId": "AdditionalInsurance",
+			"attributeDetails": {
+				"otherInsuredPayerName": "UTP",
+				"pharmacyID": "COB",
+				"policyHolderDOB": "04/04/1976",
+				"otherInsuredPayerAddress": "CA,USA",
+				"policyNumber": "P0001",
+				"carrierPolicyNumber": "123456787",
+				"otherInsuredPayerContactNumber": "01010100",
+				"productCategory": "Medical",
+				"terminationDate": "03/26/2018",
+				"insuranceHierarchy": "Secondary",
+				"supplementalDrugType": "Type 1",
+				"policyHolderFirstName": "Khushboo",
+				"policyHolderLastName": "Porwal",
+				"coverageTier": "Family",
+				"carrierID": "1001",
+				"effectiveDate": "11/10/2011",
+				"trackingId": "AI0420201710098"
+			}
+		},
+		{
+			"groupId": "AdditionalInsurance",
+			"attributeDetails": {
+				"otherInsuredPayerName": "UHC",
+				"pharmacyID": "COB",
+				"policyHolderDOB": "05/03/1976",
+				"otherInsuredPayerAddress": "CA,USA",
+				"policyNumber": "P0001",
+				"carrierPolicyNumber": "123456789",
+				"otherInsuredPayerContactNumber": "01010100",
+				"productCategory": "Medical",
+				"terminationDate": "04/04/2019",
+				"insuranceHierarchy": "Primary",
+				"supplementalDrugType": "Type 1",
+				"policyHolderFirstName": "Khushboo",
+				"policyHolderLastName": "Porwal",
+				"coverageTier": "Family",
+				"carrierID": "1001",
+				"effectiveDate": "10/31/2011",
+				"trackingId": "AI0420201710099"
+			}
+		}
+	],
+	"accumSummary": [{
+			"accumulatorType": "Deductible",
+			"tierAccums": [{
+					"tierId": "IN",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 2400,
+							"amountRemaining": 1600,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Preferred Provider Organization(PPO)",
+							"description": "Preferred Provider Organization(PPO)",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A100.1",
+							"messages": [{
+								"message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 600,
+							"amountRemaining": 400,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Preferred Provider Organization(PPO)",
+							"description": "Preferred Provider Organization(PPO)",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A100.1",
+							"messages": [{
+								"message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+								"importanceFlag": true
+							}]
+						}
+					]
+				},
+				{
+					"tierId": "ON",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 1300,
+							"amountRemaining": 2700,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Preferred Provider Organization(PPO)",
+							"description": "Preferred Provider Organization(PPO)",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 0,
+							"amountRemaining": 100,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Preferred Provider Organization(PPO)",
+							"description": "Preferred Provider Organization(PPO)",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+								"importanceFlag": true
+							}]
+						}
+					]
+				}
+			]
+		},
+		{
+			"accumulatorType": "Benefit Disclaimer",
+			"tierAccums": [{
+				"accumAmounts": [{
+						"coverageLevel": "Individual",
+						"amount": 1000,
+						"amountMet": 0,
+						"amountRemaining": 100,
+						"serviceType": "Health Benefit Plan Coverage",
+						"insuranceType": "Preferred Provider Organization(PPO)",
+						"description": "Preferred Provider Organization(PPO)",
+						"priorAuthRequired": true,
+						"diagnosisCode": "A00.1",
+						"messages": [{
+							"message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+							"importanceFlag": true
+						}]
+					},
+					{
+						"coverageLevel": "Individual",
+						"amount": 1000,
+						"amountMet": 0,
+						"amountRemaining": 100,
+						"serviceType": "Health Benefit Plan Coverage",
+						"insuranceType": "Preferred Provider Organization(PPO)",
+						"description": "Preferred Provider Organization(PPO)",
+						"priorAuthRequired": true,
+						"diagnosisCode": "A00.1",
+						"messages": [{
+							"message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+							"importanceFlag": true
+						}]
+					}
+				]
+			}]
+		},
+		{
+			"accumulatorType": "Co-Payment",
+			"tierAccums": [{
+					"tierId": "IN",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 2000,
+							"amountRemaining": 2000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 300,
+							"amountRemaining": 700,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				},
+				{
+					"tierId": "ON",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 3200,
+							"amountRemaining": 800,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 100,
+							"amountRemaining": 9000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				}
+			]
+		},
+		{
+			"accumulatorType": "Co-Insurance",
+			"tierAccums": [{
+					"tierId": "IN",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 2000,
+							"amountRemaining": 2000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 300,
+							"amountRemaining": 700,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				},
+				{
+					"tierId": "ON",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 3200,
+							"amountRemaining": 800,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 100,
+							"amountRemaining": 9000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				}
+			]
+		},
+		{
+			"accumulatorType": "Active Coverage",
+			"tierAccums": [{
+					"tierId": "IN",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 2000,
+							"amountRemaining": 2000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 300,
+							"amountRemaining": 700,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				},
+				{
+					"tierId": "ON",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 3200,
+							"amountRemaining": 800,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 100,
+							"amountRemaining": 9000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				}
+			]
+		},
+		{
+			"accumulatorType": "Out of Pocket Maximum",
+			"tierAccums": [{
+					"tierId": "IN",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 2000,
+							"amountRemaining": 2000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 300,
+							"amountRemaining": 700,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				},
+				{
+					"tierId": "ON",
+					"accumAmounts": [{
+							"coverageLevel": "Family",
+							"amount": 4000,
+							"amountMet": 3200,
+							"amountRemaining": 800,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						},
+						{
+							"coverageLevel": "Individual",
+							"amount": 1000,
+							"amountMet": 100,
+							"amountRemaining": 9000,
+							"serviceType": "Health Benefit Plan Coverage",
+							"insuranceType": "Health Benefit Plan Coverage",
+							"description": "Health Benefit Plan Coverage",
+							"priorAuthRequired": true,
+							"diagnosisCode": "A00.1",
+							"messages": [{
+								"message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+								"importanceFlag": true
+							}]
+						}
+					]
+				}
+			]
+		}
+	],
+	"limitSummary": [{
+			"limitType": "Units",
+			"limitTimePeriod": "Plan Year",
+			"limitDescription": "Physical Therapy Visits",
+			"serviceType": "Medical",
+			"insuranceType": "string",
+			"priorAuthRequired": true,
+			"diagnosisCode": "DC12",
+			"messages": [{
+				"message": "This is the message of medical service codes",
+				"importanceFlag": true
+			}],
+			"coverageLimits": [{
+				"coverageLevel": "Individual",
+				"limitMax": 60,
+				"limitMet": 60,
+				"limitRemaining": 0
+			}]
+		},
+		{
+			"limitType": "Units",
+			"limitTimePeriod": "Plan Year",
+			"limitDescription": "Specialist Office Visit",
+			"serviceType": "Medical",
+			"insuranceType": "string",
+			"priorAuthRequired": true,
+			"diagnosisCode": "DC13",
+			"messages": [{
+				"message": "This is the message of medical service types",
+				"importanceFlag": true
+			}],
+			"coverageLimits": [{
+				"coverageLevel": "Individual",
+				"limitMax": 0,
+				"limitMet": 25,
+				"limitRemaining": 10
+			}]
+		}
+	]
+}

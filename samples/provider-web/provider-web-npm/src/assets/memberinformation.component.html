@@ -1,0 +1,84 @@
+<h3 class="h20m" id="memberinfoformtitle" translate>MEMBERINFO.TITLE</h3>
+<div class="titledesc">
+  <span class="p17l" id="memebrinfoformdesc" translate>MEMBERINFO.TITLEDESC</span>
+</div>
+<br>
+<form [formGroup]="memeberForm">
+  <div class="row" id="memberinfoid">
+    <div tzfFormField label="MEMBERINFO.MEMEBERID.LABEL" labelFor="MEMBERINFO.MEMEBERID.LABEL" class="col-xl-2 col-5 bootstrap-style required">
+        <!-- Must also be disabled manually -->
+        <input type="text" maxlength="12" id="memberidinput" formControlName="subscriberid" placeholder="{{'MEMBERINFO.MEMEBERID.PLACEHOLDER' | translate }}">
+    </div>
+
+    <div class="col-1">
+      <button [disabled]="memeberForm.invalid || memeberForm.pristine" id="memebersubmit" [inlineSVG]="'assets/common/icons/icon_search.svg'"
+        [cacheSVG]="false" (click)="memeberForm.markAsPristine();search(memeberForm.value)" class="btn btn-primary memberIDSearchSubmit"></button>
+    </div>
+    <div class="col-6 col-xl-9">
+      <a class="p16b resetSearch" id="resetSearch" tabindex="-1" [attr.title]="'MEMBERINFO.RESET'" (click)="resetForms()"
+        [inlineSVG]="'assets/icon_hide.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+          {{'MEMBERINFO.RESET' | translate }}
+      </a>
+    </div>
+    <div class="col-12" id="errors" *ngIf="memberid.errors">
+      <div [hidden]="!memberid.errors.pattern">
+        <p class="has-error">
+          {{'MEMBERINFO.MEMEBERID.ERROR.MEMBERID'| translate}}
+        </p>
+      </div>
+    </div>
+  </div>
+</form>
+<br>
+<hr class="divider-line">
+<br><br>
+<form [formGroup]="memberDemographicSearch" (ngSubmit)="memberDemographicSearch.markAsPristine();search(memberDemographicSearch.value)">
+  <div class="row" id="demographicSearch">
+
+    <div class="col-lg-4 col-md-4 col-xl-2">
+      <div tzfFormField label="MEMBERINFODEMO.NAMELABEL" labelFor="MEMBERINFODEMO.NAMELABEL" class="bootstrap-style required">
+          <!-- Must also be disabled manually -->
+          <input type="text"  id="memberidinput" formControlName="firstname" id="firstname"  placeholder="{{'MEMBERINFODEMO.NAMELABELPLACEHOLDER' | translate}}">
+      </div>
+    </div>
+
+    <div class="col-lg-1 col-md-1 col-xl-1 in-between-ele-small-lg">
+      <div tzfFormField label=" " labelFor=" " class="bootstrap-style">
+          <!-- Must also be disabled manually -->
+          <input type="text" class="custom-input"  formControlName="middlename" id="middlename" placeholder="{{'MEMBERINFODEMO.MIDDLEINITIAL' | translate}}">
+      </div>
+    </div>
+
+    <div class="col-xl-2 col-lg-5 col-md-5 in-between-ele in-between-ele-lg">
+      <div tzfFormField label="MEMBERINFODEMO.LASTNAMELABEL" labelFor="MEMBERINFODEMO.LASTNAMELABEL" class="bootstrap-style required">
+          <!-- Must also be disabled manually -->
+          <input type="text" formControlName="lastname" id="lastname" placeholder="{{'MEMBERINFODEMO.LASTNAMEPLACEHOLDER' | translate}}">
+      </div>
+    </div>
+
+    <div class="col-xl-3 col-lg-5 col-md-5 in-between-ele">
+      <div id="dateofbirthid">
+        <div id="dob" label="MEMBERINFODEMO.DATEOFBIRTH" tzfFormField class="bootstrap-style required" [validation]="dob"  [validationMessages]="valMsg.dateofbirth">
+          <tzf-form-field-datepicker class="margin-space" [yearPicker]="true" formControlName="dob" name="dob"
+            placeholder="{{'ELIGIBILITY.SEARCHFORM.ELEMENTS.DOB.PLACEHOLDER' | translate}}"></tzf-form-field-datepicker>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-2 col-lg-5 col-md-5 in-between-ele-lg">
+      <div id="genderselect">
+          <div tzfFormField class="bootstrap-style required" label="MEMBERINFODEMO.GENDER">
+                    <tzf-form-field-dropdown textField="code" formControlName="gender" name="gender" valueField="value" [options]="genderOptions" placeholder="Select"></tzf-form-field-dropdown>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-xl-1 col-lg-1 col-md-1   in-between-ele-small">
+      <div id="search">
+        <button [disabled]="memberDemographicSearch.invalid || memberDemographicSearch.pristine" [inlineSVG]="'assets/common/icons/icon_search.svg'"
+          [cacheSVG]="false" type="submit" class="btn btn-primary demographicSearchSubmit"></button>
+      </div>
+    </div>
+
+  </div>
+</form>

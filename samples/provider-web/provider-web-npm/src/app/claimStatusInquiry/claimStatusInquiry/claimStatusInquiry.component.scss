@@ -1,0 +1,40 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+
+
+h3,p{
+    color:$color-primary-bluishblack
+}
+
+.quicklinlist{
+          columns: 1;
+          -moz-column-count:1;
+          column-gap:2em;
+}
+
+.quicklinlist app-quick-view {
+    margin: 0;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;         /* IE 11 */
+    display:table;
+}
+
+@include media-breakpoint-up(xl) {
+    hr.fadedline {
+    margin-top:2em;
+    margin-bottom:4em;
+}
+.quicklinlist{
+          columns: 3;
+          -moz-column-count:3;
+}
+}
+
+
+@media (min-width: 880px) and (max-width: 1199px) {
+  .quicklinlist{
+          columns: 2;
+          -moz-column-count:2;
+}
+  }

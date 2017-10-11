@@ -1,0 +1,143 @@
+@import '../../styles/pro';
+
+$side-margin: 2rem;
+$vertical-padding: 1rem;
+$border-radius: 4px;
+
+::ng-deep {
+  $modal-lg: 980px;
+  $modal-md: 550px;
+  $modal-sm: 300px;
+  $modal-dialog-sm-up-margin-y: 5vh;
+  $modal-dialog-margin: 2vh;
+  $zindex-modal: $z-modal;
+  $zindex-modal-backdrop: $z-modal;
+  $modal-backdrop-bg: black;
+  $modal-backdrop-opacity: 0.75;
+  //$modal-transition: '';
+  $enable-transitions: true;
+  $modal-content-bg: white;
+  $modal-content-border-width: 0;
+  $border-radius-lg: $border-radius;
+  $border-radius-sm: $border-radius;
+  $enable-rounded: true;
+  $enable-shadows: false;
+  @import '../../../../../node_modules/bootstrap/scss/functions';
+  @import '../../../../../node_modules/bootstrap/scss/variables';
+  @import '../../../../../node_modules/bootstrap/scss/mixins';
+  @import '../../../../../node_modules/bootstrap/scss/modal';
+
+  .modal-content {
+    max-height: 96vh;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .modal-content {
+      max-height: 90vh;
+    }
+  }
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+#modal-body {
+  overflow: auto;
+  padding: $vertical-padding $side-margin;
+  -webkit-overflow-scrolling: touch;
+}
+
+#modal-back {
+  display: inline-block;
+  left: -0.5em;
+  padding: 0 0.5em;
+  position: relative;
+
+
+  &::before {
+    border: solid currentColor;
+    border-width: 0 0 $breadcrumb-separator-width $breadcrumb-separator-width;
+    content: '';
+    display: inline-block;
+    margin: 0 0.3em;
+    height: 0.7em;
+    width: 0.7em;
+    transform: rotate(45deg);
+  }
+}
+
+nav {
+  padding: $vertical-padding $side-margin;
+}
+
+#modal-header,
+:host ::ng-deep h2 {
+  line-height: 1em;
+  padding: $vertical-padding $side-margin;
+}
+
+#modal-header {
+  background: $color-primary;
+  color: white;
+  display: flex;
+  font-size: 1.6em;
+  margin: 0;
+
+  &:first-child {
+    border-radius: $border-radius $border-radius 0 0;
+  }
+}
+
+.header-text {
+  flex: auto;
+}
+
+.header-close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+
+  ::ng-deep svg {
+    height: 1.1em;
+    width: 1.1em;
+    margin-bottom: -0.2em;
+
+    path {
+      fill: currentColor;
+    }
+
+    line {
+      stroke: currentColor;
+    }
+  }
+}
+
+:host ::ng-deep h2 {
+  background: #fafafa;
+  border: $standard-border #e6e6e6;
+  border-width: $standard-border-width 0;
+  color: #5d5d5d;
+  font-size: 1em;
+  font-weight: $font-weight-medium;
+
+  box-sizing: content-box;
+  margin: 0 0 $vertical-padding (-$side-margin);
+  width: 100%;
+}
+
+#modal-buttons {
+  margin-top: $vertical-padding;
+  text-align: right;
+
+  .btn:not(:last-child) {
+    margin-right: 0.6em;
+  }
+}
+
+:host ::ng-deep [bottom] {
+  margin: $vertical-padding * 2 0 0 !important;
+}

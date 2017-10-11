@@ -1,0 +1,17 @@
+{
+  "name": "mock-provider",
+  "version": "1.0.0",
+  "description": "mock api for provider services",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "mock"
+  ],
+  "author": "gunesekar.a@trizetto.com",
+  "license": "ISC",
+  "dependencies": {
+    "apimocker": "^0.5.0"
+  }
+}

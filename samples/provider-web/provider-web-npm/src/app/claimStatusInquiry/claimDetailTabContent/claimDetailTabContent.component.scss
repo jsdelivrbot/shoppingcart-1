@@ -1,0 +1,39 @@
+@import "../../../styles/variables";
+@import "../../../../node_modules/@tranzform/common/form-fields/form-field-dropdown/form-field-dropdown.component.scss";
+@import '../../../styles/_variables.scss';
+// create claim claim detail patient conditon styles begins here
+.patient-condition-content{
+  p.desc{
+    font-style:italic;
+  }
+  .condition-types{
+    label{
+      display:block;
+    }
+  }
+
+  .accidentInfo {
+    padding:0 1em;
+    label{
+      font-size:14px;
+      font-weight: 500;
+    }
+}
+}
+
+input {
+  opacity: 1;
+  &[type=checkbox],&[type=radio] {
+    opacity: 0;
+  }
+  &[type=checkbox] {
+    &:checked {
+      + .styledInput {
+        &::before {
+          top:-6px !important;
+          margin-left:0px !important;
+        }
+      }
+    }
+  }
+}

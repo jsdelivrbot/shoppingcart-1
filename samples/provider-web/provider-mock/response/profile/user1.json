@@ -1,0 +1,67 @@
+[
+	{
+		"memberDetails": {
+			"tenantEnrollmentId": "1",
+			"memberId": "do esse Excepteur magna",
+			"subscriberId": "occaecat",
+			"lastName": "Cain",
+			"firstName": "Micheal",
+			"middleName": "K",
+			"relationship": "Dependent The subscriber ID assigned to the subscriber.",
+			"isStudent": "labore reprehenderit nostrud voluptate adipisicing",
+			"isHandicapped": "fugiat tempor",
+			"gender": "eiusmod non aute esse reprehenderit",
+			"age": 37,
+			"dob": "2011-11-22",
+			"subscriberAssets": "Ut in qui voluptate",
+			"eligibleAsOf": "1979-10-04",
+			"originalEffectiveDate": "1928-06-23",
+			"groupId": "sint eu",
+			"planId": "ullamco pariatur veniam velit",
+			"planName": "minim non sed",
+			"activeCoverageInd": "Yes",
+			"address": {
+				"zipCode": "85705",
+				"country": "USA",
+				"address1": "MEGASYSTEMS INC",
+				"address2": "",
+				"address3": "",
+				"addressType": "Home",
+				"city": "TUCSON",
+				"state": "AZ",
+				"county": "eu"
+			}
+		},
+		"subscriberDetails": {
+			"tenantEnrollmentId": "1",
+			"memberId": "a",
+			"subscriberId": "non ea irure",
+			"lastName": "ex consectetur dolore non dolore",
+			"firstName": "aliquip d",
+			"middleName": "sit",
+			"relationship": "Spouse",
+			"isStudent": "consectetur ad velit",
+			"isHandicapped": "laborum officia exercitation",
+			"gender": "tempor magna",
+			"age": 30078375,
+			"dob": "1998-06-04",
+			"subscriberAssets": "ut",
+			"eligibleAsOf": "1964-02-10",
+			"originalEffectiveDate": "1912-05-14",
+			"groupId": "labore non incididunt",
+			"planId": "veniam do eu",
+			"planName": "tempor id in dolor",
+			"address": {
+				"zipCode": "magna occaecat",
+				"country": "ipsum id commodo ut",
+				"address1": "adipisic",
+				"address2": "sunt laborum",
+				"address3": "officia magna commodo",
+				"addressType": "Alternate",
+				"city": "nostrud irure laboru",
+				"state": "culpa quis",
+				"county": "voluptate Lorem Ut reprehenderit"
+			}
+		}
+	}
+]

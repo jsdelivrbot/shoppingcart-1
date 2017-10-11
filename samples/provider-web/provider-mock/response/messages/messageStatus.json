@@ -1,0 +1,23 @@
+[
+  {
+    "category": "messageStatus",
+    "data": [
+      {
+        "code": "All",
+        "value": "Read & Unread"
+      },
+      {
+        "code": "READ",
+        "value": "Read"
+      },
+      {
+        "code": "UNREAD",
+        "value": "Unread"
+      }
+    ],
+    "createdBy": "Admin",
+    "createdDate": "11/23/2016",
+    "modifiedDate": "11/23/2016",
+    "active": true
+  }
+]

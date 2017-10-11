@@ -1,0 +1,20 @@
+{
+  "category": "ClaimType",
+  "data": [{
+      "code": "Professional Claim",
+      "value": "professional"
+    },
+    {
+      "code": "Inpatient Claim",
+      "value": "inpatient"
+    },
+    {
+      "code": "Outpatient Claim",
+      "value": "outpatient"
+    },
+    {
+      "code": "Institutional Claim",
+      "value": "institutional"
+    }
+  ]
+}

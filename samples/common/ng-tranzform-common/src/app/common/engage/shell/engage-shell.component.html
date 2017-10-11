@@ -1,0 +1,57 @@
+<div id="container">
+  <ng-content select="tzf-csr-header"></ng-content>
+  <header>
+    <div id="top-bar">
+      <ng-content select="tzf-engage-user"></ng-content>
+      <ul class="top-bar-options">
+        <ng-content select="li[top]"></ng-content>
+        <li>
+          <tzf-language-selector></tzf-language-selector>
+        </li>
+        <li>
+          <a href="#"
+            translate
+          >GRP_UTILS.LINK_HELP</a>
+        </li>
+      </ul>
+    </div>
+    <div id="banner">
+      <ng-content select="img[header]"></ng-content>
+    </div>
+  </header>
+  <div id="sidebar-and-main">
+    <ng-content
+      *ngIf="sidebar"
+      select="[sidebar]"
+    ></ng-content>
+    <main>
+      <tzf-header-and-crumbs
+        [simpleCrumb]="true"
+      ></tzf-header-and-crumbs>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  <footer>
+    <div id="footer-logo-and-content">
+      <div id="footer-logo">
+        <ng-content select="img[footer]"></ng-content>
+        <p id="copyright" translate>FOOTER.COPYRIGHT</p>
+      </div>
+      <div id="footer-content">
+        <div id="footer-about" class="footer-content-box">
+          <h3 translate>FOOTER.ABOUT_US</h3>
+          <ul>
+            <ng-content select="[aboutItem]"></ng-content>
+          </ul>
+        </div>
+        <div id="footer-contact" class="footer-content-box">
+          <h3 translate>FOOTER.CONTACT</h3>
+          <address>
+            <p translate>FOOTER.ADDRESS_LINE_ONE</p>
+            <p translate>FOOTER.ADDRESS_LINE_TWO</p>
+          </address>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

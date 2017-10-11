@@ -1,0 +1,74 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+*{
+  margin:0;
+  padding:0
+}
+h4 /deep/ {
+
+    svg {
+      position: relative;
+      top: 5px;
+    }
+  }
+
+  h4{
+    color:$color-pimary-white;
+    background-color: $color-pimary-blue;
+    padding:0.5em 1em;
+    border-radius: 4px 4px 0 0;
+  }
+
+.quickview{
+  //min-width: 25em;
+  border-radius: 4px;
+  border: 1px solid $color-neurtral-mild-grey;
+  box-shadow: 1px 1px 1px $color-neurtral-mild-grey;
+  margin-bottom:1em;
+}
+.quickviewcont{
+  padding: 0 2em;
+  .providers{
+    p:nth-child(2){
+      margin-left:5px;
+    }
+  }
+  >[class^="row"]{
+    margin:0.8em 0;
+  }
+  .totalClaims{
+    color:$color-pimary-light-blue;
+    &:after{
+      content:attr(total-claims);
+      font-size: 12px;
+      color:$color-pimary-grey;
+      margin-left:5px;
+    }
+  }
+  .viewdetails{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a{
+      border: 1px solid currentColor;
+      border-radius: 20px;
+      float: right;
+      padding: 0.3em 1.2em;
+    }
+  }
+  .progress-bar{
+    width:21em;
+    tzf-progress-bar /deep/ {
+      .container{
+        padding:0;
+      }
+  }
+  }
+  .details{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.providerlabel:after{
+  content:":";
+}

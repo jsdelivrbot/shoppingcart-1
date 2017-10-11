@@ -1,0 +1,15 @@
+<tzf-parent-route-content>
+  <h2>Summary (Child Route)</h2>
+  <p>The resource for the title of this page has a value of "{{ '{{' }} name }} Item". The value for <em>name</em> was passed from the parent route via childData.</p>
+  <p>Summary for ID: {{ id }}. This ID was read as a route parameter.</p>
+  <p>Textbox value from parent: "{{ parentTextboxValue }}". This was received by observing parent data.</p>
+  <p>
+    <input [(ngModel)]="textBoxValue">
+    <button (click)="sendToParent()">
+      Send To Parent
+    </button>
+  </p>
+  <p>
+    <button type="button" (click)="router.navigate(['./details'], { skipLocationChange: true, relativeTo: activatedRoute })">View Details</button>
+  </p>
+</tzf-parent-route-content>

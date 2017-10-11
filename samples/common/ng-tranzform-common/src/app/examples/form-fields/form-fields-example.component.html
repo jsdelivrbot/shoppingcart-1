@@ -1,0 +1,145 @@
+<form  #fomComponent="ngForm"  role="search" (ngSubmit)="fomComponent.form.markAsPristine()" >
+  <tzf-form-fields>
+    <div tzfFormField
+      label="Claim ID"
+      labelFor="claimId"
+      [validation]="claimId"
+      [validationMessages]="valMsg.claimId"
+      [disabled]="buttonDisabled"
+    >
+      <!-- Must also be disabled manually -->
+      <input type="text"
+        id="claimId"
+        [(ngModel)]="data.claimId"
+        required
+        name="claimId"
+        placeholder="What's the ID?"
+        #claimId="ngModel"
+        [disabled]="buttonDisabled"
+      >
+    </div>
+    <div tzfFormField
+      label="Date of Birth"
+      labelFor="formFields-birthDate"
+      [disabled]="buttonDisabled"
+    >
+      <!-- Common form field components will inherit disabled from tzfFormField -->
+      <tzf-form-field-datepicker [id]="'formFields-birthDate'" [(ngModel)]="data.birthDate" name="birthDate" placeholder="When should I sing?" [yearPicker]="true"></tzf-form-field-datepicker>
+    </div>
+    <div tzfFormField
+      label="Provider"
+      [disabled]="buttonDisabled">
+      <tzf-form-field-dropdown
+        id="formFields-provider"
+        [options]="providerOptions"
+        [(ngModel)]="data.providers"
+        name="providers"
+        valueField="id"
+        textField="name"
+        placeholder="Which provider(s)?"
+        maxSelectedVisible="4"
+      ></tzf-form-field-dropdown>
+    </div>
+    <div tzfFormField
+      label="Member First and Last Name"
+      style="flex-grow: 2"
+      [disabled]="buttonDisabled"
+    >
+      <tzf-form-field-popover id="formFields-memberName" actions="true" (prepare)="prepareNames()" (accept)="acceptNames()" (reset)="resetNames()">
+        <span button>
+          {{ (data | formFieldName) || 'Who is the member?' }}
+        </span>
+        <tzf-form-fields content>
+          <label tzfFormField label="First Name">
+            <input type="text" [(ngModel)]="working.firstName" name="firstName" placeholder="First Name">
+          </label>
+          <label tzfFormField label="Middle Name">
+            <input type="text" [(ngModel)]="working.middleName" name="middleName" placeholder="Middle Name">
+          </label>
+          <label tzfFormField label="Last Name">
+            <input type="text" [(ngModel)]="working.lastName" name="lastName" placeholder="Last Name">
+          </label>
+        </tzf-form-fields>
+      </tzf-form-field-popover>
+    </div>
+    <label tzfFormField
+      label="Member ID"
+      [disabled]="true"
+    >
+      <input type="text"
+        [(ngModel)]="data.memberId"
+        name="memberId"
+        disabled
+        placeholder="What's their ID?"
+      >
+    </label>
+    <div tzfFormField
+      label="Status"
+    >
+      <tzf-form-field-dropdown
+        id="formFields-status"
+        [options]="statusOptions"
+        [(ngModel)]="data.status"
+        name="status"
+        valueField="value"
+        textField="name"
+        placeholder="Which Status?"
+      ></tzf-form-field-dropdown>
+    </div>
+  </tzf-form-fields>
+
+  <tzf-form-fields [fullWidth]="false">
+    <div tzfFormField label="No options">
+      <tzf-form-field-dropdown [options]="[]" [(ngModel)]="none" name="providers" valueField="id" textField="name" placeholder="No options here."></tzf-form-field-dropdown>
+    </div>
+    <div tzfFormField label="Date Range, Predefined Default">
+      <tzf-form-field-daterange
+        id="exampleRange"
+        name="dateRange"
+        startField="predefinedDateRangeStart"
+        endField="predefinedDateRangeEnd"
+        [ngModel]="data"
+        (ngModelChange)="updateDateRange($event)"
+        [predefinedRanges]="ranges"
+        placeholder="For which dates?"
+        [minDate]="boundRange.start"
+        [maxDate]="boundRange.end"
+      >
+      </tzf-form-field-daterange>
+    </div>
+    <div tzfFormField label="Date Range, Bound values" [validation]="dateRange" [validationMessages]="valMsg.dateRange">
+      <tzf-form-field-daterange
+        id="exampleRange"
+        name="dateRange"
+        startField="dateRangeStart"
+        endField="dateRangeEnd"
+        [ngModel]="data"
+        (fields)="updateDateRange($event)"
+        [predefinedRanges]="ranges"
+        placeholder="For which dates?"
+        [minDate]="boundRange.start"
+        [maxDate]="boundRange.end"
+        required
+         #dateRange="ngModel"
+      >
+      </tzf-form-field-daterange>
+    </div>
+  </tzf-form-fields>
+
+  <tzf-form-fields [short]="true">
+    <div tzfFormField label="Claim Type">
+      <tzf-form-field-dropdown [options]="claimTypeOptions" [(ngModel)]="data.claimType" name="claimType" valueField="value" textField="name" placeholder="Type?"></tzf-form-field-dropdown>
+    </div>
+    <div tzfFormField label="From Date">
+      <tzf-form-field-datepicker [(ngModel)]="data.serviceFromDate" name="serviceFromDate" placeholder="From?"></tzf-form-field-datepicker>
+    </div>
+    <div tzfFormField label="To Date">
+      <tzf-form-field-datepicker [(ngModel)]="data.serviceToDate" name="serviceToDate" placeholder="To?"></tzf-form-field-datepicker>
+    </div>
+    <button type="submit" [disabled]="fomComponent.invalid || fomComponent.pristine">
+      Click To Disable
+    </button>
+  </tzf-form-fields>
+</form>
+
+<pre>{{ data | json }}</pre>

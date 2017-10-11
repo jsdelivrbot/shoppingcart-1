@@ -1,0 +1,34 @@
+<h3 class="h20m" id="memberinfoformtitle" translate>PROVIDERINFO.TITLE</h3>
+<div class="titledesc">
+  <span class="p17l" id="memebrinfoformdesc" translate>PROVIDERINFO.TITLEDESC</span>
+</div>
+
+
+<form [formGroup]="providerform" (ngSubmit)= "search(providerform.value)">
+
+  <div id="claimtype" class="form-group">
+    <label for="claimtype">{{ 'PROVIDERINFO.CLAIMTYPE' | translate }} </label>
+   <p class="in-between-ele"> <tzf-dropdown id="claimtype" class="combo-size" formControlName="claimType" textField="code"
+      valueField="value" [options]="claimTypeOptions" ></tzf-dropdown>
+  </div>
+  <hr>
+
+  <div id="providernameaddress" class="in-line">
+  <div id="providername" class="form-group">
+      <label for="providername">{{ 'PROVIDERINFO.PROVIDERNAME' | translate }}</label>
+      <p  class="in-between-ele"><tzf-dropdown class="combo-size"  id="providername" formControlName="providername" textField="text"
+      valueField="value"  [options]="providerUIOptions" ></tzf-dropdown></p>
+  </div>
+
+  <div id="serviceaddress" class="form-group">
+    <label for="serviceaddress">{{ 'PROVIDERINFO.SERVICEADDRESS' | translate }}</label>
+     <p  class="in-between-ele"> <tzf-dropdown id="serviceaddress" class="combo-size" formControlName="serviceaddress"
+     textField="text" valueField="value" [options]="providerUIAddressOptions" placeholder="{{'CLAIMSSTATUS.QUICKVIEWDROPDOWN.SELECT' | translate}}"></tzf-dropdown></p>
+
+  </div>
+  </div>
+
+
+
+</form>
+

@@ -1,0 +1,98 @@
+<div class="row service-detail-container margin0" [formGroup]="form" id="service-detail-container-{{index}}">
+  <div class="title col-12">
+    <span class="h18m" [translateParams]="{i:index+1}" translate="SERVICEDETAIL.LINEITEM.TITLE"></span>
+    <span style="float:right;">
+      <span class="p14m add-remove addlineitem"
+      translate="SERVICEDETAIL.LINEITEM.ADDLINEITEM"
+      id="addlineitem" tabindex="0"
+      [attr.title]="'SERVICEDETAIL.LINEITEM.ADDLINEITEM'"
+      *ngIf="index === (form.parent.controls.length-1) && index < (MAXSERVICELINEITEMS-1)"
+      (click)="addLineItem.emit(index)"
+        [inlineSVG]="'assets/icon_add.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+
+      </span>
+      <span class="p14m add-remove removelineitem"
+      translate="SERVICEDETAIL.LINEITEM.DELETELINEITEM"
+      id="removelineitem" tabindex="0"
+      [attr.title]="'SERVICEDETAIL.LINEITEM.DELETELINEITEM'"
+      *ngIf="index"
+      (click)="deleteLineItem.emit(index)"
+        [inlineSVG]="'assets/common/icons/icon_popupClose.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+
+      </span>
+    </span>
+  </div>
+    <div class="col-xl-2 col-md-6 col-sm-12 formgroup">
+      <div  tzfFormField [validation]="form.controls.serviceFromDate" [validationMessages]="valMsg.genericValidationMsg" class="bootstrap-style required servicefrom" label="SERVICEDETAIL.LINEITEM.SERVICEFROM" labelFor="serviceFromDate">
+        <tzf-form-field-datepicker
+         [maxDate]="{ year: serviceMax?.year, month: serviceMax?.month, day: serviceMax?.day}"
+         formControlName="serviceFromDate" id="serviceFromDate" name="serviceFromDate" placeholder="{{'SERVICEDETAIL.LINEITEM.DATEPLACEHOLDER' | translate}}"></tzf-form-field-datepicker>
+      </div>
+      <div  [validation]="form.controls.serviceToDate" [validationMessages]="valMsg.genericValidationMsg" tzfFormField class="bootstrap-style required" label="SERVICEDETAIL.LINEITEM.SERVICETO">
+        <tzf-form-field-datepicker
+        [minDate]="{ year: serviceMin?.year, month: serviceMin?.month, day: serviceMin?.day}"
+        [maxDate]="today" formControlName="serviceToDate" id="serviceToDate" name="serviceToDate" placeholder="{{'SERVICEDETAIL.LINEITEM.DATEPLACEHOLDER' | translate}}"></tzf-form-field-datepicker>
+      </div>
+      <!-- added this dummy element to get away from tzfFormFiled last child style -->
+      <div class="dummy" style="display:none;" tzfFormField></div>
+    </div>
+    <div class="col-xl-2 col-md-6 col-sm-12 formgroup">
+      <div tzfFormField class="bootstrap-style palceofservice required" label="SERVICEDETAIL.LINEITEM.PLACEOFSERVICE">
+        <span id="placeofserviceicon" [inlineSVG]="'assets/common/icons/icon_info.svg'"
+        [cacheSVG]="false" (click)="placeOfServiceInfo.emit()"></span>
+        <tzf-form-field-dropdown valueField="code" textField="code" [options]="placeOfServiceOptions"
+         name="accidentType" formControlName="placeOfService" name="placeOfService"
+                      ></tzf-form-field-dropdown>
+      </div>
+    </div>
+    <div class="col-xl-4 col-md-6 col-sm-12 row margin0 formgroup">
+      <div tzfFormField [validation]="form.controls.procedureCode" [validationMessages]="valMsg.cpt" label="SERVICEDETAIL.LINEITEM.CPT.TITLE" labelFor="procedureCode" class="bootstrap-style col-6 required">
+        <!-- Must also be disabled manually -->
+        <input type="text" (blur)="cptOnBlur()" maxLength="{{CPT_MAX_LENGTH}}"
+        (keydown.enter)="cptSearch()"
+        (keydown.space)="cptSearch()"
+        formControlName="procedureCode" id="procedureCode" name="procedureCode" placeholder="{{'SERVICEDETAIL.LINEITEM.CPT.PLACEHOLDER' | translate}}">
+        <button id="cptLookup" [inlineSVG]="'assets/common/icons/icon_search_blue.svg'"
+        [cacheSVG]="false" (click)="cptSearch()"  class="lookup-button"></button>
+      </div>
+      <div tzfFormField [validation]="form.controls.procedureModifier" [validationMessages]="valMsg.genericValidationMsg" label="SERVICEDETAIL.LINEITEM.MODIFIERS" labelFor="procedureModifier" class="bootstrap-style col-6">
+        <!-- Must also be disabled manually -->
+        <input type="text" id="procedureModifier" maxlength="{{MODIFIERS_MAX_LENGTH}}" formControlName="procedureModifier" name="procedureModifier" placeholder="{{'SERVICEDETAIL.LINEITEM.MODIFIERS' | translate}}">
+      </div>
+      <div tzfFormField label="NDC Code" labelFor="drugDetails" class="bootstrap-style col-6">
+        <!-- Must also be disabled manually -->
+        <!--<input type="text" value=""id="ndcPlaceholder" name="ndcPlaceholder" formControlName="ndcPlaceholder" placeholder="NDC Code" readonly="readonly">-->
+        <input type="text" [value]="viewNdcCode" id="drugDetails" name="drugDetails" formControlName="drugDetails" placeholder="NDC Code" (keydown)="ndcSearch($event)">
+        <button id="ndcLookup" [inlineSVG]="'assets/common/icons/icon_search_blue.svg'"
+        [cacheSVG]="false" (click)="ndcSearch()" class="lookup-button"></button>
+        <!--<input type="hidden" id="drugDetails" name="drugDetails" formControlName="drugDetails" placeholder="NDC Code" readonly="readonly">-->
+      </div>
+      <div tzfFormField [validation]="form.controls.serviceLocationZipCode" [validationMessages]="valMsg.ambulancePickUpZip" label="SERVICEDETAIL.LINEITEM.AMBULANCEZIP" labelFor="abulancezip" class="bootstrap-style col-6">
+        <!-- Must also be disabled manually -->
+        <input type="text" id="abulancezip" maxlength="{{AMB_ZIP_MAX_LENGTH}}" formControlName="serviceLocationZipCode" name="abulancezip" placeholder="{{'SERVICEDETAIL.LINEITEM.AMBULANCEZIP' | translate}}">
+      </div>
+    </div>
+    <div class="col-xl-4 col-md-6 col-sm-12 row margin0 formgroup">
+       <div tzfFormField  label="Diagnosis" [validation]="form.controls.diagnosisCode"
+       [validationMessages]="valMsg.diagnosisCodes" labelFor="diagnosis-{{index}}" class="bootstrap-style col-12 required diagnosiscode">
+        <!-- Must also be disabled manually -->
+        <input type="text" id="diagnosis-{{index}}" name="diagnosis-{{index}}"
+        formControlName="diagnosisCode"
+        [value]="viewDiagnosisCode"
+        (blur) = "diagnosisCodeOnBlur()"
+        (focus)="diagnosisCodeOnFocus()"
+        (keydown.enter)="diagnosisLookUp.emit(form)"
+        (keydown.space)="diagnosisLookUp.emit(form)" placeholder="Diagnosis Code (1-8 Codes)">
+        <button id="diagnosis-{{index}}" [inlineSVG]="'assets/common/icons/icon_search_blue.svg'"
+        [cacheSVG]="false" (click)="diagnosisLookUp.emit(form)" class="lookup-button"></button>
+      </div>
+      <div tzfFormField label="Charge" [validation]="form.controls.chargedAmount" [validationMessages]="valMsg.currency"  labelFor="chargedAmount" class="bootstrap-style required col-6">
+        <!-- Must also be disabled manually -->
+        <input type="text" [value]="viewCurrencyValue"  id="chargedAmount" name="chargedAmount" formControlName="chargedAmount" (blur)="changeCurrency()" placeholder="Charge Amount">
+      </div>
+      <div tzfFormField label="Units" [validation]="form.controls.units" [validationMessages]="valMsg.currency" labelFor="units" class="bootstrap-style required col-6">
+        <!-- Must also be disabled manually -->
+        <input type="text" id="units" max="9999" maxlength="4" name="units" formControlName="units" placeholder="Units">
+      </div>
+    </div>
+</div>

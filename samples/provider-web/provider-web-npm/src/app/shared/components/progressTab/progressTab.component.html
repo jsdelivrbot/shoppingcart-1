@@ -1,0 +1,10 @@
+<div class="progress-tab" id="progress-tab">
+  <div class="tab-content">
+    <ng-content></ng-content>
+  </div>
+  <div class="footer">
+    <button (click)="onNext()" class="btn btn-primary align-end" [disabled]="_disabled" translate>{{nextButtonText}}</button>
+    <button type="button" [attr.id]="action.id" *ngFor="let action of actions" class="btn btn-secondary align-end" (click)="doAction(action.id)"
+      [disabled]="action.disabled" translate>{{ action.text }}</button>
+</div>
+</div>

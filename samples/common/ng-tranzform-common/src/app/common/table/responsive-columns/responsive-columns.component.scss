@@ -1,0 +1,38 @@
+.colTable {
+  display: none;
+  width: 100%;
+}
+
+:host-context([visibleColumns]) {
+  .colTable {
+    display: table;
+  }
+}
+
+tr {
+  display: none;
+}
+
+:host-context([visibleColumns="1"]) tr:nth-child(1) ~ tr,
+:host-context([visibleColumns="2"]) tr:nth-child(2) ~ tr,
+:host-context([visibleColumns="3"]) tr:nth-child(3) ~ tr,
+:host-context([visibleColumns="4"]) tr:nth-child(4) ~ tr,
+:host-context([visibleColumns="5"]) tr:nth-child(5) ~ tr,
+:host-context([visibleColumns="6"]) tr:nth-child(6) ~ tr,
+:host-context([visibleColumns="7"]) tr:nth-child(7) ~ tr,
+:host-context([visibleColumns="8"]) tr:nth-child(8) ~ tr,
+:host-context([visibleColumns="9"]) tr:nth-child(9) ~ tr,
+:host-context([visibleColumns="10"]) tr:nth-child(10) ~ tr,
+:host-context([visibleColumns="11"]) tr:nth-child(11) ~ tr,
+:host-context([visibleColumns="12"]) tr:nth-child(12) ~ tr,
+:host-context([visibleColumns="13"]) tr:nth-child(13) ~ tr,
+:host-context([visibleColumns="14"]) tr:nth-child(14) ~ tr,
+:host-context([visibleColumns="15"]) tr:nth-child(15) ~ tr {
+  display: table-row;
+}
+
+.rowHeader {
+  padding-right: 1em;
+  white-space: nowrap;
+  width: 1px;
+}

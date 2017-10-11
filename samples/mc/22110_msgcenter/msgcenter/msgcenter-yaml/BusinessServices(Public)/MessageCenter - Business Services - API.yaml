@@ -1,0 +1,946 @@
+swagger: '2.0'
+info:
+  version: 1.00.004.001
+  title: Message Center
+host: '127.0.0.1:8080'
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /msgcenter-web/tzf
+paths:
+  /conversation:
+    post:
+      tags:
+        - Message Center
+      summary: Create a Conversation
+      description: 
+        Member initiates a conversation. They can either send it to CSR or can
+        save it to drafts. The actiontype should be "send" when sending it to
+        the CSR, and "draft" when saving it to drafts.
+      operationId: saveConversation
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: action
+          in: query
+          description: 
+            Indicates whether the conversation is to be sent or saved to drafts.
+            The actiontype should be "send" when sending it to the CSR, and
+            "draft" when saving it to drafts.
+          required: true
+          type: string
+          enum:
+            - send
+            - draft
+        - in: body
+          name: conversationData
+          required: true
+          description: All the mandatory information that is needed.
+          schema:
+            $ref: '#/definitions/saveConversation'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+  /message:
+    post:
+      tags:
+        - Message Center
+      summary: Send Message in Existing Conversation
+      description: 
+        This API will be used by the member to send a message in the existing
+        conversation.
+      operationId: saveMessage
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: action
+          in: query
+          required: true
+          type: string
+          enum:
+            - send
+            - draft
+        - in: body
+          name: messageBody
+          required: true
+          schema:
+            $ref: '#/definitions/saveMessage'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+  /message/reply:
+    post:
+      tags:
+        - Message Center
+      summary: Create CSR Reply to Message
+      description: 
+        This API will be used by the CSR to reply a message in the existing
+        conversation.
+      operationId: saveMessageReply
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: messageBody
+          required: true
+          schema:
+            $ref: '#/definitions/saveMessageReply'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+  /messages:
+    get:
+      tags:
+        - Message Center
+      summary: Get Conversation Messages
+      description: 'Get messages in a conversation, based on query parameters.'
+      operationId: getConversationMessages
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: type
+          in: query
+          required: true
+          type: string
+          default: inbox
+          enum:
+            - inbox
+            - sent
+            - draft
+            - trash
+        - name: sortby
+          in: query
+          required: true
+          type: string
+          default: modifiedDate
+          enum:
+            - createdDate
+            - modifiedDate
+            - conversationCategory
+            - subject
+        - name: orderby
+          in: query
+          required: true
+          type: string
+          default: desc
+          enum:
+            - asc
+            - desc
+        - name: conversationcategory
+          in: query
+          type: string
+          description: conversationCategory  in the converasation
+        - name: readindicator
+          in: query
+          type: boolean
+          description: Read Indicator specifying if the message has been read or unread
+      responses:
+        '200':
+          description: 'Get all the conversations for inbox,draft,trash and sent items'
+          schema:
+            $ref: '#/definitions/MessageListVO'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/InvalidRequest'
+  '/message/{messageid}':
+    put:
+      tags:
+        - Message Center
+      summary: Update Read Indicator on Message
+      description: 
+        This API will be used by the member to update the read indicator. THey
+        can mark the message as READ or UNREAD.
+      operationId: updateReadIndicator
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: messageid
+          in: path
+          required: true
+          type: string
+        - name: readtype
+          in: query
+          required: true
+          type: string
+          enum:
+            - markread
+            - markunread
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+    delete:
+      tags:
+        - Message Center
+      summary: Delete Message
+      description: Delete a message by ID.
+      operationId: deleteMessage
+      parameters:
+        - name: messageid
+          in: path
+          required: true
+          type: string
+        - name: type
+          in: query
+          required: true
+          type: string
+          enum:
+            - inbox
+            - sent
+            - draft
+            - trash
+      responses:
+        '200':
+          description: Deleting the Message
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+    get:
+      tags:
+        - Message Center
+      summary: Get Trail Messages
+      description: 
+        Get trail messages. The messages that are returned are determined using
+        the messagetype query parameter.
+      operationId: Get Trail Messages
+      parameters:
+        - name: messageid
+          in: path
+          required: true
+          type: string
+        - name: type
+          in: query
+          required: true
+          type: string
+          enum:
+            - inbox
+            - sent
+            - draft
+            - trash
+      responses:
+        '200':
+          description: Retrieving the trail messages
+          schema:
+            $ref: '#/definitions/MessageListTrailVO'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+  /v2/message:
+    post:
+      tags:
+        - Message Center V2
+      summary: Send Message
+      description: 'This API will be used by the member/provider to send a message '
+      operationId: saveMessageV2
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: action
+          in: query
+          required: true
+          type: string
+          enum:
+            - send
+            - draft
+        - name: context
+          in: query
+          description: 
+            Indicates whether the conversation was initiated from
+            MEMBER/PROVIDER
+          type: string
+          enum:
+            - MEMBER
+            - PROVIDER
+        - in: body
+          name: messageBody
+          required: true
+          schema:
+            $ref: '#/definitions/saveMessageV2'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+  /v2/message/reply:
+    post:
+      tags:
+        - Message Center V2
+      summary: Create CSR Reply to Message
+      description: 
+        This API will be used by the CSR to reply a message in the existing
+        conversation.
+      operationId: saveMessageReplyV2
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: messageBody
+          required: true
+          schema:
+            $ref: '#/definitions/saveMessageReplyV2'
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+  /v2/messages:
+    get:
+      tags:
+        - Message Center V2
+      summary: Get Messages
+      description: 'Get messages in a conversation, based on query parameters.'
+      operationId: getConversationMessagesV2
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: type
+          in: query
+          required: true
+          type: string
+          default: inbox
+          enum:
+            - inbox
+            - sent
+            - draft
+            - trash
+        - name: sortby
+          in: query
+          required: true
+          type: string
+          default: modifiedDate
+          enum:
+            - createdDate
+            - modifiedDate
+            - conversationCategory
+            - subject
+        - name: orderby
+          in: query
+          required: true
+          type: string
+          default: desc
+          enum:
+            - asc
+            - desc
+        - name: conversationcategory
+          in: query
+          type: string
+          description: conversationCategory  in the converasation
+        - name: readindicator
+          in: query
+          type: boolean
+          description: Read Indicator specifying if the message has been read or unread
+      responses:
+        '200':
+          description: 'Get all the conversations for inbox,draft,trash and sent items'
+          schema:
+            $ref: '#/definitions/MessageListVOV2'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/InvalidRequest'
+  '/v2/message/{messageid}':
+    put:
+      tags:
+        - Message Center V2
+      summary: Update Read Indicator on Message
+      description: 
+        This API will be used by the member to update the read indicator. THey
+        can mark the message as READ or UNREAD.
+      operationId: updateReadIndicatorV2
+      produces:
+        - application/json
+      consumes:
+        - application/json
+      parameters:
+        - name: messageid
+          in: path
+          required: true
+          type: string
+        - name: readtype
+          in: query
+          required: true
+          type: string
+          enum:
+            - markread
+            - markunread
+      responses:
+        '200':
+          description: successful operation
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+    delete:
+      tags:
+        - Message Center V2
+      summary: Delete Message
+      description: Delete a message by ID.
+      operationId: deleteMessageV2
+      parameters:
+        - name: messageid
+          in: path
+          required: true
+          type: string
+        - name: type
+          in: query
+          required: true
+          type: string
+          enum:
+            - inbox
+            - sent
+            - draft
+            - trash
+      responses:
+        '200':
+          description: Deleting the Message
+          schema:
+            $ref: '#/definitions/StatusInfo'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+    get:
+      tags:
+        - Message Center V2
+      summary: Get Message detail and Trail Messages
+      description: 
+        Get message detail and trail messages. The messages that are returned are determined using
+        the messagetype query parameter.
+      operationId: Get Trail Messages V2
+      parameters:
+        - name: messageid
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Retrieving the trail messages
+          schema:
+            $ref: '#/definitions/MessageListTrailVOV2'
+        '422':
+          description: 
+            Error Scenarios. Please refer the wiki link for various error
+            scenarios
+          schema:
+            $ref: '#/definitions/ErrorVO'
+definitions:
+  InvalidRequest:
+    type: object
+    properties:
+      httpStatus:
+        type: string
+        description: HTTP Status code for BAd request
+      message:
+        type: string
+        description: No Matching Records found
+  ErrorVO:
+    type: object
+    properties:
+      errorNumber:
+        type: integer
+        description: errorCode
+      errors:
+        type: array
+        description: Errors
+        items:
+          $ref: '#/definitions/errors'
+  errors:
+    type: object
+    properties:
+      fieldName:
+        type: string
+        description: Field Name
+      ErrorCode:
+        type: integer
+        description: Error Code
+      message:
+        type: string
+        description: Error Message
+  MessageListVO:
+    type: object
+    properties:
+      metaInfo:
+        type: object
+        additionalProperties:
+          type: string
+      messages:
+        type: array
+        items:
+          $ref: '#/definitions/MessageVO'
+  MessageListTrailVO:
+    type: object
+    properties:
+      messages:
+        type: array
+        items:
+          $ref: '#/definitions/MessageVO'
+  saveConversation:
+    type: object
+    properties:
+      conversationCategory:
+        type: string
+        description: conversationCategory  in the converasation
+      subject:
+        type: string
+        description: subject  in the converasation
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+  saveMessage:
+    type: object
+    properties:
+      conversationId:
+        type: string
+        description: Conversation Id to which the member is replying
+      messageId:
+        type: string
+        description: Mesage Id to which the member is replying
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+      conversationCategory:
+        type: string
+        description: conversationCategory  in the converasation
+      subject:
+        type: string
+        description: subject  in the converasation
+  saveMessageReply:
+    type: object
+    properties:
+      tenantEnrollmentId:
+        type: string
+        description: tenantEnrollmentId of the user to whom the reply need to be send.
+      messageId:
+        type: string
+        description: reply for message having messageId
+      conversationId:
+        type: string
+        description: conversationId in the converasation
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+  MessageVO:
+    type: object
+    properties:
+      messageId:
+        type: string
+        description: messageId in the converasation
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+      messageCategory:
+        type: string
+        description: messageCategory in the converasation
+        enum:
+          - INBOUND
+          - OUTBOUND
+      messageStatus:
+        type: string
+        description: messageStatus in the converasation
+        enum:
+          - ACTIVE
+          - DRAFT
+          - DELETE
+      createdDate:
+        type: string
+        description: createdDate in the converasation
+      modifiedDate:
+        type: string
+        description: modifiedDate in the converasation
+      readIndicator:
+        type: boolean
+        description: Read Indicator specifying if the message has been read or unread
+  MessageListVOV2:
+    type: object
+    properties:
+      metaInfo:
+        type: object
+        additionalProperties:
+          type: string
+      messages:
+        type: array
+        items:
+          $ref: '#/definitions/MessageVOV2'
+  MessageListTrailVOV2:
+    type: object
+    properties:
+      messages:
+        type: array
+        items:
+          $ref: '#/definitions/MessageDetailVOV2'
+  RecipientV2:
+    type: object
+    required:
+      - recipientUserType
+      - recipientId
+    properties:
+      recipientUserType:
+        type: string
+        description: userType of the recipient
+      recipientId:
+        type: string
+        description: unique Id corresponding to the recipient
+      recipientName:
+        type: string
+        description: name of the recipient
+  SenderV2:
+    type: object
+    properties:
+      senderUserType:
+        type: string
+        description: userType of the sender
+      senderId:
+        type: string
+        description: unique Id corresponding to the person who sent the message
+      senderName:
+        type: string
+        description: name of the person who sent the message
+  saveMessageV2:
+    type: object
+    properties:
+      messageId:
+        type: string
+        description: Mesage Id to which the member is replying
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+      conversationCategory:
+        type: string
+        description: conversationCategory  in the converasation
+      subject:
+        type: string
+        description: subject  in the converasation
+      recipients:
+        type: array
+        items:
+          $ref: '#/definitions/RecipientV2'
+      messageType:
+        type: string
+        enum:
+          - REPLY
+          - FORWARD
+          - NEW
+      attachment:
+        $ref: '#/definitions/Attachment'
+  Attachment:
+    type: object
+    properties:
+      attachmentType:
+        type: string
+        description: Attachment type
+        enum: 
+          - application/patient
+          - application/document
+      attachmentInfo:
+        type: array
+        items:
+          $ref: '#/definitions/AttachmentInfo'
+  AttachmentInfo:
+    type: object
+    properties:
+      patientInfo:
+        $ref: '#/definitions/PatientInfo'
+      claimInfo:
+        type: array
+        items:
+          $ref: '#/definitions/ClaimInfo'
+  PatientInfo:
+    type: object
+    properties:
+      tenantEnrollmentId:
+        type: string
+        description: TenantEnrollmentId of the member selected
+      subscriberId:
+        type: string
+        description: Subscriber Id
+      firstName:
+        type: string
+        description: First name of the member
+      lastName:
+        type: string
+        description: Last name of the member
+      dob:
+        type: string
+        description: Date of birth of the member
+      gender:
+        type: string
+        description: Gender
+      uri:
+        type: string
+        description: Patient information url
+  ClaimInfo:
+    type: object
+    properties:
+      claimId:
+        type: string
+        description: Claim Id
+      claimType:
+        type: string
+        description: Claim type
+      uri:
+        type: string
+        description: claim detail url
+  saveMessageReplyV2:
+    type: object
+    properties:
+      tenantEnrollmentId:
+        type: string
+        description: tenantEnrollmentId of the user to whom the reply need to be send.
+      messageId:
+        type: string
+        description: reply for message having messageId
+      conversationId:
+        type: string
+        description: conversationId in the converasation
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+  MessageVOV2:
+    type: object
+    properties:
+      messageId:
+        type: string
+        description: messageId in the converasation
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+      messageStatus:
+        type: string
+        description: messageStatus in the converasation
+        enum:
+          - ACTIVE
+          - DRAFT
+          - DELETE
+      createdBy:
+        type: string
+        description: 
+          createdBy will be the provider userId if created by Provider and CSR
+          Id if it was sent by CSR on behalf of provider
+      createdDate:
+        type: string
+        description: createdDate in the converasation
+      modifiedDate:
+        type: string
+        description: modifiedDate in the converasation
+      conversationCategory:
+        type: string
+        description: conversationCategory  in the converasation
+      subject:
+        type: string
+        description: subject  in the converasation
+      readIndicator:
+        type: boolean
+        description: Read Indicator specifying if the message has been read or unread
+      isFwd:
+        type: boolean
+        description: Whether it is forwarded message or not.
+      sender:
+        $ref: '#/definitions/SenderV2'
+  MessageDetailVOV2:
+    type: object
+    properties:
+      messageId:
+        type: string
+        description: messageId in the converasation
+      messageBody:
+        type: string
+        description: messageBody in the converasation
+      messageStatus:
+        type: string
+        description: messageStatus in the converasation
+        enum:
+          - ACTIVE
+          - DRAFT
+          - DELETE
+      createdBy:
+        type: string
+        description: 
+          createdBy will be the provider userId if created by Provider and CSR
+          Id if it was sent by CSR on behalf of provider
+      createdDate:
+        type: string
+        description: createdDate in the converasation
+      modifiedDate:
+        type: string
+        description: modifiedDate in the converasation
+      conversationCategory:
+        type: string
+        description: conversationCategory  in the converasation
+      subject:
+        type: string
+        description: subject  in the converasation
+      readIndicator:
+        type: boolean
+        description: Read Indicator specifying if the message has been read or unread
+      recipients:
+        type: array
+        items:
+          $ref: '#/definitions/RecipientV2'
+      sender:
+        $ref: '#/definitions/SenderV2'
+      attachment:
+        $ref: '#/definitions/Attachment'
+  StatusInfo:
+    type: object
+    properties:
+      httpStatus:
+        type: string
+        description: HTTP Status
+        enum:
+          - CONTINUE
+          - SWITCHING_PROTOCOLS
+          - PROCESSING
+          - CHECKPOINT
+          - OK
+          - CREATED
+          - ACCEPTED
+          - NON_AUTHORITATIVE_INFORMATION
+          - NO_CONTENT
+          - RESET_CONTENT
+          - PARTIAL_CONTENT
+          - MULTI_STATUS
+          - ALREADY_REPORTED
+          - IM_USED
+          - MULTIPLE_CHOICES
+          - MOVED_PERMANENTLY
+          - FOUND
+          - MOVED_TEMPORARILY
+          - SEE_OTHER
+          - NOT_MODIFIED
+          - USE_PROXY
+          - TEMPORARY_REDIRECT
+          - PERMANENT_REDIRECT
+          - BAD_REQUEST
+          - UNAUTHORIZED
+          - PAYMENT_REQUIRED
+          - FORBIDDEN
+          - NOT_FOUND
+          - METHOD_NOT_ALLOWED
+          - NOT_ACCEPTABLE
+          - PROXY_AUTHENTICATION_REQUIRED
+          - REQUEST_TIMEOUT
+          - CONFLICT
+          - GONE
+          - LENGTH_REQUIRED
+          - PRECONDITION_FAILED
+          - PAYLOAD_TOO_LARGE
+          - REQUEST_ENTITY_TOO_LARGE
+          - URI_TOO_LONG
+          - REQUEST_URI_TOO_LONG
+          - UNSUPPORTED_MEDIA_TYPE
+          - REQUESTED_RANGE_NOT_SATISFIABLE
+          - EXPECTATION_FAILED
+          - I_AM_A_TEAPOT
+          - INSUFFICIENT_SPACE_ON_RESOURCE
+          - METHOD_FAILURE
+          - DESTINATION_LOCKED
+          - UNPROCESSABLE_ENTITY
+          - LOCKED
+          - FAILED_DEPENDENCY
+          - UPGRADE_REQUIRED
+          - PRECONDITION_REQUIRED
+          - TOO_MANY_REQUESTS
+          - REQUEST_HEADER_FIELDS_TOO_LARGE
+          - INTERNAL_SERVER_ERROR
+          - NOT_IMPLEMENTED
+          - BAD_GATEWAY
+          - SERVICE_UNAVAILABLE
+          - GATEWAY_TIMEOUT
+          - HTTP_VERSION_NOT_SUPPORTED
+          - VARIANT_ALSO_NEGOTIATES
+          - INSUFFICIENT_STORAGE
+          - LOOP_DETECTED
+          - BANDWIDTH_LIMIT_EXCEEDED
+          - NOT_EXTENDED
+          - NETWORK_AUTHENTICATION_REQUIRED
+      messageId:
+        type: string
+        description: Message Id in the converasation
+      message:
+        type: string
+        description: Message  in the converasation
+####################################################################################
+##
+##    Please Refer the wiki link for Request and Response.
+##    https://doc.trizetto.com/display/TTD/Tranzform+%3A+Message+Center
+##
+####################################################################################

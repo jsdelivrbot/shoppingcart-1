@@ -1,0 +1,13 @@
+#infoicon /deep/ {
+  float: left;
+  margin-right: 5px;
+  svg {
+      width: 1.2em;
+      height:1.2em;
+      position: relative;
+      top: 3px;
+      path{
+          fill: grey;
+      }
+    }
+}

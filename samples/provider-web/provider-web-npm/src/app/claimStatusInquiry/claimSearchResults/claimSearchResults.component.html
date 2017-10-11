@@ -1,0 +1,93 @@
+<tzf-parent-route-content id="claimResults" [toChild]="claim">
+<app-claim-search-form *ngIf="inputCriteria" [searchCriteria]="inputCriteria" [configuration]="configuration"
+    (onSearch)="searchClaims($event)" [fromQuickView]="fromQuickView"></app-claim-search-form>
+<p class="h20m claimsSearchResultCount" *ngIf="!totalRecordCount" id="claimsSearchResultCount" >{{'CLAIMSSTATUS.RESULTCOUNTNONE' | translate}}</p>
+<p class="h20m claimsSearchResultCount" *ngIf="totalRecordCount" id="claimsSearchResultCount" >{{totalRecordCount | i18plural:messages | translate:{length: totalRecordCount} }}
+  <span class="pdfExcelPlaceHolder p14r">{{'VIEWANDPRINTSUMMARY' | translate}}
+    <a  id="pdfDownload"
+        tabindex="0"
+        attr.title="{{'PDF' | translate }}"
+        [inlineSVG]="'assets/icon_pdf.svg'"
+        [cacheSVG]="false"
+        [prepend]="true"
+        (click) = "downloadFile(AppConfig.PDF)"
+        [replaceContents]="false">
+          {{'PDF' | translate }}
+    </a> |
+    <a  id="excelDownload"
+        tabindex="0"
+        attr.title="{{'EXCEL' | translate }}"
+        [inlineSVG]="'assets/icon_excel.svg'"
+        [cacheSVG]="false"
+        [prepend]="true"
+        (click) = "downloadFile(AppConfig.EXCEL)"
+        [replaceContents]="false">
+          {{'EXCEL' | translate }}
+    </a>
+  </span>
+</p>
+
+
+<div  id="datatable" *ngIf="totalRecordCount">
+<p-dataTable
+  id="searchresults"
+  [value]="claimSearchResults"
+  [expandableRows]="true"
+  (responsiveColumns)="columns = $event"
+  [responsiveExpander]="true"
+
+>
+  <!-- Always specify the "expander" styleClass for the expander column -->
+  <p-column expander="true" styleClass="expander"></p-column>
+    <p-column  field="{{items.field}}" header="{{items.header}}" [responsiveWidth]="200" *ngFor="let items of claimDetailTable">
+
+    <ng-template let-col let-row="rowData" pTemplate="body" *ngIf="items.field=='claimId'">
+      <a (click)="view(row)" routerLink="">{{row[col.field]}}</a>
+    </ng-template>
+
+    <ng-template let-col let-row="rowData" pTemplate="body" *ngIf="items.field=='serviceProviderName'">
+      <p class="providername">{{row[col.field]}}</p>
+    </ng-template>
+
+    <ng-template let-col let-row="rowData" pTemplate="body" *ngIf="items.field=='lowServiceDate'">
+      <p class="servicedates">{{row[col.field] |date:AppConfig.DateFormat}}-{{row.highServiceDate|date:AppConfig.DateFormat}}</p>
+    </ng-template>
+
+    <ng-template let-col let-row="rowData" pTemplate="body" *ngIf="items.field=='claimStatus'">
+     <span [ngClass]="{'pending': row[col.field]===claimStatusConst.pending, 'finalized': row[col.field]===claimStatusConst.finalized,'received':row[col.field]===claimStatusConst.received}" >{{ row[col.field] }}</span>
+    </ng-template>
+
+    <ng-template let-col let-row="rowData" pTemplate="body" *ngIf="items.header=='Alert'">
+      <a class="p12b alert" id="alerticon"
+      *ngIf="row.claimStatus===claimStatusConst.finalized && row[col.field]==0"
+      [attr.title]="Alert"
+            [inlineSVG]="'assets/icon_warning.svg'"
+            [cacheSVG]="false"
+            [prepend]="true"
+            [replaceContents]="false">
+          </a>
+     </ng-template>
+
+     <ng-template let-col let-row="rowData" pTemplate="body" *ngIf="items.field=='memberDOB'||items.field=='claimRecievedDate'||items.field=='claimPaidDate'">
+      {{row[col.field] |date:AppConfig.DateFormat}}
+     </ng-template>
+     <ng-template let-col let-row="rowData" pTemplate="body" *ngIf="(items.field=='totalPaidAmount'&&items.header=='Paid Amount')||items.field=='totalChargedAmount'">
+      {{row[col.field] |currency:AppConfig.currency:true:AppConfig.currencyPrecision}}
+     </ng-template>
+  </p-column>
+  <ng-template pTemplate="rowexpansion" let-row>
+    <tzf-responsive-columns class="responsivetable"
+      [row]="row"
+      [columns]="columns"
+    ></tzf-responsive-columns>
+  </ng-template>
+</p-dataTable>
+</div>
+<tzf-pagination *ngIf="pageSize>1"
+  [collectionSize]="pageSize"
+  [pageSize]="1"
+  (pageChange)="onPageChange($event)"
+></tzf-pagination>
+
+</tzf-parent-route-content>
+

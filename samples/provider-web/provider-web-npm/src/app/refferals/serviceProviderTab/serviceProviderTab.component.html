@@ -1,0 +1,61 @@
+<div class="main-container">
+  <h2 class="title margin0" translate="REFERRALS.CREATE.SERVICEPROVIDER.TITLE"></h2>
+  <p class="desc" translate="REFERRALS.CREATE.SERVICEPROVIDER.DESC"></p>
+  <div class="form" [formGroup]="form" id="service-provider">
+    <fieldset class="search-by">
+      <ul>
+        <li>
+          <label for="pro-name">
+            <input type="radio" name="searchBy" id="pro-name" value="{{PRO_NAME}}" formControlName="searchBy" />
+            <span class="styledInput"></span>
+            {{ 'REFERRALS.CREATE.SERVICEPROVIDER.PROVIDERNAME' | translate}}
+            </label>
+        </li>
+        <li><label for="org-name">
+          <input type="radio" name="searchBy" id="org-name" value="{{ORG_NAME}}" formControlName="searchBy"/>
+          <span class="styledInput"></span>
+          {{ 'REFERRALS.CREATE.SERVICEPROVIDER.ORGANIZATIONNAME' | translate}}
+          </label>
+        </li>
+      </ul>
+    </fieldset >
+    <div class="row margin0" *ngIf="form.value.searchBy===PRO_NAME" id="by-providername">
+      <fieldset id="npi-form" class="col-xl-3 col-lg-12 padding0" [formGroup]="form.controls.npiForm">
+      <div tzfFormField [validation]="form.controls.npiForm.controls.npi"
+          [validationMessages]="valMsg.npi" label="REFERRALS.CREATE.SERVICEPROVIDER.NPI"
+         labelFor="npi" class="required bootstrap-style">
+        <input type="text" formControlName="npi" id="npi" name="npi" maxlength="10"
+        [validateOnBlur]="form.controls.npiForm.controls.npi" [validators]="npiValidators"
+          [required]="!form.controls.nameForm.value.lastname"
+          placeholder="{{'REFERRALS.CREATE.SERVICEPROVIDER.NPI' | translate}}">
+      </div>
+    </fieldset>
+    <div class="col-xl-2 col-lg-12">
+      <hr class="bootstrap-style divider-line">
+    </div>
+    <fieldset id="name-form" class="col-xl-7 col-lg-12 padding0" [formGroup]="form.controls.nameForm">
+      <div class="row margin0 nameform">
+        <div tzfFormField [validation]="form.controls.nameForm.controls.lastname"
+          [validationMessages]="valMsg.name" label="REFERRALS.CREATE.SERVICEPROVIDER.LASTNAME"
+         labelFor="lastname" class="col-xl-5 col-md-5 required bootstrap-style">
+        <input type="text" formControlName="lastname" id="lastname" name="lastname" 
+        minlength="2"
+        maxlength="25"
+          [required]="!form.controls.npiForm.value.npi"
+          placeholder="{{'REFERRALS.CREATE.SERVICEPROVIDER.LASTNAME' | translate}}">
+      </div>
+      <div tzfFormField [validation]="form.controls.nameForm.controls.firstname"
+          [validationMessages]="valMsg.name" label="REFERRALS.CREATE.SERVICEPROVIDER.FIRSTNAME"
+         labelFor="lastname" class="col-xl-5 col-md-5  bootstrap-style">
+        <input type="text" formControlName="firstname" id="lastname" name="lastname" maxlength="25"
+          placeholder="{{'REFERRALS.CREATE.SERVICEPROVIDER.FIRSTNAME' | translate}}">
+      </div>
+      <button [inlineSVG]="'assets/common/icons/icon_search.svg'"
+      [disabled]="form.invalid || form.pristine"
+          [cacheSVG]="false" type="submit" class="btn btn-primary small"></button>
+      </div>
+    </fieldset>
+    </div>
+
+  </div>
+</div>

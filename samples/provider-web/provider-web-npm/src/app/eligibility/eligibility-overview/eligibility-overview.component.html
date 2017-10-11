@@ -1,0 +1,47 @@
+<div class="patient-overview">
+<tzf-form-fields>
+  <div tzfFormField id="patientOverviewStatus" [ngClass]="{'inactive':searchResult?.eligibilityStatus!=eligible,'active':searchResult?.eligibilityStatus===eligible}">
+    <div class="row">
+      <div class="col-2">
+        <span *ngIf="searchResult?.eligibilityStatus===eligible" [cacheSVG]="false" [prepend]="true" [replaceContents]="false" [inlineSVG]="'/assets/icon_tick.svg'"></span>
+        <span *ngIf="searchResult?.eligibilityStatus!=eligible" [cacheSVG]="false" [prepend]="true" [replaceContents]="false" [inlineSVG]="'/assets/icon_hide.svg'"></span>
+      </div>
+      <div class="col-10">
+        <span>{{'ELIGIBILITY.PATIENTOVERVIEW.STATUS' | translate}}<br/></span>
+        <span class="h20b status" translate>{{searchResult?.eligibilityStatus!=eligible?'ELIGIBILITY.PATIENTOVERVIEW.INACTIVE':'ELIGIBILITY.PATIENTOVERVIEW.ACTIVE'}}</span>
+      </div>
+    </div>
+  </div>
+  <div tzfFormField id="patientOverviewProfile">
+    <div class="row">
+      <div class="col-lg-5 col-md-12"><span>{{'ELIGIBILITY.PATIENTOVERVIEW.PATIENT' | translate}}</span></div>
+      <div class="col-lg-7">
+        <span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails">{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.lastName}}<span *ngIf="searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.lastName">,&nbsp;</span>{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.firstName}} {{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.middleName}}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-md-12"><span>{{'ELIGIBILITY.PATIENTOVERVIEW.DOB' | translate}}</span></div>
+      <div class="col-lg-7"><span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails">{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.dateOfBirth |date:AppConfig.DateFormat}}</span></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-5 col-md-12"><span>{{'ELIGIBILITY.PATIENTOVERVIEW.GENDER' | translate}}</span></div>
+      <div class="col-lg-7">
+        <span class="p14b"  *ngIf="searchResult?.profile?.MemberPersonalDetails" translate>{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.gender===male?'ELIGIBILITY.PATIENTOVERVIEW.MALE':'ELIGIBILITY.PATIENTOVERVIEW.FEMALE'}}</span></div>
+    </div>
+  </div>
+  <div tzfFormField id="patientOverviewPlan">
+    <div class="row">
+      <div class="col-lg-4 col-md-12"><span>{{'ELIGIBILITY.PATIENTOVERVIEW.PLAN' | translate}}</span></div>
+      <div class="col-lg-8"><span class="p14b" *ngIf="searchResult?.enrollment">{{searchResult?.enrollment[0]?.attributeDetails?.planName}}</span></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-12"><span>{{'ELIGIBILITY.PATIENTOVERVIEW.MEMBER' | translate}}</span></div>
+      <div class="col-lg-8"><span class="p14b">{{searchResult?.tenantEnrollmentId}}</span></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-12"><span>{{'ELIGIBILITY.PATIENTOVERVIEW.DATE' | translate}}</span></div>
+      <div class="col-lg-8">{{'ELIGIBILITY.PATIENTOVERVIEW.FROM' | translate}}&nbsp;<span class="p14b">{{searchedParams?.servicefromdate |date:AppConfig.DateFormat}}</span>&nbsp;{{'ELIGIBILITY.PATIENTOVERVIEW.TO' | translate}}&nbsp;<span class="p14b">{{searchedParams?.servicetodate |date:AppConfig.DateFormat}}</span></div>
+    </div>
+  </div>
+</tzf-form-fields>
+</div>

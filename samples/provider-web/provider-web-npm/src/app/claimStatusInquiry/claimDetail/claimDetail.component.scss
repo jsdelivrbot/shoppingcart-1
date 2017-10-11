@@ -1,0 +1,201 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+
+.claim-status-strip {
+  > div {
+    padding: 10px;
+  }
+  margin-bottom:10px;
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+	background-color: white;
+    span.status-label {
+      color:#5d5d5d;
+    }
+    .pending{
+        background-color:#F1E6DF;
+        span{
+            color:#706E6D;
+        }
+    }
+    .received{
+        background-color: #EBF6FD;
+            span{
+                color:#1A5EE7;
+            }
+    }
+    .finalized{
+        background-color: #EBF4E4;
+            span{
+                color:#378E78;
+            }
+    }
+    .estimated{
+        background-color: #F5EEF6;
+        span{
+                color:#632F71;
+            }
+    }
+     span ::ng-deep {
+                svg{
+                    width: 2.5em;
+                    height:2.5em;
+                    position: relative;
+                    top: 5px;
+                    path {
+                      fill:currentColor;
+                    }
+                    circle{
+          fill: currentColor;
+      }
+	  rect{
+          fill: currentColor;
+      }
+      line{
+          stroke: currentColor;
+      }
+                }
+      }
+
+      p ::ng-deep {
+                svg{
+                    width: 1.5em;
+                    height:1.5em;
+                    position: relative;
+                    top: 5px;
+                    path {
+                      fill:#934F1E;
+                    }
+                    circle{
+          fill: #934F1E;
+      }
+	  rect{
+          fill: #934F1E;
+      }
+                }
+      }
+}
+
+
+
+.lineTitle{
+  border-bottom:1px solid $color-neurtral-whitish-grey;
+  margin-bottom: 1.5em;
+}
+.lineitem{
+  >[CLASS^="col"]{
+    &:nth-child(1){
+      padding:40px;
+    }
+     [class^="row"]{
+      padding: 0.3em 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    .grocery-list{
+      max-width: 70%;
+    [class^="row"]:nth-last-child(1){
+      span:nth-child(1){
+        font-weight: bold;
+      }
+      span:nth-child(2){
+        font-size: 20px;
+      }
+      padding: 1em 0;
+    }
+    [class^="row"]{
+      border-bottom:1px solid $color-neurtral-whitish-grey;
+    }
+  }
+  }
+}
+
+
+#claimmessagecodedesclabel:after{
+content:":";
+}
+
+.pdfExcelPlaceHolder{
+	text-align: right;
+    float: right;
+    padding: 10px 0px;
+}
+a /deep/ {
+  cursor:pointer;
+  outline: none;
+    svg {
+      width: 1.5em;
+      height:1.5em;
+      position: relative;
+      top: 5px;
+      path{
+          fill: $color-pimary-light-blue;
+	  }
+	  polygon{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }
+
+
+@include media-breakpoint-up(lg) {
+  .lineitem {
+  >[CLASS^="col"]{
+    &:nth-last-child(1){
+    border-left: 1px solid $color-neurtral-whitish-grey;
+    padding: 0 5em 0 10em;
+    [class^="row"]{
+      padding: 0.5em 0;
+    }
+  }
+  }
+  }
+  .blockitem{
+  >[CLASS^="col"]{
+    &:nth-last-child(1){
+    border-left: 1px solid $color-neurtral-whitish-grey;
+    padding: 0 5em 0 10em;
+    }
+  }
+ }
+
+ .main-service-type{
+   >[CLASS^="claim-info"]{
+     &:not(:last-child){
+       margin-bottom: 1em;
+     }
+   }
+ }
+}
+
+.blockitem{
+  >[CLASS^="col"]{
+     [class^="row"]{
+      padding: 0.3em 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    &:nth-last-child(1){
+    [class^="row"]:nth-last-child(1){
+      span:nth-child(2){
+        font-weight: bold;
+      }
+      span:nth-child(2){
+        font-size: 20px;
+      }
+    }
+
+  }
+ }
+}
+
+.claimheaderstatus{
+    padding: 20px;
+}
+
+.label-padding{
+    padding-left: 0px;
+}
+.align-padding{
+  padding-left: 50px;
+}

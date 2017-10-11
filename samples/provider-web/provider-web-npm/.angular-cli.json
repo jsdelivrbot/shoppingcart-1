@@ -1,0 +1,82 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "angular-suite"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "tzf",
+        {
+          "glob": "**/*",
+          "input": "app/common/assets",
+          "output": "./assets/common/"
+        },
+        {
+          "glob": "**/*",
+          "input": "app/common/security/assets",
+          "output": "./"
+        },
+        { "glob": "**/*.js", "input":"../node_modules/oidc-client/dist/","output":"./"},
+        { "glob": "**/*.js", "input": "./scripts/", "output": "./"},
+        { "glob": "auth.html", "input": "./", "output": "./" },
+        { "glob": "silent-renew.html", "input": "./", "output": "./" },
+        "constants.js",
+        "favicon.png",
+        "styleguide",
+        "documentation"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/@tranzform/common/styles/fonts/roboto.scss",
+        "../node_modules/@tranzform/common/styles/global-pro.scss",
+        "styles/styles.scss"
+      ],
+      "scripts": [
+        "../node_modules/hammerjs/hammer.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts",
+        "prodv3": "environments/environment.prodv3.ts",
+         "mockauth": "environments/environment.mockauth.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "sass",
+    "component": {
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+@import"../messages-styles.scss";
+.table-row{
+    cursor: pointer;
+    border:1px solid $color-neurtral-ligher-grey;
+    border-radius:3px;
+    margin:10px 0 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 80px;
+    .col-msgNum{
+        background:$color-white-smoke;
+        border-right:4px solid $color-neurtral-whitish-grey;
+        margin: 0;
+        padding: 28px 18px 10px;
+        text-align: center;
+        z-index: 2;
+        position: relative;
+    }
+    .msg-slide{
+        transition: all .3s ease-out;
+        z-index: 1;
+        margin: auto;
+        p{
+            margin-bottom:0;
+        }
+        div{ 
+                height: 100%;
+                div{
+                    padding:10px 15px 10px 5px;
+                    margin: auto;
+                }
+        }
+        .col-iconMore{
+            text-align: right;
+            /deep/ svg{
+                cursor: pointer;
+            }
+        }
+    }
+}
+.table-row.selected .msg-slide{
+    transform: translateX(-14%);
+}
+.inbox.table-row.selected .msg-slide{
+    transform: translateX(-28%);
+}
+.table-row.read{
+    background:$color-white-smoke;
+}
+.table-row.unread{ 
+       div.col-msgNum:first-child{
+            border-right:4px solid $color-pimary-light-blue;
+            background:$color-white-smoke;
+        }
+}
+.col-categoryIcon{
+    float: left;
+    padding-top: 3px;
+}
+.categoryTxt{
+    margin-top: 5px;
+}

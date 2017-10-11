@@ -1,0 +1,83 @@
+@import '../../../../node_modules/bootstrap/scss/_card.scss';
+@import "../../../styles/variables";
+
+.col-moreOption{
+    background-color: $color-accent-pink;
+    margin:0;
+    text-align: center;
+    color: $color-pimary-white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    padding-top: 12px;
+    max-width: 13%;
+    /deep/ svg {
+        width: 2.5em;
+        /deep/ path{
+            fill:$color-pimary-white;
+        }
+    }
+}
+.col-category {
+    padding-left: 10px !important;  
+    .categoryIcon{
+        float: left;
+        /deep/ svg{
+            width:2.5em;
+            path{
+                fill:$color-navy-blue;
+            }
+        }
+    }
+    .categoryTxt{
+        padding-left:10px;
+        float: left;
+    }
+}
+.col-dateTime {
+    padding-left: 25px !important;
+    /deep/ svg{
+        width: 1em;
+    }  
+    .dateIcon{
+        float: left;
+        padding-top: 3px;
+    }
+    .dateTxt{
+        padding-left: 10px;
+        float: left;
+    }
+}
+.readUnread{
+    background: $color-green;
+    right: 13%;
+}
+.msgSentSuccess{
+    margin: 2em 0;
+    padding: 0.75rem 1.25rem ;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+//form control dropdown width
+tzf-dropdown /deep/ {
+    width: 100%;
+    .arrow{
+        top:14px;
+    }
+    select{       
+        width:100%;
+        height: 35px;
+    }
+}
+.btn-secondary:focus{
+    outline: 1px !important;
+}
+.subjectText{
+    word-wrap: break-word;
+}

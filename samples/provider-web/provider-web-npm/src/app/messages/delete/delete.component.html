@@ -1,0 +1,16 @@
+<span *ngIf="deleteCount > 0">
+    <div id="msgCountId" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <span ng-cloak translate> MSGCENTER.SHOWING</span> 
+        <span>{{deletedMessages?.messages ? deleteCount: 0 }}</span>
+        <span translate>MSGCENTER.DELETEMSG</span>
+        <span *ngIf="deleteCount == 1" translate>MSGCENTER.MESSAGE</span>
+        <span *ngIf="deleteCount > 1" translate>MSGCENTER.MESSAGES</span>
+    </div>
+</span>
+<app-message-filter [type]="messageType.TYPE_DELETE" (onApplyFilter)="loadDeletewithFilter($event)"></app-message-filter>
+<message-header></message-header> 
+<p *ngIf="!deletedMessages?.messages || !deleteCount" 
+ class="noRecMsg" translate>MSGCENTER.NOMESSAGEDELETE 
+</p>
+<message-list [messages]="deletedMessages?.messages" [type]="deletedMessages?.metaInfo?.type"></message-list>
+

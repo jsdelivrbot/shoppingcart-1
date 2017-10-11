@@ -1,0 +1,797 @@
+{
+    "PAGINATION": {
+        "FIRST": "First",
+        "PREVIOUS": "Previous",
+        "NEXT": "Next",
+        "LAST": "Last"
+    },
+    "ERRORMESSAGE": "An error occurred.",
+    "VIEWANDPRINTSUMMARY": "View and Print Summary :",
+    "PDF": "PDF",
+    "EXCEL": "Excel",
+    "QUICKVIEW": {
+        "VIEWDETAILS": "View Details",
+        "DATE": "Date",
+        "LASTDAYS": "Last {{dateRange}} days",
+        "STATUS": "Status",
+        "PROVIDER": "Providers",
+        "OFCLAIMS": "of {{totalCount}} claims",
+        "ALL": "All"
+    },
+    "HOME": {
+        "HOME": "HOME",
+        "TITLE": "Hello Angular 2 with ng2-translate!",
+        "SELECT": "Language"
+    },
+    "SEARCH": {
+        "SEARCH": "SEARCH"
+    },
+    "PROVIDER": {
+        "PROVIDER": "PROVIDER"
+    },
+    "CARE": {
+        "CARE": "CARE"
+    },
+    "CLAIMSSTATUS": {
+        "QUICKVIEWDROPDOWN": {
+            "TITLE": "Select Quick View",
+            "SELECT": "Select"
+        },
+        "TITLE": "Claims Status Inquiry",
+        "SEARCHRESULTS": "Search Results",
+        "BACKTOCLAIMSSEARCH": "Back to Claim Inquiry Status Search",
+        "RESULTCOUNT": "{{length}} Claims Found",
+        "RESULTCOUNTONE": "{{length}} Claim Found",
+        "RESULTCOUNTNONE": "No Claims Found",
+        "UPDATESEARCH": "Update Search",
+        "Claim ID": "Claim ID",
+        "Member ID": "Member ID",
+        "Member Last Name": "Member Last Name",
+        "Member First & Middle": "Member First & Middle",
+        "Service Dates": "Service Dates",
+        "Provider Name": "Provider Name",
+        "Status": "Status",
+        "Alert": "Alert",
+        "SEARCHFORM": {
+            "RESET": "Reset Search",
+            "TITLE": "Search",
+            "DESC": "Search for a claim to view details and status (at least one field must be selected)",
+            "ELEMENTS": {
+                "MEMBERID": {
+                    "LABEL": "Member ID",
+                    "PLACEHOLDER": "What’s their ID?"
+                },
+                "CLAIMID": {
+                    "LABEL": "Claim ID",
+                    "PLACEHOLDER": "What’s the ID?"
+                },
+                "MEMBERNAME": {
+                    "LABEL": "Member First and Last Name",
+                    "PLACEHOLDER": "What’s the member?"
+                },
+                "FIRSTNAME": {
+                    "LABEL": "First Name",
+                    "PLACEHOLDER": "First Name"
+                },
+                "MIDDLENAME": {
+                    "LABEL": "Middle Name",
+                    "PLACEHOLDER": "Middle Name"
+                },
+                "LASTNAME": {
+                    "LABEL": "Last Name",
+                    "PLACEHOLDER": "Last Name"
+                },
+                "PROVIDER": {
+                    "LABEL": "Provider",
+                    "PLACEHOLDER": "Who is the provider?"
+                },
+                "SERVICEDATE": {
+                    "LABEL": "Service Dates",
+                    "PLACEHOLDER": "What is the date?"
+                },
+                "STATUS": {
+                    "LABEL": "Status",
+                    "PLACEHOLDER": "Which Status?"
+                },
+                "UPDATE": "Update Search"
+            },
+            "MESSAGES": {
+                "ALPHANUMERIC": "Only alpha-numeric characters are allowed",
+                "VALIDATEDATERANGE": "Invalid Service From Date. From Date must not be greater than To Date",
+                "DATEMINMAXVALIDATORFROM": "Invalid Service From Date. From Date must not be greater than today",
+                "DATEMINMAXVALIDATORTO": "Invalid Service To Date. To Date must not be greater than today",
+                "REQUIRED": "This field is required"
+            }
+        },
+        "QUICKVIEW": {
+            "TITLE": "Quick View",
+            "DESC": "Select a quick view below to view details in a customized view set up with your specifications."
+        }
+    },
+    "CLAIMDETAIL": {
+        "HEADER":{
+          "STATUS": "Claim Status",
+          "PENDING": "Pending",
+          "RECEIVED": "Received",
+          "ESTIMATD": "Estimated",
+          "FINALIZED": "Finalized",
+          "CLAIMID":"Claim ID",
+          "ESTIMATEID":"Estimate ID",
+          "PROVIDER":"Provider",
+          "MEMBERNAME":"Member Name",
+          "SERVICEDATE":"Service Date",
+          "PATIENTRESP":"Patient Responsibility",
+          "ALERT":"Alert, Status is finalized and paid amount is 0"
+        },
+       "INSURED": {
+            "TITLE": "Insured & Patient Information",
+            "PATIENTACCOUNT": "Patient Account #",
+            "PATIENTID": "Patient ID",
+            "PATIENTNAME": "Patient Name",
+            "PATIENTDOB": "Patient Date of Birth",
+            "DOB": "Date of Birth",
+            "RELATIONSHIPTOINSURED": "Relationship to Insured",
+            "INSUREDNAME": "Insured Name"
+        },
+        "INSURANCE": {
+            "TITLE": "Insurance",
+            "SUBSCRIBERID":"Subscriber ID #",
+            "POLICYID": "Policy ID #",
+            "GROUPID": "Group ID #",
+            "COVEREDUNDER": "Covered Under",
+            "HRAINCLUDED": "HRA included on Claim FSA"
+        },
+        "PROVIDER": {
+            "TITLE": "Provider",
+            "PROVIDERNAME": "Provider Name",
+            "PROVIDERID": "Provider ID",
+            "SERVICEPROVIDERID": "Service Provider ID",
+            "SERVICEPROVIDERNAME": "Service Provider Name",
+            "NETWORKINDICATOR": "Network Indicator",
+            "PROVIDERPHONE/EXT": "Provider Phone/Extension",
+            "PROVIDERADDRESS": "Provider Address",
+            "PAYEEPROVIDERPHONE/EXT": "Payee Provider Phone/Ext",
+            "PAYEEPROVIDERADDRESS": "Payee Provider Address",
+            "SERVICEPROVIDERPHONE/EXT": "Service Provider Phone/Ext",
+            "SERVICEPROVIDERADDRESS": "Service Provider Address",
+            "PROVIDERPHONEEXT": "Provider Phone/Extension",
+            "PROVIDERSERVICEADDR": "Provider Service Address"
+        },
+        "CLAIMINFORMATION": {
+            "TITLE": "Claim Information",
+            "CLAIMID": "Claim ID",
+            "CLAIMTYPE": "Claim Type",
+            "CLAIMSUBTYPE": "Claim Sub Type",
+            "CLAIMMESSAGECODE": "Claim Message Code",
+            "CLAIMMESSAGEDESC": "Claim Message Description:",
+            "SUBMISSIONDATE": "Submission Date",
+            "SETTLEDDATE": "Settled Date",
+            "CHECKID": "Check ID#"
+        },
+        "LINEITEM": {
+            "LINEITEM":"Line Item Code",
+            "CLAIMTITLE": "Claim Header",
+            "SERVICETITLE": "Claims Service Line",
+            "PLACEOFSERVICE": "Place of Service",
+            "PLACEDESCRIPTION": "Place Description",
+            "SERVICEDATES": "Service Dates",
+            "PROCEDURECODES": "Procedure Code",
+            "PROOCEDURECODEDESC": "Procedure Code Description",
+            "DIAGNOSISTYPE": "Diagnosis Type",
+            "DIAGNOSISDESC": "Diagnosis Description",
+            "DIAGNOSISCODE": "Diagnosis Code",
+            "PRIDIAGNOSISCODE": "Primary Diagnosis Code",
+            "CHARGEDUNITS": "Charged Units",
+            "CLAIMMSGCODE": "Claim Message Code",
+            "CLAIMMSGDESC": "Claim Message Description",
+            "CLMCOSTBREAKUP": "Claim Cost Breakup",
+            "CLMCOSTBREAKDOWN": "Claim Cost Breakdown",
+            "CHARGEDAMOUNT": "Charged Amount",
+            "CHARGE": "Charge",
+            "PLANNEGOTIATEDRATE": "Plan Negotiated Rate",
+            "ALLOWEDAMOUNT": "Allowed Amount",
+            "PAIDAMOUNT": "Paid Amount",
+            "DEDUCTIBLEAMOUNT": "Deductible Amount",
+            "COPAYAMOUNT": "Copay Amount",
+            "COINSURANCEAMOUNT": "Coinsurance Amount",
+            "NONCOVEREDAMOUNT": "Not Covered Amount",
+            "HRAPAIDAMOUNT": "HRA Paid Amount",
+            "PATIENTRESP": "Patient Responsibility"
+        }
+    },
+    "MSGCENTER": {
+        "MESSAGEDETAILS": "Message Detail",
+        "MESSAGECENTER": "Message Center",
+        "YES": "Yes",
+        "NO": "No",
+        "INBOX": "Inbox",
+        "SENT": "Sent",
+        "DELETED": "Deleted",
+        "DELETE": "Delete",
+        "RESTORE": "Restore",
+        "MARK_READ": "Mark as Read",
+        "MARK_UNREAD": "Mark as Unread",
+        "DRAFTS": "Drafts",
+        "SHOWING": "Showing",
+        "READLABLE": "Read & Unread",
+        "SENTMSG": "Sent ",
+        "DRAFTMSG": "Draft ",
+        "DELETEMSG": "Deleted ",
+        "READ": "Read",
+        "HEADER": {
+            "MSG_ID": "No.",
+            "SUBJECT": "Subject",
+            "CATEGORY": "Category",
+            "DATETIME": "Date & Time"
+        },
+        "NEWMSG": {
+            "DEFAULT_SELECT": "Select",
+            "SEND": "Send",
+            "CANCEL": "Cancel",
+            "SAVE_DRAFT": "Save Draft",
+            "SELECTONE": "Select one",
+            "NAVTOMSG": "Back to Messages",
+            "NEWMESSAGE": "New Message",
+            "CATEGORY": "Category",
+            "SUBJECT": "Subject",
+            "MESSAGE": "Message",
+            "MSGPLACEHOLDER": "Type your message here",
+            "DATETIEM": "Date & Time",
+            "LEFTMSG": "Left : ",
+            "MAXLENGTH": "1000",
+            "REPLYMESSAGE": "Message Reply ",
+            "NAVTOMSGDTL": "Back to Message Detail",
+            "SUBJECTMANDATORY": "Please enter a subject.",
+            "CATEGORYMANDATORY": "Please select a category.",
+            "SUCCESS": "Message sent successfully",
+            "OUT_OF": "out of",
+            "CHARS_USED": "characters used",
+            "MESSAGE_FOR": "Message For",
+            "SEND_TO": "Send To",
+            "ERROR": "The system encountered an error. Please try to send it again later",
+            "DRAFT_ERROR": "The system encountered an error."
+        },
+        "MESSAGE_CATEGORY": "Message Category",
+        "MESSAGE_STATUS": "Message Status",
+        "ERROR": "The server encountered an unexpected error. Please try again later.",
+        "BACK": "Back to Messages",
+        "REPLY": "Reply",
+        "MESSAGE_HISTORY": "Message History",
+        "FILTER_MESSAGES": "Filter Messages",
+        "CANCEL_CONFIRMATION": "Are you sure you want to cancel?",
+        "CANCEL_TITLE": "Please Confirm",
+        "SAVE_DRAFT_CONFIRMATION_TITLE": "Save Draft",
+        "SAVE_DRAFT_CONFIRMATION_LABEL": "Are you sure you  want to save the message to the Drafts folder?",
+        "SEND_MESSAGE_SUCCESSFUL": "Message sent successfully.",
+        "SEND_MESSAGE_FAILURE": "Failed to send message.",
+        "SAVE_DRAFT_SUCCESSFUL": "Message saved successfully to Drafts folder.",
+        "DELETE_MESSAGE_SUCCESSFUL": "Message deleted successfully.",
+        "SAVE_DRAFT_FAILURE": "Failed to save message to the Drafts folder.",
+        "SENT_FAIL_SAVE_DRAFT_SUCCESSFUL": "Failed to send message. Message saved successfully to Drafts folder.",
+        "DELETE_MESSAGE_FAILURE": "Failed to delete message.",
+        "DELETE_QUESTION": "Are you sure you want to move this message to Deleted Folder? You cannot Undo this action.",
+        "DELETE_LABEL": "Delete Message",
+        "MESSAGE": " Message",
+        "MESSAGES": " Messages",
+        "MOREACTION": "More Action on selected message",
+        "UNREAD": "Unread",
+        "NOMESSAGEINBOX": "No messages to show in Inbox folder",
+        "NOMESSAGESENT": "No messages to show in Sent folder",
+        "NOMESSAGEDRAFT": "No messages found in the Drafts folder",
+        "NOMESSAGEDELETE": "No messages to show in Deleted folder",
+        "MESSAGE_TIME_FORMAT": "h:mm a",
+        "MESSAGE_DATE_FORMAT": "MM/dd/yyyy",
+        "ILLEGAL_CHARACTER_NOT_ALLOWED": "The special characters <>, and *  are not allowed.",
+        "APPLY": "Apply",
+        "RESET": "Reset",
+        "FORWARD": "Forward",
+        "FORWARDTITLE": "Forward Message"
+    },
+    "ROUTES": {
+        "CLAIMDETAIL": "Claim ID {{ claimId }} Detail"
+    },
+    "ELIGIBILITY": {
+        "ERRORMESSAGE": "No results were found for the values entered.",
+        "BENEFITS": {
+            "INNETWORK": "In-network",
+            "OUTNETWORK": "Out-of-network",
+            "DEDUCTIBLE": {
+                "AMOUNT": "{{amount}} per Service Year",
+                "AMOUNTREMAINING": "{{amount}} Remaining"
+            },
+            "COINSURANCE": {
+                "AMOUNT": "{{amount}} %"
+            },
+            "COPAYMENT": {
+                "AMOUNT": "{{amount}} per Visit"
+            },
+            "LIMITATION": {
+                "AMOUNT": "{{amount}} Visits per Calendar Year",
+                "AMOUNTREMAINING": "{{amount}} Visits Remaining"
+            },
+            "AUTHORIZATION": {
+                "YES": "Authorization Required",
+                "NO": "Authorization Not Required"
+            }
+        },
+        "DETAILSOVERVIEW": {
+            "TITLE": "Details Overview:",
+            "ALTERNATENAME": "Alternate Name",
+            "PRIMARYPAYER": "Primary Payer",
+            "ADDITIONALINSURANCE": "Additional Insurance",
+            "DEDUCTIBLE": "Deductible",
+            "AUTHORIZATIONSREQUIRED": "Authorizations Required",
+            "COPAY": "Co-Pay",
+            "SEEBENEFITSINFO": "See Benefits Info",
+            "NOTREQUIRED": "Not Required"
+        },
+        "RESULTS": {
+            "NEWENQUIRY": "New Inquiry"
+        },
+        "PATIENTOVERVIEW": {
+            "TITLE": "Patient Overview",
+            "STATUS": "Eligibility Status",
+            "PATIENT": "Patient",
+            "DOB": "Date of Birth",
+            "GENDER": "Gender",
+            "PLAN": "Plan Name",
+            "MEMBER": "Member ID",
+            "DATE": "Service Dates",
+            "ACTIVE": "Active",
+            "INACTIVE": "Inactive",
+            "MALE": "Male",
+            "FEMALE": "Female",
+            "FROM": "From",
+            "TO": "To"
+        },
+        "PATIENTINFO": {
+            "TITLE": "Patient Information",
+            "NAME": "Name",
+            "DOB": "Date of Birth",
+            "NOTASTUDENT": "Not a Student",
+            "HANDICAPPED": "Handicapped",
+            "RELATIONSHIP": "Relationship to Insured",
+            "PATIENTACCOUNT": "Patient Account #",
+            "GROUP": "Group #"
+        },
+        "SUBSCRIBERINFO": {
+            "TITLE": "Subscriber Information"
+        },
+        "PAYERINFO": {
+            "TITLE": "Payer Information",
+            "NAME": "Payer Name",
+            "IDENTIFICATION": "Payer Identification"
+        },
+        "BENEFITINFO": {
+            "TITLE": "Benefit Information"
+        },
+        "SEARCHFORM": {
+            "MESSAGES": {
+                "ALPHANUMERIC": "Invalid Member Id: Only alpha-numeric characters are allowed",
+                "ENDDATEERROR": "Invalid Eligibility End Date: End date should not be greater than Start date",
+                "DOBERROR": "Invalid Date Of Birth: Date of Birth cannot be greater than today"
+            },
+            "TITLE": "Run Individual Eligibility Inquiry",
+            "DESC": "Check for patient eligibility by entering information or making selections in all fields",
+            "RESET": "Reset Search",
+            "FIRSTNAME": "First Name",
+            "MIDDLENAME": "Middle Name",
+            "LASTNAME": "Last Name",
+            "BUTTON": "Submit Eligibility Inquiry",
+            "ELEMENTS": {
+                "MEMBERID": {
+                    "LABEL": "Member ID",
+                    "PLACEHOLDER": "What is the ID?"
+                },
+                "NAME": {
+                    "LABEL": "Member First and Last Name",
+                    "PLACEHOLDER": "Who is the member?"
+                },
+                "DOB": {
+                    "LABEL": "Date of Birth",
+                    "PLACEHOLDER": "MM/DD/YYYY"
+                },
+                "DATE": {
+                    "FROM": "Eligibility Start Date",
+                    "TO": "Eligibility End Date"
+                }
+            }
+        }
+    },
+    "REFERRALS": {
+        "MESSAGES": {
+            "VALIDATEDATERANGE": "Invalid Submission From Date. From Date must not be greater than To Date",
+            "SERVICEDATERANGE": "Invalid Service From Date. From Date must not be greater than To Date"
+        },
+        "SEARCH": {
+            "PAGETITLE": "Refferals & Authorizations",
+            "TITLE": "Search",
+            "FORM": {
+                "TITLE": "Search Referrals and Authorizations History",
+                "DESC": "Select the filters below to refine your search results",
+                "RESET": "Reset Search",
+                "ELEMENTS": {
+                    "MEMBERID": {
+                        "LABEL": "Member ID",
+                        "PLACEHOLDER": "What is the ID?"
+                    },
+                    "MEMBERNAME": {
+                        "LABEL": "Member Name",
+                        "PLACEHOLDER": "Who is the member?",
+                        "MIDDLENAME": "Middle Name",
+                        "FIRSTNAME": "First Name",
+                        "LASTNAME": "Last Name"
+                    },
+                    "AUTHORIZATIONNUMBER": {
+                        "LABEL": "Authorization #",
+                        "PLACEHOLDER": "What #?"
+                    },
+                    "REQUESTINGPROVIDER": {
+                        "LABEL": "Requesting Provider Name/NPI",
+                        "PLACEHOLDER": "Requesting Provider?"
+                    },
+                    "RENDERINGPROVIDER": {
+                        "LABEL": "Rendering Provider Name/NPI",
+                        "PLACEHOLDER": "Rendering Provider?"
+                    },
+                    "REFERRALTYPE": {
+                        "LABEL": "Authorization/Referral Type",
+                        "PLACEHOLDER": "What Type?"
+                    },
+                    "SUBMISSIONDATE": {
+                        "LABEL": "Submission Date Range",
+                        "PLACEHOLDER": "Submission Dates?"
+                    },
+                    "SERVICEDATE": {
+                        "LABEL": "Date of Service",
+                        "PLACEHOLDER": "Event Dates?"
+                    },
+                    "SERVICETYPE": {
+                        "LABEL": "Service Type",
+                        "PLACEHOLDER": "Service Type?"
+                    },
+                    "STATUS": {
+                        "LABEL": "Status",
+                        "PLACEHOLDER": "Which Status?"
+                    }
+                },
+                "MESSAGES": {
+                    "ALPHANUMERIC": "Only alpha-numeric characters are allowed"
+                }
+            },
+            "RESULTCOUNTNONE": "No Records Found",
+            "RESULTCOUNTONE": "{{length}} Record Found",
+            "RESULTCOUNT": "{{length}} Records Found",
+            "RESULTS": {
+                "STATUS": "Status",
+                "AUTH": "Auth #",
+                "REFERRALTYPE": "Referral Type",
+                "MEMBERNAME": "Member Name",
+                "REQUESTINGPROVIDER": "Requesting Provider",
+                "RENDERINGPROVIDER": "Rendering Provider",
+                "PAYER": "Payer",
+                "DATESENT": "Date Sent"
+            }
+        },
+        "DETAIL": {
+            "PAGETITLE": "Referral Response Detail",
+            "SUMMARY": {
+                "SUBMITTEDBY": "Submitted By",
+                "SUBMISSIONDATE": "Submission Date",
+                "SUBMITTEDTYPE": "Submitted Type"
+            },
+            "STATUSINFO": {
+                "TITLE": "Status : ",
+                "AUTHNUMBER": "Authorization Number : ",
+                "RESPONSEDATE": "Response Date",
+                "APPROVEDUNITS": "Approved Units",
+                "APPROVEDENDDATE": "Approved End Date"
+            },
+            "PATIENTINFO": {
+                "TITLE": "Patient Information",
+                "PATIENTNAME": "Patient Name",
+                "INSUREDDOB": "Insured DOB",
+                "INSUREDSEX": "Insured Sex",
+                "INSUREDID": "Insured ID",
+                "INSUREDNAME": "Insured Name",
+                "MALE": "Male",
+                "FEMALE": "Female"
+            },
+            "REQUESTINGPROVIDER": {
+                "TITLE": "Requesting Provider",
+                "PROVIDERTYPE": "Provider Type",
+                "PROVIDERNAME": "Provider Name",
+                "NPI": "NPI",
+                "FEDERALTAXID": "Federal Tax ID",
+                "PHONENUMBER": "Phone Number",
+                "CONTACTNAME": "Contact Name"
+            },
+            "EVENTPROVIDER": {
+                "TITLE": "Patient Event Provider",
+                "PROVIDERDESC": "Provider Description",
+                "PROVIDERTYPE": "Provider Type",
+                "PROVIDERNAME": "Provider Name",
+                "NPI": "NPI",
+                "FEDERALTAXID": "Federal Tax ID",
+                "TAXONOMYCODE": "Taxonomy Code",
+                "ADDRESS": "Address",
+                "CITYSTATEZIP": "City/State/Zip"
+            },
+            "EVENTDETAILS": {
+                "TITLE": "Patient Event Details",
+                "REQUESTCATEGORY": "Request Category",
+                "REQUESTTYPE": "Request Type",
+                "SERVICETYPE": "Service Type",
+                "SERVICELEVEL": "Service Level",
+                "RELEASEOFINFO": "Release of Information",
+                "CLAIMTYPE": "Claim Type",
+                "FACILITYTYPE": "Facility Type",
+                "EVENTSTARTENDDATE": "Event Start/End Date",
+                "QUANTITY": "Quantity",
+                "CERTIFICATIONPERIOD": "Certification Period",
+                "COMMENTS": "Comments",
+                "DIAGNOSISINFO": "Diagnosis Information",
+                "CODEANDDESC": "Code & Descripton:",
+                "DATE": "Date:"
+            }
+        },
+        "MEMBERINFO":{
+          "TITLE": "Member Information",
+          "TITLEDESC": "Enter Member ID or a Member's Name, Date of Birth, and Gender to locate them through a name search.",
+          "MEMBERID": "Member ID",
+          "MEMBERIDPC": "Member ID",
+          "FIRSTANDMIDDLE": "First Name & Middle Initial",
+          "FIRSTANDMIDDLEPC": "First Name",
+          "MIDDLEPC": "MI",
+          "LASTNAME": "Last Name",
+          "LASTNAMEPC": "Last Name",
+          "DOB": "Date Of Birth",
+          "DOBPC": "MM/DD/YYYY",
+          "GENDER": "Gender",
+          "GENDERPC":"Gender",
+          "MSG": {
+                "ENDDATEERROR": "Invalid Eligibility End Date: End date should not be greater than Start date",
+                "DOBERROR": "Invalid Date Of Birth: Date of Birth cannot be greater than today"
+                },
+          "ERROR": {
+                    "MEMBERID": "Only alpha-numeric characters are allowed."
+                },
+                "DETAIL": {
+                "MEMBERANDSUBSCRIBER":"Member & Subscriber",
+                "MEMBER":"Member",
+                "SUBSCRIBER":"Subscriber",
+                "ADDRESS":"Address",
+                "GROUPID":"Group ID",
+                "SUBSCRIBERASSETS":"Subscriber Assets",
+                "AGE":"Age",
+                "STATUS":"Status",
+                "ORIGINALEFFECTIVE":"Original Effective",
+                "ELIGIBLEASOF":"Eligible as of",
+                "ELIGIBLE":"Eligible",
+                "NOTELIGIBLE":"Not Eligible"
+            }
+            },     
+        "CREATE": {
+            "MEMBERINFO": {
+                "TITLE" : "Member Information"
+            },
+            "REQUESTINGPROVIDER": {
+                "TITLE" : "Requesting Provider",
+                "DESC":"Select the Type of Request, Provider Name and Address"
+            },
+            "SERVICEPROVIDER": {
+                "TITLE" : "Service Provider",
+                "DESC":"Enter the Service Provider’s NPI or Name to search or manually fill out all the fields below",
+                "PROVIDERNAME":"Provider Name",
+                "ORGANIZATIONNAME":"Organization Name",
+                "NPI":"NPI",
+                "LASTNAME":"Last Name (2 letters or more)",
+                "FIRSTNAME":"First Name"
+            },
+            "SERVICEDETAILS": {
+                "TITLE" : "Service Details"
+            },
+            "SUBMIT": {
+                "TITLE" : "Create & Submit"
+            }
+        }
+ 
+    },
+    "CSR": {
+        "PAGETITLE": "Provider Search",
+        "NORESULTFOUND": "No results found",
+        "RESET": "Reset Search",
+        "SEARCH": "Search",
+        "PROVIDER": {
+            "BYLASTANDFIRSTNAME": "By Last Name & First Name",
+            "BYUSERID": "By User Id",
+            "FIRSTNAME": "First Name",
+            "LASTNAME": "Last Name",
+            "MIDDLENAME": "Middle Name",
+            "USERID": "User ID",
+            "EMAILADDRESS": "Email Address"
+        },
+        "PROVIDERVIEWFOR": "Provider View for"
+    },
+    "CLAIM": {
+        "CREATECLAIM": {
+            "MEMBERINFO": {
+                "TITLE": "Member Information",
+                "MODEL":{
+                  "TITLE":"Multiple Members Found",
+                  "SUBTITLE":"Search Results",
+                  "DESCRIPTION":"Multiple members were found. Please select the member for which you want to create a claim.",
+                  "BUTTON": "Use Selected Member",
+                  "MEMBERID":"Member ID",
+                  "GROUP": "Group",
+                  "NAME":"Name",
+                  "DOB": "Date of Birth",
+                  "GENDER": "Gender"
+                }
+            },
+            "PROVIDERINFO": {
+                "TITLE": "Provider Information"
+            },
+            "SERVICEDETAILS": {
+                "TITLE": "Service Details",
+                "DESC": "Select the ICD type and add the service line information.",
+                "ICD": "Select the ICD type needed for this claim",
+                "ASSIGNMENT": "Accept Assignment"
+            },
+            "VIEWESTIMATE": {
+                "TITLE": "View Estimate"
+            },
+            "SUBMITCLAIM": {
+                "TITLE": "Submit Claim",
+                "DESC": "Your claim has been submitted! You can review and check the status of your claim by navigating to the",
+                "DESC1": "Search Claim",
+                "DESC2": "tab."
+            },
+            "CLAIMDETAIL": {
+                "TITLE": "Claim Detail",
+                "PATIENTCONTROLNUMBER": "Patient Control Number (Optional)",
+                "PATIENTCONTROLINFO": "Patient Control Information",
+                "PATIENTACCOUNTNUMBER": "Patient Account Number",
+                "PRIORAUTHNUMBER": "Prior Authorization Number (Optional)",
+                "PRIORAUTH": "Prior Authorization or Referral Number",
+                "ERROR": {
+                    "PATIENTACCOUNTNUMBER": "Only alpha-numeric characters, pound (#) and hypen (-) are allowed.",
+                    "PRIORAUTH": "Only alpha-numeric characters, pound (#) and hypen (-) are allowed."
+                },
+                "PATIENTCONDITION":{
+                  "TITLE":"Patient’s Condition Impact on Estimate (Optional)",
+                  "DESC":"Use the checkboxes to indicate if patient’s condition is related to anything that could impact the estimate.",
+                  "CONDITION":"Condition Related to",
+                  "EMERGENCY":"Emergency",
+                  "EMPLOYMENT":"Employment (Current or Previous)",
+                  "RESULTOFACCIDENT":"Result of an Accident",
+                  "ACCIDENTTYPE":"Accident Type",
+                  "ACCIDENTDATE":"Accident Date",
+                  "STATE":"State"
+                }
+
+            }
+        }
+    },
+	"MEMBERINFO":{
+    "TITLE" : "Member Information",
+    "TITLEDESC" :"Enter Member ID or a Member's Name,Date of Birth and Gender to locate them through a name search",
+    "RESET":"Reset Search",
+    "MEMEBERID": {
+      "LABEL" : "Member ID",
+      "PLACEHOLDER":"Member ID",
+      "ERROR": {
+                    "MEMBERID": "Only alpha-numeric characters are allowed."
+                }
+    }
+
+  },
+  "MEMBERINFODEMO":{
+    "NAMELABEL" : "First Name & Middle Initial",
+    "NAMELABELPLACEHOLDER":"First Name",
+    "MIDDLEINITIAL":"MI",
+    "LASTNAMELABEL":"Last Name",
+    "LASTNAMEPLACEHOLDER":"Last Name",
+    "DATEOFBIRTH":"Date of Birth",
+    "GENDER":"Gender"
+  },
+  "PROVIDERINFO": {
+    "TITLE":"Provider Information",
+    "TITLEDESC":"Select the claim type, provider name, and the service address.",
+    "CLAIMTYPE":"Claim Type",
+    "PROVIDERNAME":"Provider Name",
+    "SERVICEADDRESS":"Service Address"
+  },
+
+    "PATIENT_SERACH_FORM": {
+        "MEMBERID": {
+            "LABEL": "Member ID",
+            "PLACEHOLDER": "What’s their ID?"
+        },
+        "DOB": {
+            "LABEL": "Date of Birth",
+            "PLACEHOLDER": "MM/DD/YYYY"
+        },
+        "SEARCH_BUTTON": {
+            "LABEL": "Search"
+        },
+        "MESSAGES": {
+            "ALPHANUMERIC": "Invalid Member Id: Only alpha-numeric characters are allowed"
+        },
+        "PATIENT_INFO": {
+            "LABEL": "Attach a Patient or Claim"
+        },
+        "ATTACH_BUTTON": {
+            "LABEL":"Attach"
+        },
+        "NO_CLAIMS_ATTACHED":"No claims attached",
+        "NEW_PATIENT_SEARCH": "New Patient Search",
+        "NO_CLAIMS_FOUND":"No claims found",
+        "NO_RESULT_FOUND":"No results found",
+        "SELECT_CLAIM_YOU_WANT_TO_ATTACH":"Select the claim you want to attach",
+        "CLAIMS_AND_MEMBER_LIMIT_TEXT":{
+            "START_TEXT": "You can add up to ",
+            "MIDDLE_TEXT": "claims per member and up to",
+            "END_TEXT": "members"
+        }
+    },
+"CREATECLAIMMEMBERINFO":{
+  "MEMBERANDSUBSCRIBER":"Member & Subscriber",
+  "MEMBER":"Member",
+  "SUBSCRIBER":"Subscriber",
+  "ADDRESS":"Address",
+  "GROUPID":"Group ID",
+  "SUBSCRIBERASSETS":"Subscriber Assets",
+  "AGE":"Age",
+  "STATUS":"Status",
+  "ORIGINALEFFECTIVE":"Original Effective",
+  "ELIGIBLEASOF":"Eligible as of",
+  "ELIGIBLE":"Eligible",
+  "NOTELIGIBLE":"Not Eligible"
+},
+"VIEWESTIMATE":{
+  "TITLE":"View Estimate",
+  "TITLEDESC":"Your estimated claim can be viewed below.",
+  "SUBMIT":"Submit Claim"
+},
+"SERVICEDETAIL":{
+  "LINEITEM":{
+    "TITLE":"Service Line {{i}}",
+    "SERVICEFROM":"Date of Service From",
+    "SERVICETO":"Date of Service To",
+    "DATEPLACEHOLDER":"MM/DD/YYYY",
+    "PLACEOFSERVICE":"Place of Service",
+    "MODIFIERS":"Modifiers",
+    "AMBULANCEZIP":"Ambulance Pickup Zip",
+    "ADDLINEITEM":"Add Service Line",
+    "DELETELINEITEM":"Delete Service Line",
+    "CPT": {
+        "TITLE": "CPT / HCPCS",
+        "LOOKUPTITLE": "CPT Lookup",
+        "LOOKUPSUBTITLE": "Search and Select CPT Code",
+        "LOOKUPDESC": "Search for the CPT Code required then click on the",
+        "LOOKUPDESC1": "Use Selected Code",
+        "LOOKUPDESC2": "button when you are done.",
+        "PLACEHOLDER": "CPT Code(1 Code)",
+        "PATTERN": "Only Alphanumeric characters are allowed",
+        "LOOKUPINPUTCODE": "Code",
+        "LOOKUPINPUTDESC": "Description",
+        "LOOKUPCODEPLACEHOLDER": "Enter CPT Code",
+        "LOOKUPDESCPLACEHOLDER": "Enter CPT Description",
+        "REQ": "This field is required"
+    },
+    "MESSAGES":{
+      "REQ":"This field is required",
+      "MAX":"Date cannot be greater than today",
+      "MINMAX":"From Date cannot be greater than To Date",
+      "PATTERN":"Only Alphanumeric, Comma and Space is allowed."
+    }
+  }
+},
+"SESSIONEXPIRED":{
+	 "CONFIRMATION_TITLE":"Session Expired",
+	 "CONFIRMATION_LABEL":"Session token expired. Would you like to login again to continue?",
+	 "YES":"Yes",
+	 "NO":"No"
+	}
+}

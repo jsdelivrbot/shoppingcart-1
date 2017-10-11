@@ -1,0 +1,42 @@
+@import "../../../styles/variables";
+.search-by{
+  ul {
+    display:flex;
+    li:not(:last-child) {
+      margin-right:30px;
+    }
+  }
+}
+
+
+  .nameform {
+    .bootstrap-style[tzfFormField]:not(:nth-last-of-type(1)) {
+    margin-right:30px;
+  }
+  }
+
+
+button::ng-deep {
+    svg {
+      height: 1.5em;
+      width: 1.5em;
+    }
+
+    use,
+    path {
+      fill: currentColor;
+    }
+  }
+
+  hr.bootstrap-style.divider-line{
+  &:after{
+    content: 'OR';
+    border: 2px solid $color-neurtral-whitish-grey;
+    border-radius: 100px;
+    left: 40%;
+    position: relative;
+    padding: 6px;
+    background: white;
+    top: -10px;
+}
+}

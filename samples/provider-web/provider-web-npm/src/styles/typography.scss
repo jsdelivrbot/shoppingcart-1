@@ -1,0 +1,123 @@
+@import '_variables';
+
+.h26b,
+.h26m,
+.h26r,
+.h26l {
+  font-size: 26px;
+}
+
+.h24b,
+.h24m,
+.h24r,
+.h24l {
+  font-size: 24px;
+}
+
+.h22b,
+.h22m,
+.h22r,
+.h22l {
+  font-size: 22px;
+}
+
+.h20b,
+.h20m,
+.h20r,
+.h20l {
+  font-size: 20px;
+}
+
+.h18b,
+.h18m,
+.h18r,
+.h18l {
+  font-size: 18px;
+}
+
+.h16b,
+.h16m,
+.h16r,
+.h16l,
+.p16b {
+  font-size: 16px;
+}
+
+.h14b,
+.h14m,
+.h14r,
+.h14l {
+  font-size: 14px;
+}
+
+.p14b,
+.p14m,
+.p14r,
+.p14l {
+  font-size: 14px;
+}
+
+.p12b,
+.p12m,
+.p12r,
+.p12l {
+  font-size: 12px;
+}
+
+.p10b,
+.p10m,
+.p10r,
+.p10l {
+  font-size: 10px;
+}
+
+.h26b,
+.h24b,
+.h20b,
+.h18b,
+.h16b,
+.h14b,
+.p16b,
+.p14b,
+.p12b {
+  font-weight: bold;
+}
+
+.h26m,
+.h24m,
+.h20m,
+.h18m,
+.h16m,
+.h14m,
+.p14m,
+.p12m {
+  font-weight: $font-weight-medium;
+}
+
+.h24r,
+.h20r,
+.h18r,
+.h16r,
+.h14r,
+.p14r,
+.p12r,
+.p10m,
+.p10b {
+  font-weight: normal;
+}
+
+.h26l,
+.h24l,
+.h22l,
+.h20l,
+.h18l,
+.h16l,
+.h14l,
+.p14l,
+.p12l,
+.p10l,
+.p10r {
+  font-weight: $font-weight-light;
+}
+
+/*Typography starts*/

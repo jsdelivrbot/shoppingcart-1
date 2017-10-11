@@ -1,0 +1,78 @@
+<div [formGroup]="serviceDetailForm">
+      <h3 class="h20m" id="servicedetailtitle" translate>CLAIM.CREATECLAIM.SERVICEDETAILS.TITLE</h3>
+      <div class="titledesc">
+        <span class="p17l" id="servicedetaildesc" translate>CLAIM.CREATECLAIM.SERVICEDETAILS.DESC</span>
+        <div class="accept-assignment">
+          <label>
+      <input type="checkbox" formControlName="acceptAssignment" name="acceptAssignment"/>
+      <span class="styledInput"></span>
+      {{'CLAIM.CREATECLAIM.SERVICEDETAILS.ASSIGNMENT' | translate }}
+    </label>
+        </div>
+      </div>
+      <br>
+      <div tzfFormField class="bootstrap-style col-4" label="CLAIM.CREATECLAIM.SERVICEDETAILS.ICD">
+        <tzf-form-field-dropdown id="icd" textField="code" valueField="value" [options]="icdOptions" formControlName="ICDType" name="icd"></tzf-form-field-dropdown>
+      </div>
+      <app-claim-line-detail *ngFor="let item of serviceDetailForm.get('claimLineDetails').controls; let i=index" [form]="item" [index]="i"
+        [today]="ngbToday" [placeOfServiceOptions]="placeOfServiceOptions" (diagnosisLookUp)="openDiagnosisLookUp($event)"
+        (placeOfServiceInfo)="openPlaceOfServiceInfo($event)" (onCptLookup)="openCPTModal($event)" (onNdcLookup)="openNDCModal($event)"
+        (calculateTotal)="getTotalChargeAmount($event)" (addLineItem)="addServiceDetailItem($event)" (deleteLineItem)="deleteServiceDetailItem($event)"></app-claim-line-detail>
+    </div>
+    <div class="total-charge-amount">
+      <span translate>Total Charge Amount</span>
+      <span class="p16b">{{totalChargeAmount | currency:AppConfig.currency:true:AppConfig.currencyPrecision}}</span>
+    </div>
+
+    <!-- place of service lookup info -->
+<ng-template #placeOfServiceTemplate>
+  <tzf-modal-content [modal]="placeOfServiceModalRef" headerText="Place of Service" [cancelButton]="false" [submitButton]="false">
+    <div main class="placeOfService ">
+      <div class="lookup-data-scroll">
+        <p *ngFor="let data of placeOfServiceOptions" class="margin0">
+          <span class="label">{{data.code}}</span>
+          <span class="value">{{data.value}}</span></p>
+      </div>
+    </div>
+  </tzf-modal-content>
+</ng-template>
+
+<ng-template #ndcTemplate>
+  <tzf-modal-content [modal]="ndcModalRef"
+  headerText="NDC Code" [cancelButton]="false"
+  [submitText]="'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESC1'"
+ [disableSubmit]="ndcLookupForm.invalid"
+ (submit)="ndcModalRef.close()">
+    <div main class="member-modal " [formGroup]="ndcLookupForm">
+      <div class="row ">
+        <div class="col-md-12 col-lg-12"><span class="modal-title">Enter NDC Code</span></div>
+        <div class="col-md-12 col-lg-12">Enter the NDC Code, Units and Type then Save to proceed.</div>
+      </div>
+
+      <br><br>
+      <div class="row">
+        <div class="col-lg-4 col-md-4">
+          <div tzfFormField label="Code" [validation]="ndcLookupForm.controls.drugCode" [validationMessages]="valMsg.lookup" labelFor="Code"
+            class="bootstrap-style">
+            <input type="text" formControlName="drugCode" id="drugCode" [validateOnBlur]="ndcLookupForm.controls.drugCode" [validators]="ndcCodeValidator"
+              placeholder="Enter NDC Code" maxlength="11">
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3">
+          <div tzfFormField [validation]="ndcLookupForm.controls.drugUnits" [validationMessages]="valMsg.lookup" label="Units" labelFor="Units"
+            class="bootstrap-style">
+            <input type="text" formControlName="drugUnits" id="drugUnits" placeholder="Units" maxlength="3">
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div tzfFormField label="Code Type" [validation]="ndcLookupForm.controls.drugType" [validationMessages]="valMsg.lookup" labelFor="drugType"
+            class="bootstrap-style">
+            <tzf-dropdown id="drugType" textField="code" valueField="value" [options]="ndcOptions" formControlName="drugType" name="drugType"
+              multi="false" placeholder="Select Code Type"></tzf-dropdown>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tzf-modal-content>
+</ng-template>
+<!------------------------- END OF NDC LOOKUP TEMPLATE -->

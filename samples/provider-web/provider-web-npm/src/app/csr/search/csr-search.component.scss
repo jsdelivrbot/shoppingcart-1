@@ -1,0 +1,113 @@
+@import "../../../styles/variables";
+a.resetSearch {
+    /deep/ svg {
+        width: 1.2em;
+        height: 1.2em;
+        position: relative;
+        top: 4px;
+        /deep/ path {
+            fill: $color-accent-blue;
+        }
+    }
+}
+#searchByFirstLastName, #searchByUserId{
+    label{
+        padding: 1em;
+        /deep/ .label-content{
+            display: none;
+        }
+    }  
+}
+.searchResultTable{
+    margin-top: 2.5em;
+    padding: 1.5em 0;
+    border-top:2px solid $color-light-border-grey;
+    /deep/ .ui-datatable{
+        background: $color-pimary-white;
+        margin-bottom: 1.5em;
+        /deep/ a{
+            cursor: pointer;
+        }
+    }
+}
+#providerSearchformmain {
+    div.row {
+        width: 100%;
+    }
+    .resetSearchDiv {
+        text-align: right;
+    }
+    button {
+        background: $color-accent-light-orange;
+        border: 0;
+        border-radius: 0 4px 4px 0;
+        color: $color-pimary-white;
+        -webkit-box-flex: 1;
+        -ms-flex: auto;
+        flex: auto;
+        font-size: 1.15em;
+        font-weight: bold;
+        padding: 0 1em;
+    }
+    button:disabled {
+        background: $color-neurtral-light-grey;
+    }
+    button:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="radio"]:checked+label,
+[type="radio"]:not(:checked)+label {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: $color-neurtral-grey;
+}
+
+[type="radio"]:checked+label:before,
+[type="radio"]:not(:checked)+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $color-neurtral-light-grey;
+    border-radius: 100%;
+    background: $color-pimary-white;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"]:not(:checked)+label:after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: $color-accent-blue;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked)+label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+
+[type="radio"]:checked+label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}

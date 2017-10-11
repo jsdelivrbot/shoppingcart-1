@@ -1,0 +1,52 @@
+export class MessageConfigModule{        
+     
+        public static MESSAGE_LENGTH:number = 1000;
+        public static MESSAGE_ZERO= 0;
+        public static MESSAGE_CATEGORY_TYPE:string = "providerCategories";
+        public static MESSAGE_USER_CATEGORY:string = "userCategories";
+        public static MESSAGE_CATEGORY:string="conversationCategory";                
+        public static MESSAGE_SUBJECT:string="subject";
+        public static MESSAGE_BODY:string="message";
+        public static TYPE_SENT:string = "sent";
+        public static TYPE_DRAFT:string = "draft";
+        public static TYPE_DRAFTS:string = "drafts";
+        public static TYPE_DELETE:string = "trash";
+        public static TYPE_SEND:string ="send";
+        public static SAVE_ID:string = "MSGCEN0009";
+        public static REPLY_ID:string = "MSGCEN0005";
+        public static TYPE_INBOX:string = "inbox";
+        public static MODIFIED_DATE:string=  "modifiedDate";
+        public static ORDER_BY_ASC:string = "asc";
+        public static EMPTY:string = "";
+        public static HTTP_STATUS_OK:string = "OK";
+        public static CANCEL_ID:string = "messageCancel";
+        public static SAVE_DRAFT_ID:string = "saveDraft";
+        public static HIDE_TIME:number = 1500;
+        public static MESSAGES:string = "messages";
+        public static MARK_READ:string = "markread";
+        public static MARK_UNREAD:string = "markunread";
+        public static USER_ID:string = "M1001@tranzform.com";
+        public static MESSAGE_DATE_FORMAT = 'MM/dd/yyyy';
+        public static MESSAGE_TIME_FORMAT = 'h:mm a';
+        public static BACK_CALLBACK:string ="back";
+        public static INBOX_ROUTE:string ="/messages/inbox";
+        public static SENT_ROUTE:string ="/messages/sent";
+        public static MSG_DETAIL_ROUTE:string ="/message/details";
+        public static INFO_MSG_IDLE_TIME:number=3500;
+        public static MSG_SUB_MAX_LENGTH:number =100;
+        public static MSG_BODY_MAX_LENGTH:number =1000;
+        public static MSG_ORDER_DESC:string = "desc";
+        public static MESSAGE_STATUS_TYPE:string = "messageStatus";
+        public static MESSAGE_FOR_PROVIDER: string = 'Clinical';
+        public static MESSAGE_FOR_STAFF: string = 'Non-Clinical';
+        public static UNREAD:string = "UNREAD";
+        public static MESSAGE_FOR_PAYER: string = 'PAYER';
+        public static PROVIDER: string = 'Provider';
+        public static READANDUNREAD: string = 'Read & Unread';
+        public static MESSAGE_STATUS_ALL= 'All';
+        public static SELECTED_TAB_MESSAGE: string = 'msgTab';
+        public static MEMBER_LIMIT: number = 5;
+        public static CLAIMS_PER_MEMBER_LIMIT: number = 5;
+        public static ATTACHMENT_TYPE_PATIENT = 'application/patient';
+    }
+

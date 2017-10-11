@@ -1,0 +1,55 @@
+{
+	"metaInfo": {
+		"orderBy": "desc",
+		"sortBy": "modifiedDate",
+		"type": "draft",
+		"totalCount": "3"
+	},
+	"messages": [{
+		"conversationCategory": "General",
+		"subject": "draft-save",
+		"messageId": "MSG2563",
+		"messageStatus": "DRAFT",
+		"createdDate": "Wed, 27 Sep 2017 12:54:16 GMT",
+		"createdBy": "user102@tenant1.com",
+		"modifiedDate": "Wed, 27 Sep 2017 12:54:16 GMT",
+		"readIndicator": false,
+		"isFwd": false,
+		"senders": {
+			"senderId": "user102@tenant1.com",
+			"senderName": "James M John",
+			"senderUserType": "Clinical"
+		}
+	}, {
+		"conversationCategory": "General",
+		"subject": "ghcvbggcgfc",
+		"messageId": "MSG2512",
+		"messageStatus": "DRAFT",
+		"createdDate": "Thu, 21 Sep 2017 12:51:30 GMT",
+		"createdBy": "user102@tenant1.com",
+		"modifiedDate": "Thu, 21 Sep 2017 12:51:30 GMT",
+		"readIndicator": false,
+		"isFwd": false,
+		"senders": {
+			"senderId": "user102@tenant1.com",
+			"senderName": "James M John",
+			"senderUserType": "Clinical"
+		}
+	}, {
+		"conversationCategory": "General",
+		"subject": "test",
+		"messageId": "MSG249",
+		"messageStatus": "DRAFT",
+		"createdDate": "Tue, 19 Sep 2017 06:30:13 GMT",
+		"createdBy": "user102@tenant1.com",
+		"modifiedDate": "Tue, 19 Sep 2017 06:30:13 GMT",
+		"readIndicator": false,
+		"isFwd": true,
+		"senders": {
+			"senderId": "user102@tenant1.com",
+			"senderName": "",
+			"senderUserType": "PAYER"
+		}
+	}],
+	"statusInfo": null
+}

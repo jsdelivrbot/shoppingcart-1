@@ -1,0 +1,20 @@
+@import 'colors';
+@import 'font';
+
+$form-border-width: 1px;
+$form-border-style: solid;
+$form-border: $form-border-width $form-border-style $color-form-border;
+$form-border-radius: 4px;
+
+$form-input-border-style: solid;
+$form-input-border-width: 0 0 1px;
+$form-input-border-radius: 0;
+$form-input-height: 26px;
+$form-input-padding-side: 0;
+$form-input-shadow: none;
+
+$form-caret-height: 7px;
+$form-caret-thickness: 2px;
+
+$form-popover-divider: 1px solid $color-form-popover-divider;
+$form-popover-shadow: 0 3px $color-form-popover-shadow;

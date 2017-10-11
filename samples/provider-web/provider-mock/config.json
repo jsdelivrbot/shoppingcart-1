@@ -1,0 +1,583 @@
+{
+    "note": "This is a sample config file. You should change the mockDirectory to a more reasonable path.",
+    "mockDirectory": "./response",
+    "staticDirectory": "/optional/file/system/path/to/static/directory",
+    "staticPath": "/optional/web/path/to/static/directory",
+    "quiet": false,
+    "port": "3000",
+    "latency": 50,
+    "logRequestHeaders": false,
+    "allowedHeaders": [
+        "Content-Type",
+        "my-custom-header",
+        "Preferred-Language",
+        "Authorization",
+        "requestingUserRelationship",
+        "cts-tzf-date",
+        "cts-tzf-correlationid",
+        "cts-tzf-ip",
+        "cts-tzf-channel",
+        "cts-tzf-channel-identifier",
+        "requestingDomain",
+        "requestingUserType",
+        "requestingUserName",
+        "requestingUserRelationship",
+        "tenantId",
+        "X-Header01",
+        "X-Header03",
+        "X-Header04",
+        "X-Header05",
+        "X-Header06",
+        "tenant-id",
+        "username",
+        "for-username",
+        "authorities",
+        "x-header-06"
+    ],
+    "webServices": {
+        "mseligibility/eligibility": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "tenantenrollmentid",
+                "memberFirstName",
+                "memberLastName"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "eligibility/activeligibility.json"
+                }
+            }
+        },
+        "msclaims/claims": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "subscriberId",
+                "tenantenrollmentid",
+                "memberFirstName",
+                "memberLastName",
+                "claimid",
+                "claimtype",
+                "claimstatus"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/claims.json"
+                }
+            }
+        },
+        "demo": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "subscriberId",
+                "tenantenrollmentid",
+                "memberFirstName",
+                "memberLastName",
+                "claimid",
+                "claimtype",
+                "claimstatus"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/claims.json"
+                }
+            }
+        },
+        "msauthreferral/authnreferrals/category":{
+            "verbs":[
+                "get"
+            ],
+            "switch":[
+                "category"
+            ],
+            "switchResponses":{
+                "categorygender":{
+                    "httpStatus": 200,
+                    "mockFile": "authreff/gender.json"
+                }
+            }
+
+        },
+        "msclaims/claims/category": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "category"
+            ],
+            "switchResponses": {
+                "categoryclaimStatus": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/claimStatus.json"
+                },
+                "categorydateConfig": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/dateConfig.json"
+                },
+                "categorygender": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/gender.json"
+                },
+                "categoryclaimType": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/claimType.json"
+                },
+                "categoryep_accident_type":{
+                    "httpStatus": 200,
+                    "mockFile": "claims/accidentTypes.json"
+                },
+                "categoryep_state":{
+                    "httpStatus": 200,
+                    "mockFile": "claims/states.json"
+                },
+                "categoryep_condition_types":{
+                    "httpStatus": 200,
+                    "mockFile": "claims/ep_condition_types.json"
+                },
+                "categoryplaceOfService":{
+                    "httpStatus": 200,
+                    "mockFile": "claims/placeOfService.json"
+                },
+                "categoryicd":{
+                    "httpStatus": 200,
+                    "mockFile": "claims/icd.json"
+                },
+                "categoryndcCodeType":{
+                    "httpStatus": 200,
+                    "mockFile": "claims/ndcCodeType.json"
+                }
+            },
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/claimStatus.json"
+                }
+            }
+        },
+        "msclaims/claims/:id": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "tenantenrollmentid",
+                "claimtype"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/claimDetail.json"
+                }
+            }
+        },
+        "msgcenter-web/v2/messages1": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "type",
+                "sortby",
+                "orderby"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/inbox.json"
+                }
+            }
+        },
+        "msgcenter-web/v2/messages": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "type",
+                "sortby",
+                "orderby"
+            ],
+            "switchResponses": {
+                "typeinboxsortbymodifiedDateorderbydesc": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/inbox.json"
+                },
+                "typesentsortbymodifiedDateorderbydesc": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/sent.json"
+                },
+                "typedraftsortbymodifiedDateorderbydesc": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/draft.json"
+                },
+                "typetrashsortbymodifiedDateorderbydesc": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/delete.json"
+                },
+                "typeinboxsortbymodifiedDateorderbydescreadindicatorUNREAD": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/inbox.json"
+                }
+            }
+        },
+        "msgcenter-web/v2/conversation": {
+            "verbs": [
+                "post"
+            ],
+            "switch": [
+                "action"
+            ],
+            "switchResponses": {
+                "actionsend": {
+                    "httpStatus": 204
+
+                },
+                "actiondraft": {
+                    "httpStatus": 204
+
+                }
+            }
+
+        },
+
+        "msgcenter-web/v2/message": {
+            "verbs": [
+                "post"
+            ],
+            "switch": [
+                "action"
+            ],
+            "switchResponses": {
+                "actionsend": {
+                    "httpStatus": 204
+
+                },
+                "actiondraft": {
+                    "httpStatus": 204
+
+                }
+            }
+        },
+        "msgcenter-web/v2/message/:msgId": {
+            "verbs": [
+                "delete"
+            ],
+            "switch": [
+                "type"
+            ],
+            "switchResponses": {
+                "typeinbox": {
+                    "httpStatus": 204
+
+                },
+                "typesent": {
+                    "httpStatus": 204
+
+                },
+                "typedrafts": {
+                    "httpStatus": 204
+
+                },
+                "typedraft": {
+                    "httpStatus": 204
+
+                }
+            }
+        },
+        "msgcenter-web/v2/message/:messageid": {
+             "verbs": [
+                "get"
+            ],
+            "switch": ["messageid"],
+            "switchResponses": {
+                "messageidMSG3": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/history.json"
+                },
+                "messageidMSG4": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/history1.json"
+                },
+                "messageidMSG249": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/history-MSG249.json"
+                },
+                "messageidMSG2512": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/history-MSG2512.json"
+                },
+                "messageidMSG2563": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/history-MSG2563.json"
+                }
+            }
+        },
+        "mdm-web/mdm/data/categories": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "category"
+           ],
+            "switchResponses": {
+                "categoryproviderCategories": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/category.json"
+                },
+                "categoryuserCategories": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/userCategory.json"
+                },
+                "categorymessageStatus": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/messageStatus.json"
+                },
+                "categoryep_referraltypes": {
+                    "httpStatus": 200,
+                    "mockFile": "mdm/authreferral.json"
+                },
+                "categoryep_referraltypes%2Cep_referralservicetypes%2Cep_referralstatus": {
+                    "httpStatus": 200,
+                    "mockFile": "mdm/authreferral.json"
+                }
+            }
+        },
+        "msclaims/claims/quickview/views": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "tenantid",
+                "userid"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/quickView.json"
+                }
+            }
+        },
+        "msprovider/provider/users": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "usertype"
+            ],
+            "switchResponses": {
+                "usertypeClinical": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/providers.json"
+                },
+                "usertypeNon-Clinical": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/users.json"
+                }
+            }
+        },
+        "authnreferrals/category": {
+            "verbs": [
+                "get"
+            ],
+            
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "authreff/mdm.json"
+                }
+            }
+        },
+        "authnreferrals/search": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "sortby",
+                "orderby",
+                "pagenumber"
+            ],
+            "switchResponses": {
+                "sortbyauthorizationNumberorderbyAscpagenumber1": {
+                    "httpStatus": 200,
+                    "mockFile": "authreff/authorizationNumberAsc.json"
+                },
+                "sortbyauthorizationNumberorderbyDscpagenumber1": {
+                    "httpStatus": 200,
+                    "mockFile": "authreff/authorizationNumberDsc.json"
+                },
+                "sortbyauthorizationNumberorderbyDscpagenumber2": {
+                    "httpStatus": 200,
+                    "mockFile": "authreff/searchresult2.json"
+                },
+                "sortbyauthorizationNumberorderbyAscpagenumber2": {
+                    "httpStatus": 200,
+                    "mockFile": "authreff/searchresult2.json"
+                }
+            },
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "authreff/searchresult.json"
+                }
+            }
+        },
+        "authnreferrals/:referenceId": {
+            "verbs": [
+                "get"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "authreff/detail.json"
+                }
+            }
+        },
+        "msprovider/providers": {
+            "verbs": [
+                "get"
+            ],
+
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/providers.json"
+                }
+            }
+        },
+        "msprovider/users": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "username",
+                "userfirstname",
+                "userlastname",
+                "sortby",
+                "orderby",
+                "pagenumber",
+                "pagesize"
+            ],
+            "switchResponses": {
+                "usernamePR001userfirstnameRobertuserlastnameSmithsortbyuserlastnameorderbyASCpagenumber1pagesize10": {
+                    "httpStatus": 200,
+                    "mockFile": "csr/csr.json"
+                }
+            },
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "csr/csr.json"
+                }
+            }
+        },
+        "rtr/profile-web1/member/information":{
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "subscriberid",
+                "memberid",
+                "firstname",
+                "middlename",
+                "lastname",
+                "dob",
+                "gender",
+                "type"
+            ],
+            "switchResponses": {
+                "subscriberiduser1": {
+                    "httpStatus": 200,
+                    "mockFile": "profile/user1.json"
+                },
+                "firstnameabcmiddlenamedlastnameefgdob11%2F11%2F1111gender1": {
+                    "httpStatus": 200,
+                    "mockFile": "profile/profileinfo.json"
+                },
+                "subscriberiduser1firstnamesmiddlenameslastnamesdob10%2F04%2F2017gender":{
+                  "httpStatus": 200,
+                   "mockFile": "profile/user1.json"  
+                }
+
+            },
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "profile/user1.json"
+                }
+            }
+        },
+        "msclaims/procedurecodes":{
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "procedurecode",
+                "procedurecodedesc"
+            ],
+            "switchResponses": {
+                "procedurecode1": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/procedurecode1.json"
+                },
+                "procedurecodedesc1": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/procedurecode.json"
+                }
+            },
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/procedurecode.json"
+                }
+            }
+        },
+        "msprovider/provider/address": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [],
+            "switchResponses": {
+            },
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "provider/providerAddress.json"
+                }
+            }
+        },
+        "msclaims/diagnosiscodes":{
+             "verbs": [
+                "get"
+            ],
+            "switch": [],
+            "switchResponses": {
+            },
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "claims/diagnosisCodes.json"
+                }
+            }
+        },
+         "msclaims/member/claims": {
+            "verbs": [
+                "get"
+            ],
+            "switch": [
+                "tenantenrollmentid",
+                "memberdob"
+            ],
+            "responses": {
+                "get": {
+                    "httpStatus": 200,
+                    "mockFile": "messages/claimsDetails.json"
+                }
+            }
+         }
+    }
+}

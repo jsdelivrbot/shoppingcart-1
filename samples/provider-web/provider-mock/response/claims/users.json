@@ -1,0 +1,199 @@
+[{
+	"EPEnrollmentId": "user1@tenant1.com",
+	"taxId": "126872323",
+	"providerEmail": "practice@gmail.com",
+	"providerPhone": "7659863444",
+	"NPI": "9998887761",
+	"checkNumber": "6789545",
+	"registeredProviderName": "Myers, David B",
+	"identityAffiliation": "000000000988",
+	"accessList": [{
+		"providerId": "678900001",
+		"providerLastName": "John",
+		"providerFirstName": "Jenik",
+		"providerName": "John, Jenik",
+		"npi": "9998887762"
+	}, {
+		"providerId": "678900002",
+		"providerLastName": "Joseph",
+		"providerFirstName": "James",
+		"providerName": "Joseph, James",
+		"npi": "9998887763"
+	}, {
+		"providerId": "678900003",
+		"providerLastName": "Cooper",
+		"providerFirstName": "Michelle",
+		"providerName": "Cooper, Michelle",
+		"npi": "9998887764"
+	}, {
+		"providerId": "678900004",
+		"providerLastName": "Matthew",
+		"providerFirstName": "Linden",
+		"providerName": "Matthew, Linden",
+		"npi": "9998887765"
+	}, {
+		"providerId": "678900005",
+		"providerLastName": "Baker",
+		"providerFirstName": "Azad",
+		"providerName": "Baker, Azad",
+		"npi": "9998887766"
+	}, {
+		"providerId": "678900006",
+		"providerLastName": "Mark",
+		"providerFirstName": "David",
+		"providerName": "Mark, David",
+		"npi": "9998887767"
+	}],
+	"isRegistrationCompleted": "NO",
+	"userType": "Non-Clinical",
+	"userRole": "ProviderAdmin",
+	"status": "Active",
+	"firstName": "Smith",
+	"lastName": "John",
+	"middleName": "M",
+	"email": "smith.23@gmail.com",
+	"phone1": "3458695678",
+	"DOB": "01/22/1985",
+	"referenceNumber": "4324RF432DD"
+}, {
+	"EPEnrollmentId": "user100@tenant1.com",
+	"taxId": "126872323",
+	"providerEmail": "practice@gmail.com",
+	"providerPhone": "7659863444",
+	"NPI": "9998887761",
+	"checkNumber": "6789545",
+	"registeredProviderName": "Myers, David B",
+	"identityAffiliation": "000000000988",
+	"accessList": [{
+		"providerId": "IHMFAC000009",
+		"providerFirstName": "John Jan",
+		"providerLastName": "DDS",
+		"npi": "1756439845"
+	}, {
+		"providerId": "678900002",
+		"providerFirstName": "Fernandes",
+		"providerLastName": "Neil",
+		"npi": "6496639482"
+	}, {
+		"providerId": "678900003",
+		"providerFirstName": "Rocky River",
+		"providerLastName": "Hospital",
+		"npi": "7492849203"
+	}, {
+		"providerId": "678900007",
+		"providerFirstName": "Gregory",
+		"providerLastName": "R",
+		"npi": "7492849207"
+	}, {
+		"providerId": "400252525001",
+		"providerFirstName": "Jackson",
+		"providerLastName": "John",
+		"npi": "7492849207"
+	}, {
+		"providerId": "IHMPRAC00019",
+		"providerFirstName": "Linden",
+		"providerLastName": "Matthew",
+		"npi": "7492849207"
+	}, {
+		"providerId": "IHMPRAC00016",
+		"providerFirstName": "Hogan",
+		"providerLastName": "Lynn",
+		"npi": "7492849207"
+	}, {
+		"providerId": "300131313001",
+		"providerFirstName": "Multi-Specialty Associates Hoboken",
+		"providerLastName": "",
+		"npi": "7492849207"
+	}, {
+		"providerId": "IHMPRAC00005",
+		"providerFirstName": "Cooper",
+		"providerLastName": "Michelle",
+		"npi": "7492849207"
+	}, {
+		"providerId": "90009999",
+		"providerFirstName": "Baker",
+		"providerLastName": "Azad",
+		"npi": "7492849207"
+	}, {
+		"providerId": "HRA300000000",
+		"providerFirstName": "HRA3 Provider",
+		"providerLastName": "HRA3 First",
+		"npi": "7492849207"
+	}, {
+		"providerId": "IHMPRAC00008",
+		"providerFirstName": "Dante",
+		"providerLastName": "Corey",
+		"npi": "7492849207"
+	}, {
+		"providerId": "200010101001",
+		"providerFirstName": "McDowell",
+		"providerLastName": "John",
+		"npi": "7492849207"
+	}, {
+		"providerId": "300878787001",
+		"providerFirstName": "Ableman",
+		"providerLastName": "Mark",
+		"npi": "1756439845"
+	}, {
+		"providerId": "IHMPRAC20801",
+		"providerFirstName": "OB",
+		"providerLastName": "Gynecology",
+		"npi": "1756439845"
+	}, {
+		"providerId": "IHMPRAC00000",
+		"providerFirstName": "Marjorie",
+		"providerLastName": "Smith",
+		"npi": "1756439845"
+	}, {
+		"providerId": "900099999998",
+		"providerFirstName": "Swen",
+		"providerLastName": "Johansen",
+		"npi": "1756439845"
+	}, {
+		"providerId": "IHMPRAC00029",
+		"providerFirstName": "Matthew",
+		"providerLastName": "Orr",
+		"npi": "1756439845"
+	}, {
+		"providerId": "IHMPRAC00048",
+		"providerFirstName": "David H.",
+		"providerLastName": "Curtis",
+		"npi": "1756439845"
+	}, {
+		"providerId": "900099999997",
+		"providerFirstName": "Swen",
+		"providerLastName": "Johansen",
+		"npi": "1756439845"
+	}, {
+		"providerId": "IHMPRAC07029",
+		"providerFirstName": "Matthew",
+		"providerLastName": "Orr",
+		"npi": "1756439845"
+	}, {
+		"providerId": "900020202001",
+		"providerFirstName": "Martin",
+		"providerLastName": "Collins",
+		"npi": "1756439845"
+	}, {
+		"providerId": "400303030001",
+		"providerFirstName": "Larry",
+		"providerLastName": "Berry",
+		"npi": "1756439845"
+	}, {
+		"providerId": "IHMPRAC00052",
+		"providerFirstName": "Tina",
+		"providerLastName": "Smith",
+		"npi": "1756439846"
+	}],
+	"isRegistrationCompleted": "NO",
+	"userType": "Non-Clinical",
+	"userRole": "ProviderAdmin",
+	"status": "Active",
+	"firstName": "Toni",
+	"lastName": "Cyd",
+	"middleName": "M",
+	"email": "toni.cyd@test.com",
+	"phone1": "3458695678",
+	"DOB": "01/22/1985",
+	"referenceNumber": "4324RF432DD"
+}]

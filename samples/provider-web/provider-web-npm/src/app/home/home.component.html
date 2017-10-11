@@ -1,0 +1,5 @@
+<div *ngIf="isCSR && !isProviderImpersonator;then csrView else dashboardView">...</div>
+<ng-template #csrView><app-csr></app-csr></ng-template>
+<ng-template #dashboardView><app-dashboard></app-dashboard></ng-template>
+
+

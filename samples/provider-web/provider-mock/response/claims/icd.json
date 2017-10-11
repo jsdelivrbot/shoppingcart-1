@@ -1,0 +1,13 @@
+
+{
+  "category": "icd",
+  "data":[
+    {
+        "code": "ICD-9",
+        "value": "ICD-9"
+    },
+    {
+        "code": "ICD-10",
+        "value": "ICD-10"
+    }
+]}

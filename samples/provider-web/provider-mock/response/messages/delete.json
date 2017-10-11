@@ -1,0 +1,30 @@
+{
+  "metaInfo": {
+    "orderBy": "desc",
+    "sortBy": "modifiedDate",
+    "type": "trash",
+    "unReadCount": "0",
+    "totalCount": "2"
+  },
+  "messages": [
+    {
+      "messageId": "CONV418",
+      "messageBody": "GENERAL",
+      "messageCategory": "General Test",
+      "messageStatus": "INBOUND",
+      "createdDate": "05/06/2017 16:48:44",
+      "modifiedDate": "05/06/2017 16:48:44",
+      "conversationCategory": "General",
+      "subject": "Message Subject",
+      "readIndicator": "read",
+      "recipients": [
+        {
+          "recipientUserType": "user Type",
+          "recipientId": "user type",
+          "recipientName": "Name"
+        }
+      ]
+    }
+  ],
+  "statusInfo": null
+}

@@ -1,0 +1,48 @@
+{
+  "metaInfo": {
+    "orderBy": "desc",
+    "sortBy": "modifiedDate",
+    "type": "sent",
+    "unReadCount": "0",
+    "totalCount": "2"
+  },
+  "messages": [
+    {
+      "messageId": "CONV418",
+      "messageBody": "Sent message",
+      "messageCategory": "General",
+      "messageStatus": "INBOUND",
+      "createdDate": "05/06/2017 16:48:44",
+      "modifiedDate": "05/06/2017 16:48:44",
+      "conversationCategory": "GENERAL",
+      "subject": "Message Subject",
+      "readIndicator": true,
+      "recipients": [
+        {
+          "recipientUserType": "PAYER",
+          "recipientId": "PR001",
+          "recipientName": "Gregory R House"
+        }
+      ]
+    },
+    {
+      "messageId": "CONV417",
+      "messageBody": "Sent message2",
+      "messageCategory": "General",
+      "messageStatus": "INBOUND",
+      "createdDate": "05/06/2017 16:48:44",
+      "modifiedDate": "05/06/2017 16:48:44",
+      "conversationCategory": "GENERAL",
+      "subject": "Message Subject1231224",
+      "readIndicator": true,
+      "recipients": [
+        {
+          "recipientUserType": "ADMIN",
+          "recipientId": "AD001",
+          "recipientName": "Elliot M Reid"
+        }
+      ]
+    }
+  ],
+  "statusInfo": null
+}

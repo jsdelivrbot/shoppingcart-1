@@ -1,0 +1,77 @@
+@import "../../styles/variables";
+$vertical-padding: 1rem;
+
+.right{
+    float: right;
+}
+.newMessageDiv{ 
+    margin-bottom: 1em;
+    float: right; 
+    cursor: pointer;
+    .new-msg {
+        border: 1px solid $color-accent-blue;
+        padding:8px 20px;
+        border-radius: 4px;
+        color: $color-accent-blue !important;
+        /deep/ svg {
+            width: 29px;
+            height: 22px;
+            color: $color-accent-blue;
+            padding: 0 5px;
+            vertical-align: middle;
+            path, rect{
+                fill:$color-accent-blue;
+                }
+        }
+    }
+}
+.msg-tabList{
+    clear: both;
+    /deep/ svg{width:1.5em;}
+    /deep/ ul[role='tablist'] a:focus{background:$color-pimary-white;} 
+
+} 
+.noRecMsg{
+    margin: 15px 0;
+}
+.msgSentSuccess, .msgError{
+    float: left;
+    margin-bottom: 30px;
+}
+[bottom]{
+    background: $color-pimary-white;
+    height: 85px;
+    width: 100%;
+    padding:0;
+    margin:0;
+#modal-buttons {
+   
+  margin-top: $vertical-padding;
+  text-align: right;
+  padding:26px 5px;
+
+  .btn:not(:last-child) {
+    margin-right: 0.6em;
+  }
+}
+}
+.error-message {
+    background: $color-light-pink;
+    border: 1px solid $color-neurtral-pink;
+    border-radius: 2px;
+    color: $color-accent-pink;
+    padding: 1.2em;
+    text-align: left;
+    margin-bottom: 2em;
+    .errorTxt{
+        margin-left: 1em;
+    }
+    /deep/ svg {
+      float: left;
+      height: 24px;
+      width: 24px;
+      /deep/ path, rect{
+        fill: $color-accent-pink;
+      }
+    }
+}

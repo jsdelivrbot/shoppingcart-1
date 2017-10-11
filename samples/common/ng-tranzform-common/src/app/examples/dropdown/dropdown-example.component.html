@@ -1,0 +1,47 @@
+<div class="inner-container">
+
+{{ 'DATA' | translate }}:
+<pre>{{ data | json }}</pre>
+
+<h3 translate>SIMPLE</h3>
+<tzf-dropdown id="simple-dropdown" [options]="data" [(ngModel)]="simpleValue"></tzf-dropdown>
+{{ 'SELECTED_VALUE' | translate:{ value: simpleValue } }}
+
+<h3 translate>DROPDOWN.CUSTOM_TEXT_FIELD</h3>
+<tzf-dropdown [options]="data" [(ngModel)]="simpleValue" textField="manualText"></tzf-dropdown>
+{{ 'SELECTED_VALUE' | translate:{ value: simpleValue } }}
+
+<h3 translate>DROPDOWN.DEFAULT_FIRST_OPTION</h3>
+<tzf-dropdown [options]="data" [(ngModel)]="firstValue"></tzf-dropdown>
+{{ 'SELECTED_VALUE' | translate:{ value: firstValue } }}
+
+<h3>Placeholder, custom width</h3>
+<tzf-dropdown style="width: 200px" [options]="data" [(ngModel)]="noInitial" placeholder="Select"></tzf-dropdown>
+{{ 'SELECTED_VALUE' | translate:{ value: noInitial } }}
+
+<h3>Disabled</h3>
+<tzf-dropdown [options]="data" [disabled]="true" placeholder="Select"></tzf-dropdown>
+
+<h2>Dates</h2>
+
+<h3>Bound string</h3>
+<tzf-date id="boundString" [(ngModel)]="dateString" [yearPicker]="true"></tzf-date>
+<p>{{ dateString }}</p>
+
+<h3>Bound date</h3>
+<tzf-date [(ngModel)]="dateDate"></tzf-date>
+<p>{{ dateDate }}</p>
+
+<h3>Bound undefined</h3>
+<tzf-date [(ngModel)]="dateUndefined" placeholder="MM/DD/YYYY"></tzf-date>
+<p>{{ dateUndefined }}</p>
+
+<h2>Phone Numbers</h2>
+
+<tzf-phone id="phoneNumbers" [(ngModel)]="phoneNumbers" required></tzf-phone>
+<p>{{ phoneNumbers }}</p>
+
+<tzf-phone id="phoneUndefined" [(ngModel)]="phoneUndefined"></tzf-phone>
+<p>{{ phoneUndefined }}</p>
+
+</div>

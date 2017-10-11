@@ -1,0 +1,89 @@
+<div class="col-12 pdfExcelPlaceHolder">
+    <span class="p14r">{{'VIEWANDPRINTSUMMARY' | translate}}
+    <a  id="pdfDownload"
+        tabindex="0"
+        attr.title="{{'PDF' | translate }}"
+        [inlineSVG]="'assets/icon_pdf.svg'"
+        [cacheSVG]="false"
+        [prepend]="true"
+        (click) = "downloadFile(AppConfig.PDF)"
+        [replaceContents]="false">
+          {{'PDF' | translate }}
+    </a>
+  </span>
+</div>
+
+<div class="inner-head-and-reset">
+  <p class="h18b">{{'ELIGIBILITY.PATIENTOVERVIEW.TITLE' | translate}}</p>
+  <a class="p16b newinquiry" id="newInquiry" (click)="newInquiryForm()" tabindex="-1" attr.title="{{'ELIGIBILITY.RESULTS.NEWENQUIRY' | translate}}"
+    [inlineSVG]="'/assets/common/icons/SearchIcon.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+          {{'ELIGIBILITY.RESULTS.NEWENQUIRY' | translate }}
+  </a>
+</div>
+
+<app-eligibility-overview [searchResult]="eligibilityResult" [searchedParams]="searchedParams"></app-eligibility-overview>
+
+<div id="detailsoverview" *ngIf="detailsOverview" class="row margin0 detailsoverview">
+  <p class="detailsoverview-title col-12 p16m" id="title" translate>ELIGIBILITY.DETAILSOVERVIEW.TITLE</p>
+  <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12  margin0 content1" id="content1">
+    <div class="row padding0 margin0"><span class="p14l title padding0 margin0 col-5" id="title1" translate>ELIGIBILITY.DETAILSOVERVIEW.ALTERNATENAME</span>
+      <span class="p14m value" id="value1">{{detailsOverview?.alternateName}}</span>
+    </div>
+    <div class="row padding0 margin0"><span class="p14l title padding0 margin0 col-5" id="title2" translate>ELIGIBILITY.DETAILSOVERVIEW.PRIMARYPAYER</span>
+      <span class="p14m value" id="value2">{{detailsOverview?.primaryPayer}}</span>
+    </div>
+    <div class="row padding0 margin0"><span class="p14l title padding0 margin0 col-5" id="title3" translate>ELIGIBILITY.DETAILSOVERVIEW.ADDITIONALINSURANCE</span>
+      <span class="p14m value" id="value3">{{detailsOverview?.additionalInsurance}}</span>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12  margin0 content2" id="content2">
+    <div class="row padding0 margin0"><span class="p14l title padding0 margin0 col-5" id="title1" translate>ELIGIBILITY.DETAILSOVERVIEW.COPAY</span><span class="p14m value"
+        id="value1">{{detailsOverview?.coPay |currency:AppConfig.currency:true:AppConfig.currencyPrecision}}</span></div>
+    <div class="row padding0 margin0"><span class="p14l title padding0 margin0 col-5" id="title2" translate>ELIGIBILITY.DETAILSOVERVIEW.DEDUCTIBLE</span>
+      <span class="p14m value" id="value2">{{detailsOverview?.deductible |currency:AppConfig.currency:true:AppConfig.currencyPrecision}}</span>
+    </div>
+    <div class="row padding0 margin0"><span class="p14l title padding0 margin0 col-5" id="title3" translate>ELIGIBILITY.DETAILSOVERVIEW.AUTHORIZATIONSREQUIRED</span>
+      <span class="p14m value" id="value3" translate="{{detailsOverview?.authorizationRequired?'ELIGIBILITY.DETAILSOVERVIEW.SEEBENEFITSINFO':'ELIGIBILITY.DETAILSOVERVIEW.NOTREQUIRED'}}"></span>
+    </div>
+  </div>
+</div>
+
+<tzf-tabs selected="profileinfo">
+  <div tzfTabContent id="profileinfo" tabLabel="{{'ELIGIBILITY.PATIENTINFO.TITLE' | translate}}" tabSvgPath="/assets/menu-icons/CareProfile.svg">
+    <app-eligibility-profile-information [searchResult]="eligibilityResult"></app-eligibility-profile-information>
+  </div>
+
+  <div tzfTabContent id="benefitinfo" tabLabel="{{'ELIGIBILITY.BENEFITINFO.TITLE' | translate}}" tabSvgPath="/assets/common/icons/finance_icon.svg">
+    <ngb-accordion *ngIf="benefitLineItems" #acc="ngbAccordion" activeIds="{{activeIds}}">
+      <!-- Patient Information -->
+      <ngb-panel id="{{lineItem?.title}}" *ngFor="let lineItem of benefitLineItems">
+        <ng-template ngbPanelTitle>
+          <span id="eligibility-patient-title">{{lineItem?.title}}</span>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <table  class="table" id="searchresults">
+            <tbody class="">
+              <tr id="heading">
+                <th class="" *ngFor="let header of benefitColumns; let j=index">
+                  <span class="hidden-xs p14b" translate id="search_result_header_{{j}}">{{header.header}}</span>
+                </th>
+              </tr>
+
+              <tr *ngFor="let rowItem of lineItem?.rowItems; let i=index" id="search_result_data_{{i}}">
+                <ng-container *ngIf="!rowItem['messages'] && Object.keys(JSON.parse(JSON.stringify(rowItem))).length">
+                  <td *ngFor="let header of benefitColumns; let k=index" class="p14m">{{header.field | eligibilityRowDataResolver:rowItem:lineItem.id}}</td>
+                </ng-container>
+                <ng-container *ngIf="rowItem['messages']">
+                  <td colspan="10" class="msg-content">
+                    <app-message [messages]="rowItem['messages']"></app-message>
+                  </td>
+                </ng-container>
+              </tr>
+            </tbody>
+          </table>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+
+  </div>
+</tzf-tabs>

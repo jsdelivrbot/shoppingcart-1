@@ -1,0 +1,113 @@
+@import "../../../styles/common";
+@import "../../../styles/variables";
+@import "../messages-styles.scss";
+
+$vertical-padding: 1rem;
+.msg-cnt{
+    padding:2em 2em 0 2em !important;
+}
+.top.row{
+    border: 1px solid $color-neurtral-ligher-grey;
+    border-width: 1px 0;
+    margin: 0 0 1.2em 0;
+    div{
+        padding: 0.5em 0 0;
+    }
+    div:first-child{
+        border-right: 1px solid $color-neurtral-ligher-grey;
+    }
+    div:not(:first-child){
+        padding-left:2em !important;
+    }
+}
+//form control send button
+.compose-model-bottom{
+    width: 100%;
+    margin: 0.7rem 0 1.4rem 0;
+    .compose-model-buttons {    
+        text-align: right;
+        .btn:not(:last-child) {
+            margin-right: 0.6em;
+        }
+    }
+}
+
+.text-area{
+    resize: none;
+    width:100%;
+    padding: 0.7em;
+}
+.pipe{
+    margin:0px 2px;
+    width:2px
+}
+.div-right{
+    float:right;
+}
+
+.div-btn{    
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+//form control mandatory fields
+.form-controls-required{
+    color:$color-accent-pink;    
+}
+
+//form-control line break
+.line-break{
+     margin-top: 5px;
+     margin-bottom: 5px;
+}
+//form control mandatory fields
+.form-controls-required{
+    color:$color-accent-pink;
+
+}
+
+
+//form control txt box
+.subject-txt-field .subject-txt,.subject-txt-field .alert-danger{  
+  width: 100%; 
+}
+
+
+//form control input height
+.subject-txt-field input{   
+  height:32px;
+}
+
+.msgHisDiv{
+    margin: 0 -2em;
+    /deep/ .msgHisHeader{
+       padding:1.2em 2em !important;
+       box-sizing: border-box !important;
+    }   
+    /deep/ .msgHisContent{
+         padding:0 2em !important;
+     }
+     /deep/ .card{
+         border-width: 0 0 1px 0 !important;
+         .card-block{
+             padding:0;
+         }
+     }
+}
+.msgForDetails, .catSub{
+    margin-bottom: 1.5em;
+}
+.msg-cnt{
+    /deep/ button[role="tab"]:focus{
+        background:$color-pimary-white;
+    }
+    /deep/ button[aria-selected="false"]{
+        /deep/ path, rect{
+            fill:$color-accent-blue;
+        }
+    }
+    /deep/ svg{
+        width:20px;
+        height: 20px;   
+    }
+}

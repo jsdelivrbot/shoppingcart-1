@@ -1,0 +1,37 @@
+@import "../../../styles/variables";
+@import "../../../styles/common";
+
+.msgFilter {
+  /deep/ .card-block{
+    padding: 1em 2em;
+  }
+  /deep/ .card-header {
+    a:focus,
+    a:hover {
+      text-decoration: none;
+    }
+  }
+  /deep/ tzf-dropdown{
+    width: 100%;
+  }
+  /deep/ .arrow{
+    top:14px;
+  }
+  /deep/ select{
+    height: 35px;
+  }
+  /deep/ .btnDiv{
+    margin: 1.2rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid $color-neurtral-ligher-grey;
+    position: relative;
+    height: 50px;
+    div{
+      position: absolute;
+      right: 0;
+      button:first-child{
+        margin-right: 1em;
+      }
+    }
+  }
+}

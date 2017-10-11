@@ -1,0 +1,59 @@
+@import '../styles/common';
+
+// Inspired by http://www.lugolabs.com/articles/72-style-select-html-element-with-css
+
+$arrow-height: 9px;
+$arrow-thickness: 3px;
+$arrow-sub-height: $arrow-height - $arrow-thickness;
+
+:host {
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    .arrow:not(.disabled)::before {
+      border-top-color: $color-input-border-hover;
+    }
+  }
+}
+
+select {
+  @include input();
+  padding-right: ($input-padding-side + $arrow-height) * 2;
+  width: 100%;
+
+  // Hide the native arrow
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: $input-padding-side + $arrow-height * 2 + 2px;
+  top: 12px;
+  pointer-events: none;
+}
+
+.arrow:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top: $arrow-height solid desaturate($color-input-border-hover, 100%);
+  border-left: $arrow-height solid transparent;
+  border-right: $arrow-height solid transparent;
+}
+
+.arrow:after {
+  content: '';
+  position: absolute;
+  left: $arrow-thickness;
+  top: 0;
+  border-top: $arrow-sub-height solid $color-input-bg;
+  border-left: $arrow-sub-height solid transparent;
+  border-right: $arrow-sub-height solid transparent;
+}

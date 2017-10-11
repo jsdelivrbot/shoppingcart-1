@@ -1,0 +1,60 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+h3,p{
+    color:$color-primary-bluishblack
+}
+*[tzfFormField]{
+    background-color: $color-pimary-white;
+}
+.titledesc{
+    display: flex;
+    justify-content: space-between;
+}
+#resetSearch{
+    color: $color-pimary-light-blue;
+    cursor:pointer;
+}
+a /deep/ {
+
+    svg {
+      width: 1.1em;
+      height:1.1em;
+      position: relative;
+      top: 3px;
+      path{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }
+tzf-form-fields /deep/ {
+        >div {
+            >div {
+                input + p, tzf-form-field-datepicker + p{
+                    color:$color-accent-pink;
+                }
+
+       }
+   }
+}
+
+@include media-breakpoint-up(lg) {
+    tzf-form-fields.tzf-form-class /deep/ {
+        > div{
+            >div{
+                >p:nth-child(2){
+                    color:$color-accent-pink;
+                }
+                tzf-form-field-datepicker{
+                    tzf-form-field-popover{
+                        >div{
+                            >input,button{
+                                min-width: auto !important;
+                            }
+                    }
+                    }
+
+                }
+            }
+        }
+    }
+}

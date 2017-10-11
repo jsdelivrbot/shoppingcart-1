@@ -1,0 +1,103 @@
+<p>To integrate the TranZform Common Framework with your project, follow these steps:</p>
+
+<ol>
+  <li>
+    Install the @tranzform/common package and its peer dependencies (npm will show which ones you don't have)
+    <pre>npm install @tranzform/common --save</pre>
+  </li>
+  <li>
+    Import and add TranZformCommonModule to the imports array in your application module (probably app.module.ts).
+    TranslateModule must also be configured if it hasn't been already.
+    <pre>
+import {{ '{' }} TranslateModule } from '@ngx-translate/core';
+
+import {{ '{' }} TranZformCommonModule } from '@tranzform/common';
+
+// Your other imports may differ
+imports: [
+  BrowserModule,
+  FormsModule,
+  HttpModule,
+  TranZformCommonModule.forRoot(),
+  TranslateModule.forRoot(), // ngx-translate must be configured as well
+  AppRoutingModule
+]</pre>
+  </li>
+  <li>
+    <h4>Update your .angular-cli.json file</h4>
+    Roboto font and global styles:
+    <pre>
+"styles": [
+  "../node_modules/@tranzform/common/styles/fonts/roboto.scss",
+  "../node_modules/@tranzform/common/styles/global-pro.scss",
+  "styles.scss"
+]</pre>
+    Common assets:
+    <pre>
+"assets": [
+  "assets",
+  "favicon.ico",
+  {{ '{' }}
+    "glob": "**/*",
+    "input": "../node_modules/@tranzform/common/assets",
+    "output": "./assets/common/"
+  },
+  {{ '{' }}
+    "glob": "**/*",
+    "input": "../node_modules/@tranzform/common/security/assets",
+    "output": "./"
+  }
+]</pre>
+  </li>
+  <li>
+    <h4>Use common bootstrap function</h4>
+    Add import:
+    <pre>import {{ '{' }} bootstrap } from '@tranzform/common/bootstrap';</pre>
+    Replace:
+    <pre>platformBrowserDynamic().bootstrapModule(AppModule);</pre>
+    With:
+    <pre>
+bootstrap(AppModule, environment);
+
+// The static analyzer needs this to see how the app is bootstrapped
+const staticAnalyzer = false;
+if (staticAnalyzer) {{ '{' }}
+  platformBrowserDynamic().bootstrapModule(AppModule);
+}</pre>
+  </li>
+  <li>
+    <h4>Add security client to index.html</h4>
+    <pre>
+&lt;tzf-root&gt;Loading...&lt;/tzf-root&gt;
+&lt;script type="text/javascript" src="oidc-client.min.js"&gt;&lt;/script&gt;</pre>
+  </li>
+</ol>
+
+<h2>Header Actions</h2>
+<p>Message and notification badges can be set using the ShellService.</p>
+<label>
+  Messages: <input type="number" ngModel (ngModelChange)="shellService.messageCount = $event">
+</label>
+<label>
+  Notifications: <input type="number" ngModel (ngModelChange)="shellService.notificationCount = $event">
+</label>
+
+<h2>Documentation</h2>
+<p *ngIf="docAvailable">There is <a href="documentation">documentation for developers</a> with example code and information about common component inputs and outputs.
+<div *ngIf="docAvailable === false">
+  <p>Documentation needs to be generated:</p>
+  <pre>npm run documentation</pre>
+</div>
+
+<h2>Style Guide</h2>
+<p *ngIf="styleguideAvailable">A <a href="styleguide">style guide</a> is available for both developers and designers to reference.
+<div *ngIf="styleguideAvailable === false">
+  <p>The style guide needs to be generated:</p>
+  <pre>npm run styleguide</pre>
+</div>
+
+<tzf-pagination
+  [collectionSize]="10"
+  [pageSize]="1"
+  (pageChange)="onPageChange($event)"
+></tzf-pagination>

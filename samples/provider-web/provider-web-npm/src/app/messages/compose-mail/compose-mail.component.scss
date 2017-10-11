@@ -1,0 +1,116 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+@import "../messages-styles.scss";
+@import "../../../../node_modules/@tranzform/common/form-fields/form-field-dropdown/form-field-dropdown.component.scss";
+//form control send button
+.compose-model-bottom {
+    background: #fafafa;
+    height: 75px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-top-color: #e2e2e2;
+    border-top-style: solid;
+    .compose-model-buttons {
+        margin-top: 1rem;
+        text-align: right;
+        padding: 5px 5px;
+        .btn:not(:last-child) {
+            margin-right: 0.6em;
+        }
+    }
+}
+
+.text-area {
+    resize: none;
+    width: 100%
+}
+
+.pipe {
+    margin: 0px 2px;
+    width: 2px
+}
+
+.div-right {
+    float: right;
+}
+
+.div-btn {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.msg-cnt {
+    padding: 2rem 2rem;
+    div.row {
+        margin-bottom: 1em;
+    }
+}
+
+.newmsg-horz {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+    hr {
+        margin-bottom: 5px;
+        margin-top: 10px;
+    }
+}
+
+//form control mandatory fields
+.form-controls-required {
+    color: $color-accent-pink;
+}
+
+//form-control line break
+.line-break {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+//form control mandatory fields
+.form-controls-required {
+    color: $color-accent-pink;
+}
+
+//form control txt box
+.subject-txt-field .subject-txt,
+.subject-txt-field .alert-danger {
+    width: 100%;
+}
+
+//form control input height
+.subject-txt-field input {
+    height: 32px;
+    opacity: 0.9;
+}
+
+//check box style definition
+input+.styledInput {
+    height: 18px !important;
+    width: 18px !important;
+}
+
+#patientInfoLabel1, #patientInfoLabel2{
+ display : inline-block !important;
+}
+#newMsgTabList{
+    /deep/ button[role="tab"]:focus{
+        background:$color-pimary-white;
+    }
+    /deep/ button[aria-selected="false"]{
+        /deep/ path, rect{
+            fill:$color-accent-blue;
+        }
+    }
+    /deep/ svg{
+        width:20px;
+        height: 20px;   
+    }
+}
+.patientInfoDiv{
+    .title{
+        color:$color-primary-bluishblack; 
+    }
+}

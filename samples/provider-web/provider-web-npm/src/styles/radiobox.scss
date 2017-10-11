@@ -1,0 +1,29 @@
+@import 'variables';
+
+input[type=radio] {
+  opacity: 0;
+  width: 0;
+
+  + .styledInput {
+    border: 1px solid $color-checkbox-border;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 $color-checkbox-checked-shadow;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    position: relative;
+    top: 2px;
+    margin-right: 0.4em;
+    border-radius: 100%;
+  }
+
+  &:checked + .styledInput {
+    background: $color-checkbox-checked-bg;
+    border-color: $color-checkbox-checked-bg;
+    overflow: hidden;
+  }
+
+  &:focus + .styledInput {
+    box-shadow: 0 1px 8px 0 $color-checkbox-focus-shadow;
+  }
+}

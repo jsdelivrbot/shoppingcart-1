@@ -1,0 +1,17 @@
+[{
+	"category": "userCategories",
+	"data": [{
+		"code": "PAYER",
+		"value": "Payer"
+	}, {
+		"code": "Clinical",
+		"value": "Provider"
+	}, {
+		"code": "Non-Clinical",
+		"value": "Staff"
+	}],
+	"createdBy": "Admin",
+	"createdDate": "11/23/2016",
+	"modifiedDate": "11/23/2016",
+	"active": true
+}]

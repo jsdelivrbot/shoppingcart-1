@@ -1,0 +1,498 @@
+{
+  "tenantEnrollmentId": "M1001",
+  "subscriberId": "900A001",
+  "eligibilityStatus": "No",
+  "profile": {
+    "EmergencyContact": [
+      {
+        "groupId": "EmergencyContact",
+        "attributeDetails": {}
+      }
+    ],
+    "SubscriberSubGroup": [
+      {
+        "groupId": "SubscriberSubGroup",
+        "attributeDetails": {
+          "packageCode": "13953NJ0680001",
+          "groupId": "group1",
+          "subGroupId": "1"
+        }
+      }
+    ],
+    "Address": [
+      {
+        "groupId": "Address",
+        "attributeDetails": {
+          "zipCode": "85042",
+          "country": "US",
+          "address3": "APT 4a",
+          "address2": "Bronx",
+          "city": "Edison",
+          "addressType": "Home",
+          "address1": "Halview",
+          "county": "Hunterdon",
+          "state": "NJ"
+        }
+      },
+      {
+        "groupId": "Address",
+        "attributeDetails": {
+          "zipCode": "08877",
+          "country": "US",
+          "address3": "JPT 7a",
+          "address2": "Bronx",
+          "city": "Edison",
+          "addressType": "Work",
+          "address1": "Sea Viewr",
+          "county": "Hunterdon",
+          "state": "NJ"
+        }
+      },
+      {
+        "groupId": "Address",
+        "attributeDetails": {
+          "zipCode": "",
+          "country": "",
+          "address3": "",
+          "address2": "",
+          "city": "",
+          "addressType": "Confidential",
+          "address1": "",
+          "county": null,
+          "state": ""
+        }
+      },
+      {
+        "groupId": "Address",
+        "attributeDetails": {
+          "zipCode": "",
+          "country": "",
+          "address3": "",
+          "address2": "",
+          "city": "",
+          "addressType": "Mail",
+          "address1": "",
+          "county": null,
+          "state": ""
+        }
+      },
+      {
+        "groupId": "Address",
+        "attributeDetails": {
+          "zipCode": "",
+          "country": "",
+          "address3": "",
+          "address2": "",
+          "city": "",
+          "addressType": "Alternate",
+          "address1": "",
+          "county": null,
+          "state": ""
+        }
+      }
+    ],
+    "Subscriber": [
+      {
+        "groupId": "Subscriber",
+        "attributeDetails": {
+          "subscriberFirstName": "Robert"
+        }
+      }
+    ],
+    "PayerInfo": [
+      {
+        "groupId": "PayerInfo",
+        "attributeDetails": {
+          "insuranceHierarchy": "UHC",
+          "payerId": "EMBL009",
+          "payerName": "Emblem"
+        }
+      }
+    ],
+    "SubscriberGroup": [
+      {
+        "groupId": "SubscriberGroup",
+        "attributeDetails": {
+          "groupId": "12345",
+          "marketSegment": "MS1"
+        }
+      }
+    ],
+    "MemberPersonalDetails": [
+      {
+        "groupId": "MemberPersonalDetails",
+        "attributeDetails": {
+          "firstName": "Robert",
+          "lastName": "Stark",
+          "occupation": "SoftwareEngineer",
+          "handicapped": "Yes",
+          "gender": "Male",
+          "student": "Yes",
+          "alternateName": "Bob Stark",
+          "middleName": "",
+          "preferredAddressType": "Home",
+          "dateOfBirth": "01/01/1981",
+          "relationship": "Self"
+        }
+      }
+    ],
+    "Contact": [
+      {
+        "groupId": "Contact",
+        "attributeDetails": {
+          "contact": "poovendhan.rajendiran@trizetto.com",
+          "contactType": "email"
+        }
+      },
+      {
+        "groupId": "Contact",
+        "attributeDetails": {
+          "contact": "9730170006",
+          "contactType": "mobilePhone"
+        }
+      },
+      {
+        "groupId": "Contact",
+        "attributeDetails": {
+          "contact": "",
+          "contactType": "homePhoneNo"
+        }
+      }
+    ]
+  },
+  "enrollment": [
+    {
+      "groupId": "Enrollment",
+      "attributeDetails": {
+        "planId": "888",
+        "planName": "HMO-Silver-Plan",
+        "productId": "800",
+        "productCategory": "Medical",
+        "productName": "HMO-Silver-80-20Plan",
+        "productType": "HMO",
+        "coverageTier": "Children Only",
+        "activeCoverageInd": "Yes",
+        "coverageEffectiveDate": "01/01/2015",
+        "coverageTerminationDate": "12/31/2015",
+        "fsaInd": "No",
+        "hsaInd": "No",
+        "hraInd": "No",
+        "memberGroupId": "GRO001",
+        "memberGroupName": "GRO001",
+        "memberSubGroupId": "SUBGRO001",
+        "memberSubGroupName": "SUBGRO001"
+      }
+    }
+  ],
+  "additionalInsurance": [
+    {
+      "groupId": "AdditionalInsurance",
+      "attributeDetails": {
+        "otherInsuredPayerName": "WS Retail inc.",
+        "pharmacyID": "COB",
+        "policyHolderDOB": "04/04/1976",
+        "otherInsuredPayerAddress": "CA,USA",
+        "policyNumber": "XYZ133ABC",
+        "carrierPolicyNumber": "123456787",
+        "otherInsuredPayerContactNumber": "01010100",
+        "productCategory": "Medical",
+        "terminationDate": "03/26/2018",
+        "insuranceHierarchy": "Primary",
+        "supplementalDrugType": "Type 1",
+        "policyHolderFirstName": "Khushboo",
+        "policyHolderLastName": "Porwal",
+        "coverageTier": "Platiunum 3",
+        "carrierID": "1001",
+        "effectiveDate": "05/16/2017",
+        "trackingId": "AI0518201710173"
+      }
+    },
+    {
+      "groupId": "AdditionalInsurance",
+      "attributeDetails": {
+        "otherInsuredPayerName": "UHC",
+        "pharmacyID": "COB",
+        "policyHolderDOB": "05/03/1976",
+        "otherInsuredPayerAddress": "CA,USA",
+        "policyNumber": "P00012",
+        "carrierPolicyNumber": "123456789",
+        "otherInsuredPayerContactNumber": "01010100",
+        "productCategory": "Medical",
+        "terminationDate": "04/04/2019",
+        "insuranceHierarchy": "Secondary",
+        "supplementalDrugType": "Type 1",
+        "policyHolderFirstName": "Khushboo",
+        "policyHolderLastName": "Porwal",
+        "coverageTier": "Family",
+        "carrierID": "1001",
+        "effectiveDate": "10/31/2011",
+        "trackingId": "AI0518201710174"
+      }
+    },
+    {
+      "groupId": "AdditionalInsurance",
+      "attributeDetails": {
+        "otherInsuredPayerName": "UHCP",
+        "pharmacyID": "COB",
+        "policyHolderDOB": "05/03/1976",
+        "otherInsuredPayerAddress": "CA,USA",
+        "policyNumber": "P00012",
+        "carrierPolicyNumber": "123456789",
+        "otherInsuredPayerContactNumber": "01010100",
+        "productCategory": "Medical",
+        "terminationDate": "04/04/2019",
+        "insuranceHierarchy": "Secondary",
+        "supplementalDrugType": "Type 1",
+        "policyHolderFirstName": "Khushboo",
+        "policyHolderLastName": "Porwal",
+        "coverageTier": "Family",
+        "carrierID": "1001",
+        "effectiveDate": "10/31/2011",
+        "trackingId": "AI0518201710174"
+      }
+    }
+  ],
+  "accumSummary": [
+    {
+      "accumulatorType": "Deductible",
+      "tierAccums": [
+        {
+          "tierId": "IN",
+          "accumAmounts": [
+            {
+              "coverageLevel": "Family",
+              "amount": 4000,
+              "amountMet": 2400,
+              "amountRemaining": 1600,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Preferred Provider Organization(PPO)",
+              "description": "Preferred Provider Organization(PPO)",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A100.1",
+              "messages": [
+                {
+                  "message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+                  "importanceFlag": true
+                }
+              ]
+            },
+            {
+              "coverageLevel": "Individual",
+              "amount": 1000,
+              "amountMet": 600,
+              "amountRemaining": 400,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Preferred Provider Organization(PPO)",
+              "description": "Preferred Provider Organization(PPO)",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A100.1",
+              "messages": [
+                {
+                  "message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+                  "importanceFlag": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tierId": "ON",
+          "accumAmounts": [
+            {
+              "coverageLevel": "Family",
+              "amount": 4000,
+              "amountMet": 1300,
+              "amountRemaining": 2700,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Preferred Provider Organization(PPO)",
+              "description": "Preferred Provider Organization(PPO)",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A00.1",
+              "messages": [
+                {
+                  "message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+                  "importanceFlag": true
+                }
+              ]
+            },
+            {
+              "coverageLevel": "Individual",
+              "amount": 1000,
+              "amountMet": 0,
+              "amountRemaining": 100,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Preferred Provider Organization(PPO)",
+              "description": "Preferred Provider Organization(PPO)",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A00.1",
+              "messages": [
+                {
+                  "message": "Replacement Deductible. The replacement deductible is the deductible specific to the service type requested. This replaces the global deductible for this service type.",
+                  "importanceFlag": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "accumulatorType": "Benefit Disclaimer",
+      "tierAccums": [
+        {
+          "accumAmounts": [
+            {
+              "coverageLevel": "Individual",
+              "serviceType": "Health Benefit Plan Coverage",
+              "messages": [
+                {
+                  "message": "If the member qualifies for the Cobra Coverage, the policy may be subject to Retroactive cancellation or reinstatement, based on the plan design and the member Cobra Election.",
+                  "importanceFlag": false
+                }
+              ]
+            },
+            {
+              "messages": [
+                {
+                  "message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+                  "importanceFlag": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "accumulatorType": "Out of Pocket Maximum",
+      "tierAccums": [
+        {
+          "tierId": "IN",
+          "accumAmounts": [
+            {
+              "coverageLevel": "Family",
+              "amount": 4000,
+              "amountMet": 2000,
+              "amountRemaining": 2000,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Health Benefit Plan Coverage",
+              "description": "Health Benefit Plan Coverage",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A00.1",
+              "messages": [
+                {
+                  "message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+                  "importanceFlag": true
+                }
+              ]
+            },
+            {
+              "coverageLevel": "Individual",
+              "amount": 1000,
+              "amountMet": 300,
+              "amountRemaining": 700,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Health Benefit Plan Coverage",
+              "description": "Health Benefit Plan Coverage",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A00.1",
+              "messages": [
+                {
+                  "message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+                  "importanceFlag": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "tierId": "ON",
+          "accumAmounts": [
+            {
+              "coverageLevel": "Family",
+              "amount": 4000,
+              "amountMet": 3200,
+              "amountRemaining": 800,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Health Benefit Plan Coverage",
+              "description": "Health Benefit Plan Coverage",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A00.1",
+              "messages": [
+                {
+                  "message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+                  "importanceFlag": true
+                }
+              ]
+            },
+            {
+              "coverageLevel": "Individual",
+              "amount": 1000,
+              "amountMet": 100,
+              "amountRemaining": 9000,
+              "serviceType": "Health Benefit Plan Coverage",
+              "insuranceType": "Health Benefit Plan Coverage",
+              "description": "Health Benefit Plan Coverage",
+              "priorAuthRequired": true,
+              "diagnosisCode": "A00.1",
+              "messages": [
+                {
+                  "message": "Unless otherwise required by State Law, this notice is not a gurantee of payment. Benefits are subject to all contract limits and the member’s status on the date of service. Accumulated amounts such as deductibles may change as additional claims are processed",
+                  "importanceFlag": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitSummary": [
+    {
+      "limitType": "Units",
+      "limitTimePeriod": "Plan Year",
+      "limitDescription": "Annual Adult Physical Exam",
+      "serviceType": "Chiropractic",
+      "insuranceType": "Chiropractic",
+      "priorAuthRequired": true,
+      "diagnosisCode": "A00.1",
+      "messages": [
+        {
+          "message": "Message for M1001",
+          "importanceFlag": true
+        }
+      ],
+      "coverageLimits": [
+        {
+          "coverageLevel": "Individual",
+          "limitMax": 0,
+          "limitMet": 60,
+          "limitRemaining": 0
+        }
+      ]
+    },
+    {
+      "limitType": "Units",
+      "limitTimePeriod": "Plan Year",
+      "limitDescription": "Physical Therapy Visits",
+      "serviceType": "Medical",
+      "insuranceType": "string",
+      "priorAuthRequired": true,
+      "diagnosisCode": "string",
+      "messages": [
+        {
+          "message": "string",
+          "importanceFlag": true
+        }
+      ],
+      "coverageLimits": [
+        {
+          "coverageLevel": "Individual",
+          "limitMax": 25,
+          "limitMet": 25,
+          "limitRemaining": 0
+        }
+      ]
+    }
+  ]
+}

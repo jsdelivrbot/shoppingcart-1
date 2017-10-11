@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+	<configuration>
+		<date-format>MM/dd/yyyy HH:mm:ss</date-format>
+	</configuration>
+
+	<mapping map-id="messagevo_message_mapping">
+		<class-a>com.cognizant.tranzform.msgcenter.vo.MessageVO</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.domain.Message
+		</class-b>
+	</mapping>
+	<mapping map-id="message_messagevo_mapping">
+		<class-a>com.cognizant.tranzform.msgcenter.domain.Message</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.vo.MessageVO
+		</class-b>
+	</mapping>
+	
+		<mapping map-id="msgV2_msgVo_recipient_msgmapping"  map-null="false">
+		<class-a>com.cognizant.tranzform.msgcenter.v2.domain.To</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.v2.vo.RecipientVO</class-b>
+		<field>
+			<a>id</a>
+			<b>recipientId</b>
+		</field>
+		<field>
+			<a>type</a>
+			<b>recipientUserType</b>
+		</field>
+		<field>
+			<a>userName</a>
+			<b>recipientName</b>
+		</field>	
+	</mapping>
+	
+	<mapping map-id="message_messagevoV2_mapping">
+		<class-a>com.cognizant.tranzform.msgcenter.v2.domain.MessageV2</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.v2.vo.MessageVo</class-b>
+	</mapping>
+	
+	<mapping map-id="conversationvo_conversation_mapping">
+		<class-a>com.cognizant.tranzform.msgcenter.vo.ConversationVO
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.domain.Conversation
+		</class-b>
+		<field map-id="messagevo_message_mapping">
+			<a>messages</a>
+			<b>messages</b>
+		</field>
+	</mapping>
+	<mapping map-id="conversation_conversationvo_mapping">
+		<class-a>com.cognizant.tranzform.msgcenter.domain.Conversation
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.vo.ConversationVO
+		</class-b>
+		<field map-id="message_messagevo_mapping">
+			<a>messages</a>
+			<b>messages</b>
+		</field>
+		<field>
+			<a date-format="dd MMM yyyy 'T'HH:mm:ss Z">createdDate</a>
+			<b>createdDate</b>
+		</field>
+		<field>
+			<a date-format="dd MMM yyyy 'T'HH:mm:ss Z">modifiedDate</a>
+			<b>modifiedDate</b>
+		</field>
+	</mapping>
+
+	<mapping map-id="conversation_to_tenantConversation"
+		date-format="MM/dd/yyyy">
+		<class-a>com.cognizant.tranzform.msgcenter.domain.Conversation
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.domain.ConversationDetails
+		</class-b>
+		<field>
+			<a>messages[0].messageId</a>
+			<b>messageId</b>
+			<a-deep-index-hint>com.cognizant.tranzform.msgcenter.domain.Message</a-deep-index-hint>
+		</field>
+		<field>
+			<a>messages[0].messageBody</a>
+			<b>messagetext</b>
+			<a-deep-index-hint>com.cognizant.tranzform.msgcenter.domain.Message</a-deep-index-hint>
+		</field>
+		<field>
+			<a>createdDate</a>
+			<b>createDateTime</b>
+		</field>
+	</mapping>
+
+	<mapping map-id="message_to_tenantMessage" date-format="MM/dd/yyyy">
+		<class-a>com.cognizant.tranzform.msgcenter.domain.Conversation
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.domain.ConversationDetails
+		</class-b>
+		<field>
+			<a>messages[0].messageId</a>
+			<b>messageId</b>
+			<a-deep-index-hint>com.cognizant.tranzform.msgcenter.domain.Message</a-deep-index-hint>
+		</field>
+		<field>
+			<a>messages[0].messageBody</a>
+			<b>messagetext</b>
+			<a-deep-index-hint>com.cognizant.tranzform.msgcenter.domain.Message</a-deep-index-hint>
+		</field>
+		<field>
+			<a>createdDate</a>
+			<b>createDateTime</b>
+		</field>
+		<field-exclude>
+			<a>conversationCategory</a>
+			<b>conversationCategory</b>
+		</field-exclude>
+		<field-exclude>
+			<a>subject</a>
+			<b>subject</b>
+		</field-exclude>
+		<field-exclude>
+			<a>conversationStatus</a>
+			<b>conversationStatus</b>
+		</field-exclude>
+	</mapping>
+
+	<mapping map-id="conversationdetail_conversationdetailvo_mapping">
+		<class-a>com.cognizant.tranzform.msgcenter.domain.ConversationDetails
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.vo.ConversationDetailVO
+		</class-b>
+		<field map-id="message_messagevo_mapping">
+			<a>messages</a>
+			<b>messages</b>
+		</field>
+	</mapping>
+
+
+	<mapping map-id="message_messagevo_msgmapping" map-null="false">
+		<class-a>com.cognizant.tranzform.msgcenter.v2.domain.MessageDetailsV2
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.v2.vo.MessageVo</class-b>
+	</mapping>
+
+	<mapping map-id="conversationdetailV2_conversationdetailV2vo_mapping"
+		map-null="false">
+		<class-a>com.cognizant.tranzform.msgcenter.v2.domain.ConversationDetailsV2
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.v2.vo.ConversationDetailV2VO
+		</class-b>
+		<field map-id="message_messagevo_msgmapping">
+			<a>messages</a>
+			<b>messages</b>
+		</field>
+	</mapping>
+	
+	
+  <!--  Trailing message Vo mapping started -->
+	<mapping map-id="trailMessage_V2_mapping">
+		<class-a>com.cognizant.tranzform.msgcenter.v2.domain.MessageDetailsV2
+		</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.v2.vo.TrailMessageV2VO
+		</class-b>
+		<field>
+			<a>isRead</a>
+			<b>readIndicator</b>
+		</field>	
+		<field>
+			<a>to.Id</a>
+			<b>recipients[0].recipientId</b>
+			<b-hint>com.cognizant.tranzform.msgcenter.v2.vo.RecipientVO</b-hint>
+		</field>
+		<field>
+			<a>to.type</a>
+			<b>recipients[0].recipientUserType</b>
+			<b-hint>com.cognizant.tranzform.msgcenter.v2.vo.RecipientVO</b-hint>
+		</field>
+		<field>
+			<a>to.userName</a>
+			<b>recipients[0].recipientName</b>
+			<b-hint>com.cognizant.tranzform.msgcenter.v2.vo.RecipientVO</b-hint>
+		</field>
+
+		<field map-id="sender_mapping">
+			<a>from</a>
+			<b>sender</b>
+		</field>
+	</mapping>
+	
+		<mapping map-id="sender_mapping" map-null="false">
+		<class-a>com.cognizant.tranzform.msgcenter.v2.domain.From</class-a>
+		<class-b>com.cognizant.tranzform.msgcenter.v2.vo.SenderVO</class-b>
+		<field>
+			<a>id</a>
+			<b>senderId</b>
+		</field>
+		<field>
+			<a>type</a>
+			<b>senderUserType</b>
+		</field>
+		<field>
+			<a>userName</a>
+			<b>senderName</b>
+		</field>
+	</mapping>
+	<!--  Trailing message VO mapping finished -->
+
+</mappings> 
+      

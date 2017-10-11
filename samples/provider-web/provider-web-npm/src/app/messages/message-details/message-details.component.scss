@@ -1,0 +1,128 @@
+@import "../../../styles/common";
+@import "../../../styles/variables";
+@import"../messages-styles.scss";
+#backToMsg a:hover {
+    text-decoration: underline !important;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.bakToMsgLink {
+    display: inline-block;
+    left: -0.5em;
+    padding: 0 0.5em;
+    position: relative;
+    margin: 0em 0 1.5em 0;
+    &::before {
+        border: solid currentColor;
+        border-width: 0 0 2px 2px;
+        content: '';
+        display: inline-block;
+        margin: 0 0.3em;
+        height: 0.7em;
+        width: 0.7em;
+        transform: rotate(45deg);
+    }
+}
+
+.card {
+    margin: 2em 0;
+    .card-block {
+        .row {
+            margin: 0;
+        }
+        .top {
+            min-height: 82px;
+            padding: 15px 10px 10px 0px;
+            position: relative;
+            border: 1px solid $color-neurtral-ligher-grey;
+            border-width: 1px 0px;
+            /deep/ p {
+                margin-bottom: 3px;
+            }
+        }
+        .middle {
+            margin: 15px 0;
+            .msg-content {
+                border-left: 5px solid $color-neurtral-whitish-grey;
+                padding: 15px;
+                margin: 10px 0;
+                word-wrap: break-word;
+                white-space: pre-wrap;
+            }
+        }
+        .bottom {
+            padding-top: 20px;
+            border-top: 1px solid $color-neurtral-ligher-grey;
+            .col-dateTime {
+                padding-left: 0px !important;
+            }
+            .replyBtnDiv {
+                position: absolute;
+                right: 20px;
+                button:first-child {
+                    margin-left: 2em;
+                }
+            }
+            /deep/ button {
+                background: $color-accent-dark-orange;
+                border-width: 0;
+                float: right;
+                color: $color-pimary-white;
+            }
+        }
+    }
+}
+
+.categoryIcon {
+    margin-top: 5px;
+}
+
+.recipientDetails {
+    border-bottom-width: 0 !important;
+}
+
+.error-message {
+    background: $color-light-pink;
+    border: 1px solid $color-neurtral-pink;
+    border-radius: 2px;
+    color: $color-accent-pink;
+    padding: 1.2em;
+    text-align: left;
+    margin-bottom: 2em;
+    /deep/ .errorIcon {
+        margin-right: 1em;
+    }
+    /deep/ svg {
+        float: left;
+        height: 24px;
+        width: 24px;
+        /deep/ path,
+        rect {
+            fill: $color-accent-pink;
+        }
+    }
+}
+
+::ng-deep #patientInfo-acc {
+    padding: 1em 0.5em;
+}
+
+::ng-deep .pdfExcelPlaceHolder {
+    display: none;
+}
+
+.attachedClaimsDiv {
+    padding: 0.3em 0.5em;
+    display: inline-block;
+    span.attachedClaim {
+        color: $color-pimary-grey;
+        padding: 0.3em 1em;
+        border: 1px solid $color-neurtral-ligher-grey;
+        border-radius: 1em;
+        margin-right: 0.5em;
+        line-height: 1.5;
+        display: inline-block;
+        margin-top: 3px;
+    }
+}

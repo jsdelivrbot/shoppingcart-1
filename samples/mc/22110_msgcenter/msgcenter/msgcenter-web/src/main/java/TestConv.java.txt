@@ -1,0 +1,347 @@
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.CSR;
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.PAYER;
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.PROVIDER;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import org.springframework.security.core.GrantedAuthority;
+
+import com.cognizant.tranzform.core.exception.ValidationException;
+import com.cognizant.tranzform.msgcenter.constants.ApplicationConstants;
+import com.cognizant.tranzform.msgcenter.constants.MessageConstant;
+import com.cognizant.tranzform.msgcenter.enums.ActionType;
+import com.cognizant.tranzform.msgcenter.enums.MessageStatus;
+import com.cognizant.tranzform.msgcenter.v2.domain.ConversationV2;
+import com.cognizant.tranzform.msgcenter.v2.domain.From;
+import com.cognizant.tranzform.msgcenter.v2.domain.MessageDetail;
+import com.cognizant.tranzform.msgcenter.v2.domain.MessageMaster;
+import com.cognizant.tranzform.msgcenter.v2.domain.To;
+import com.cognizant.tranzform.msgcenter.v2.vo.NewMessageV2VO;
+import com.cognizant.tranzform.msgcenter.v2.vo.Recipient;
+import com.cognizant.tranzform.tzfutil.enums.UserType;
+import com.cognizant.tranzform.tzfutil.user.LoggedInUser;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class TestConv {
+	
+	
+
+	//for lists
+		public static <T, U> List<U> convertList(List<T> from, Function<T, U> func) {
+		    return from.stream().map(func).collect(Collectors.toList());
+		}
+		
+	public static void main(String[] args) throws JsonProcessingException {
+		
+		List<Recipient>  recList = new ArrayList<>();
+		Recipient r1 = new Recipient();
+		r1.setRecipientId("Bob1@emblem.com");
+		r1.setRecipientName("Bob1");
+		r1.setRecipientUserType("Provider");
+		recList.add(r1);
+		r1 = new Recipient();
+		r1.setRecipientId("Bob2@emblem.com");
+		r1.setRecipientName("Bob2");
+		r1.setRecipientUserType("PROVIDER");
+		recList.add(r1);
+		
+		final NewMessageV2VO  newMessageVO = new NewMessageV2VO();
+		newMessageVO.setConversationCategory("General");
+		newMessageVO.setMessageBody("Regarding Claims Inquiry ID-H88290099");
+		newMessageVO.setSubject("Claim Inquiry");
+		newMessageVO.setRecipients(recList);
+		
+		System.out.println("Executing....");
+		TestConv testconv = new TestConv();
+		final ConversationV2 conversation = testconv.setNewMessage(newMessageVO, null, null, false, ActionType.SAVE, ApplicationConstants.PROVIDER);
+		System.out.println(conversation.getMessageMaster());
+		System.out.println(conversation.getMessageDetail());
+		ObjectMapper mapper = new ObjectMapper();
+		
+		//Object to JSON in String
+				String msgMaster = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(conversation.getMessageMaster());
+				System.out.println("=====MESSAGE MASTER ==============");
+				System.out.println(msgMaster);
+				System.out.println("===================");
+				
+		//Object to JSON in String
+		String msgList = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(conversation.getMessageDetail());		
+		System.out.println("=====MESSAGE DETAIL ==============");
+		System.out.println(msgList);
+		System.out.println("===================");
+		
+		
+		
+		
+		
+	}
+	
+	
+	/**
+	 * Sets the message.
+	 * 
+	 * @param newMessageVO
+	 *            the new message VO
+	 * @param tenantId
+	 *            the tenant id
+	 * @param tenantEnrollmentId
+	 *            the tenant enrollment id
+	 * @param isCSR
+	 *            the is CSR
+	 * @return the conversation
+	 * @throws ValidationException
+	 *             the validation exception
+	 */
+	private ConversationV2 setNewMessage(NewMessageV2VO newMessageVO, String tenantId, String tenantEnrollmentId,
+			boolean isCSR, ActionType actionType, String context) throws ValidationException {
+		
+
+		// Setting Conversation details
+		final ConversationV2 conversation = new ConversationV2();
+		
+		//setting Message Master detail
+		final MessageMaster messageMaster = new MessageMaster();
+		messageMaster.setConversationCategory(newMessageVO.getConversationCategory());
+		messageMaster.setCreatedDate(new Date());
+		messageMaster.setFrom(getFrom());		
+		messageMaster.setMessageBody(newMessageVO.getMessageBody());
+		messageMaster.setModifiedDate(getCurrentDate());
+		messageMaster.setSubject(newMessageVO.getSubject());
+		messageMaster.setTenantId(loggedInUser.getTenantId());
+		
+		List<Recipient> recipients = newMessageVO.getRecipients();
+		if(recipients == null || recipients.isEmpty()){
+			throw new ValidationException(MessageConstant.RECIPIENTS_REQUIRED);
+		}
+	
+		//setting the master message recipient address
+		if(newMessageVO.getRecipients()!=null && !newMessageVO.getRecipients().isEmpty()){
+			final List<To> toList = convertList(newMessageVO.getRecipients(),getToFunction(context));
+			// Setting To details
+			messageMaster.setTo(toList);
+		}		
+		
+		messageMaster.setTrailMessageId("");		
+		conversation.setMessageMaster(messageMaster);
+		
+		
+		//setting message detail for sender address
+		final MessageDetail senderMsgDetail = setMessageDetail(newMessageVO, null,context,actionType);		
+		conversation.getMessageDetail().add(senderMsgDetail);
+		
+		//setting message detail for recipient address		
+		if(newMessageVO.getRecipients()!=null && !newMessageVO.getRecipients().isEmpty()){
+		 newMessageVO.getRecipients().forEach(recipient->{					
+				conversation.getMessageDetail().add(setMessageDetail(newMessageVO, recipient,context,actionType));		
+		 });
+		
+		}
+
+
+		
+		
+		return conversation;
+	}
+	
+	
+	/**
+	 * 
+	 * @return the to address
+	 */
+	private  Function<Recipient, To>  getToFunction(final String context)  {		
+		 return new Function<Recipient, To>(){			    
+		    public To apply(Recipient recipient) {			      
+		    	final To to = new To();
+		    	
+				//IF Context is Member then TO details is saved as CSR
+				if(null != context && context.equalsIgnoreCase(PROVIDER)){
+					//IF Context is Provider and Recipient is PAYER then TO details is saved as PAYER
+					if(recipient.getRecipientUserType().equalsIgnoreCase(PAYER)){
+						to.setId(recipient.getRecipientId());
+						to.setType(PAYER);
+						to.setUserName(PAYER);						
+					}else{
+						to.setId(recipient.getRecipientId());
+						to.setType(recipient.getRecipientUserType());
+						to.setUserName(recipient.getRecipientName());
+					
+					}
+				}else{
+					to.setId(recipient.getRecipientId());
+					to.setType(CSR);
+					to.setUserName(CSR);
+					
+				}
+				
+		    	return to;
+		    	
+		    }
+		};
+	}
+	
+	
+	/**
+	 * 
+	 * @return the from address
+	 */
+     private From getFrom(){
+    	 
+    	// Setting From details.
+ 		From from = new From();
+ 		from.setId(loggedInUser.getUserId());
+ 		from.setType(loggedInUser.getRoleCategory());
+ 		from.setUserName(loggedInUser.getUserName());		
+ 		
+ 		
+ 		return from;
+     }
+	/**
+	 * 
+	 * @param newMessageVO
+	 * @param recipient
+	 * @return the MessageDetail
+	 */
+	 public MessageDetail setMessageDetail(NewMessageV2VO newMessageVO, Recipient recipient, final String context,
+			 final ActionType actionType) {	
+			final MessageDetail messageDetail = new MessageDetail();
+			messageDetail.setConversationCategory(newMessageVO.getConversationCategory());		
+			messageDetail.setFrom(getFrom());
+			messageDetail.setIsFwd(newMessageVO.getIsFwd());
+			if(ActionType.SAVE == actionType){
+				messageDetail.setMessageStatus(MessageStatus.DRAFT);
+			}else{
+			  messageDetail.setMessageStatus(MessageStatus.ACTIVE);
+			}
+			//messageDetail.setRead(false);
+			messageDetail.setCreatedDate(getCurrentDate());
+			messageDetail.setModifiedDate(getCurrentDate());	
+			if(recipient!=null){
+				messageDetail.setTo(getToFunction(context).apply(recipient));
+			}
+			messageDetail.setSubject(newMessageVO.getSubject());
+			return messageDetail; 
+	    }
+	
+	
+	 
+		/**
+		 * 
+		 * @return the currebnt system date
+		 */
+		private Date getCurrentDate(){
+			
+			return new Date();
+		}
+		
+		
+		LoggedInUser loggedInUser = new LoggedInUser() {
+			
+			@Override
+			public UserType getUserType() {
+				// TODO Auto-generated method stub
+				return UserType.PROVIDER;
+			}
+			
+			@Override
+			public String getUserStatus() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getUserName() {
+				// TODO Auto-generated method stub
+				return "John";
+			}
+			
+			@Override
+			public String getUserId() {
+				// TODO Auto-generated method stub
+				return "John@emblem.com";
+			}
+			
+			@Override
+			public String getTenantUUID() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getTenantTimezone() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getTenantTimeFormat() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getTenantId() {
+				// TODO Auto-generated method stub
+				return "EMBL0001";
+			}
+			
+			@Override
+			public String getTenantEnrollmentId() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getTenantDateFormat() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getSubscriberId() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getRoleCategory() {
+				// TODO Auto-generated method stub
+				return "PROVIDER";
+			}
+			
+			@Override
+			public String getPreferredLanguage() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getCorrelationId() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getClientId() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Collection<? extends GrantedAuthority> getAssignedRoles() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public String getApplicationName() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+}

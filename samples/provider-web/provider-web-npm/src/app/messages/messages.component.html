@@ -1,0 +1,22 @@
+<ng-template #modalTemplate>
+    <tzf-modal-content [modal]="modalRef" headerText="{{'MSGCENTER.NEWMSG.NEWMESSAGE'|translate}}" backText="{{'MSGCENTER.NEWMSG.NAVTOMSG'|translate }}" (submit)="submitModal($event)" (action)="modalAction($event)" [cancelButton]="false" [submitButton]="false">
+        <div main>
+            <app-compose-mail-modal [modalRef]="modalRef" (onSave)="composeMailSave($event)"></app-compose-mail-modal>
+        </div>
+    </tzf-modal-content>
+</ng-template>
+<div id="mailInfoMsg" *ngIf="savedMsg" class="col-sm-9 alert alert-success msgSentSuccess" role="alert">
+    {{showMsg}}
+</div>
+<div id="errorMsg" *ngIf="isError" class="col-sm-12 alert alert-danger p14r error-message" role="alert">
+    <span id="errorIcon" class="errorIcon" [inlineSVG]="'/assets/icon-error.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false" translate></span>     
+    <span class="errorTxt">{{showMsg}}</span>
+</div>
+<div class="newMessageDiv" title="New Message">
+    <a class="new-msg p14b" id="NewMessage" [inlineSVG]="'assets/icon_Mail.svg'" [cacheSVG]="false" [prepend]="true" (click)="openModal(modalTemplate)" [replaceContents]="false">{{'MSGCENTER.NEWMSG.NEWMESSAGE' | translate}}</a>
+</div>
+<div class="msg-tabList">
+    <tzf-tabs [items]="tabItems">
+        <router-outlet></router-outlet>
+    </tzf-tabs>
+</div>

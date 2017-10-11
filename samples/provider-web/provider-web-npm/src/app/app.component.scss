@@ -1,0 +1,8 @@
+md-spinner 
+    {display: none;}
+
+router-outlet + md-spinner 
+    {display: block;}
+tzf-shell.csrHeader #header-content{
+    padding: 1em 6em;
+}

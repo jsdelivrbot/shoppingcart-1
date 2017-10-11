@@ -1,0 +1,86 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+@import '../../../../node_modules/bootstrap/scss/tables';
+.inner-head-and-reset{
+    display: flex;
+    justify-content: space-between;
+}
+.newinquiry{
+    color: $color-pimary-light-blue;
+    cursor:pointer;
+    float:right;
+}
+.detailsoverview{
+    background-color:$color-background-grey;
+    border: 1px solid $color-border-grey;
+    border-radius: 4px;
+    padding: 15px 0;
+    margin-bottom: 50px;
+    p,span{
+        color:$color-pimary-grey;
+    }
+    .value{
+        &:before{
+            content:":";
+            margin-right: 15px;
+        }
+    }
+}
+a /deep/ {
+
+    svg {
+      width: 1.2em;
+      height:1.2em;
+      position: relative;
+      top: 3px;
+      transform: rotateY(180deg);
+      path{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }
+.table{
+	background-color:$color-pimary-white;
+	th{
+		color: #257F8E;
+		border-top: 4px solid #257F8E;
+		border-bottom:  4px solid #EBEBEB;
+	}
+	td{
+				color:#5D5D5D;
+
+	}
+}
+  @include media-breakpoint-up(lg) {
+      .detailsoverview{
+    .content1{
+        border-right: 1px solid #CCCCCC;
+    }
+    .content2{
+        margin-left: 100px;;
+    }
+}
+  }
+
+.msg-content{
+  background-color: $color-background-grey;
+}
+.pdfExcelPlaceHolder{
+	text-align: right;
+    bottom: 3.5em;
+    position: relative;
+    padding-right: 0em;
+    a /deep/ {
+    cursor:pointer;
+    outline: none;
+    svg {
+      width: 1.5em;
+      height:1.5em;
+      top: 5px;
+      transform: none;
+      polygon{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<p>Styles are provided for the PrimeNG DataTable component.</p>
+
+<p-dataTable
+  [value]="data"
+  [expandableRows]="true"
+  (responsiveColumns)="columns = $event"
+  [responsiveExpander]="true"
+>
+  <!-- Always specify the "expander" styleClass for the expander column -->
+  <p-column expander="true" styleClass="expander"></p-column>
+  <p-column field="id" header="ID" [responsiveWidth]="70" [sortable]="true"></p-column>
+  <p-column field="name" header="Name" [responsiveWidth]="120" [sortable]="true"></p-column>
+  <p-column field="date" header="Date" [responsiveWidth]="120" [sortable]="true">
+    <ng-template let-col let-row="rowData" pTemplate="body">
+      {{ row[col.field] | date:'yMd' }}
+    </ng-template>
+  </p-column>
+  <p-column field="styled" header="Styled" [responsiveWidth]="100">
+    <ng-template let-col let-row="rowData" pTemplate="body">
+      <span [class]="'styled-' + row[col.field]">{{ row[col.field] }}</span>
+    </ng-template>
+  </p-column>
+  <p-column field="progress" header="Special" styleClass="col-progress" [responsiveWidth]="100">
+    <ng-template let-col let-row="rowData" pTemplate="body">
+      <tzf-progress-bar [value]="row[col.field]"></tzf-progress-bar>
+    </ng-template>
+  </p-column>
+  <ng-template pTemplate="rowexpansion" let-row>
+    <tzf-responsive-columns
+      [row]="row"
+      [columns]="columns"
+    ></tzf-responsive-columns>
+    Additional content for {{ row.name }}.
+  </ng-template>
+</p-dataTable>
+
+<h2>Responsive Tables</h2>
+<ol>
+  <li>Add (responsiveColumns)="columns = $event" to the p-dataTable.</li>
+  <li>
+    Make the table expandable with [expandableRows]="true" and the expander column.
+    If the table is only expandable for responsive columns, add [responsiveExpander]="true".
+  </li>
+  <li>Place the tzf-responsive-columns component in the rowexpansion template. let-row defines "row" and the value set in (columns) above defines "column".</li>
+  <li>Set [responsiveWidth]="n" for each column besides the expander one.</li>
+</ol>

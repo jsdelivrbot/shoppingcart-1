@@ -1,0 +1,69 @@
+<h2 id="searchformtitle" translate>ELIGIBILITY.SEARCHFORM.TITLE</h2>
+<p class="titledesc">
+  <span id="searchformdesc" translate>ELIGIBILITY.SEARCHFORM.DESC</span>
+
+  <a class="p16b resetSearch" id="resetSearch" tabindex="-1" [attr.title]="'ELIGIBILITY.SEARCHFORM.RESET'" (click)="resetForm()" [inlineSVG]="'assets/icon_hide.svg'"
+    [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+          {{'ELIGIBILITY.SEARCHFORM.RESET' | translate }}
+  </a>
+
+</p>
+
+<form #searchEligibilityForm="ngForm" id="searchformmain" (ngSubmit)="searchEligibility()" autocomplete="off" novalidate>
+  <tzf-form-fields>
+    <div tzfFormField
+    [validation]="memberId" [validationMessages]="valMsg.tenantenrollmentid"
+    label="ELIGIBILITY.SEARCHFORM.ELEMENTS.MEMBERID.LABEL">
+    <input type="text" #memberId="ngModel" pattern="[a-zA-Z0-9 ]*"
+    [required]="true"
+    [(ngModel)]="searchCriteria.tenantenrollmentid" [maxLength]="12"  name="memberId"
+    placeholder="{{'ELIGIBILITY.SEARCHFORM.ELEMENTS.MEMBERID.PLACEHOLDER' | translate}}">
+    </div>
+
+    <div tzfFormField label="ELIGIBILITY.SEARCHFORM.ELEMENTS.NAME.LABEL" style="flex-grow: 2" [disabled]="buttonDisabled">
+      <tzf-form-field-popover id="formFields-memberName" actions="true" (prepare)="prepareNames()" (accept)="acceptNames()" (reset)="resetNames()">
+        <span button>
+          {{ (searchCriteria | formFieldName) || ('ELIGIBILITY.SEARCHFORM.ELEMENTS.NAME.PLACEHOLDER' | translate) }}
+        </span>
+        <tzf-form-fields content>
+          <label tzfFormField >
+            <input type="text" required [(ngModel)]="nameCriteria.memberfirstname" name="memberfirstname" placeholder="{{'ELIGIBILITY.SEARCHFORM.FIRSTNAME' | translate}}">
+          </label>
+          <label tzfFormField >
+            <input type="text" [(ngModel)]="nameCriteria.membermiddlename" name="membermiddlename" placeholder="{{'ELIGIBILITY.SEARCHFORM.MIDDLENAME' | translate}}">
+          </label>
+          <label tzfFormField >
+            <input type="text" required [(ngModel)]="nameCriteria.memberlastname" name="memberlastname" placeholder="{{'ELIGIBILITY.SEARCHFORM.LASTNAME' | translate}}">
+          </label>
+        </tzf-form-fields>
+      </tzf-form-field-popover>
+    </div>
+
+    <div tzfFormField [validation]="birthDate" [validationMessages]="valMsg.dateofbirth" label="ELIGIBILITY.SEARCHFORM.ELEMENTS.DOB.LABEL">
+      <!-- Common form field components will inherit disabled from tzfFormField -->
+      <tzf-form-field-datepicker #birthDate="ngModel"
+      [(maxDateValidator)]="Today"
+      [maxDate]="ngbToday"
+      [yearPicker]="true"
+      required
+      [(ngModel)]="searchCriteria.dateofbirth"
+      name="birthDate"
+      placeholder="{{'ELIGIBILITY.SEARCHFORM.ELEMENTS.DOB.PLACEHOLDER' | translate}}"></tzf-form-field-datepicker>
+    </div>
+  </tzf-form-fields>
+  <tzf-form-fields class="tzf-form-class" [short]="true">
+    <div tzfFormField class="col-4" label="ELIGIBILITY.SEARCHFORM.ELEMENTS.DATE.FROM">
+      <tzf-form-field-datepicker
+      required
+      [(ngModel)]="searchCriteria.servicefromdate"
+      name="fromdate"></tzf-form-field-datepicker>
+    </div>
+
+    <div tzfFormField [validation]="todate" [validationMessages]="valMsg.servicetodate"  class="col-4" [disabled]="!searchCriteria.servicefromdate" label="ELIGIBILITY.SEARCHFORM.ELEMENTS.DATE.TO">
+      <tzf-form-field-datepicker required #todate="ngModel" [(ngModel)]="searchCriteria.servicetodate" [(minDateValidator)]="searchCriteria.servicefromdate" [minDate]="{ year: toNgbDate(searchCriteria.servicefromdate)?.year, month: toNgbDate(searchCriteria.servicefromdate)?.month, day: toNgbDate(searchCriteria.servicefromdate)?.day}" name="todate" ></tzf-form-field-datepicker>
+    </div>
+    <button  type="submit" [disabled]="searchEligibilityForm.invalid || searchEligibilityForm.pristine"  id="eligibilitySearchSubmit"
+      translate>ELIGIBILITY.SEARCHFORM.BUTTON</button>
+  </tzf-form-fields>
+   <pre>{{fromDateVariable | json }}</pre>
+</form>

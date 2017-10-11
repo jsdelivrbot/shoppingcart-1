@@ -1,0 +1,74 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+h3,p{
+    color:$color-primary-bluishblack
+}
+tzf-form-fields#quicviewdropdownmain /deep/ {
+   >div{
+      margin-bottom: 30px;
+   }
+}
+
+*[tzfFormField]{
+    background-color: $color-pimary-white;
+}
+.titledesc{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.7em;
+}
+#resetSearch{
+    color: $color-pimary-light-blue;
+    cursor:pointer;
+}
+  a /deep/ {
+
+    svg {
+      width: 1.5em;
+      height:1.5em;
+      position: relative;
+      top: 5px;
+      path{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }
+
+  /deep/ {
+  .option-Finalized {
+    color: green;
+  }
+
+  .option-Received {
+    color: blue;
+  }
+
+  .option-Pending {
+    color: red;
+  }
+}
+
+.qViewDropdown{
+	padding:10px 10px 0 10px;
+    tzf-dropdown /deep/ {
+      select /deep/ {
+        border:none;
+        outline: none;
+        box-shadow: none;
+        font-family: Roboto;
+        color: #5d5d5d;
+        font-size: 16px;
+        font-weight: 100;
+        padding-left:0;
+	    }
+  }
+}
+
+
+.qViewDropdown{
+  tzf-form-field-dropdown /deep/ {
+    fieldset{
+      margin-right: -34px;
+    }
+  }  
+}

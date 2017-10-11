@@ -1,0 +1,29 @@
+<app-progress-tabs selected="memberInfoTab">
+  <!-- MEMBER INFORMATION TAB -->
+  <app-progress-tab tzfTabContent #memberInfoTab (next)="memberInfoTab.goToNextTab()"  id="memberInfoTab" tabLabel="REFERRALS.CREATE.MEMBERINFO.TITLE">
+    <app-member-info></app-member-info>
+  </app-progress-tab>
+  <!-- End Of MEMBER INFORMATION TAB -->
+
+  <!-- REQUESTING PROVIDER TAB -->
+  <app-progress-tab tzfTabContent #requestingProviderTab (next)="requestingProviderTab.goToNextTab()"  id="requestingProviderTab" tabLabel="REFERRALS.CREATE.REQUESTINGPROVIDER.TITLE">
+    <app-requesting-provider-tab></app-requesting-provider-tab>
+  </app-progress-tab>
+  <!-- End Of REQUESTING PROVIDER TAB -->
+
+  <!-- SERVICE PROVIDER TAB -->
+  <app-progress-tab tzfTabContent #serviceProviderTab (next)="serviceProviderTab.goToNextTab()" id="serviceProviderTab" tabLabel="REFERRALS.CREATE.SERVICEPROVIDER.TITLE">
+    <app-service-provider-tab></app-service-provider-tab>
+  </app-progress-tab>
+  <!-- End Of SERVICE PROVIDER TAB -->
+
+  <!-- SERVICE DETAILS TAB -->
+  <app-progress-tab tzfTabContent #serviceDetailsTab (next)="serviceDetailsTab.goToNextTab()" id="serviceDetailsTab" tabLabel="REFERRALS.CREATE.SERVICEDETAILS.TITLE">
+  </app-progress-tab>
+  <!-- End Of SERVICE DETAILS TAB -->
+
+  <!-- -->
+  <app-progress-tab tzfTabContent #submitTab  id="submitTab" tabLabel="REFERRALS.CREATE.SUBMIT.TITLE">
+  </app-progress-tab>
+  <!-- End Of -->
+</app-progress-tabs>

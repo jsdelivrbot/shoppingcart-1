@@ -1,0 +1,90 @@
+/*
+ * This file is intended to control spacing in and around components.
+ */
+
+$page-margin: 0;
+
+$side-padding: 50px;
+
+$standard-border-width: 1px;
+$standard-border-style: solid;
+$standard-border: $standard-border-width $standard-border-style;
+
+$header-strip-height: 4px;
+$header-padding-vertical: 14px;
+$header-padding-horizontal: $side-padding;
+$header-padding: $header-padding-vertical $header-padding-horizontal;
+$header-spacing: 2.5rem;
+$header-logo-height: 38px; // This doesn't set the height of the image but is used to align it vertically
+$header-logo-width-min: 100px;
+$header-search-width: 25%;
+$header-search-width-min: 125px;
+$header-search-width-max: 250px;
+$header-search-radius: 99px;
+$header-search-padding-horizontal: 1.1em;
+
+$user-img-width: 2.3em;
+$user-img-spacing: 0.7em;
+$user-arrow-height: 6px;
+$user-arrow-bottom-offset: 3px;
+$user-arrow-spacing: 0.7em;
+$user-menu-width-min: 240px;
+$user-menu-arrow-size: 12px;
+$user-menu-arrow-right-offset: 2em;
+$user-menu-radius: 4px;
+$user-menu-padding: 1.5em;
+$user-menu-padding-bottom: 1.2em;
+$user-menu-spacing: 1.6em;
+$user-menu-icon-size: 1.5em; // These are expected to be square
+$user-menu-icon-spacing: 2em;
+$user-menu-edge-spacing: 0.2em;
+$user-menu-header-padding-vertical: 0.5em;
+$user-menu-header-spacing: 0.5em;
+$user-last-login-divider-height: 1.1em;
+$user-last-login-divider-border: 1px solid;
+$user-last-login-divider-spacing: 0.8em;
+
+// Keep these as pixels, the total height of the menu is calcuated in the shell template
+$nav-expand-height: 53px;
+$nav-icon-height: 28px;
+$nav-icon-padding: 15px;
+$nav-item-height: $nav-icon-height + $nav-icon-padding * 2;
+$nav-active-ind-width: 4px;
+$nav-expanded-padding: 1.5em;
+
+$breadcrumb-margin-bottom: 1.5rem;
+
+$accordion-radius: 4px;
+
+$h1-margin-bottom: 1.8rem;
+$h2-margin-top: 1.5rem;
+$h2-margin-bottom: 0;
+
+$main-margin-left: 2rem;
+$main-margin-vertical: 1.4rem;
+
+$button-height: 2rem;
+$button-width-min: 120px;
+$button-padding-side: 1em;
+$button-radius: 4px;
+
+$footer-padding: 2em;
+$copyright-margin: 0.5em;
+
+$form-field-padding-vertical: 1.5em;
+$form-field-padding-horizontal: 1.5em;
+$form-field-padding: $form-field-padding-vertical $form-field-padding-horizontal;
+$form-field-label-margin-bottom: 0.6em;
+
+// Reduce the side padding at low screen widths in non-IE browsers
+$skinny-screen-side-padding-pct: 5;
+
+:root {
+  --side-padding: $side-padding;
+}
+
+@media (max-width: $header-padding-horizontal * (100 / $skinny-screen-side-padding-pct)) {
+  :root {
+    --side-padding: $skinny-screen-side-padding-pct * 1vw;
+  }
+}

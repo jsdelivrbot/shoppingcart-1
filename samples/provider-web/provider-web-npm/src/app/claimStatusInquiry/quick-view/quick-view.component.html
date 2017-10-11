@@ -1,0 +1,32 @@
+<div class="col quickview">
+  <h4 class="h14l" [inlineSVG]="'assets/icon_medical.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+    {{quickViewData.qViewTitle}}</h4>
+  <div class="col quickviewcont">
+    <div class="row percentage">
+      <h3 class="col-7 h26m totalClaims" id="totalClaims" attr.total-claims="{{'QUICKVIEW.OFCLAIMS' | translate:quickViewData}}">{{quickViewData.qViewCount}}</h3>
+      <div class="col-5 viewdetails">
+        <button id="viewdetails" (click)="viewDetails()"class="tzf-secondary-button" type="submit" translate="">QUICKVIEW.VIEWDETAILS</button>
+      </div>
+      
+    </div>
+    <div class="progress-bar">
+      <tzf-progress-bar value="{{quickViewData.qViewCount/quickViewData.totalCount}}"></tzf-progress-bar>
+    </div>
+    <div class="row details">
+      <div class="col-4">
+        <p class="p12m" translate>QUICKVIEW.DATE</p>
+        <p class="p12b" translate [translateParams]="quickViewData.qViewCriteria">QUICKVIEW.LASTDAYS</p>
+
+      </div>
+      <div class="col-3">
+        <p class="p12m" translate>QUICKVIEW.STATUS</p>
+        <p [ngClass]="{'pending': quickViewData.qViewCriteria.claimStatus===constants.claimStatusProps.pending, 'finalized': quickViewData.qViewCriteria.claimStatus===constants.claimStatusProps.finalized,'received':quickViewData.qViewCriteria.claimStatus===constants.claimStatusProps.received}" class="p14b">{{quickViewData.qViewCriteria.claimStatus}}</p>
+      </div>
+    </div>
+    <hr class="fadedline">
+    <div class="row providers">
+      <p class="p14m providerlabel" translate>QUICKVIEW.PROVIDER</p>
+      <p class="p14b" *ngIf="!quickViewData.qViewCriteria.providerIds?.length" translate>QUICKVIEW.ALL</p>
+    </div>
+  </div>
+</div>

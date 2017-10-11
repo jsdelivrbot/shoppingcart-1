@@ -1,0 +1,11 @@
+<md-spinner></md-spinner>
+<tzf-shell [hideMenu]="(isCSR && !isProviderImpersonator)" [hideUser]="(!isProviderImpersonator && isCSR)" [menuItems]="menuItems" [searchBox]="!(!isProviderImpersonator && isCSR)" (search)="logSearch($event.value)" [notifications]="!(!isProviderImpersonator && isCSR)" [messagesRouterLink]="!(!isProviderImpersonator && isCSR)?MESSAGE_CONST.INBOX_ROUTE:undefined" (logout)="logout()">
+    <tzf-csr-header *ngIf="isCSR" name='{{CSR_USER}}' [exitText]="exitText"  [context]="context" (exit)="exitProviderView()" (logout)="csrLogout()"></tzf-csr-header>
+    <img *ngIf="isCSR" header src="assets/CSR_Logo.svg">
+    <img *ngIf="!isCSR" header src="assets/Logo.png">
+    <img footer src="assets/Logo_Footer.png">
+    <router-outlet> 	  
+  	  
+    </router-outlet>
+</tzf-shell>
+

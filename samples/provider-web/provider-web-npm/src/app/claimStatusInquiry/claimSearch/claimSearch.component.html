@@ -1,0 +1,14 @@
+<tzf-parent-route-content>
+    <app-claim-search-form  [configuration]="configuration"
+    (onSearch)="showResults($event)" ></app-claim-search-form>
+</tzf-parent-route-content>
+<tzf-parent-route-content>
+    <div>
+        <hr class="fadedline">
+        <h3 class="h20m" translate>CLAIMSSTATUS.QUICKVIEW.TITLE</h3>
+        <p class="p14l" translate>CLAIMSSTATUS.QUICKVIEW.DESC</p>
+        <div class="quicklinlist">
+              <app-quick-view *ngFor="let quickView of quickViewTiles" [quickViewData]="quickView" (onDetailsClicked)="showResults($event,true)"></app-quick-view>
+        </div>
+    </div>
+</tzf-parent-route-content>

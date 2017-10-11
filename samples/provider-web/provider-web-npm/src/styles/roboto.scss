@@ -1,0 +1,30 @@
+@import "_variables";
+
+
+@mixin roboto($name, $weight) {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: $weight;
+  src: url('../assets/fonts/Roboto-#{$name}-webfont.eot');
+  src:
+    url('../assets/fonts/Roboto-#{$name}-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/Roboto-#{$name}-webfont.woff') format('woff'),
+    url('../assets/fonts/Roboto-#{$name}-webfont.ttf') format('truetype'),
+    url('../assets/fonts/Roboto-#{$name}-webfont.svg#Roboto#{$name}') format('svg');
+}
+
+@font-face {
+  @include roboto('Regular', normal);
+}
+
+@font-face {
+  @include roboto('Light', $font-weight-light);
+}
+
+@font-face {
+  @include roboto('Medium', $font-weight-medium);
+}
+
+@font-face {
+  @include roboto('Bold', bold);
+}

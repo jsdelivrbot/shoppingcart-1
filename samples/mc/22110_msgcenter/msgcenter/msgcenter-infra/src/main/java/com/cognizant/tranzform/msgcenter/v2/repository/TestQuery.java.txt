@@ -1,0 +1,103 @@
+package com.cognizant.tranzform.msgcenter.v2.repository;
+
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.MESSAGE_ID;
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.MESSAGE_MODIFIEDDATE;
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.READ;
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.TENANT_ID;
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.UNREAD;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+
+import com.cognizant.tranzform.msgcenter.enums.MessageStatus;
+import com.cognizant.tranzform.msgcenter.enums.MessageType;
+import com.cognizant.tranzform.msgcenter.v2.domain.MessageMaster;
+
+public class TestQuery {
+	public static void main(String[] args) {
+			
+		System.out.println(getInboxCriteria("Bob1@emblem.com","UNREAD"));
+		
+		System.out.println(getSentOrDraftsItemsCriteria("John@emblem.com",MessageType.SENT));
+		System.out.println(getSentOrDraftsItemsCriteria("John@emblem.com",MessageType.DRAFT));
+		
+		List<String> msgIdList = new ArrayList<>();
+		msgIdList.add("MSG1");
+		msgIdList.add("MSG2");
+		Query query = new Query();
+		query.addCriteria(Criteria.where(MESSAGE_ID).in(msgIdList)
+				.and(TENANT_ID).is("EMBL0001"));
+		
+		System.out.println(query);
+		
+		test("READ");
+		test("UNREAD");
+	}
+	
+	
+	private static void test(final String readindicator){
+		
+		Query query = new Query();
+		Criteria msgStatusCriteria = Criteria.where("to._id").is("user1@tenant1.com")
+				.and("messageStatus").is(MessageStatus.ACTIVE);
+		if (readindicator != null && !readindicator.isEmpty()) {
+			if (readindicator.equalsIgnoreCase(READ)) {
+				msgStatusCriteria.and("isRead").is(true);
+			} else if (readindicator.equalsIgnoreCase(UNREAD)) {
+				msgStatusCriteria.and("isRead").is(false);
+			}
+		}
+		query.addCriteria(msgStatusCriteria);
+		query.with(new Sort(Sort.Direction.DESC, MESSAGE_MODIFIEDDATE));
+		
+		System.out.println(query);
+
+		
+	}
+	
+	
+	
+	private static Query getInboxCriteria(final String userId, final String readindicator) {
+		Criteria msgStatusCriteria = null;
+		Query query = new Query();
+		msgStatusCriteria = Criteria.where("to.id").is(userId).and("messageStatus").is(MessageStatus.ACTIVE);
+		if (readindicator != null && !readindicator.isEmpty()) {
+			if (readindicator.equalsIgnoreCase(READ)) {
+				msgStatusCriteria.and("isRead").is(true);
+			} else if (readindicator.equalsIgnoreCase(UNREAD)) {
+				msgStatusCriteria.and("isRead").is(false);
+			}
+		}
+		query.addCriteria(msgStatusCriteria);
+		query.with(new Sort(Sort.Direction.DESC, MESSAGE_MODIFIEDDATE));
+
+		return query;
+	}
+	
+	
+	private static Query getSentOrDraftsItemsCriteria(final String userId, final MessageType messageType) {
+		Criteria msgStatusCriteria = Criteria.where("from.id").is(userId)
+				.and("to.id").is(null);
+		if (messageType == MessageType.SENT)
+			msgStatusCriteria.and("messageStatus").is(MessageStatus.ACTIVE);
+		else
+			msgStatusCriteria.and("messageStatus").is(MessageStatus.DRAFT);
+		Query query = new Query();
+		query.addCriteria(msgStatusCriteria);
+		query.with(new Sort(Sort.Direction.DESC, MESSAGE_MODIFIEDDATE));
+		return query;
+	}
+
+	
+	private List<MessageMaster> findMessageMasterList(List<String> msgIdList, String tenantId) {
+		List<MessageMaster> messageMasterList = new ArrayList<MessageMaster>();
+		Query query = new Query();
+		query.addCriteria(Criteria.where(MESSAGE_ID).in(msgIdList)
+				.and(TENANT_ID).is(tenantId));
+		return messageMasterList;
+	}
+}

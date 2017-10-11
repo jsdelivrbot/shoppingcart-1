@@ -1,0 +1,154 @@
+$sort-ind-size: 1.2em;
+$column-padding-side: 1em;
+
+.ui-datatable-tablewrapper {
+  > table {
+    border-top: 4px $standard-border-style $color-primary;
+    width: 100%;
+  }
+
+  // Make the circled plus and minus signs. The + and - characters don't line up the same across browsers so make them with borders.
+  .ui-row-toggler::before,
+  .fa-chevron-circle-right::after {
+    display: block;
+    position: absolute;
+    content: '';
+    border: 0 solid currentColor;
+  }
+
+  .ui-row-toggler {
+    border: 2px solid currentColor;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: center;
+    box-sizing: content-box;
+    height: 12px;
+    width: 12px;
+    position: relative;
+    top: 3px;
+
+    // Horizontal bar for + and -
+    &::before {
+      width: 8px;
+      border-top-width: 2px;
+      top: 5px;
+      left: 2px;
+    }
+  }
+
+  // Vertical bar for +
+  .fa-chevron-circle-right::after {
+    height: 8px;
+    border-left-width: 2px;
+    top: 2px;
+    left: 5px;
+  }
+
+  .expander {
+    width: 1px;
+
+    a {
+      display: inline-block;
+      padding: 3px 0.5em;
+    }
+  }
+}
+
+// Expanded section
+.ui-datatable-data > tr > td {
+  padding: 1em 2em;
+}
+
+.ui-datatable-thead th,
+.ui-datatable-data > .ui-widget-content > td {
+  padding: 0.4em $column-padding-side;
+
+  &:not(:first-child) {
+    border-left: 1px solid #ebebeb;
+  }
+}
+
+.ui-datatable-thead {
+  color: $color-primary;
+
+  th {
+    padding-top: 1.1em;
+    padding-bottom: 1.4em;
+  }
+}
+
+.ui-datatable-data {
+  border: $standard-border-style #ebebeb;
+  border-width: 4px 0;
+
+  tr:not(:last-child) {
+    border-bottom: 1px solid #ebebeb;
+  }
+}
+
+th.ui-sortable-column {
+  cursor: pointer;
+  padding-right: $column-padding-side + $sort-ind-size + 0.5em;
+  position: relative;
+}
+
+.ui-sortable-column-icon {
+  background: no-repeat url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTdweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMTcgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ2ICg0NDQyMykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+SWNvbl9Tb3J0aW5nIENvcHkgMzwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJDU1ItLVNlYXJjaC1SZXN1bHRzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtOTA3LjAwMDAwMCwgLTM3MS4wMDAwMDApIiBmaWxsPSIjREJEQkRCIj4KICAgICAgICAgICAgPGcgaWQ9IlRhYmxlLUNvcHkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDk3LjAwMDAwMCwgMzUwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9Ikljb25fU29ydGluZy1Db3B5LTMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgxMC41NzIyNjYsIDIxLjM3ODkwNikiPgogICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0yLjY4NDkwOTU5LDguNzY3MTIzMjllLTA1IEw1LjMxNTA0NjU4LDguNzY3MTIzMjllLTA1IEw1LjMxNTA0NjU4LDExLjYxNjMwNjggTDcuODkwMzg5MDQsMTEuNjE2MzA2OCBMMy45NDUxODM1NiwxNi42MjY3MTc4IEwtMi4xOTE3ODA4MmUtMDUsMTEuNjE2MzA2OCBMMi42ODQ5MDk1OSwxMS42MTYzMDY4IEwyLjY4NDkwOTU5LDguNzY3MTIzMjllLTA1IFogTTguMTA5NTY3MTIsNS4wNDEwNzM5NyBMMTIuMDU0NzcyNiwwLjAzMDg4MjE5MTggTDE1Ljk5OTk3ODEsNS4wNDEwNzM5NyBMMTMuMjA1NDU3NSw1LjA0MTA3Mzk3IEwxMy4yMDU0NTc1LDE2LjY1NzUxMjMgTDEwLjU3NTMyMDUsMTYuNjU3NTEyMyBMMTAuNTc1MzIwNSw1LjA0MTA3Mzk3IEw4LjEwOTU2NzEyLDUuMDQxMDczOTcgWiIgaWQ9IkNvbWJpbmVkLVNoYXBlIj48L3BhdGg+CiAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==');
+  height: $sort-ind-size;
+  width: $sort-ind-size;
+  margin-top: $sort-ind-size / -2;
+  position: absolute;
+  top: 46%;
+  right: 1em;
+
+  &.fa-sort-asc {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMTYgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ2ICg0NDQyMykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+SWNvbl9Tb3J0aW5nPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkNTUi0tU2VhcmNoLVJlc3VsdHMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zMzcuMDAwMDAwLCAtMzcxLjAwMDAwMCkiIGZpbGw9IiNBNEE0QTQiPgogICAgICAgICAgICA8ZyBpZD0iVGFibGUtQ29weSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTcuMDAwMDAwLCAzNTAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iSWNvbl9Tb3J0aW5nIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNDAuMDY0NDUzLCAyMS4zNzg5MDYpIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMi43NTA4NTQ3NCw4Ljk4MjQ1NjE0ZS0wNSBMNS40NDU1OTE1OCw4Ljk4MjQ1NjE0ZS0wNSBMNS40NDU1OTE1OCwxMS45MDE2MTk2IEw4LjA4NDE4ODA3LDExLjkwMTYxOTYgTDQuMDQyMDgyODEsMTcuMDM1MDkzMyBMLTIuMjQ1NjE0MDllLTA1LDExLjkwMTYxOTYgTDIuNzUwODU0NzQsMTEuOTAxNjE5NiBMMi43NTA4NTQ3NCw4Ljk4MjQ1NjE0ZS0wNSBaIE05LjcxMjI4MDcsMy4xNDM3Njk4MiBMOS43MTIyODA3LDAuNjczNTk0Mzg2IEwxMi42MzE1Nzg5LDAuNjczNTk0Mzg2IEwxMi42MzE1Nzg5LDMuMTQzNzY5ODIgTDkuNzEyMjgwNywzLjE0Mzc2OTgyIFogTTkuNzEyMjgwNyw2Ljk2MTMxMzY4IEw5LjcxMjI4MDcsNC40OTExMzgyNSBMMTMuNzU0Mzg2LDQuNDkxMTM4MjUgTDEzLjc1NDM4Niw2Ljk2MTMxMzY4IEw5LjcxMjI4MDcsNi45NjEzMTM2OCBaIE05LjcxMjI4MDcsMTEuMjI3OTgwNCBMOS43MTIyODA3LDguNzU3ODA0OTEgTDE0LjY1MjYzMTYsOC43NTc4MDQ5MSBMMTQuNjUyNjMxNiwxMS4yMjc5ODA0IEw5LjcxMjI4MDcsMTEuMjI3OTgwNCBaIE05LjcxMjI4MDcsMTUuNDk0NjQ3IEw5LjcxMjI4MDcsMTMuMDI0NDcxNiBMMTUuNzc1NDM4NiwxMy4wMjQ0NzE2IEwxNS43NzU0Mzg2LDE1LjQ5NDY0NyBMOS43MTIyODA3LDE1LjQ5NDY0NyBaIiBpZD0iQ29tYmluZWQtU2hhcGUiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+');
+  }
+
+  &.fa-sort-desc {
+    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxN3B4IiB2aWV3Qm94PSIwIDAgMTYgMTciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQ2ICg0NDQyMykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+SWNvbl9Tb3J0YWJsZV9EZXNjZW5kaW5nPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkNTUi0tU2VhcmNoLVJlc3VsdHMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NTEuMDAwMDAwLCAtMzcxLjAwMDAwMCkiIGZpbGw9IiNBNEE0QTQiPgogICAgICAgICAgICA8ZyBpZD0iVGFibGUtQ29weSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTcuMDAwMDAwLCAzNTAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iSWNvbl9Tb3J0YWJsZV9EZXNjZW5kaW5nIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NTQuMDAwMDAwLCAyMS4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMi43NTA4NTQ3NCw4Ljk4MjQ1NjE0ZS0wNSBMNS40NDU1OTE1OCw4Ljk4MjQ1NjE0ZS0wNSBMNS40NDU1OTE1OCwxMS45MDE2MTk2IEw4LjA4NDE4ODA3LDExLjkwMTYxOTYgTDQuMDQyMDgyODEsMTcuMDM1MDkzMyBMLTIuMjQ1NjE0MDllLTA1LDExLjkwMTYxOTYgTDIuNzUwODU0NzQsMTEuOTAxNjE5NiBMMi43NTA4NTQ3NCw4Ljk4MjQ1NjE0ZS0wNSBaIE0xMi42MjkzMjAyLDEzLjAwMDA4OTggTDEyLjYyOTMyMDIsMTUuNDcwMjY1MyBMOS43MTAwMjE5NywxNS40NzAyNjUzIEw5LjcxMDAyMTk3LDEzLjAwMDA4OTggTDEyLjYyOTMyMDIsMTMuMDAwMDg5OCBaIE0xMy43NTIxMjcyLDguNzYwMDA5NzcgTDEzLjc1MjEyNzIsMTEuMjMwMTg1MiBMOS43MTAwMjE5NywxMS4yMzAxODUyIEw5LjcxMDAyMTk3LDguNzYwMDA5NzcgTDEzLjc1MjEyNzIsOC43NjAwMDk3NyBaIE0xNC42NTAzNzI4LDQuNDg5OTkwMjMgTDE0LjY1MDM3MjgsNi45NjAxNjU2NyBMOS43MTAwMjE5Nyw2Ljk2MDE2NTY3IEw5LjcxMDAyMTk3LDQuNDg5OTkwMjMgTDE0LjY1MDM3MjgsNC40ODk5OTAyMyBaIE0xNS43NzMxNzk5LDAuNjczNTk0Mzg2IEwxNS43NzMxNzk5LDMuMTQzNzY5ODIgTDkuNzEwMDIxOTcsMy4xNDM3Njk4MiBMOS43MTAwMjE5NywwLjY3MzU5NDM4NiBMMTUuNzczMTc5OSwwLjY3MzU5NDM4NiBaIiBpZD0iQ29tYmluZWQtU2hhcGUiPjwvcGF0aD4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+');
+  }
+}
+
+.responsiveExpander:not([visibleColumns]) .expander {
+  display: none !important; // Override element style
+
+  + th,
+  + td {
+    border-left: none;
+  }
+}
+
+// Hide columns for responsive design
+[visibleColumns="1"] .ui-datatable-thead th:nth-child(2) ~ th,
+[visibleColumns="1"] .ui-datatable-data > tr > td:nth-child(2) ~ td,
+[visibleColumns="2"] .ui-datatable-thead th:nth-child(3) ~ th,
+[visibleColumns="2"] .ui-datatable-data > tr > td:nth-child(3) ~ td,
+[visibleColumns="3"] .ui-datatable-thead th:nth-child(4) ~ th,
+[visibleColumns="3"] .ui-datatable-data > tr > td:nth-child(4) ~ td,
+[visibleColumns="4"] .ui-datatable-thead th:nth-child(5) ~ th,
+[visibleColumns="4"] .ui-datatable-data > tr > td:nth-child(5) ~ td,
+[visibleColumns="5"] .ui-datatable-thead th:nth-child(6) ~ th,
+[visibleColumns="5"] .ui-datatable-data > tr > td:nth-child(6) ~ td,
+[visibleColumns="6"] .ui-datatable-thead th:nth-child(7) ~ th,
+[visibleColumns="6"] .ui-datatable-data > tr > td:nth-child(7) ~ td,
+[visibleColumns="7"] .ui-datatable-thead th:nth-child(8) ~ th,
+[visibleColumns="7"] .ui-datatable-data > tr > td:nth-child(8) ~ td,
+[visibleColumns="8"] .ui-datatable-thead th:nth-child(9) ~ th,
+[visibleColumns="8"] .ui-datatable-data > tr > td:nth-child(9) ~ td,
+[visibleColumns="9"] .ui-datatable-thead th:nth-child(10) ~ th,
+[visibleColumns="9"] .ui-datatable-data > tr > td:nth-child(10) ~ td,
+[visibleColumns="10"] .ui-datatable-thead th:nth-child(11) ~ th,
+[visibleColumns="10"] .ui-datatable-data > tr > td:nth-child(11) ~ td,
+[visibleColumns="11"] .ui-datatable-thead th:nth-child(12) ~ th,
+[visibleColumns="11"] .ui-datatable-data > tr > td:nth-child(12) ~ td,
+[visibleColumns="12"] .ui-datatable-thead th:nth-child(13) ~ th,
+[visibleColumns="12"] .ui-datatable-data > tr > td:nth-child(13) ~ td,
+[visibleColumns="13"] .ui-datatable-thead th:nth-child(14) ~ th,
+[visibleColumns="13"] .ui-datatable-data > tr > td:nth-child(14) ~ td,
+[visibleColumns="14"] .ui-datatable-thead th:nth-child(15) ~ th,
+[visibleColumns="14"] .ui-datatable-data > tr > td:nth-child(15) ~ td,
+[visibleColumns="15"] .ui-datatable-thead th:nth-child(16) ~ th,
+[visibleColumns="15"] .ui-datatable-data > tr > td:nth-child(16) ~ td {
+  display: none !important; // Override element style
+}

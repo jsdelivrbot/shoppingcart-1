@@ -1,0 +1,119 @@
+<nav id="backToMsg">
+    <a id="bckToMsgLink" class="bakToMsgLink p14r" (click)="handleMsgDetailBtnClicked($event)">{{'MSGCENTER.NEWMSG.NAVTOMSG' | translate}}</a>
+</nav>
+<h1>{{'MSGCENTER.MESSAGEDETAILS' | translate}}</h1>
+<div *ngIf="savedMsg" class="col-sm-9 alert alert-success msgSentSuccess" role="alert">
+    {{showMsg}}
+</div>
+<div id="errorMsg" *ngIf="isError" class="col-sm-12 alert alert-danger p14r error-message" role="alert">
+    <span id="errorIcon" class="errorIcon" [inlineSVG]="'/assets/icon-error.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false" translate></span>
+    <span>{{showMsg}}</span>
+</div>
+<div class="card">
+    <div class="card-block">
+        <div class="row top recipientDetails">
+            <div class="col-sm-6">
+                <p class="p12l">{{'MSGCENTER.NEWMSG.MESSAGE_FOR' |translate}}</p>
+                <p class="p14b" translate>{{messageForMap[messageFor] | titlecase}}</p>
+            </div>
+            <div *ngIf="(messageDetails?.recipients[0]?.recipientUserType !== messageType.MESSAGE_FOR_PAYER)" class="col-sm-4">
+                <span class="categoryTxt">
+            <p class="p12l">{{'MSGCENTER.NEWMSG.SEND_TO' |translate}}</p>
+            <p class="p14b">{{messageDetails?.recipients[0]?.recipientName}}</p>
+        </span>
+            </div>
+        </div>
+        <div class="row top">
+            <div class="col-sm-6">
+                <p class="p12l">{{'MSGCENTER.NEWMSG.SUBJECT' |translate}}</p>
+                <p class="p14b subjectText">{{messageDetails?.subject}}</p>
+            </div>
+            <div class="col-sm-4 col-category">
+                <span id="categoryIcon" class="categoryIcon" [inlineSVG]="'/assets/icon_gen_category.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false" translate>     
+            </span>
+                <span class="categoryTxt">
+               <p class="p12l">{{'MSGCENTER.NEWMSG.CATEGORY' |translate}}</p>
+               <p class="p14b">{{messageDetails?.conversationCategory | capitalize}}</p>
+            </span>
+            </div>
+            <div class="col-sm-2 col-moreOption" *ngIf="type !== messageType.TYPE_DELETE" (click)="deleteMsg(messageDetails)">
+                <a id="deleteOption" class="deleteIcon" alt="Delete" [title]="delete" [inlineSVG]="'/assets/icon_deleted.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false" translate>
+                </a>
+                <p>{{'MSGCENTER.DELETE' | translate}}</p>
+            </div>
+        </div>
+        <div class="row middle" *ngIf="attachmentInfo.length > 0">
+            <div class="col-sm-12 padding0">
+                <ngb-accordion #acc="ngbAccordion" activeIds="patientInfo-acc">
+                    <!-- Start of Patient Information -->
+                    <ngb-panel id="patientInfo-acc">
+                        <ng-template ngbPanelTitle>
+                            <span translate id="patient-information">Patient Information</span>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                            <!-- MAIN ROW -->
+                            <span *ngFor="let attachmentInfo of attachmentInfo let i = index" class="blockitem" id="claim-detail-insured-content">
+                            <!-- RIGHT COLUMN & CLAIM DETAIL -->
+                            <span *ngFor="let claimInfo of attachmentInfo.claimInfo let i = index" class="attachedClaimsDiv">
+                                <span class="p14b attachedClaim"><a href=""
+                                (click)="openClaimDetailModal(claimDetailTemplate,claimInfo?.claimId);
+                                ">{{attachmentInfo?.patientInfo?.firstName}} {{attachmentInfo?.patientInfo?.lastName}}- {{claimInfo?.claimId}}</a></span>
+                            </span>
+                            </span>
+                            <!-- END OF MAIN ROW -->
+                        </ng-template>
+                    </ngb-panel>
+                    <!-- End of Patient Information -->
+                </ngb-accordion>
+            </div>
+        </div>
+
+        <div class="row middle">
+            <div class="col-sm-12 padding0">
+                <p class="p12l">{{'MSGCENTER.MESSAGE' |translate}}</p>
+                <p class="msg-content">{{messageDetails?.messageBody}}</p>
+            </div>
+        </div>
+        <div class="row bottom">
+            <div class="col-sm-2 col-dateTime">
+                <span id="dateTimeId" class="dateIcon" [title]="calender" [inlineSVG]="'/assets/icon_calendar.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+            </span>
+                <span id="notif-date" class="dateTxt">
+            <span id="notif-timeId">{{createDate(messageDetails?.createdDate) | date: messageType.MESSAGE_DATE_FORMAT}}</span><br/>
+                <span id="notif-timeId">{{createDate(messageDetails?.createdDate) | date: messageType.MESSAGE_TIME_FORMAT}}</span><br/>
+                </span>
+            </div>
+            <div class="col-sm-4 replyBtnDiv padding0">
+                <button class="btn" id="msg-detail-Reply" type="button" (click)="openReplyModal(replyModalTemplate)">{{'MSGCENTER.REPLY' | translate}}</button>
+                <button class="btn" id="msg-detail-Forward" type="button" (click)="openForwardModal(forwardModalTemplate)">{{'MSGCENTER.FORWARD' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="msgHisDiv" *ngIf="trailingMessages?.length">
+    <app-message-history [trailingMessages]="trailingMessages" [messageDetails]="messageDetails"></app-message-history>
+</div>
+<!-- Reply Model Popup -->
+<ng-template #replyModalTemplate>
+    <tzf-modal-content [modal]="modalRef" headerText="{{'MSGCENTER.NEWMSG.REPLYMESSAGE'|translate}}" backText="{{'MSGCENTER.NEWMSG.NAVTOMSG'|translate }}" (submit)="submitModal($event)" (action)="modalAction($event)" [cancelButton]="false" [submitButton]="false">
+        <div main>
+            <app-reply-component [modalRef]="modalRef" (onSave)="replyMessageSave($event)">
+            </app-reply-component>
+        </div>
+    </tzf-modal-content>
+</ng-template>
+<ng-template #forwardModalTemplate>
+    <tzf-modal-content [modal]="modalRef" headerText="{{'MSGCENTER.FORWARDTITLE'|translate}}" backText="{{'MSGCENTER.NEWMSG.NAVTOMSG'|translate }}" (submit)="submitModal($event)" (action)="modalAction($event)" [cancelButton]="false" [submitButton]="false">
+        <div main>
+            <app-forward [modalRef]="modalRef" [messageDetails]="messageDetails" [type]="type" (onSave)="replyMessageSave($event)">
+            </app-forward>
+        </div>
+    </tzf-modal-content>
+</ng-template>
+<ng-template #claimDetailTemplate>
+    <tzf-modal-content [modal]="modalRef" headerText="{{'CLAIM.CREATECLAIM.CLAIMDETAIL.TITLE'|translate}}" (submit)="submitModal($event)" (action)="modalAction($event)" [cancelButton]="false" [submitButton]="false">
+        <div main>
+            <app-claim-detail></app-claim-detail>
+        </div>
+    </tzf-modal-content>
+</ng-template>

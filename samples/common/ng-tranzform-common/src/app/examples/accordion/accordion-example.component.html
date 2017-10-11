@@ -1,0 +1,73 @@
+<p>Styles are provided for the <a href="https://ng-bootstrap.github.io/#/components/accordion">ng-bootstrap Accordion widget</a>.</p>
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="Simple">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span>&#9733; <b>Fancy</b> title &#9733;</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel title="Disabled" [disabled]="true">
+    <ng-template ngbPanelContent>
+      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+      labore sustainable VHS.
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+<h2>Modal</h2>
+<p>The tzf-modal-content component provides styles and boilerplate functionality for the <a href="https://ng-bootstrap.github.io/#/components/modal">ng-bootstrap Modal component</a>.</p>
+<button class="btn btn-secondary" (click)="openModal(modalTemplate)">Open Modal</button>
+<button class="btn btn-secondary" (click)="openConfirm()">Confirm Modal</button>
+<button class="btn btn-secondary" (click)="openAlert()">Alert Modal</button>
+
+<ng-template #modalTemplate>
+  <tzf-modal-content
+    [modal]="modalRef"
+    headerText="My Header"
+    backText="Back to Examples"
+    (submit)="submitModal($event)"
+    (action)="modalAction($event)"
+    [actions]="[{ id: 'specialAction', text: 'Special' }]"
+  >
+    <div main>
+      <p>This is the content of my modal.</p>
+      <input>
+      <p>
+        <label>
+          <input type="checkbox" [(ngModel)]="additionalContent">
+          Show additional content
+        </label>
+      </p>
+    </div>
+    <div bottom *ngIf="additionalContent">
+      <h2>Additional Content</h2>
+      <p>This is some more content.</p>
+      <button type="button" *ngIf="!lots" (click)="lots = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]" class="btn btn-secondary">
+        Generate lots of content to test scrolling
+      </button>
+      <p *ngFor="let l of lots">This is lots more content!</p>
+    </div>
+  </tzf-modal-content>
+</ng-template>

@@ -1,0 +1,100 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+@import '../../../../node_modules/bootstrap/scss/tables';
+
+.servicedates{
+	min-width: 165px;
+}
+.providername{
+	width:150px;
+}
+.ui-datatable-thead th, .ui-datatable-data > .ui-widget-content > td{
+	padding:0.4em 1.2em !important;
+}
+tzf-responsive-columns.responsivetable /deep/ {
+	table.colTable{
+		margin-left: 45px; 
+		tbody{
+		display:inline-flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	tr{
+		min-width: 300px;
+        border-bottom-width: 0 !important;
+		th{
+			&:after{
+			content:':';
+		}
+		}
+	}
+	}
+	
+}
+h2{
+    color: $color-pimary-blue;
+}
+.claimsSearchResultCount{
+	border-top: 1px solid $color-neurtral-whitish-grey;
+	padding: 0.5em 0;
+	margin-top: 1em;
+}
+@mixin svgIconStyles($color){
+	svg {
+      width: 1.5em;
+      height:1.5em;
+      position: relative;
+      top: 5px;
+      path{
+          fill: $color;
+      }
+	  circle{
+          fill: $color;
+      }
+	  rect{
+          fill: $color;
+      }
+    }
+}
+.table{
+	background-color:$color-pimary-white;
+	th{
+		color: #257F8E;
+		border-top: 4px solid #257F8E;
+		border-bottom:  4px solid #EBEBEB;
+	}
+	td{
+		color:#5D5D5D;
+	}
+}
+#alerticon  /deep/ {
+	cursor:pointer;
+	@include svgIconStyles(#9f6338);
+}
+#moreinfo /deep/ {
+	cursor:pointer;
+	@include svgIconStyles($color-pimary-blue);
+    
+}
+.pdfExcelPlaceHolder{
+	text-align: right;
+    float: right;
+    top: 0.5em;
+	position: relative;
+}
+a /deep/ {
+	cursor:pointer;
+	outline: none;
+    svg {
+      width: 1.5em;
+      height:1.5em;
+      position: relative;
+      top: 5px;
+      path{
+          fill: $color-pimary-light-blue;
+	  }
+	  polygon{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }

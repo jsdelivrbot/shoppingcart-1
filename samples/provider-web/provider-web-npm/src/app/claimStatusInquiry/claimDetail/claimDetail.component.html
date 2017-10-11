@@ -1,0 +1,328 @@
+<div class="row">
+  <div class="col-12">
+    <span class="pdfExcelPlaceHolder p14r">{{'VIEWANDPRINTSUMMARY' | translate}}
+    <a  id="pdfDownload"
+        tabindex="0"
+        attr.title="{{'PDF' | translate }}"
+        [inlineSVG]="'assets/icon_pdf.svg'"
+        [cacheSVG]="false"
+        [prepend]="true"
+        (click) = "downloadFile(AppConfig.PDF)"
+        [replaceContents]="false">
+          {{'PDF' | translate }}
+    </a>
+  </span>
+  </div>
+</div>
+<div id="claim-status-strip" class="claim-status-strip row margin0">
+  <div id="image" class="col-3 row margin0 padding0  image" [ngClass]="{'pending':claimInfo?.claimStatus=== 'Pending',
+  'received':claimInfo?.claimStatus === 'Received',
+  'estimated':claimInfo?.claimStatus === 'Estimated',
+  'finalized':claimInfo?.claimStatus === 'Finalized' }">
+      <div class="col-2">
+        <span *ngIf="claimInfo?.claimStatus=== 'Finalized'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false" [inlineSVG]="'/assets/icon_tick.svg'"></span>
+        <span *ngIf="claimInfo?.claimStatus=== 'Pending'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false" [inlineSVG]="'/assets/icon_warning.svg'"></span>
+        <span *ngIf="claimInfo?.claimStatus=== 'Received'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false" [inlineSVG]="'/assets/icon-received.svg'"></span>
+        <span *ngIf="claimInfo?.claimStatus=== 'Estimated'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false" [inlineSVG]="'/assets/common/icons/icon_estimated.svg'"></span>
+      </div>
+      <div class="col-9">
+        <span class="status-label">{{'CLAIMDETAIL.HEADER.STATUS' | translate}}<br/></span>
+        <span class="h20b status" translate>{{claimInfo?.claimStatus}}</span>
+      </div>
+  </div>
+  <div id="detail" class="col-9 detail row margin0 padding0 ">
+      <div id="firstsection" class="col-4">
+        <div class="row">
+          <span translate>{{claimInfo?.claimStatus !== Estimated ?
+          'CLAIMDETAIL.HEADER.CLAIMID':'CLAIMDETAIL.HEADER.ESTIMATEID'}}</span>
+          <span>&nbsp;:</span>
+          <span class="p14b">&nbsp;{{claimInfo?.claimId}}</span>
+        </div>
+        <div class="row">
+          <span translate>CLAIMDETAIL.HEADER.MEMBERNAME</span><span>&nbsp;:</span>
+          <span class="p14b">&nbsp;{{claimInfo?.memberLastName}}<label *ngIf="claimInfo?.memberLastName">,&nbsp;</label>{{claimInfo?.memberFirstName}} {{claimInfo?.memberMiddleName}}</span>
+        </div>
+      </div>
+      <div id="secondsection" class="col-4">
+        <div class="row">
+          <div><span translate>CLAIMDETAIL.HEADER.PROVIDER</span></div>
+          <span>&nbsp;:</span>
+          <span class="p14b">&nbsp;{{claimInfo?.payeeProviderName}}</span>
+        </div>
+        <div class="row">
+          <div><span translate>CLAIMDETAIL.HEADER.SERVICEDATE</span></div>
+          <span>&nbsp;:</span>
+          <span class="p14b">&nbsp;{{claimInfo?.lowServiceDate | date:AppConfig.DateFormat}} - {{claimInfo?.highServiceDate | date:AppConfig.DateFormat}}</span>
+        </div>
+      </div>
+      <div id="thirdsection" class="col-4 align-padding">
+        <div class="row">
+          <div><span translate>CLAIMDETAIL.HEADER.PATIENTRESP</span></div>
+          <span>&nbsp;:</span>
+          <span class="p14b">&nbsp;{{claimInfo?.totalPatientResponsibility}}</span>
+        </div>
+      </div>
+      <div class="col-12  padding0 margin0" *ngIf="claimInfo?.claimStatus === 'Finalized' && claimInfo?.totalPaidAmount === 0">
+        <hr class="divider-line padding0 margin0">
+      <p translate class="alert margin0"  [inlineSVG]="'assets/icon_warning.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+      CLAIMDETAIL.HEADER.ALERT</p>
+      </div>
+    </div>
+  </div>
+<ngb-accordion #acc="ngbAccordion" activeIds="insured-acc">
+  <!-- Insured & Patient Information -->
+  <ngb-panel id="insured-acc">
+    <ng-template ngbPanelTitle>
+      <span translate id="claim-detail-insured-title">CLAIMDETAIL.INSURED.TITLE</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW -->
+      <div class="row blockitem" id="claim-detail-insured-content">
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-5" id="patient-info-left">
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURED.PATIENTID</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.patientId}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURED.PATIENTNAME</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.memberLastName}}<label *ngIf="claimInfo?.memberLastName">,&nbsp;</label>{{claimInfo?.memberFirstName}} {{claimInfo?.memberMiddleName}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURED.PATIENTDOB</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.memberDOB | date:AppConfig.DateFormat}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURED.PATIENTACCOUNT</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.patientAccountNumber}}</span></div>
+          </div>
+        </div>
+        <!-- RIGHT COLUMN & CLAIM DETAIL -->
+        <div class="col-lg-7" id="patient-info-right">
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURED.RELATIONSHIPTOINSURED</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.memberRelationshipToSubscriber}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURED.INSUREDNAME</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.subscriberLastName}}<label *ngIf="claimInfo?.subscriberLastName">,&nbsp;</label>{{claimInfo?.subscriberFirstName}} {{claimInfo?.subscriberMiddleName}}</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+  <!-- END OF Insured & Patient Information -->
+
+
+  <!-- Insurance -->
+  <ngb-panel >
+    <ng-template ngbPanelTitle>
+      <span translate id="claim-detail-insurance-title">CLAIMDETAIL.INSURANCE.TITLE</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW -->
+      <div class="row blockitem" id="claim-detail-insurance-content">
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-5" id="insurance-left">
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURANCE.SUBSCRIBERID</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.subscriberId}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURANCE.GROUPID</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.groupId}}</span></div>
+          </div>
+        </div>
+        <!-- RIGHT COLUMN & CLAIM DETAIL -->
+        <div class="col-lg-7" id="insurance-right">
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURANCE.COVEREDUNDER</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.planName}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.INSURANCE.HRAINCLUDED</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.hraIncludedOnClaim}}</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+  <!-- END OF Insurance -->
+
+  <!-- Provider -->
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span translate id="claim-detail-provider-title">CLAIMDETAIL.PROVIDER.TITLE</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW -->
+      <div class="row blockitem" id="claim-detail-provider-content">
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-5" id="provider-left">
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.PROVIDER.PROVIDERNAME</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.payeeProviderName}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.PROVIDER.PROVIDERID</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.payeeProviderId}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.PROVIDER.SERVICEPROVIDERID</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.serviceProviderId}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.PROVIDER.SERVICEPROVIDERNAME</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.serviceProviderName}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.PROVIDER.NETWORKINDICATOR</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.networkIndicator}}</span></div>
+          </div>
+        </div>
+        <!-- RIGHT COLUMN & CLAIM DETAIL -->
+        <div class="col-lg-7" id="provider-right">
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.PROVIDER.PROVIDERPHONEEXT</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{payeeProviderAddress[0]?.contactDetail?.phone}}&nbsp;{{payeeProviderAddress[0]?.contactDetail?.phoneExtension}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.PROVIDER.PROVIDERSERVICEADDR</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{payeeProviderAddress[0]?.providerAddress?.address1}}&nbsp;{{payeeProviderAddress[0]?.providerAddress?.address2}}<br>
+                  {{payeeProviderAddress[0]?.providerAddress?.address3}}
+                  {{payeeProviderAddress[0]?.providerAddress?.city}} {{payeeProviderAddress[0]?.providerAddress?.state}}
+                  {{payeeProviderAddress[0]?.providerAddress?.zip}} {{payeeProviderAddress[0]?.providerAddress?.county}}
+                  {{payeeProviderAddress[0]?.providerAddress?.country}}</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+  <!-- END OF Provider -->
+
+
+  <!--claim detail-->
+  <ngb-panel>
+    <ng-template ngbPanelTitle>
+      <span id="claimtype" translate>{{'CLAIMDETAIL.LINEITEM.CLAIMTITLE' | translate:claimInfo}}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW -->
+      <div  id="claim-info">
+        <!-- LEFT COLUMN -->
+        <div class="row lineitem">
+
+          <div class="col-lg-5" id="lineItemLeft{{i}}">
+            <div class="row" >
+            <div class="col-md-3 margin0 padding0"><span translate>CLAIMDETAIL.CLAIMINFORMATION.CLAIMID</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-7"><span class="p14b">{{claimInfo?.claimId}}</span></div>
+          </div>
+           <div class="row" >
+            <div class="col-md-3 margin0 padding0"><span translate>CLAIMDETAIL.CLAIMINFORMATION.CLAIMTYPE</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-7"><span class="p14b">{{claimInfo?.claimType}}</span></div>
+          </div>
+          <br>
+            <div class="grocery-list">
+              <div class="row">
+              <p class="p14b" id="costBreakUp" translate>CLAIMDETAIL.LINEITEM.CLMCOSTBREAKDOWN</p>
+            </div>
+            <div *ngFor="let rowItem of constants.claimTypeCodeProps.right" id="{{rowItem.prop}}"  class="row">
+                <span class="p14r" id="{{rowItem.prop}}label"  translate>{{rowItem.label}}</span>
+                <span class="p14b" id="{{rowItem.prop}}value">{{(claimInfo[rowItem.prop]+1) ? (claimInfo[rowItem.prop]*1|currency:AppConfig.currency:true:AppConfig.currencyPrecision) : ''}}</span>
+                <!--<span class="p14b" id="{{rowItem.prop}}value">{{claimInfo['total'+rowItem.prop.charAt(0).toUpperCase()] ? (claimInfo['total'+rowItem.prop.charAt(0).toUpperCase()]*1|currency:'USD':true:'1.2-2') : ''}}</span>-->
+            </div>
+            </div>
+
+
+          </div>
+          <!-- RIGHT COLUMN & CLAIM DETAIL -->
+          <div class="col-lg-7" id="lineItemRight{{i}}" >
+            <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.LINEITEM.CLAIMMSGCODE</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.claimMessageCode}}</span></div>
+          </div>
+              <div class="row">
+            <div class="col-md-6"><span translate>CLAIMDETAIL.LINEITEM.CLAIMMSGDESC</span></div>
+            <div class="col-md-1"><span>:</span></div>
+            <div class="col-md-5"><span class="p14b">{{claimInfo?.claimMessageCodeDescription}}</span></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+  <!--claim detail-->
+
+  <!-- Service Information -->
+  <ngb-panel id="servicetype">
+    <ng-template ngbPanelTitle>
+      <span id="claimtype" translate>{{'CLAIMDETAIL.LINEITEM.SERVICETITLE' | translate:claimInfo}}</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW   -->
+      <div class="main-service-type">
+        <div *ngFor="let item of claimInfo.claimLineDetails; let i = index" class="claim-info" id="claim-info{{i}}">
+        <p id="lineItemTitle{{i}}"class="p14m lineTitle">Line Item # {{i+1}}</p>
+        <!-- LEFT COLUMN -->
+        <div class="row lineitem">
+          <div class="col-lg-5" id="lineItemLeft{{i}}">
+            <div *ngFor="let rowItem of constants.lineItemLeftPropsTop" id="{{rowItem.prop}}" class="row">
+              <div class="col-md-4"><span class="p14r" id="{{rowItem.prop}}label" translate>{{rowItem.label}}</span></div>
+              <div class="col-md-1"><span>:</span></div>
+              <div class="col-md-7"><span class="p14b" id="{{rowItem.prop}}value">{{item[rowItem.prop]}}</span></div>
+            </div>
+
+            <br><br>
+            <div *ngFor="let rowItem of constants.serviceTypeCodeProps.left" id="{{rowItem.prop}}" class="row">
+              <div class="col-md-6"><span class="p14r" id="{{rowItem.prop}}label" translate>{{rowItem.label}}</span></div>
+              <div class="col-md-1"><span>:</span></div>
+              <div class="col-md-5"><span class="p14b" id="{{rowItem.prop}}value">{{item[rowItem.prop]}}</span></div>
+            </div>
+
+          </div>
+          <!-- RIGHT COLUMN & CLAIM DETAIL -->
+          <div class="col-lg-7" id="lineItemRight{{i}}">
+            <div class="grocery-list">
+            <div class=" row">
+              <p class="p14b" id="costBreakUp" translate>CLAIMDETAIL.LINEITEM.CLMCOSTBREAKDOWN</p>
+            </div>
+            <div *ngFor="let rowItem of constants.serviceTypeCodeProps.right" id="{{rowItem.prop}}"  class="row">
+                <span class="p14r" id="{{rowItem.prop}}label"  translate>{{rowItem.label}}</span>
+                <span class="p14b" id="{{rowItem.prop}}value">{{(item[rowItem.prop]+1) ? (item[rowItem.prop]*1|currency:AppConfig.currency:true:AppConfig.currencyPrecision) : ''}}</span>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+
+

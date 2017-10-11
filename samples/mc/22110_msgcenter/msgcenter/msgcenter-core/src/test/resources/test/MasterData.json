@@ -1,0 +1,61 @@
+{
+    "_id" : "conversationCategories",
+    "tenantId" : "HZ0001",
+    "category" : "conversationCategories",
+    "data" : {
+        "en" : [ 
+            {
+                "code" : "BILLING",
+                "value" : "Billing"
+            }, 
+            {
+                "code" : "BENEFITS",
+                "value" : "Benefits"
+            }, 
+            {
+                "code" : "PROVIDER_DIRECTORY",
+                "value" : "Provider Directory"
+            }, 
+            {
+                "code" : "CLAIMSSS",
+                "value" : "Claimssss"
+            }, 
+            {
+                "code" : "ENROLLMENT",
+                "value" : "Enrollment"
+            }, 
+            {
+                "code" : "TECHNICAL_SUPPORT",
+                "value" : "Technical Support"
+            }
+        ],
+        "es" : [ 
+            {
+                "code" : "BILLING",
+                "value" : "Facturación"
+            }, 
+            {
+                "code" : "BENEFITS",
+                "value" : "beneficios"
+            }, 
+            {
+                "code" : "PROVIDER_DIRECTORY",
+                "value" : "Proveedor Directorio"
+            }, 
+            {
+                "code" : "CLAIMS",
+                "value" : "Reclamaciones"
+            }, 
+            {
+                "code" : "ENROLLMENT",
+                "value" : "Inscripción"
+            }, 
+            {
+                "code" : "TECHNICAL_SUPPORT",
+                "value" : "Técnico Apoyo"
+            }
+        ]
+    },
+    "createdBy" : "Admin",
+     "isActive" : true
+}

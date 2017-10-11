@@ -1,0 +1,44 @@
+<nav *ngIf="backText">
+  <a id="modal-back" href (click)="!!doDismiss('back')" translate>{{ backText }}</a>
+</nav>
+<h1 id="modal-header">
+  <span class="header-text" translate>{{ headerText }}</span>
+  <button type="button"
+    (click)="doDismiss('close')"
+    class="header-close"
+    inlineSVG="assets/common/icons/icon_popupClose.svg"
+    [attr.title]="'ARIA_LABELS.CLOSE' | translate"
+  ></button>
+</h1>
+<div id="modal-body">
+  <form>
+    <ng-content select="[main]"></ng-content>
+    <div id="modal-buttons">
+      <button type="button"
+        id="modal-cancel"
+        *ngIf="cancelButton"
+        class="btn btn-secondary"
+        (click)="doDismiss('cancel')"
+        [disabled]="disableCancel"
+        translate
+      >{{ cancelText }}</button
+      ><button type="button"
+        [attr.id]="action.id"
+        *ngFor="let action of actions"
+        class="btn btn-secondary"
+        (click)="doAction(action.id)"
+        [disabled]="action.disabled"
+        translate
+      >{{ action.text }}</button
+      ><button type="submit"
+        id="modal-submit"
+        *ngIf="submitButton"
+        class="btn btn-primary"
+        (click)="!!doSubmit()"
+        [disabled]="disableSubmit"
+        translate
+      >{{ submitText }}</button>
+    </div>
+  </form>
+  <ng-content select="[bottom]"></ng-content>
+</div>

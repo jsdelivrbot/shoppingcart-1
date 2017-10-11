@@ -1,0 +1,23 @@
+{
+  "title": "TranZform Payer Style Guide",
+  "files": [
+    "src/app/common/**/*.scss"
+  ],
+  "target": "styleguide",
+  "css": [
+    "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700",
+    "styles/nucleus.css"
+  ],
+  "-scripts": [
+    "../dist/inline.bundle.js",
+    "../dist/polyfills.bundle.js",
+    "../dist/styles.bundle.js",
+    "../dist/vendor.bundle.js",
+    "../dist/main.bundle.js"
+  ],
+  "namespace": "page",
+  "verbose": 3,
+  "counterCSS": null,
+  "staticLipsum": false,
+  "placeholderService": false
+}

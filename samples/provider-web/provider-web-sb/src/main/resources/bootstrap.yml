@@ -1,0 +1,17 @@
+spring :
+ application :
+  name : uiprovider
+ profiles :
+  active : ${startup.profiles}
+ cloud :
+  config :
+   enabled : ${startup.config.enabled}
+   discovery :
+    enabled : ${startup.config.enabled}
+
+eureka :
+ client :
+  enabled : ${startup.eureka.enabled}
+  service-url :
+   defaultZone : https://${startup.eureka.hostname}:${startup.eureka.port}/eureka
+  

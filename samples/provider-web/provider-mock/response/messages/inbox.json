@@ -1,0 +1,143 @@
+{
+    "metaInfo": {
+        "orderBy": "desc",
+        "sortBy": "modifiedDate",
+        "type": "inbox",
+        "unReadCount": "1",
+        "totalCount": "1"
+    },
+    "messages": [{
+        "conversationCategory": "General",
+        "subject": "User 100 sent to user payer",
+        "messageId": "MSG3",
+        "messageBody": "User 100 sent to user payer",
+        "messageStatus": "ACTIVE",
+        "createdDate": "Tue, 12 Sep 2017 06:55:59 GMT",
+        "createdBy": "user51@tenant1.com",
+        "modifiedDate": "Tue, 12 Sep 2017 06:55:59 GMT",
+        "readIndicator": false,
+        "recipients": [{
+            "recipientId": "user101@tenant1.com",
+            "recipientName": " ",
+            "recipientUserType": "PAYER"
+        }],
+        "sender": {
+            "senderId": "user100@tenant1.com",
+            "senderName": "James M John",
+            "senderUserType": "Clinical"
+        },
+        "attachment": {
+            "attachmentType": "application/patient",
+            "attachmentInfo": [{
+                "patientInfo": {
+                    "tenantEnrollmentId": "user1",
+                    "subscriberId": "IHM101058",
+                    "firstName": "Jonathan",
+                    "lastName": "Binder",
+                    "dob": "",
+                    "gender": "",
+                    "uri": ""
+                },
+                "claimInfo": [{
+                    "claimId": "HSD000055105",
+                    "claimType": "Medical",
+                    "memberName": "Jonathan  Binder",
+                    "uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+                },
+                {
+                    "claimId": "HSD000055103",
+                    "claimType": "Medical",
+                    "memberName": "Jonathan  Binder",
+                    "uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+                }
+            ]
+            },
+            {
+                "patientInfo": {
+                    "tenantEnrollmentId": "user2",
+                    "subscriberId": "IHM101051",
+                    "firstName": "Steve",
+                    "lastName": "Jobs",
+                    "dob": "",
+                    "gender": "",
+                    "uri": ""
+                },
+                "claimInfo": [{
+                    "claimId": "HSD000055101",
+                    "claimType": "Medical",
+                    "memberName": "Steve Jobs",
+                    "uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+                }]
+            }
+        ]
+        }
+    },
+    {
+        "conversationCategory": "General",
+        "subject": "User 102 sent to user 100",
+        "messageId": "MSG4",
+        "messageBody": "User 102 sent to user 100",
+        "messageStatus": "ACTIVE",
+        "createdDate": "Tue, 12 Sep 2017 06:55:59 GMT",
+        "createdBy": "user51@tenant1.com",
+        "modifiedDate": "Tue, 12 Sep 2017 06:55:59 GMT",
+        "readIndicator": false,
+        "recipients": [{
+            "recipientId": "user103@tenant1.com",
+            "recipientName": "William M Mark",
+            "recipientUserType": "Clinical"
+        }],
+        "senders": {
+            "senderId": "user100@tenant1.com",
+            "senderName": "Toni M Cyd",
+            "senderUserType": "Non-Clinical"
+        },
+        "attachment": {
+            "attachmentType": "application/patient",
+            "attachmentInfo": [{
+                "patientInfo": {
+                    "tenantEnrollmentId": "user1",
+                    "subscriberId": "IHM101058",
+                    "firstName": "Jonathan",
+                    "lastName": "Binder",
+                    "dob": "",
+                    "gender": "",
+                    "uri": ""
+                },
+                "claimInfo": [{
+                    "claimId": "HSD000055105",
+                    "claimType": "Medical",
+                    "memberName": "Jonathan  Binder",
+                    "uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+                },
+                {
+                    "claimId": "HSD000055103",
+                    "claimType": "Medical",
+                    "memberName": "Jonathan  Binder",
+                    "uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+                }
+            ]
+            },
+            {
+                "patientInfo": {
+                    "tenantEnrollmentId": "user2",
+                    "subscriberId": "IHM101051",
+                    "firstName": "Steve",
+                    "lastName": "Jobs",
+                    "dob": "",
+                    "gender": "",
+                    "uri": ""
+                },
+                "claimInfo": [{
+                    "claimId": "HSD000055101",
+                    "claimType": "Medical",
+                    "memberName": "Steve Jobs",
+                    "uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+                }]
+            }
+        ]
+        }
+    }    
+],
+    "statusInfo": null
+}

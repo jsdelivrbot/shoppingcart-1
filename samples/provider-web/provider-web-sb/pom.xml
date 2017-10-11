@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.cognizant.tranzform.app</groupId>
+	<artifactId>provider-web-sb</artifactId>
+	<version>5.5.1-RC4-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>com.cognizant.tranzform.platform</groupId>
+		<artifactId>msparentpom</artifactId>
+		<version>5.4.4.2-SNAPSHOT</version>
+	</parent>
+
+	<name>provider-web-sb</name>
+	<url>http://pdstfs.trizetto.com:8080/tfs/HealthSystemSolutions/TranZform/_git/22110_provider-web</url>
+
+	<scm>
+		<connection>scm:git:http://pdstfs.trizetto.com:8080/tfs/HealthSystemSolutions/TranZform/_git/22110_provider-web</connection>
+		<developerConnection>scm:git:http://pdstfs.trizetto.com:8080/tfs/HealthSystemSolutions/TranZform/_git/22110_provider-web</developerConnection>
+		<url>http://pdstfs.trizetto.com:8080/tfs/HealthSystemSolutions/TranZform/_git/22110_provider-web</url>
+		<tag>HEAD</tag>
+	</scm>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.cognizant.tranzform.platform</groupId>
+			<artifactId>mslib-ws</artifactId>
+			<version>5.4.4.2-SNAPSHOT</version>
+			<optional>false</optional>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/classes/static</outputDirectory>
+							<resources>
+								<resource>
+									<directory>../provider-web-npm/dist</directory>
+									<filtering>true</filtering>
+									<excludes>
+										<exclude>assets/fonts/**</exclude>
+										<exclude>*.ttf</exclude>
+										<exclude>*.woff</exclude>
+									</excludes>
+								</resource>
+								<resource>
+									<directory>../provider-web-npm/dist</directory>
+									<filtering>false</filtering>
+									<includes>
+										<include>assets/fonts/**</include>
+										<include>*.ttf</include>
+										<include>*.woff</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>com.cognizant.tranzform.Application</mainClass>
+					<layout>ZIP</layout>
+					<requiresUnpack>
+						<dependency>
+							<groupId>com.cognizant.tranzform.platform</groupId>
+							<artifactId>mslib-ws</artifactId>
+						</dependency>
+						<dependency>
+							<groupId>com.cognizant.tranzform.platform</groupId>
+							<artifactId>mslib-commons</artifactId>
+						</dependency>
+					</requiresUnpack>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

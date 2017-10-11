@@ -1,0 +1,14 @@
+<form #form="ngForm" (ngSubmit)="wizard.next()">
+  <ng-container *ngIf="active">
+    <h2 translate>{{ header || name }}</h2>
+    <ng-content></ng-content>
+    <div>
+      <button type="submit"
+        [attr.id]="id && wizard.id && wizard.id + '-' + id + '-nextBtn'"
+        class="btn btn-primary"
+        [disabled]="form.invalid || wizard.waiting"
+        translate
+      >{{ nextButtonText }}</button>
+    </div>
+  </ng-container>
+</form>

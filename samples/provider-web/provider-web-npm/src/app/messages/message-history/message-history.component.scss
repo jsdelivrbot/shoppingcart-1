@@ -1,0 +1,42 @@
+@import "../../../styles/common";
+@import "../../../styles/variables";
+@import"../messages-styles.scss";
+.msgHistory {
+    .msgHisHeader {
+        background: $color-white-smoke;
+        border: 1px solid $color-neurtral-whitish-grey;
+        padding: 0.5em 0.7em;
+        margin: 0 0 1.2em 0;
+        color: $color-pimary-grey;
+    }
+    .msgHisContent {
+        .card {
+            margin-bottom: 1.2em;
+        }
+    }
+    .top {
+        /deep/ p:first-child {
+            margin-bottom: 6px;
+        }
+        /deep/ .col-dateTime {
+            padding-left: 0px !important;
+            text-align: right;
+            .dateIcon {
+                float: none;
+            }
+            .dateTxt {
+                float: none;
+            }
+        }
+    }
+    .middle {
+        margin: 15px 0;
+        .msg-content {
+            border-left: 5px solid $color-neurtral-whitish-grey;
+            padding: 15px;
+            margin: 10px 0;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+    }
+}

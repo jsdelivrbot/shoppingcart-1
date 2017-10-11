@@ -1,0 +1,32 @@
+<tzf-parent-route-content
+  id="routingExample"
+  [toChild]="item"
+  (fromChild)="fromChild($event)"
+  [sticky]="1"
+>
+  <p *ngFor="let item of items">
+    <button
+      type="button"
+      (click)="view(item)"
+    >
+      View {{ item.name }} ({{ item.id }})
+    </button>
+  </p>
+  <p>
+    Parent components aren't destroyed when navigating to children so state is automatically maintained.
+    When you click a breadcrumb to come back here, this textbox value remains, even if it isn't bound to anything.
+  </p>
+  <p>
+    This component has a value sticky = 1 so that it still displays when its child route is active.
+  </p>
+  <p>
+    Child textbox value: "{{ childTextboxValue }}". This was received via (fromChild).
+  </p>
+  <p>
+    It navigates to and sends its child data via [toChild] when an item is clicked. When subsequent items are clicked,
+    the route is not reloaded (since it doesn't change) but the child receives the data again as an event.
+  </p>
+  <p>
+    <input placeholder="Type here to test" [(ngModel)]="textboxValue">
+  </p>
+</tzf-parent-route-content>

@@ -1,0 +1,15 @@
+<span *ngIf="inboxcount > 0">
+    <div id="msgCountId" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <span ng-cloak translate> MSGCENTER.SHOWING</span>
+<span>{{inboxMessages?.messages ? inboxcount: 0 }}</span>
+<span *ngIf="((messageStatus | lowercase)=== (messageType.MESSAGE_STATUS_ALL | lowercase))" translate>{{messageType.READANDUNREAD}}</span>
+<span *ngIf="!((messageStatus | lowercase)=== (messageType.MESSAGE_STATUS_ALL | lowercase))" translate>{{messageStatus | capitalize}}</span>
+<span *ngIf="inboxcount === 1" translate>MSGCENTER.MESSAGE</span>
+<span *ngIf="inboxcount > 1" translate>MSGCENTER.MESSAGES</span>
+</div>
+</span>
+<app-message-filter [type]="messageType.TYPE_INBOX" (onApplyFilter)="loadInboxwithFilter($event)"></app-message-filter>
+<message-header></message-header>
+<p *ngIf="!inboxMessages?.messages || !inboxcount" class="noRecMsg" translate>MSGCENTER.NOMESSAGEINBOX</p>
+<message-list [messages]="inboxMessages?.messages" [type]="inboxMessages?.metaInfo?.type" 
+(onDelete)="loadInbox($event)" (onApplyFilter)="loadInboxwithFilter($event)"></message-list>

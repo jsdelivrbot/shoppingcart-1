@@ -1,0 +1,59 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+
+hr {
+	height: 0.2em;
+	background-color: $color-light-border-grey;
+  border:0;
+}
+app-search-form /deep/ {
+    #searchform{
+      margin-bottom:2.5em;
+    }
+}
+
+p-datatable /deep/ {
+  td.expander{
+  width:1%;
+}
+td{
+  width:9%;
+}
+td.provider{
+  width:16%;
+}
+
+td.referralType{
+  width:13%;
+}
+
+}
+
+@include media-breakpoint-up(xl) {
+p-datatable /deep/ {
+  .expander{
+  display:none!important;
+}}
+}
+.pdfExcelPlaceHolder{
+	  text-align: right;
+    float: right;
+    top: 0.5em;
+    position: relative;
+}
+a /deep/ {
+  cursor:pointer;
+  outline: none;
+    svg {
+      width: 1.5em;
+      height:1.5em;
+      position: relative;
+      top: 5px;
+      path{
+          fill: $color-pimary-light-blue;
+	  }
+	  polygon{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }

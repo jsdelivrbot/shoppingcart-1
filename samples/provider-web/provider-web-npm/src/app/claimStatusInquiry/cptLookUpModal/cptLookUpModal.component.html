@@ -1,0 +1,66 @@
+
+  <tzf-modal-content [modal]="cptModalRef" headerText="{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPTITLE'|translate}}"
+    [cancelButton]="false"
+ [submitButton]="true"
+ [submitText]="'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESC1'"
+ [disableSubmit]="!selectedCptCode"
+ (submit)="cptModalRef.close(selectedCptCode)">
+    <div main class="member-modal" [formGroup]="cptLookupForm">
+      <div class="row">
+        <div class="col-md-12 col-lg-12"><span class="modal-title">{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPSUBTITLE'|translate}}</span></div>
+        <div class="col-md-12 col-lg-12">{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESC'|translate}}&nbsp;<b>{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESC1'|translate}}</b>&nbsp;{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESC2'|translate}}</div>
+      </div>
+
+      <br><br>
+      <div class="row">
+        <div class="col-lg-4 col-md-4 margn-r-25">
+          <div tzfFormField label="SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTCODE" labelFor="Code" class="bootstrap-style">
+          <input type="text"
+          formControlName="procedurecode"
+          id="procedurecode"
+          maxlength="7"
+          [required]="!cptLookupForm.controls.procedurecodedesc.value"
+          placeholder="{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPCODEPLACEHOLDER' | translate}}">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div tzfFormField label="SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTDESC" labelFor="Description" class="bootstrap-style">
+          <input type="text"
+          formControlName="procedurecodedesc"
+          [required]="!cptLookupForm.controls.procedurecode.value"
+          maxlength="30"
+          id="procedurecodedesc" placeholder="{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESCPLACEHOLDER' | translate}}">
+        </div>
+        </div>
+        <div class="col-lg-1 col-md-1">
+          <button [inlineSVG]="'assets/common/icons/icon_search.svg'"
+          [cacheSVG]="false" (click)="loadCptLookupData($event)" [disabled]="cptLookupForm.invalid" class="btn btn-primary lookupSearchButton"></button>
+        </div>
+      </div>
+
+
+      <div  class="col-md-12 col-lg-12 popup-inner-content" *ngIf="!noCptLookupData && cptLookupData">
+          <div class="row lookup-data-header">
+            <div class="col-lg-1 col-md-1">&nbsp;</div>
+            <div class="col-lg-2 col-md-2">{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTCODE' | translate}}</div>
+            <div class="col-lg-8 col-md-8">{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTDESC' | translate}}</div>
+          </div>
+          <div class="lookup-data-scroll">
+          <div class="row lookup-data" *ngFor="let cptData of cptLookupData">
+            <div class="col-lg-1 col-md-1 input-radio">
+              <label>
+                    <input type="radio" [checked]="selectedCptCode===cptData.procedureCode"  name="cpt-{{cptData.procedureCode}}" id="cpt-{{cptData.procedureCode}}"  [value]="cptData.procedureCode" (change)="uncheckOtherCptCodes($event)">
+                    <span class="styledInput"></span>
+              </label>
+            </div>
+            <div class="col-lg-2 col-md-2">{{cptData.procedureCode}}</div>
+            <div class="col-lg-8 col-md-8">{{cptData.procedureCodeDesc}}</div>
+          </div>
+          </div>
+      </div>
+
+      <div class="col-lg-12" *ngIf="noCptLookupData">
+        No Results Found.
+      </div>
+    </div>
+  </tzf-modal-content>

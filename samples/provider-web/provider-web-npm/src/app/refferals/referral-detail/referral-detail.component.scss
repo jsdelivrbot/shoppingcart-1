@@ -1,0 +1,104 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+.detail-summary{
+    border: 1px solid $color-border-grey;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    .row{
+        margin: 0px;
+        .col-6{
+            padding: 10px 20px;
+            &:first-child {
+                border-right:1px solid $color-border-grey; 
+            }
+            span {
+                min-width: 140px;
+                display: inline-block;
+            }
+            label::before {
+                    content: ':';
+                    padding-right: 20px;
+                    font-weight: normal;
+            }
+        }
+    }
+}
+.cutom-title-right{
+    float: right;
+}
+.accordion-single-row {
+    .col-lg-3::before{
+        content: ":";
+        padding-right: 2em;
+    }
+}
+.accordion-multi-row{
+    min-height: 130px;
+   .col-lg-8::before{
+        content: ":";
+        padding-right: 2em;
+    } 
+    label{
+        margin: 0px;
+    }
+}
+#referral-content-right, 
+    #referral-content-left
+    {
+        .col-lg-8{
+            &::before{
+                content: ":";
+                padding-right: 2em;
+            }
+        }
+        .col-lg-5{
+            &::after{
+                content: ":";
+            }
+            span{
+                min-width: 12.5em;
+                display: inline-block;
+            }
+        }
+        .col-lg-7{
+            padding-left: 0px;
+        }
+        label{
+            margin: 0px;
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        #referral-content-right{
+            border-left: 0.1em solid $color-neurtral-whitish-grey;
+            padding: 0 0 0 4em;
+        }
+    }
+    .diagnosis-info{
+        border-bottom: 0.2em solid $color-neurtral-whitish-grey;
+        padding:0.5em 0em;
+        margin-bottom: 1em;
+    }
+    .text-right{
+        text-align: right;
+    }
+.pdfExcelPlaceHolder{
+	text-align: right;
+    float: right;
+    padding: 10px 0px;
+}
+a /deep/ {
+    cursor:pointer;
+    outline: none;
+    svg {
+      width: 1.5em;
+      height:1.5em;
+      position: relative;
+      top: 5px;
+      path{
+          fill: $color-pimary-light-blue;
+	  }
+	  polygon{
+          fill: $color-pimary-light-blue;
+      }
+    }
+  }    

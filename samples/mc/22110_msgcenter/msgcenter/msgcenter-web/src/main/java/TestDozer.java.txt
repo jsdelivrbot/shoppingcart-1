@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.cognizant.tranzform.msgcenter.enums.MessageStatus;
+import com.cognizant.tranzform.msgcenter.v2.domain.From;
+import com.cognizant.tranzform.msgcenter.v2.domain.MessageDetailsV2;
+import com.cognizant.tranzform.msgcenter.v2.domain.To;
+import com.cognizant.tranzform.msgcenter.v2.vo.TrailMessageV2VO;
+import com.cognizant.tranzform.util.DozerUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+public class TestDozer {
+
+	public static void main(String[] args) throws JsonProcessingException {
+		List<MessageDetailsV2> msgList = new ArrayList<>();
+		
+		final MessageDetailsV2 msgDtl1 = new MessageDetailsV2();
+		msgDtl1.setConversationCategory("General");
+		msgDtl1.setCreatedDate(new Date());
+		From from = new From();
+		from.setId("user1@tenant1.com");
+		from.setType("Provider");
+		from.setUserName("Shiva");
+		msgDtl1.setFrom(from);
+		msgDtl1.setIsFwd(false);
+		msgDtl1.setIsRead(false);
+		msgDtl1.setMessageBody("Test message detail");
+		msgDtl1.setMessageId("MSG1");
+		msgDtl1.setMessageStatus(MessageStatus.ACTIVE);
+		msgDtl1.setModifiedDate(new Date());
+		msgDtl1.setSubject("testSubject");
+		To to = new To();
+		to.setId("user2@tenant1.com");
+		to.setType("Provider");
+		to.setUserName("Subbu");
+		msgDtl1.setTo(to);
+		msgDtl1.setTrailMessageId("MSG2");
+		
+		msgList.add(msgDtl1);
+		msgList.add(msgDtl1);
+		
+		List<TrailMessageV2VO> msgListVO = DozerUtil.copyList(msgList, TrailMessageV2VO.class, "trailMessage_V2_mapping");
+		System.out.println(msgListVO);
+		final ObjectMapper mapper = new ObjectMapper();
+	    System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(msgListVO));
+		
+	}
+}

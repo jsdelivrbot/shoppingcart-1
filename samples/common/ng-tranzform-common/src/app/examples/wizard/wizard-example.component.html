@@ -1,0 +1,48 @@
+<div class="inner-container">
+  <tzf-wizard [responsiveWidth]="705"
+    id="wizardExample"
+  >
+    <tzf-wizard-step
+      id="memberInfo"
+      name="Member Information"
+      [models]="[memberIdEl, dateOfBirthEl]"
+      (form)="memberInfoForm = $event"
+      (complete)="validateMember($event)"
+    >
+      <p>
+        To help you register, we are going to look up your existing member information.<br>
+        Please provide your information:
+      </p>
+      <tzf-message [form]="memberInfoForm" [validationMessages]="validationConfig"></tzf-message>
+      <tzf-form-fields>
+        <div tzfFormField id="memberIdField" label="Member ID" hint="This is a hint" [hasInfo]="true">
+          <input type="text" [(ngModel)]="memberId" required name="memberId" #memberIdEl="ngModel">
+          <img info width="250" src="https://www.network-health.org/uploadedImages/Build_Elements/img/ID_cards/member_id_unify_en-sp.jpg?n=4490">
+        </div>
+        <div tzfFormField label="Date of Birth" hint="So, when were you born?">
+          <tzf-date [(ngModel)]="dateOfBirth" required name="dateOfBirth" #dateOfBirthEl="ngModel" [yearPicker]="true"></tzf-date>
+        </div>
+      </tzf-form-fields>
+      <tzf-form-fields>
+        <label tzfFormField label="ZIP Code">
+          <input type="text">
+        </label>
+        <div tzfFormField label="A dropdown">
+          <tzf-dropdown [options]="[]"></tzf-dropdown>
+        </div>
+      </tzf-form-fields>
+    </tzf-wizard-step>
+    <tzf-wizard-step name="Verification" id="verification" header="Member Verification" (prepare)="initVerification($event)">
+      Step 2 Content
+    </tzf-wizard-step>
+    <tzf-wizard-step name="Verify Code" id="verifyCode">
+      Step 3 Content
+    </tzf-wizard-step>
+    <tzf-wizard-step name="Create User Name" id="userName">
+      Step 4 Content
+    </tzf-wizard-step>
+    <tzf-wizard-step name="Set Security Questions" id="securityQuestions">
+      Step 5 Content
+    </tzf-wizard-step>
+  </tzf-wizard>
+</div>

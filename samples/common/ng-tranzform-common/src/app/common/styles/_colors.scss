@@ -1,0 +1,30 @@
+/*** Bootstrap Reboot variables ***/
+$body-bg: #70c4c4;
+$body-color: #5d5d5d;
+
+$link-color: #1f7c99;
+
+$color-input-text: #5d5d5d;
+$color-input-bg: white;
+$color-input-border: #bfbfbf;
+$color-input-border-hover: #2f9cb1;
+$color-input-shadow: rgba(black, 0.2);
+
+$color-btn: #5d5d5d;
+$color-btn-bg: white;
+$color-btn-border: #f49d00;
+$color-btn-hover-border: #d45e04;
+$color-btn-pressed-border: #c24e02;
+$color-btn-primary: white;
+$color-btn-primary-bg: #e3640f;
+$color-btn-primary-border: $color-btn-primary-bg;
+$color-btn-primary-hover-bg: $color-btn-hover-border;
+$color-btn-primary-hover-border: $color-btn-primary-hover-bg;
+$color-btn-primary-pressed-bg: $color-btn-pressed-border;
+$color-btn-primary-pressed-border: $color-btn-primary-pressed-bg;
+$color-btn-disabled: $color-btn;
+$color-btn-bg-disabled: $color-btn-bg;
+$color-btn-border-disabled: #8c8c8c;
+$color-btn-primary-disabled: $color-btn-primary;
+$color-btn-primary-bg-disabled: $color-btn-border-disabled;
+$color-btn-primary-border-disabled: $color-btn-primary-bg-disabled;

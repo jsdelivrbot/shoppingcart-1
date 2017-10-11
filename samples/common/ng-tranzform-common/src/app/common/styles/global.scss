@@ -1,0 +1,22 @@
+@import 'engage/engage-global';
+
+.focus-outline-hidden :focus {
+  outline: none;
+}
+
+input:not([type]),
+input[type=text],
+input[type=number],
+input[type=tel],
+input[type=password],
+input[type=date] {
+  @include input();
+}
+
+// Should look into "forwarding" validators in Date component
+.ng-invalid.ng-touched:not(form) {
+  input,
+  select {
+    border-color: #d93659;
+  }
+}

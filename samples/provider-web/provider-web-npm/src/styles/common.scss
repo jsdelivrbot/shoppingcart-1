@@ -1,0 +1,325 @@
+@import "typography";
+@import 'variables';
+@import "radiobox";
+html,
+body {
+  overflow: auto;
+}
+
+.margin0 {
+  margin: 0;
+}
+
+.padding0 {
+  padding: 0;
+}
+
+
+/* mixins */
+
+@mixin hw($value) {
+  height: $value;
+  width: $value;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+label {
+  font-family: Roboto;
+}
+
+.tzf-primary-button {
+  border-radius: 0 4px 4px 0;
+  background-color: $color-accent-light-orange;
+  font-family: Roboto;
+  color: $color-pimary-white;
+  cursor: pointer;
+  font-size: 1.15em;
+  cursor: pointer;
+  flex: auto;
+  @extend .h20m;
+  &:hover {
+    background-color: $color-accent-dark-orange;
+  }
+  &:active,
+  &:focus {
+    background-color: $color-accent-orange;
+  }
+  &:disabled {
+    background-color: $color-neurtral-light-grey;
+    cursor: none;
+  }
+}
+
+.form-controls-required {
+  color: $color-accent-pink;
+}
+
+hr.fadedline {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+.pending {
+  color: $color-accent-orange!important;
+}
+
+.finalized {
+  color: $color-accent-green!important;
+}
+
+.received {
+  color: $color-secondary-blue!important;
+}
+
+.tzf-secondary-button {
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: $color-pimary-light-blue;
+  background-color: $color-pimary-white;
+  font-family: Roboto;
+  color: $color-pimary-light-blue;
+  cursor: pointer;
+  flex: auto;
+  outline: none;
+  padding: 5px 0px;
+  @extend .p14r;
+  &:hover {
+    border-color: $color-pimary-light-blue;
+    background-color: $color-pimary-light-blue;
+    color: $color-pimary-white;
+  }
+  &:active,
+  &:focus {
+    border-color: $color-pimary-blue;
+    background-color: $color-pimary-blue;
+    color: $color-pimary-white;
+  }
+  &:disabled {
+    border-color: $color-neurtral-light-grey;
+    background-color: $color-pimary-white;
+    color: $color-neurtral-light-grey;
+    cursor: none;
+  }
+}
+
+.modal {
+  z-index: 2 !important;
+  top: 15% !important;
+}
+
+
+/* modal window for message compose*/
+
+.new-message-modal {
+  z-index: 2 !important;
+  top: 9% !important;
+}
+
+#container header {
+  z-index: 1 !important;
+}
+
+.modal-backdrop {
+  z-index: 2 !important;
+}
+
+.new-message-modal.modal,
+.reply-message-modal.modal,
+.draft-message-modal.modal,
+.forward-message-modal.modal {
+  top: 0% !important;
+  .modal-dialog {
+    margin-top: 5%;
+    .modal-content {
+      max-height: 100% !important;
+      tzf-modal-content #modal-body {
+        padding: 0 0 2em 0;
+        overflow: initial;
+      }
+    }
+  }
+}
+.new-message-modal.modal, .reply-message-modal.modal, .forward-message-modal.modal, .draft-message-modal {
+    .modal-dialog {
+      .modal-content {
+        min-height: 770px !important;
+        tzf-modal-content #modal-body {
+          padding-bottom: 0;
+        }
+      }
+    }
+}
+
+footer {
+  z-index: 1 !important;
+}
+
+
+/**
+   Remove blue border from css custom-styled buttons.
+*/
+
+
+/*button:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}*/
+
+/** bootstrap type styling for tzfField **/
+
+.bootstrap-style[tzfFormField] {
+    border:none;
+    padding:0;
+    button.toggle{
+       min-width:140px;
+     }
+
+    tzf-form-field-popover > div, > div > input[type=text], > div > input[type=number]{
+    border: 1px solid #CCCCCC;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
+    padding: 5px;
+    }
+
+    > div > input[type=text]::placeholder{
+      color:#999999;
+      font-size: 14px;
+    }
+    p.label-content{
+      margin-bottom: 0em;
+    }
+
+    select{
+      min-height: 36px;
+      width:100%;
+      border: 1px solid #CCCCCC;
+      border-radius: 2px;
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,0.5);
+      color:#999999;
+      font-size: 14px;
+    }
+
+}
+
+    .required[tzfFormField] {
+      p.label-content:after{
+        content:'*';
+        color:red;
+      }
+    }
+.bootstrap-style[tzfFormField] + button[type=submit].small{
+    height: 35px;
+    min-width: 16px;
+    width: 40.2px;
+    margin-right: 0px;
+    border: 0px;
+    padding:5px 6px;
+    position: absolute;
+    top: 28px;
+    right:0;
+}
+hr.bootstrap-style.divider-line{
+  border-top: 2px solid $color-neurtral-whitish-grey;
+  margin:20px 0px;
+  position: relative;
+}
+@include media-breakpoint-up(xl) {
+hr.bootstrap-style.divider-line{
+  top: 35%;
+}
+}
+
+.data-lookup-modal.modal {
+  top: 0% !important;
+  .modal-dialog {
+    .modal-content {
+      tzf-modal-content #modal-body {
+        background: white;
+      }
+    }
+  }
+}
+
+.list-lookup-modal.modal {
+  top: 0% !important;
+  .modal-dialog {
+    margin-top: 5%;
+    .modal-content {
+      tzf-modal-content #modal-body {
+        padding: 0;
+        overflow-y: hidden;
+      }
+    }
+  }
+}
+.popup-inner-content
+{
+input {
+  opacity: 0;
+  width: 0;
+
+  + .styledInput {
+    border: 1px solid $color-checkbox-border;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 $color-checkbox-checked-shadow;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    position: relative;
+    top: 2px;
+    margin-right: 0.4em;
+  }
+
+  &[type=radio] + .styledInput {
+    border-radius: 100%;
+  }
+
+  &[type=checkbox] {
+    &:checked {
+      + .styledInput {
+        &::before {
+          content: '\2713';
+          color: $color-checkbox-checked;
+          display: inline-block;
+          position: relative;
+          font-size: 14px;
+          top: -4px;
+          font-weight: bold;
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+
+  &:checked + .styledInput {
+    background: $color-checkbox-checked-bg;
+    border-color: $color-checkbox-checked-bg;
+    overflow: hidden;
+  }
+
+  &:focus + .styledInput {
+    box-shadow: 0 1px 8px 0 $color-checkbox-focus-shadow;
+  }
+}
+}

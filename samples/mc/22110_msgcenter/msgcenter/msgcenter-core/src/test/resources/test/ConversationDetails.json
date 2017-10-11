@@ -1,0 +1,23 @@
+[{
+    "conversationId" : "CONV125",
+    "tenantEnrollmentId" : "M1001",
+    "conversationStatus" : "OUTBOUND",
+    "conversationCategory" : "BENEFITS",
+    "messageId" : "MSG142",
+    "messageText":"Hi New message",
+    "subject" : "What are my benefits?",
+    "createDateTime" : "2016-12-16T13:29:12.357Z",
+    "messages" : 
+        {
+            "messageId" : "MSG142",
+            "messageBody" : "Please provide the app Id.",
+            "messageCategory" : "INBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2016-12-23T15:46:03.038Z",
+            "modifiedDate" : "2016-12-23T15:46:03.038Z"
+        }
+        
+   
+}]

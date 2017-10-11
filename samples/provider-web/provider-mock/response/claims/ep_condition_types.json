@@ -1,0 +1,16 @@
+{
+  "category": "ep_condition_types",
+  "data": [{
+      "code": "Emergency",
+      "value": "emergency"
+    },
+    {
+      "code": "Employment (Current or Previous)",
+      "value": "employment"
+    },
+    {
+      "code": "Result of an Accident",
+      "value": "resultofaccident"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+[{
+	"conversationCategory": "General",
+	"subject": "draft-save",
+	"messageId": "MSG2563",
+	"messageBody": "draft-save",
+	"messageStatus": "DRAFT",
+	"createdDate": "09/27/2017 06:54:16",
+	"modifiedDate": "09/27/2017 06:54:16",
+	"readIndicator": false,
+	"isFwd": false,
+	"recipients": [{
+		"recipientId": "user102@tenant1.com",
+		"recipientName": "James M John",
+		"recipientUserType": "Clinical"
+	}],
+	"sender": {
+		"senderId": "user102@tenant1.com",
+		"senderName": "user102@tenant1.com",
+		"senderUserType": "PROVIDER"
+	},
+	"attachment": {
+		"attachmentType": "application/patient",
+		"attachmentInfo": [{
+			"patientInfo": {
+				"tenantEnrollmentId": "user1",
+				"subscriberId": "IHM101058",
+				"firstName": "Jonathan",
+				"lastName": "Binder",
+				"dob": "",
+				"gender": "",
+				"uri": ""
+			},
+			"claimInfo": [{
+				"claimId": "HSD000055105",
+				"claimType": "Medical",
+				"memberName": "Jonathan  Binder",
+				"uri": "https://ABN-DEV-HTZ-215.dev.trizetto.com:443//claims-web/claims/pdf"
+			}]
+		}]
+	}
+}]

@@ -1,0 +1,21 @@
+.styled-bad {
+  color: red;
+}
+
+.styled-good {
+  color: #0b0;
+}
+
+// Has to be deep because it's in a template and added by DataTable so isn't encapsulated
+:host ::ng-deep tr.ui-widget-content td.col-progress {
+  min-width: 200px;
+
+  .container {
+    margin: 0;
+  }
+}
+
+ol li {
+  list-style: decimal;
+  margin-left: 1.5em;
+}

@@ -1,0 +1,81 @@
+[
+    {
+        "providerId": "678900002",
+        "providerFirstName": "Joseph",
+        "providerLastName": "James",
+        "providerAddress": [
+            {
+                "address1": "200",
+                "address2": "Mountain Hills Rd",
+                "address3": "STE  12345",
+                "city": "Phoenix",
+                "state": "AZ",
+                "zip": "85042",
+                "county": "Maricopa",
+                "country": "U.S.A"
+            },
+            {
+                "address1": "201",
+                "address2": "Mountain Hills Rd",
+                "address3": "STE  12345",
+                "city": "Phoenix",
+                "state": "AZ",
+                "zip": "85042",
+                "county": "Maricopa",
+                "country": "U.S.A"
+            }
+        ]
+    },{
+        "providerId": "678900003",
+        "providerFirstName": "Pedro",
+        "providerLastName": "Alwarez",
+        "providerAddress": [
+            {
+                "address1": "200",
+                "address2": "Texan Hills Rd",
+                "address3": "STE  12345",
+                "city": "Phoenix",
+                "state": "AZ",
+                "zip": "85042",
+                "county": "Maricopa",
+                "country": "U.S.A"
+            },
+            {
+                "address1": "201",
+                "address2": "Mountain Hills Rd",
+                "address3": "STE  12345",
+                "city": "Phoenix",
+                "state": "AZ",
+                "zip": "85042",
+                "county": "Maricopa",
+                "country": "U.S.A"
+            }
+        ]
+    },{
+        "providerId": "678900004",
+        "providerFirstName": "Sharon",
+        "providerLastName": "Chu",
+        "providerAddress": [
+            {
+                "address1": "200",
+                "address2": "China Hills Rd",
+                "address3": "STE  12345",
+                "city": "Phoenix",
+                "state": "AZ",
+                "zip": "85042",
+                "county": "Maricopa",
+                "country": "U.S.A"
+            },
+            {
+                "address1": "201",
+                "address2": "Mountain Hills Rd",
+                "address3": "STE  12345",
+                "city": "Phoenix",
+                "state": "AZ",
+                "zip": "85042",
+                "county": "Maricopa",
+                "country": "U.S.A"
+            }
+        ]
+    }
+]

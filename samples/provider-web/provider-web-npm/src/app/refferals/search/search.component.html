@@ -1,0 +1,83 @@
+<app-search-form id="" (onSubmit)="onSubmit($event)" [referralDataList]="referralDataList">
+</app-search-form>
+<hr>
+<p class="h20m" *ngIf="authReferralData?.totalRecordCount!==undefined && authReferralData?.totalRecordCount!==null" id="searchcount" >{{authReferralData?.totalRecordCount | i18plural:PLURAL_MESSAGES | translate:{length: authReferralData?.totalRecordCount} }}
+  <span class="pdfExcelPlaceHolder p14r">{{'VIEWANDPRINTSUMMARY' | translate}}
+    <a  id="pdfDownload"
+        tabindex="0"
+        attr.title="{{'PDF' | translate }}"
+        [inlineSVG]="'assets/icon_pdf.svg'"
+        [cacheSVG]="false"
+        [prepend]="true"
+        (click) = "downloadFile(AppConfig.PDF)"
+        [replaceContents]="false">
+          {{'PDF' | translate }}
+    </a> |
+    <a  id="excelDownload"
+        tabindex="0"
+        attr.title="{{'EXCEL' | translate }}"
+        [inlineSVG]="'assets/icon_excel.svg'"
+        [cacheSVG]="false"
+        [prepend]="true"
+        (click) = "downloadFile(AppConfig.EXCEL)"
+        [replaceContents]="false">
+          {{'EXCEL' | translate }}
+    </a>
+  </span>
+</p>
+<!-->search results grid</!-->
+<p-dataTable
+  *ngIf="criteria"
+  [value]="authReferralData?.authAndReferralSummary"
+  [expandableRows]="true"
+  (responsiveColumns)="columns = $event"
+  [lazy]="true"
+  (onLazyLoad)="sort=$event;searchAuthReferral(criteria,page,$event)"
+>
+  <p-column expander="true" styleClass="expander"></p-column>
+  <p-column field="status" sortable="true"  header="{{'REFERRALS.SEARCH.RESULTS.STATUS' | translate}}"   responsiveWidth="123" ></p-column>
+  <p-column field="authorizationNumber" sortable="true"  header="{{'REFERRALS.SEARCH.RESULTS.AUTH' | translate}}"   responsiveWidth="123">
+    <ng-template let-col let-data="rowData" pTemplate="body">
+            <a [routerLink]="['/referrals/detail',data[col.field]]">{{data[col.field]}}</a>
+    </ng-template>
+  </p-column>
+  <p-column field="referenceType"  sortable="true"  header="{{'REFERRALS.SEARCH.RESULTS.REFERRALTYPE' | translate}}" styleClass="referralType" responsiveWidth="123"></p-column>
+  <p-column field="patientInfo" sortable="true"  header="{{'REFERRALS.SEARCH.RESULTS.MEMBERNAME' | translate}}" styleClass="provider"  responsiveWidth="123">
+        <ng-template let-col let-data="rowData" pTemplate="body">
+            <span>{{data[col.field]['memberLastName']}},{{data[col.field]['memberFirstName']}}</span>
+        </ng-template>
+  </p-column>
+  <p-column field="requestingProvider" sortable="true"   header="{{'REFERRALS.SEARCH.RESULTS.REQUESTINGPROVIDER' | translate}}"  styleClass="provider" responsiveWidth="123">
+        <ng-template let-col let-data="rowData" pTemplate="body">
+            <span>{{data[col.field]['providerLastName']}},{{data[col.field]['providerFirstName']}}</span>
+        </ng-template>
+  </p-column>
+  <p-column field="renderingProvider" sortable="true"   header="{{'REFERRALS.SEARCH.RESULTS.RENDERINGPROVIDER' | translate}}" styleClass="provider" responsiveWidth="123">
+        <ng-template let-col let-data="rowData" pTemplate="body">
+            <span>{{data[col.field]['providerLastName']}},{{data[col.field]['providerFirstName']}}</span>
+        </ng-template>
+  </p-column>
+  <p-column field="payerInfo" sortable="true"   header="{{'REFERRALS.SEARCH.RESULTS.PAYER' | translate}}" responsiveWidth="123">
+        <ng-template let-col let-data="rowData" pTemplate="body">
+            <span>{{data[col.field]['payerName']}}</span>
+        </ng-template>
+  </p-column>
+  <p-column field="statusDate" sortable="true"   header="{{'REFERRALS.SEARCH.RESULTS.DATESENT' | translate}}" styleClass="referralType" responsiveWidth="123">
+    <ng-template let-col let-data="rowData" pTemplate="body">
+       <span>{{data[col.field] |date:AppConfig.DateFormat}}</span>
+    </ng-template>
+  </p-column>
+
+  <ng-template pTemplate="rowexpansion" let-row>
+    <tzf-responsive-columns class="responsivetable"
+      [row]="row"
+      [columns]="columns"
+    ></tzf-responsive-columns>
+  </ng-template>
+</p-dataTable>
+
+<tzf-pagination *ngIf="authReferralData?.totalRecordCount>PAGINATION_PAGE_SIZE"
+  [collectionSize]="authReferralData?.totalRecordCount/PAGINATION_PAGE_SIZE"
+  [pageSize]="1"
+  (pageChange)="page={pagenumber: $event};searchAuthReferral(criteria,{pagenumber: $event},sort)"
+></tzf-pagination>

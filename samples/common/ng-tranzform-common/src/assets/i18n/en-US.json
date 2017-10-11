@@ -1,0 +1,40 @@
+{
+  "DATA": "Data",
+  "SELECTED_VALUE": "Selected value: {{value}}",
+  "SIMPLE": "Simple",
+  "GLOBAL": {
+    "CANCEL_BUTTON_LABEL": "Cancel",
+    "SAVE_BUTTON_LABEL": "Save",
+    "NEXT_BUTTON_LABEL": "Next"
+  },
+  "HOME": {
+    "HOME_ACCOUNT": "My Account",
+    "HOME_LOGOUT": "Log Out",
+    "HOME_LASTLOGGEDIN": "Last Logged In:"
+  },
+  "GRP_UTILS": {
+    "LINK_HELP": "Help"
+  },
+  "PAGINATION": {
+    "FIRST": "First",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "LAST": "Last"
+  },
+  "DROPDOWN": {
+    "NAME": "Dropdown",
+    "CUSTOM_TEXT_FIELD": "Custom text field",
+    "DEFAULT_FIRST_OPTION": "Default to first option",
+    "OPTIONS": {
+      "OPTION_ONE": "Option #1",
+      "OPTION_TWO": "Option #2",
+      "OPTION_THREE": "Option #3",
+      "ONE": "One",
+      "TWO": "Two",
+      "THREE": "Three"
+    }
+  },
+  "ROUTES": {
+    "SUMMARY_TITLE": "{{ name }} Item"
+  }
+}

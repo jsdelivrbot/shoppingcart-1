@@ -1,0 +1,34 @@
+<div class="row margin0 memberinfo" id="memberinfo">
+        <div id="col1" class="col-md-4 col-sm-12">
+          <p><span class="label p14r" translate="CREATECLAIMMEMBERINFO.ADDRESS"></span>
+          <span class="value p14m">{{displayAddress}}</span></p>
+        </div>
+        <div id="col3" class="col-md-4 col-sm-12">
+          <p>
+            <span class="label p14r" translate="CREATECLAIMMEMBERINFO.GROUPID"></span>
+            <span class="value p14m">{{memberInfo?.groupId}}</span>
+          </p>
+          <p>
+            <span class="label p14r" translate="CREATECLAIMMEMBERINFO.SUBSCRIBERASSETS"></span>
+            <span class="value p14m">{{memberInfo?.subscriberAssets}}</span>
+          </p>
+          <p>
+            <span class="label p14r" translate="CREATECLAIMMEMBERINFO.AGE"></span>
+            <span class="value p14m">{{ memberInfo?.age}}</span>
+          </p>
+        </div>
+        <div id="col3" class="col-md-4 col-sm-12" >
+          <p>
+            <span class="label p14r" translate="CREATECLAIMMEMBERINFO.STATUS"></span>
+            <span class="value p14m" translate>{{memberInfo?.activeCoverageInd===YES?"CREATECLAIMMEMBERINFO.ELIGIBLE":"CREATECLAIMMEMBERINFO.NOTELIGIBLE"}}</span>
+          </p>
+          <p>
+            <span class="label p14r" translate="CREATECLAIMMEMBERINFO.ORIGINALEFFECTIVE"></span>
+            <span class="value p14m">{{memberInfo?.originalEffectiveDate | date:AppConfig.DateFormat}}</span>
+          </p>
+          <p>
+            <span class="label p14r" translate="CREATECLAIMMEMBERINFO.ELIGIBLEASOF"></span>
+            <span class="value p14m">{{memberInfo?.eligibleAsOf | date:AppConfig.DateFormat}}</span>
+          </p>
+        </div>
+      </div>

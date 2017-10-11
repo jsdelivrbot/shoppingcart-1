@@ -1,0 +1,195 @@
+[{
+	 "conversationCategory": "General",
+        "subject": "User 102 sent to user 100",
+        "messageId": "MSG4",
+        "messageBody": "User 102 sent to user 100",
+        "messageStatus": "ACTIVE",
+        "createdDate": "Tue, 12 Sep 2017 06:55:59 GMT",
+        "createdBy": "user51@tenant1.com",
+        "modifiedDate": "Tue, 12 Sep 2017 06:55:59 GMT",
+        "readIndicator": false,
+        "recipients": [{
+            "recipientId": "user103@tenant1.com",
+            "recipientName": "William M Masrk",
+            "recipientUserType": "Clinical"
+        }],
+        "sender": {
+            "senderId": "user100@tenant1.com",
+            "senderName": "Toni M Cyd",
+            "senderUserType": "Non-Clinical"
+        },
+	"attachment": {
+		"attachmentType": "application/patient",
+		"attachmentInfo": [{
+			"patientInfo": {
+				"tenantEnrollmentId": "user1",
+				"subscriberId": "IHM090047",
+				"firstName": "Steve",
+				"lastName": "Jobs",
+				"dob": "",
+				"gender": "",
+				"uri": ""
+			},
+			"claimInfo": [{
+				"claimId": "HSD000019001",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019002",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019003",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019004",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019005",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}]
+		},
+		{
+			"patientInfo": {
+				"tenantEnrollmentId": "user1",
+				"subscriberId": "IHM090047",
+				"firstName": "John",
+				"lastName": "Paul",
+				"dob": "",
+				"gender": "",
+				"uri": ""
+			},
+			"claimInfo": [{
+				"claimId": "HSD000019001",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019002",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019003",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019004",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019005",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}]
+		},
+		{
+			"patientInfo": {
+				"tenantEnrollmentId": "user1",
+				"subscriberId": "IHM090047",
+				"firstName": "Ray",
+				"lastName": "Mond",
+				"dob": "",
+				"gender": "",
+				"uri": ""
+			},
+			"claimInfo": [{
+				"claimId": "HSD000019001",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019002",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019003",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019004",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019005",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}]
+		}]
+	}
+}, {
+	"conversationCategory": "General",
+	"subject": "subject",
+	"messageId": "MSG9",
+	"messageBody": "body\nbody one",
+	"messageStatus": "ACTIVE",
+	"createdDate": "09/22/2017 13:34:31",
+	"modifiedDate": "09/22/2017 13:34:31",
+	"readIndicator": false,
+	"isFwd": false,
+	"recipients": [{
+		"recipientId": "User1@tenant1.com",
+		"recipientName": "Elliot M Reid",
+		"recipientUserType": "ADMIN"
+	}],
+	"sender": {
+		"senderId": "user100@tenant1.com",
+		"senderName": "user100@tenant1.com",
+		"senderUserType": "PROVIDER"
+	},
+	"attachment": {
+		"attachmentType": "application/patient",
+		"attachmentInfo": [{
+			"patientInfo": {
+				"tenantEnrollmentId": "user1",
+				"subscriberId": "IHM090047",
+				"firstName": "Ray",
+				"lastName": "Mann",
+				"dob": "",
+				"gender": "",
+				"uri": ""
+			},
+			"claimInfo": [{
+				"claimId": "HSD000019001",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019002",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019003",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019004",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019005",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}]
+		}]
+	}
+}]

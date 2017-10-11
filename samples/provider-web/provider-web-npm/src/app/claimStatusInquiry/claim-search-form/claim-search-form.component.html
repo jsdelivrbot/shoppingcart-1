@@ -1,0 +1,42 @@
+<tzf-form-fields id="quicviewdropdownmain" [fullWidth]="false" *ngIf="selectedQuickView">
+    <label class="qViewDropdown" tzfFormField text="{{'CLAIMSSTATUS.QUICKVIEWDROPDOWN.TITLE' | translate }}">
+      <tzf-form-field-dropdown style="width: 200px" 
+      [options]="configuration.quickViewTilesProcessed" 
+      textField="title" 
+      valueField="value" 
+      (ngModelChange)="settingSearchCriteria($event)" 
+      [(ngModel)]="selectedQuickView"
+      placeholder="{{'CLAIMSSTATUS.QUICKVIEWDROPDOWN.SELECT' | translate }}"></tzf-form-field-dropdown>
+    </label>
+</tzf-form-fields>
+
+<h3 class="h20m" id="searchformtitle" translate>CLAIMSSTATUS.SEARCHFORM.TITLE</h3>
+<div class="titledesc">
+    <span class="p12l" id="searchformdesc" translate>CLAIMSSTATUS.SEARCHFORM.DESC</span>
+    <a class="p16b resetSearch" id="resetSearch" tabindex="-1" [attr.title]="'CLAIMSSTATUS.SEARCHFORM.RESET'" (click)="resetForm()" [inlineSVG]="'assets/icon_hide.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+          {{'CLAIMSSTATUS.SEARCHFORM.RESET' | translate }}
+        </a>
+</div>
+<form #searchClaimsForm="ngForm" id="searchformmain" (ngSubmit)="searchClaims()" autocomplete="off" novalidate>
+    <tzf-form-fields>
+
+        <label tzfFormField class="col-2" [validation]="claimId" [validationMessages]="valMsg.claimId" text="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.CLAIMID.LABEL' | translate }}">
+      <input type="text" #claimId="ngModel" pattern="[a-zA-Z0-9]*"  [required]="!searchCriteria.providerid?.length && !searchCriteria.fromdate && !searchCriteria.claimstatus?.length" [(ngModel)]="searchCriteria.claimid" [maxLength]="12"  name="claimId" placeholder="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.CLAIMID.PLACEHOLDER' | translate}}">
+
+    </label>
+        <div id="providerIdField" [validation]="providerIdValue" [validationMessages]="valMsg.providerIdValue" [disabled]="searchCriteria.claimid" tzfFormField class="col-3" text="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.PROVIDER.LABEL' | translate }}">
+            <tzf-form-field-dropdown [multi]="configuration?.providerOptions?.length>1" id="formFields-provider" [options]="configuration?.providerOptions" [(ngModel)]="searchCriteria.providerid" name="providerid" #providerIdValue="ngModel" [required]="!searchCriteria.claimid"
+                placeholder="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.PROVIDER.PLACEHOLDER' | translate}}" maxSelectedVisible="1"></tzf-form-field-dropdown>
+        </div>
+        <div id="fromdateField" tzfFormField [validation]="dateRangeValue" [validationMessages]="valMsg.dateRangeValue" class="col-3" [disabled]="searchCriteria.claimid" text="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.SERVICEDATE.LABEL' | translate }}">
+            <tzf-form-field-daterange id="dateRange" name="dateRange" startField="fromdate" endField="todate" [(ngModel)]="searchCriteria.range" (fields)="updateDateRange($event)" [predefinedRanges]="ranges" [defaultPredefined]="predefinedDateRange" placeholder="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.SERVICEDATE.PLACEHOLDER' | translate}}"
+                #dateRangeValue="ngModel" format="MM/dd/yyyy" [validateDateRange]="{fromdate:'fromdate',todate:'todate'}" [dateMinMaxValidator]="{}" [minDate]="boundRange.start" [maxDate]="boundRange.end" [required]="!searchCriteria.claimid">
+            </tzf-form-field-daterange>
+
+        </div>
+        <div id="claimStatusField" [disabled]="searchCriteria.claimid" tzfFormField class="col-2" text="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.STATUS.LABEL' | translate }}">
+            <tzf-form-field-dropdown [multi]="true" id="formFields-status" [options]="configuration?.claimStatus" [(ngModel)]="searchCriteria.claimstatus" name="status" valueField="code" textField="value" placeholder="{{'CLAIMSSTATUS.SEARCHFORM.ELEMENTS.STATUS.PLACEHOLDER' | translate}}"></tzf-form-field-dropdown>
+        </div>
+        <button class="col-2" type="submit" [disabled]="searchClaimsForm.invalid || searchClaimsForm.pristine" id="claimSearchSubmit" translate>CLAIMSSTATUS.SEARCHFORM.TITLE</button>
+    </tzf-form-fields>
+</form>

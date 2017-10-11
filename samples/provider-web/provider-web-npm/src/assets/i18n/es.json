@@ -1,0 +1,16 @@
+{
+  "HOME": {
+    "HOME": "CASA",
+    "TITLE": "Angular2 a la aplicación de Boilerplate",
+    "SELECT": "Idioma"
+  },
+  "SEARCH":{
+    "SEARCH":"BUSCAR"
+  },
+  "PROVIDER":{
+    "PROVIDER":"PROVIDER"
+  },
+    "CARE":{
+      "CARE":"CARE"
+    }
+}

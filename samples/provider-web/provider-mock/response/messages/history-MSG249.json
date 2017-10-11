@@ -1,0 +1,82 @@
+[{
+	"conversationCategory": "General",
+	"subject": "test",
+	"messageId": "MSG249",
+	"messageBody": "test",
+	"messageStatus": "DRAFT",
+	"createdDate": "09/19/2017 00:30:13",
+	"modifiedDate": "09/19/2017 00:30:13",
+	"readIndicator": false,
+	"isFwd": true,
+	"recipients": [{
+		"recipientId": "user100@tenant1.com",
+		"recipientName": "Toni M Cyd",
+		"recipientUserType": "Non-Clinical"
+	}],
+	"sender": {
+		"senderId": "user102@tenant1.com",
+		"senderName": "",
+		"senderUserType": "PAYER"
+	}
+},
+{
+	"conversationCategory": "General",
+	"subject": "subject",
+	"messageId": "MSG9",
+	"messageBody": "body\nbody one",
+	"messageStatus": "ACTIVE",
+	"createdDate": "09/22/2017 13:34:31",
+	"modifiedDate": "09/22/2017 13:34:31",
+	"readIndicator": false,
+	"isFwd": false,
+	"recipients": [{
+		"recipientId": "User1@tenant1.com",
+		"recipientName": "Elliot M Reid",
+		"recipientUserType": "ADMIN"
+	}],
+	"sender": {
+		"senderId": "user100@tenant1.com",
+		"senderName": "user100@tenant1.com",
+		"senderUserType": "PROVIDER"
+	},
+	"attachment": {
+		"attachmentType": "application/patient",
+		"attachmentInfo": [{
+			"patientInfo": {
+				"tenantEnrollmentId": "user1",
+				"subscriberId": "IHM090047",
+				"firstName": "Ray",
+				"lastName": "Mann",
+				"dob": "",
+				"gender": "",
+				"uri": ""
+			},
+			"claimInfo": [{
+				"claimId": "HSD000019001",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019002",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019003",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019004",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}, {
+				"claimId": "HSD000019005",
+				"claimType": "Medical",
+				"memberName": "Ray  Mann",
+				"uri": "https://ABN-DEV-HTZ-225.dev.trizetto.com:7443/claims-web/claims/pdf"
+			}]
+		}]
+	}
+}]

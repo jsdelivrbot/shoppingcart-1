@@ -1,0 +1,16 @@
+<tzf-shell [menuItems]="menuItems"
+           [searchBox]="true"
+           (search)="logSearch($event.value);showCsr = true"
+           [notifications]="true"
+           messagesRouterLink="/messages"
+>
+  <tzf-csr-header
+    *ngIf="showCsr"
+    name="CSR User"
+    context="This is CSR mode."
+    (exit)="showCsr = false"
+  ></tzf-csr-header>
+  <img header src="assets/Logo.png" alt="TranZform">
+  <img footer src="assets/Logo_Footer.png" alt="TranZform">
+  <router-outlet></router-outlet>
+</tzf-shell>

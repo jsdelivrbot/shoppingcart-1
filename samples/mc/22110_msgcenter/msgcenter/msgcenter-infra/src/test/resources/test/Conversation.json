@@ -1,0 +1,130 @@
+[{
+    "_id" : "HZ0001/CONV176/M1001",
+    
+    "conversationId" : "CONV176",
+    "tenantEnrollmentId" : "M1001",
+    "tenantId" : "HZ0001",
+    "conversationCategory" : "CLAIMS",
+    "subject" : "Claims Benefits",
+    "conversationStatus" : "ACTIVE",
+    "createdDate" : ISODate("2017-02-07T10:11:03.366Z"),
+    "modifiedDate" : ISODate("2017-02-08T05:14:07.239Z"),
+    "messages" : [ 
+        {
+            "messageId" : "MSG424",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "DRAFT"
+            ],
+            "createdDate" : ISODate("2017-02-08T05:14:07.239Z"),
+            "modifiedDate" : ISODate("2017-02-08T05:14:07.239Z"),
+            "isRead" : false,
+            "trailMessageId" : "MSG423"
+        }, 
+        {
+            "messageId" : "MSG416",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-07T10:15:36.816Z"),
+            "modifiedDate" : ISODate("2017-02-08T05:12:08.552Z"),
+            "isRead" : false,
+            "messageCategory" : "OUTBOUND"
+        }, 
+        {
+            "messageId" : "MSG423",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-08T05:11:32.212Z"),
+            "modifiedDate" : ISODate("2017-02-08T05:11:32.212Z"),
+            "isRead" : true,
+            "trailMessageId" : "MSG420"
+        }, 
+        {
+            "messageId" : "MSG420",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-07T11:17:18.196Z"),
+            "modifiedDate" : ISODate("2017-02-07T11:18:50.915Z"),
+            "isRead" : false,
+            "trailMessageId" : "MSG415",
+            "messageCategory" : "OUTBOUND"
+        }, 
+        {
+            "messageId" : "MSG422",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-07T11:18:02.880Z"),
+            "modifiedDate" : ISODate("2017-02-07T11:18:02.880Z"),
+            "isRead" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG421",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-07T11:17:48.450Z"),
+            "modifiedDate" : ISODate("2017-02-07T11:17:48.450Z"),
+            "isRead" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG419",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "DRAFT"
+            ],
+            "createdDate" : ISODate("2017-02-07T10:20:37.093Z"),
+            "modifiedDate" : ISODate("2017-02-07T10:20:37.093Z"),
+            "isRead" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG418",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-07T10:20:15.008Z"),
+            "modifiedDate" : ISODate("2017-02-07T10:20:15.008Z"),
+            "isRead" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG417",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-07T10:19:59.002Z"),
+            "modifiedDate" : ISODate("2017-02-07T10:19:59.002Z"),
+            "isRead" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG415",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : ISODate("2017-02-07T10:11:03.366Z"),
+            "modifiedDate" : ISODate("2017-02-07T10:19:42.317Z"),
+            "isRead" : false,
+            "messageCategory" : "OUTBOUND"
+        }
+    ]
+}]

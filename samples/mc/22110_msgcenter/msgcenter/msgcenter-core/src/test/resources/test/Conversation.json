@@ -1,0 +1,142 @@
+{
+    "_id" : "HZ0001/CONV125/M1001",
+    "_class" : "com.cognizant.tranzform.msgcenter.domain.Conversation",
+    "conversationId" : "CONV125",
+    "tenantEnrollmentId" : "M1001",
+    "tenantId" : "HZ0001",
+    "conversationCategory" : "BENEFITS",
+    "subject" : "What are my benefits?",
+    "conversationStatus" : "ACTIVE",
+    "createdDate" : "2016-12-16T13:29:12.357Z",
+    "modifiedDate" : "2016-12-23T15:46:03.038Z",
+    "messages" : [ 
+        {
+            "messageId" : "MSG416",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2017-02-07T10:15:36.816Z",
+            "modifiedDate" :"2017-02-08T05:12:08.552Z",
+            "read" : false,
+            "messageCategory" : "OUTBOUND"
+        }, 
+        {
+            "messageId" : "MSG423",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2017-02-08T05:11:32.212Z",
+            "modifiedDate" : "2017-02-08T05:11:32.212Z",
+            "read" : false,
+            "trailMessageId" : "MSG420"
+        }, 
+        {
+            "messageId" : "MSG420",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2017-02-07T11:17:18.196Z",
+            "modifiedDate" : "2017-02-07T11:18:50.915Z",
+            "read" : false,
+            "trailMessageId" : "MSG415",
+            "messageCategory" : "OUTBOUND"
+        }, 
+        {
+            "messageId" : "MSG422",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2017-02-07T11:18:02.880Z",
+            "modifiedDate" : "2017-02-07T11:18:02.880Z",
+            "read" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG421",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2017-02-07T11:17:48.450Z",
+            "modifiedDate" :"2017-02-07T11:17:48.450Z",
+            "read" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG419",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "DRAFT"
+            ],
+            "createdDate" : "2017-02-07T10:20:37.093Z",
+            "modifiedDate" : "2017-02-07T10:20:37.093Z",
+            "read" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG418",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2017-02-07T10:20:15.008Z",
+            "modifiedDate" : "2017-02-07T10:20:15.008Z",
+            "read" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG417",
+            "messageBody" : "Trail conversation",
+            "messageCategory" : "OUTBOUND",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" :"2017-02-07T10:19:59.002Z",
+            "modifiedDate" : "2017-02-07T10:19:59.002Z",
+            "read" : false,
+            "trailMessageId" : "MSG415"
+        }, 
+        {
+            "messageId" : "MSG415",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "ACTIVE"
+            ],
+            "createdDate" : "2017-02-07T10:11:03.366Z",
+            "modifiedDate" : "2017-02-07T10:19:42.317Z",
+            "read" : false,
+            "messageCategory" : "OUTBOUND"
+        },
+        {
+            "messageId" : "MSG400",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "DELETE_INBOX"
+            ],
+            "createdDate" : "2017-02-07T10:11:03.366Z",
+            "modifiedDate" : "2017-02-07T10:19:42.317Z",
+            "read" : false,
+            "messageCategory" : "OUTBOUND"
+        },
+        
+        {
+            "messageId" : "MSG401",
+            "messageBody" : "Trail conversation",
+            "messageStatus" : [ 
+                "DELETE_DRAFT"
+            ],
+            "createdDate" : "2017-02-07T10:11:03.366Z",
+            "modifiedDate" : "2017-02-07T10:19:42.317Z",
+            "read" : false,
+            "messageCategory" : "OUTBOUND"
+        }
+    ]
+}

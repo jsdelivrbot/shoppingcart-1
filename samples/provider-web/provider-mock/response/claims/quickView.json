@@ -1,0 +1,38 @@
+[
+  {
+    "qViewCriteria": {
+      "providerIds": [],
+      "serviceStartDate": 1493546874701,
+      "serviceEndDate": 1496138874701,
+      "dateRange": 30,
+      "claimStatus": "Pending"
+    },
+    "qViewCount": 1,
+    "totalCount": 4,
+    "qViewTitle": "Last 30 days Pending"
+  },
+  {
+    "qViewCriteria": {
+      "providerIds": [],
+      "serviceStartDate": 1493546874705,
+      "serviceEndDate": 1496138874705,
+      "dateRange": 30,
+      "claimStatus": "Finalized"
+    },
+    "qViewCount": 1,
+    "totalCount": 4,
+    "qViewTitle": "Last 30 days Finalized"
+  },
+  {
+    "qViewCriteria": {
+      "providerIds": [],
+      "serviceStartDate": 1493546874708,
+      "serviceEndDate": 1496138874708,
+      "dateRange": 30,
+      "claimStatus": "Received"
+    },
+    "qViewCount": 1,
+    "totalCount": 4,
+    "qViewTitle": "Last 30 days Received"
+  }
+]

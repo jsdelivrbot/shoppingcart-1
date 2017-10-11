@@ -1,0 +1,23 @@
+.progress-tab{
+  margin:0;
+  padding:0;
+  border: 1px solid #DDDDDD;
+  background: #FFFFFF;
+  border-top: 0;
+  border-radius: 0 0 3px 3px;
+}
+.tab-content{
+  margin:0;
+  padding:30px;
+}
+.footer{
+	height: 100px;
+	background-color: #F5F5F5;
+  padding:30px;
+  .align-end {
+   float:right;
+}
+   button{
+     margin-left:10px;
+   }
+}

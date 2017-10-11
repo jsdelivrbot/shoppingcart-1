@@ -1,0 +1,14 @@
+<span *ngIf="sentCount > 0">
+    <div id="msgCountId" class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    <span ng-cloak translate> MSGCENTER.SHOWING</span>
+<span>{{sentMessages?.messages ? sentCount: 0 }}</span>
+<span translate>MSGCENTER.SENTMSG</span>
+<span *ngIf="sentCount == 1" translate>MSGCENTER.MESSAGE</span>
+<span *ngIf="sentCount > 1" translate>MSGCENTER.MESSAGES</span>
+</div>
+</span>
+<app-message-filter [type]="messageType.TYPE_SENT" (onApplyFilter)="loadSentwithFilter($event)"></app-message-filter>
+<message-header></message-header>
+<p *ngIf="!sentMessages?.messages || !sentCount" class="noRecMsg" translate>MSGCENTER.NOMESSAGESENT
+</p>
+<message-list [messages]="sentMessages?.messages" [type]="sentMessages?.metaInfo?.type" (onDelete)="loadSentItems($event)"></message-list>

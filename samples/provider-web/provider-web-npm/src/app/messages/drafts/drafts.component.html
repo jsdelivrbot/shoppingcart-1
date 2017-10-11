@@ -1,0 +1,36 @@
+<span *ngIf="draftCount > 0">
+    <div id="msgCountId" class="col-lg-6 col-md-6 col-sm-6 col-xs-6 msgCount">
+    <span ng-cloak translate> MSGCENTER.SHOWING</span>
+<span>{{draftCount}}</span>
+<span translate>MSGCENTER.DRAFTMSG</span>
+<span *ngIf="draftCount === 1" translate>MSGCENTER.MESSAGE</span>
+<span *ngIf="draftCount > 1" translate>MSGCENTER.MESSAGES</span>
+</div>
+</span>
+<app-message-filter [type]="messageType.TYPE_DRAFT" (onApplyFilter)="loadDraftwithFilter($event)"></app-message-filter>
+<ul id="msg-drafs">
+    <message-header></message-header>
+    <p *ngIf="!draftMessages?.messages || !draftCount" class="noRecMsg" translate>{{'MSGCENTER.NOMESSAGEDRAFT'| translate}}
+    </p>
+    <message-list [messages]="draftMessages?.messages" [type]="draftMessages?.metaInfo?.type" (onDraftMsgClick)="openDraftModal($event, draftModalTemplate, draftForwardModalTemplate)" (onDelete)="loadDrafts($event)"></message-list>
+</ul>
+<!-- Draft Modal Popup -->
+<ng-template #draftModalTemplate>
+    <tzf-modal-content [modal]="modalRef" headerText="{{trailingMessages?.length ? 'MSGCENTER.NEWMSG.REPLYMESSAGE' : 'MSGCENTER.NEWMSG.NEWMESSAGE' |translate}}" backText="{{'MSGCENTER.NEWMSG.NAVTOMSG'|translate }}" (submit)="submitModal($event)" (action)="modalAction($event)"
+        [cancelButton]="false" [submitButton]="false">
+        <div main>
+            <app-reply-component [modalRef]="modalRef" [trailingMessages]="trailingMessages" (onSave)="replyMessageSave($event)">
+            </app-reply-component>
+        </div>
+    </tzf-modal-content>
+</ng-template>
+<!-- Draft Modal Popup -->
+<ng-template #draftForwardModalTemplate>
+    <tzf-modal-content [modal]="modalRef" headerText="{{'MSGCENTER.FORWARDTITLE' |translate}}" backText="{{'MSGCENTER.NEWMSG.NAVTOMSG'|translate }}" (submit)="submitModal($event)" (action)="modalAction($event)"
+        [cancelButton]="false" [submitButton]="false">
+        <div main>
+            <app-forward [modalRef]="modalRef" [trailingMessages]="trailingMessages" (onSave)="replyMessageSave($event)">
+            </app-forward>
+        </div>
+    </tzf-modal-content>
+</ng-template>

@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "tasks": [{
+    "taskName": "Lint",
+    "suppressTaskName": true,
+    "args": ["ng", "lint"],
+    "showOutput": "always"
+  }, {
+    "taskName": "E2E Tests",
+    "suppressTaskName": true,
+    "args": ["ng", "e2e"],
+    "showOutput": "always"
+  }, {
+    "taskName": "Generate Doc",
+    "suppressTaskName": true,
+    "args": ["npm", "run", "doc"]
+  }]
+}

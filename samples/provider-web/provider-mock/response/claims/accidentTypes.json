@@ -1,0 +1,12 @@
+{
+  "category": "ep_accident_type",
+  "data": [{
+      "code": "Other Accident",
+      "value": "other"
+    },
+    {
+      "code": "Auto Accident",
+      "value": "auto"
+    }
+  ]
+}

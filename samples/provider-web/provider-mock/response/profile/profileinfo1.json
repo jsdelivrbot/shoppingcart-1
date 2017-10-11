@@ -1,0 +1,99 @@
+[
+    {
+		"tenantEnrollmentId": "400155",
+		"subscriberId": "aliquip quis Excepteur ad",
+		"profileGroups": {
+			"memberPersonalDetails": {
+				"lastName": "Balummel",
+				"firstName": "Rineesh",
+				"middleName": "Babu",
+				"memberSuffix": "dolor sint proident laboris ipsum",
+				"relationship": "Self",
+				"dateOfBirth": "1934-04-10",
+				"gender": "Female",
+				"maritalStatus": "Divorced",
+				"preferredAddressType": "Confidential",
+				"occupation": "proident laboris cillum ullamco",
+				"employerDetails": "ut ex m",
+				"memberOriginalEffectiveDate":"1970-04-10"
+			},
+			"subscriber": [],
+			"subscriberGroup": [
+				{
+					"attributeDetails": {
+						"groupName": "Group Honda",
+						"employerIndicator": "nostrud in commodo",
+						"groupId": "ad laborum culpa non"
+					}
+				}
+			],
+			"subscriberSubGroup": [
+				{},
+				{},
+				{},
+				{},
+				{
+					"groupId": "SubscriberSubGroup"
+				}
+			],
+			"emergencyContact": {
+				"firstName": "sunt non tempor labore",
+				"lastName": "officia",
+				"relationToMember": "Self",
+				"mobilePhone": "deserunt culpa officia",
+				"homePhone": "ut cupidatat cillum irure consectetur",
+				"email": "elit voluptate labore nostrud"
+			},
+			"address": [
+				{
+							"attributeDetails": {
+								"zipCode": "in esse sunt velit",
+								"country": "est consectetur irure magna",
+								"address1": "dolore ea fugiat consectetur est",
+								"address2": "dolore dolor sunt reprehenderit",
+								"address3": "eiusmod",
+								"addressType": "Home",
+								"city": "quis enim ut",
+								"state": "Duis eu in non officia",
+								"county": "eu"
+							}
+						},
+				{}
+			],
+			"contact": [
+				{
+					"groupId": "Contact",
+					"attributeDetails": {
+						"contact": "tempor non aliqua nulla",
+						"contactType": "MobilePhone"
+					}
+				},
+				{
+					"groupId": "Contact"
+				}
+			],
+			"enrollment": {
+				"groupId": "cupidatat cillum occaecat",
+				"attributeDetails": {
+					"planId": "officia ex",
+					"planName": "ut enim Lorem culpa Dui",
+					"productId": "dolore ",
+					"productName": "et veniam ex ut non",
+					"productType": "POS",
+					"productCategory": "Vision",
+					"coverageEffectiveDate": "1989-04-10",
+					"coverageTerminationDate": "veniam cupidatat",
+					"fsaInd": "No",
+					"hsaInd": "Yes",
+					"hraInd": "No",
+					"activeCoverageInd": "No",
+					"coverageTier": "Individual",
+					"subscriberGroup": "",
+					"subscriberGroupId": "occaecat laborum",
+					"subscriberSubGroup": "irure est laboris voluptate deserunt",
+					"subscriberSubGroupId": "cupidata"
+				}
+			}
+		}
+	}
+]

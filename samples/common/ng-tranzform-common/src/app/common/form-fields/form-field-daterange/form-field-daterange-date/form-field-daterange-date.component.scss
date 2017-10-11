@@ -1,0 +1,53 @@
+@import '../../../styles/pro';
+
+.field {
+  border-top: 2px solid #f1f1f1;
+}
+
+.calIcon {
+  padding: $form-field-padding-vertical 0 0 2rem;
+
+  ::ng-deep svg {
+    height: 3.6em;
+    width: 2.2em;
+  }
+}
+
+.day {
+  line-height: 1.9rem;
+  width: 100%;
+}
+
+.range {
+  background: $color-datepicker-range-bg;
+  color: $color-datepicker-range;
+}
+
+:host ::ng-deep {
+  div.ngb-dp-day {
+    border: solid white;
+    border-width: 1px 1px 0 0;
+    width: 3em;
+    height: auto;
+  }
+}
+
+tzf-datepicker {
+  border: solid #f1f1f1;
+  border-width: 2px 2px 2px 0;
+  display: block;
+  padding: 0.5rem 1.5rem 1rem;
+}
+
+:host:first-child {
+  tzf-datepicker {
+    border-width: 2px 0 2px 2px;
+    padding-right: 0;
+  }
+}
+
+:host:last-child {
+  .calIcon {
+    padding-left: 4rem;
+  }
+}

@@ -1,0 +1,113 @@
+server :
+ address : 0.0.0.0
+ port : ${startup.port}
+ ssl :
+  enabled : true
+  key-store : classpath:keystore.jks
+  key-store-password : changeit
+  key-alias : ssphosting.net
+  trust-store : classpath:truststore.jks
+  trust-store-password : changeit
+ tomcat :
+  basedir : tomcat
+  accesslog :
+   enabled : true
+  max-connections : 50
+  max-threads : 100
+  
+spring :
+ application :
+  name : uiprovider
+ messages :
+  cache-seconds : 10
+
+logging :
+ level :
+  #root : DEBUG
+  feign : DEBUG
+  org.springframework.data.mongodb.core.MongoTemplate : DEBUG
+  org.glassfish.jersey.logging.LoggingFeature : DEBUG
+  com.cognizant.tranzform : DEBUG
+ path : logs
+ 
+eureka :
+ instance :
+  hostname : ${startup.hostname}
+  non-secure-port-enabled : false
+  secure-port-enabled : true
+  secure-port : ${startup.port}
+ 
+feign :
+ hystrix :
+  enabled : false
+
+hystrix :
+ command :
+  default :
+   execution :
+    timeout :
+     enabled : false
+   
+ribbon :
+ eureka :
+  enabled : false
+ MaxAutoRetries : 0
+ MaxAutoRetriesNextServer : 0
+ ConnectTimeout : 10000
+ ReadTimeout : 60000 
+ 
+tranzform :
+ webData :
+  production: false
+  UI_BASE_PATH: "https://tenant1dev.dev.trizetto.com/tzf/provider/uiprovider/"
+  API_ENDPOINT: "https://tranzformdep1.healthtranzform.com/tzf/v3/ui/service"
+  API_ENDPOINT_AUTHV2: "https://dep1-shrd-wbs-001.healthtranzform.com"
+  baseUrl: "https://tranzformdep1.healthtranzform.com/tzf/provider/uiprovider"
+  mockAuthHeaders: 
+   "tenant-id": HZ0001
+   username: "M1001@HZ0001.com"
+   "for-username": M1001
+   authorities: PROVIDER
+   "Content-Type": "application/json"
+  basic_settings: 
+   LOGOUT_PATH: ""
+   DateFormat: "MM/dd/yyyy"
+   DateTimeFormat: "MM/dd/yyyy | H:m:s a"
+   currency: USD
+   currencyPrecision: "1.2-2"
+   tenantid: HZ0001
+   userid: M1001
+   ERRORTIMEOUT: 3000
+   PDF: pdf
+   EXCEL: xcl
+  ms_settings: 
+   MSG_CENTER: "/msgcenter-web"
+   MDM_WEB: "/mdm-web"
+   MSPROVIDER: "/msprovider"
+   MSCLAIMS: "/msclaims"
+   MSELIGIBILITY: "/mseligibility"
+   MSAUTHREFERRAL: "/msauthreferral"
+  oidc_settings: 
+   authority: "https://tenant1dev.dev.trizetto.com"
+   client_id: "@!1003.DF1B.6478.1D4B!0001!3910.4D60!0008!EDE6.3CC5.4E86.9AD6"
+   redirect_uri: "http://localhost:4300/auth.html"
+   post_logout_redirect_uri: "http://localhost:4300/#/"
+   response_type: "id_token token"
+   scope: "openid tranzform"
+   silent_redirect_uri: "http://localhost:4300/silent-renew.html"
+   automaticSilentRenew: true
+   monitorSession: true
+   accessTokenExpiringNotificationTime: 60
+   filterProtocolClaims: true
+   loadUserInfo: true
+   metadataUrl: "https://tenant1dev.dev.trizetto.com/.well-known/openid-configuration"
+   metadata: 
+    issuer: "https://tenant1dev.dev.trizetto.com"
+    authorization_endpoint: "https://tenant1dev.dev.trizetto.com/oxauth/seam/resource/restv1/oxauth/authorize"
+    token_endpoint: "https://tenant1dev.dev.trizetto.com/oxauth/seam/resource/restv1/oxauth/token"
+    userinfo_endpoint: "https://tenant1dev.dev.trizetto.com/oxauth/seam/resource/restv1/oxauth/userinfo"
+    end_session_endpoint: "https://tenant1dev.dev.trizetto.com/oxauth/seam/resource/restv1/oxauth/end_session"
+    jwks_uri: "https://tenant1dev.dev.trizetto.com/oxauth/seam/resource/restv1/oxauth/jwks"
+  user_settings: 
+   inactive_timeout: 900
+   maximum_timeout: 3600

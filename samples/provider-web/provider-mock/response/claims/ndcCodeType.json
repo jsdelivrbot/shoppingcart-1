@@ -1,0 +1,29 @@
+
+{
+  "category": "ndcCodeType",
+  "data":[
+    {
+        "code": "Unknown",
+        "value": "Unknown"
+    },
+    {
+        "code": "International Units",
+        "value": "International Units"
+    },
+    {
+        "code": "Grams",
+        "value": "Grams"
+    },
+    {
+        "code": "Milligrams",
+        "value": "Milligrams"
+    },
+    {
+        "code": "Milliliters",
+        "value": "Milliliters"
+    },
+    {
+        "code": "Units",
+        "value": "Units"
+    }
+]}

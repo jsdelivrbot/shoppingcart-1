@@ -1,0 +1,48 @@
+<li *ngFor="let messageItem of messages let i = index" 
+[ngClass]="{'p12r read': type !==( messageType.TYPE_INBOX )
+ || (type===(messageType.TYPE_INBOX ) && messageItem?.readIndicator), 
+ 'p12b unread': type===(messageType.TYPE_INBOX) && !messageItem?.readIndicator,
+  'selected':openMoreOption[i] }" class="table-row row {{type}}">
+    <div class="col-sm-1 col-msgNum" (click)="handleMessageDetailsClick(messageItem,type)">{{i+1}}</div>
+    <div class="col-sm-11 msg-slide">
+        <div class="row">
+            <div class="col-sm-4 subjectText" (click)="handleMessageDetailsClick(messageItem,type)">{{messageItem.subject}}</div>
+            <div class="col-sm-4 col-category" (click)="handleMessageDetailsClick(messageItem,type)">
+                <span id="categoryIcon" class="categoryIcon" [inlineSVG]="'/assets/icon_gen_category.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false" translate>     
+        </span>
+                <span class="categoryTxt">{{messageItem.conversationCategory}}</span>
+            </div>
+            <div class="col-sm-2 col-dateTime" (click)="handleMessageDetailsClick(messageItem,type)">
+                <span id="dateTimeId" class="dateIcon" [title]="calender" [inlineSVG]="'/assets/icon_calendar.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+      </span>
+                <span id="notif-date" class="ng-binding dateTxt">
+        <span id="notif-timeId" class="ng-binding">{{messageItem?.createdDate | date: ('MSGCENTER.MESSAGE_DATE_FORMAT' | translate)}}</span><br/>
+                <span id="notif-timeId" class="ng-binding">{{messageItem?.createdDate | date: ('MSGCENTER.MESSAGE_TIME_FORMAT' | translate)}}</span><br/>
+                <span *ngIf="type==messageType.TYPE_INBOX" translate>{{messageItem?.readIndicator?'MSGCENTER.READ':'MSGCENTER.UNREAD'}}</span>
+                </span>
+            </div>
+            <div class="col-sm-1 col-iconMore" [inlineSVG]="'/assets/icon_more.svg'" (click)="moreOption(i, messages.length)" title="More Options"></div>
+        </div>
+    </div>
+    <div class="col-sm-2 col-moreOption readUnread" *ngIf="(type===messageType.TYPE_INBOX) && openMoreOption[i]">
+        <div (click)="msgReadStatus(messageItem,type,i)">
+            <a id="restoreOption" class="" alt="MarkRead" [title]="MarkRead" [inlineSVG]="'/assets/icon_tick.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false" translate>
+            </a>
+            <p *ngIf="type==messageType.TYPE_INBOX" translate>{{messageItem?.readIndicator?'MSGCENTER.MARK_UNREAD':'MSGCENTER.MARK_READ'}}</p>
+        </div>
+    </div>
+    <div class="col-sm-2 col-moreOption" *ngIf="openMoreOption[i]">
+        <ng-template #restoreTemplate>
+            <div>
+                <a id="restoreOption" class="restoreIcon" alt="Restore" [title]="Restore" [inlineSVG]="'/assets/icon_restore.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false" translate>
+                </a>
+                <p>{{'MSGCENTER.RESTORE' | translate}}</p>
+            </div>
+        </ng-template>
+        <div *ngIf="type !== messageType.TYPE_DELETE; else restoreTemplate" (click)="deleteMsg(messageItem,type,i)">
+            <a id="deleteOption" class="deleteIcon" alt="Delete" [title]="delete" [inlineSVG]="'/assets/icon_deleted.svg'" [cacheSVG]="false" [prepend]="false" [replaceContents]="false">
+            </a>
+            <p>{{'MSGCENTER.DELETE' | translate}}</p>
+        </div>
+    </div>
+</li>

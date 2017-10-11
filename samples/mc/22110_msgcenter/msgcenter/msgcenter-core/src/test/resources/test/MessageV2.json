@@ -1,0 +1,26 @@
+
+          {
+            "from" : {
+                "id" : "M1002@tranzform.com",
+                "type" : "SYSTEM",
+                "status" : "ACTIVE"
+            },
+            "to" : [ 
+                {
+                    "id" : "M1001@tranzform.com",
+                    "type" : "PROVIDER",
+                    "userName" : "Hannibal R",
+                    "status" : "ACTIVE",
+                    "isRead" : true
+                }
+            ],
+             "conversationId" : "CONV1478",
+            "conversationCategory" : "General",
+            "subject" : "sample msg",
+            "messageId" : "MSG2410",
+            "messageBody" : "Test data",
+            "messageStatus" : "ACTIVE",
+            "createdDate" : "2017-07-24T09:12:29.736Z",
+            "modifiedDate" : "2017-07-24T09:12:29.736Z",
+            "isFwd" : false
+        }

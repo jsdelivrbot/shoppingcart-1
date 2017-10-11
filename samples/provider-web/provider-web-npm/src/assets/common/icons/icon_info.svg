@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="81px" height="80px" viewBox="0 0 81 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 45 (43445) - http://www.bohemiancoding.com/sketch -->
+    <title>ICON Info</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M46,36.947 L46,59.947 C46,62.709 43.761,64.947 41,64.947 C38.239,64.947 36,62.709 36,59.947 L36,36.947 C36,34.185 38.239,31.947 41,31.947 C43.761,31.947 46,34.185 46,36.947 M46.556,19.981 C46.556,22.954 44.146,25.364 41.174,25.364 C38.201,25.364 35.791,22.954 35.791,19.981 C35.791,17.009 38.201,14.599 41.174,14.599 C44.146,14.599 46.556,17.009 46.556,19.981 M40,76 C20.15,76 4,59.85 4,40 C4,20.149 20.15,4 40,4 C59.85,4 76,20.149 76,40 C76,59.85 59.85,76 40,76 M40,0 C17.909,0 0,17.908 0,40 C0,62.091 17.909,80 40,80 C62.091,80 80,62.091 80,40 C80,17.908 62.091,0 40,0" id="path-icon-info"></path>
+    </defs>
+    <g id="TranZform-Icon-Library" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="TranZform-Icon-Library-05" transform="translate(-289.000000, -578.000000)">
+            <g id="86-Info" transform="translate(239.800000, 550.000000)">
+                <g id="ICON-Info" transform="translate(50.000000, 28.000000)">
+                    <g id="contents">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-icon-info"></use>
+                        </mask>
+                        <use id="Mask" fill="#333333" xlink:href="#path-icon-info"></use>
+                        <g id="MASK-DefaultGrey" mask="url(#mask-2)" fill="#5D5D5D">
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,7 @@
+<input [attr.id]="id"
+  [(ngModel)]="value"
+  type="tel"
+  [textMask]="MASK_CFG"
+  [attr.placeholder]="placeholder"
+  (blur)="onTouched()"
+>

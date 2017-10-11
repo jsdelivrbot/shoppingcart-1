@@ -1,0 +1,111 @@
+<div class="eligibility-patient-information">
+<ngb-accordion #acc="ngbAccordion" activeIds="patient-info">
+  <!-- Patient Information -->
+  <ngb-panel id="patient-info">
+    <ng-template ngbPanelTitle>
+      <span translate id="eligibility-patient-title">ELIGIBILITY.PATIENTINFO.TITLE</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW -->
+      <div class="row" id="eligibility-patient">
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-5" id="eligibility-patient-left">
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.NAME</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails">{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.lastName}}<span *ngIf="searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.lastName">,&nbsp;</span>{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.firstName}} {{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.middleName}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTOVERVIEW.GENDER</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails" translate>{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.gender===male?'ELIGIBILITY.PATIENTOVERVIEW.MALE':'ELIGIBILITY.PATIENTOVERVIEW.FEMALE'}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.DOB</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails">{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.dateOfBirth |date:AppConfig.DateFormat}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.NOTASTUDENT</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails">{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.student}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.HANDICAPPED</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails">{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.handicapped}}</span></div>
+          </div>
+        </div>
+        <!-- RIGHT COLUMN  -->
+        <div class="col-lg-7" id="eligibility-patient-right">
+
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.RELATIONSHIP</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.MemberPersonalDetails">{{searchResult?.profile?.MemberPersonalDetails[0]?.attributeDetails?.relationship}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTOVERVIEW.MEMBER</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b">{{searchResult?.subscriberId}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.PATIENTACCOUNT</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b">--</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.GROUP</span></div>
+            <div class="col-lg-7 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.SubscriberGroup">{{searchResult?.profile?.SubscriberGroup[0]?.attributeDetails?.groupId}}</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+  <!-- END OF Patient Information -->
+
+  <!-- Subscriber Information -->
+  <ngb-panel id="subscriber-info">
+    <ng-template ngbPanelTitle>
+      <span translate id="eligibility-subscriber-title">ELIGIBILITY.SUBSCRIBERINFO.TITLE</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW -->
+      <div class="row" id="eligibility-subscriber">
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-12" id="eligibility-subscriber-left">
+          <div class="row">
+            <div class="col-lg-2 col-sm-5"><span translate>ELIGIBILITY.PATIENTINFO.NAME</span></div>
+            <div class="col-lg-5 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.Subscriber">{{searchResult?.profile?.Subscriber[0]?.attributeDetails?.subscriberLastName}}&nbsp;{{searchResult?.profile?.Subscriber[0]?.attributeDetails?.subscriberFirstName}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-sm-5"><span translate>ELIGIBILITY.PATIENTOVERVIEW.MEMBER</span></div>
+            <div class="col-lg-5 col-sm-7"><span class="p14b">{{searchResult?.subscriberId}}</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+  <!-- END OF Subscriber Information -->
+
+  <!-- Payer Information -->
+  <ngb-panel id="payer-info">
+    <ng-template ngbPanelTitle>
+      <span translate id="eligibility-payer-title">ELIGIBILITY.PAYERINFO.TITLE</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <!-- MAIN ROW -->
+      <div class="row" id="eligibility-payer">
+        <!-- LEFT COLUMN -->
+        <div class="col-lg-12" id="eligibility-payer-left">
+          <div class="row">
+            <div class="col-lg-2 col-sm-5"><span translate>ELIGIBILITY.PAYERINFO.NAME</span></div>
+            <div class="col-lg-5 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.PayerInfo">{{searchResult?.profile?.PayerInfo[0]?.attributeDetails?.payerName}}</span></div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-sm-5"><span translate>ELIGIBILITY.PAYERINFO.IDENTIFICATION</span></div>
+            <div class="col-lg-5 col-sm-7"><span class="p14b" *ngIf="searchResult?.profile?.PayerInfo">{{searchResult?.profile?.PayerInfo[0]?.attributeDetails?.payerId}}</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- END OF MAIN ROW -->
+    </ng-template>
+  </ngb-panel>
+  <!-- END OF Payer Information -->
+
+  </ngb-accordion>
+</div>

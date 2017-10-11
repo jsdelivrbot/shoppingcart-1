@@ -1,0 +1,23 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true" monitoring="autodetect" dynamicConfig="true">
+
+	<defaultCache maxEntriesLocalHeap="10" eternal="false" timeToLiveSeconds="300" timeToIdleSeconds="30" transactionalMode="off">
+	</defaultCache>
+
+	<cache name="DefaultableRoleCapabilityMappingRepo_getRoleCapabilityMappings" maxEntriesLocalHeap="10" eternal="false" timeToLiveSeconds="300" timeToIdleSeconds="30"
+		transactionalMode="off">
+	</cache>
+
+	<cache name="SwaggerRequestResponseValidatorFactory_getSwaggerRequestResponseValidator" maxEntriesLocalHeap="10" eternal="false" timeToLiveSeconds="300" timeToIdleSeconds="30"
+		transactionalMode="off">
+	</cache>
+
+	<cache name="DefaultableMethodFilterRulesRepo_getMethodFilterRules" maxEntriesLocalHeap="10" eternal="false" timeToLiveSeconds="300" timeToIdleSeconds="30"
+		transactionalMode="off">
+	</cache>
+
+	<cache name="TenantConfigurationSVCImpl_getConfigurtaions" maxEntriesLocalHeap="10" eternal="false" timeToLiveSeconds="300" timeToIdleSeconds="30" transactionalMode="off">
+	</cache>
+
+	<cache name="CacheSVCImpl_invokeCacheableMethod" maxEntriesLocalHeap="10" eternal="false" timeToLiveSeconds="300" timeToIdleSeconds="30" transactionalMode="off">
+	</cache>
+</ehcache>

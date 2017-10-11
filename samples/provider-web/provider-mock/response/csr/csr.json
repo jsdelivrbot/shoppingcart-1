@@ -1,0 +1,115 @@
+{
+    "totalRecordCount": 20,
+    "pageSize": 10,
+    "sortby": "userlastname",
+    "orderBy": "Asc",
+    "userList": [{
+            "userId": "PR001",
+            "userFirstName": "Robert",
+            "userMiddleName": "D",
+            "userLastName": "Smith",
+            "emailAddress": "RobertSmith@tzf.com",
+            "mappingId": "99887766",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "PR002",
+            "userFirstName": "John",
+            "userMiddleName": "A",
+            "userLastName": "Deoz",
+            "emailAddress": "JohnD@tzf.com",
+            "mappingId": "99887767",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },{
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        }
+        ,{
+            "userId": "CR001",
+            "userFirstName": "Roya",
+            "userMiddleName": "K",
+            "userLastName": "S",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        },
+        {
+            "userId": "CR001",
+            "userFirstName": "Rahul",
+            "userMiddleName": "K",
+            "userLastName": "Kul",
+            "emailAddress": "RoyaS@tzf.com",
+            "mappingId": "99887768",
+            "userType": "PROVIDER"
+        }
+
+    ]
+}

@@ -1,0 +1,410 @@
+package com.cognizant.tranzform.msgcenter.v2.repository;
+
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.BACK_SLASH;
+import static com.cognizant.tranzform.msgcenter.constants.ApplicationConstants.MESSAGE_MASTER;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.security.core.GrantedAuthority;
+
+import com.cognizant.tranzform.core.util.DateUtil;
+import com.cognizant.tranzform.msgcenter.v2.domain.MessageDetail;
+import com.cognizant.tranzform.msgcenter.v2.domain.MessageDetailsV2;
+import com.cognizant.tranzform.tzfutil.enums.UserType;
+import com.cognizant.tranzform.tzfutil.user.LoggedInUser;
+import com.mongodb.AggregationOutput;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+
+public class TestDelete {
+	
+	static MongoOperations mongoOperations = null;
+	public static void main(String[] args) {
+		//MongoClient mongoClient = new MongoClient("localhost", 27017);
+		//DB db = mongoClient.getDB("MessageCenter");		
+	
+		/**** Get collection / table from 'testdb' ****/
+		// if collection doesn't exists, MongoDB will create it for you
+		//
+		
+		
+			
+			SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+			System.out.println(format.format(new Date()));
+		
+		
+		
+		// For Annotation
+		ApplicationContext ctx =
+	             new AnnotationConfigApplicationContext(SpringMongoConfig.class);
+		 mongoOperations = (MongoOperations) ctx.getBean("mongoTemplate");
+		//DBCollection collection = mongoOperations.getCollection("MessageMaster");
+		 String messageId =  "MSG3";
+		 TestDelete testDelete = new TestDelete();
+		 List<MessageDetailsV2> msgDetailV2List = testDelete.getTrailingMessageAsList(messageId,"EMBL0001");
+		 
+		 if(msgDetailV2List!=null && !msgDetailV2List.isEmpty()){
+				msgDetailV2List.removeIf(message -> message.getMessageId().equalsIgnoreCase(messageId));
+			 }
+		 System.out.println(msgDetailV2List);
+		 
+		
+		/*
+		  
+		List<BasicDBObject> pipeline = new ArrayList<>();
+				  
+		DBObject graphLookup = new BasicDBObject(
+                "from", "MessageMaster"). append(
+                "startWith", "$messageId").append(
+                "connectFromField", "trailMessageId").append(
+                "connectToField", "messageId").append(
+                "as", "messages");
+		
+		BasicDBObject graphCriteria =  new BasicDBObject("$graphLookup", graphLookup);
+
+		//{ "$match": { "tenantId" : "EMBL0001",  "messageId" : "MSG3" } },
+		
+		 BasicDBObject criteria = new BasicDBObject();
+		 criteria.put("tenantId", "EMBL0001");
+		 criteria.put("messageId", "MSG3");		 
+		 
+		 BasicDBObject matchCriteria =  new BasicDBObject("$match", criteria);
+		 
+		 BasicDBObject theProjections = new BasicDBObject();
+		 theProjections.put("messages.messageId",1);
+		 
+		 
+		 BasicDBObject projectCriteria = new BasicDBObject("$project",theProjections);
+		 
+		 pipeline.add(graphCriteria);
+		 pipeline.add(matchCriteria);
+		 pipeline.add(projectCriteria);
+		            
+		 
+		 System.out.println("Pipeline->"+pipeline);
+		 
+		 AggregationOutput aggregationOutput = collection.aggregate(pipeline);
+		 
+		 Iterable<DBObject> iterable = aggregationOutput.results();
+		 
+		 List<MessageIds> trailingIdsList = new ArrayList<>();
+		 
+		 if(iterable!=null){	 
+		 
+		iterable.forEach(dbObject->{
+			DBObject dbObj = (DBObject)dbObject.get("messages");
+			if(dbObj!=null){			
+			dbObj.keySet().forEach(key->{
+				MessageIds messageId = mongoOperations.getConverter().read(MessageIds.class, 
+						(DBObject)dbObj.get(key));
+				trailingIdsList.add(messageId);
+			});  
+			
+			System.out.println(trailingIdsList);
+			}
+		});
+		 }
+		 
+		 
+		 List<String> idList = new ArrayList<>();
+		 trailingIdsList.forEach(message->{			 
+			 idList.add(loggedInUser.getUserId()+"/"+message.getMessageId());
+		 });
+		 
+		
+		  Query query = new Query();
+		  query.addCriteria(Criteria.where("_id").in(idList));
+		  Update update = new Update();
+		  update.set("messageStatus", MessageStatus.DELETE);
+		  
+		  System.out.println(query);
+		  FindAndModifyOptions modifyOptns = new FindAndModifyOptions();
+		  modifyOptns.returnNew(true);
+		  
+		 
+		  mongoOperations.updateMulti(query, update,  "MessageDetail");
+		  System.out.println("Update Successfulty..");
+		 
+		 
+		 */
+		 
+		 
+		 
+		 
+
+		
+
+		
+		//query.addCriteria(Criteria.where("id").is(loggedInUser.getUserId()+BACK_SLASH+messageId));
+	}
+	
+
+	
+private List<MessageDetailsV2> getTrailingMessageAsList(final String messageId, final String tenantId) {
+		
+		final List<MessageDetailsV2> msgDetailList = new ArrayList<>();
+
+		final DBCollection collection = mongoOperations.getCollection(MESSAGE_MASTER);
+
+		final List<BasicDBObject> pipeline = new ArrayList<>();
+
+		final DBObject graphLookup = new BasicDBObject("from", MESSAGE_MASTER).append("startWith", "$messageId")
+				.append("connectFromField", "trailMessageId").append("connectToField", "messageId")
+				.append("as", "messages");
+
+		final BasicDBObject graphCriteria = new BasicDBObject("$graphLookup", graphLookup);
+
+		final BasicDBObject criteria = new BasicDBObject();
+		criteria.put("tenantId", tenantId);
+		criteria.put("messageId", messageId);
+
+		final BasicDBObject matchCriteria = new BasicDBObject("$match", criteria);
+
+		final BasicDBObject theProjections = new BasicDBObject();
+		theProjections.put("messages.messageId", 1);
+		theProjections.put("messages.messageBody", 1);
+
+		final BasicDBObject projectCriteria = new BasicDBObject("$project", theProjections);
+
+		pipeline.add(graphCriteria);
+		pipeline.add(matchCriteria);
+		pipeline.add(projectCriteria);
+
+		System.out.println("Trailing Query=>" + pipeline);
+
+		final AggregationOutput aggregationOutput = collection.aggregate(pipeline);
+
+		final Iterable<DBObject> iterable = aggregationOutput.results();
+
+		final List<MessageIds> trailingIdsList = new ArrayList<>();
+		if (iterable != null) {
+			iterable.forEach(dbObject -> {
+				DBObject dbObj = (DBObject) dbObject.get("messages");
+				if (dbObj != null) {
+					dbObj.keySet().forEach(key -> {
+						MessageIds msgObj = mongoOperations.getConverter().read(MessageIds.class,
+								(DBObject) dbObj.get(key));
+						trailingIdsList.add(msgObj);
+					});
+				}
+			});
+		}
+
+		if (!trailingIdsList.isEmpty()) {
+			final List<String> idList = new ArrayList<>();
+			trailingIdsList.forEach(message -> {
+				idList.add(loggedInUser.getUserId() + BACK_SLASH + message.getMessageId());
+			});
+
+			Query query = new Query();
+			query.addCriteria(Criteria.where("id").in(idList));
+			System.out.println(query);
+			final List<MessageDetail> messageDetailList = mongoOperations.find(query, MessageDetail.class);
+			if(messageDetailList!=null && !messageDetailList.isEmpty()){
+				messageDetailList.forEach(msgDetail->{
+					final MessageDetailsV2 msgDetailV2 = new MessageDetailsV2();
+					msgDetailV2.setMessageId(msgDetail.getMessageId());
+					msgDetailV2.setCreatedDate(msgDetail.getCreatedDate());
+					msgDetailV2.setFrom(msgDetail.getFrom());
+					msgDetailV2.setIsFwd(msgDetail.getIsFwd());
+					msgDetailV2.setIsRead(msgDetail.getIsRead());
+					msgDetailV2.setMessageBody(getMessageText(msgDetail.getMessageId(),trailingIdsList));					
+					msgDetailV2.setConversationCategory(msgDetail.getConversationCategory());
+					msgDetailV2.setMessageStatus(msgDetail.getMessageStatus());
+					msgDetailV2.setModifiedDate(msgDetail.getModifiedDate());
+					msgDetailV2.setSubject(msgDetail.getSubject());					
+					msgDetailV2.setTo(msgDetail.getTo());									
+					msgDetailList.add(msgDetailV2);
+					
+				});
+				
+			}
+			
+		}
+		return msgDetailList;
+	}
+
+
+/**
+ * 
+ * @param messageId
+ * @param trailingIdsList
+ * @return the message text
+ */
+private String getMessageText(final String messageId,final List<MessageIds>  trailingIdsList){
+	
+	String msgBody = null;
+	if(trailingIdsList!=null){			
+		final MessageIds optionalMsg = trailingIdsList.stream().filter(msgId -> msgId.getMessageId().equals(messageId))
+	       .findFirst().orElse(null);
+		if(optionalMsg!=null){
+			msgBody = optionalMsg.getMessageBody();
+		}
+	}
+	
+	
+	return msgBody;
+	
+}
+	
+	static LoggedInUser loggedInUser = new LoggedInUser() {
+		
+		@Override
+		public UserType getUserType() {
+			// TODO Auto-generated method stub
+			return UserType.PROVIDER;
+		}
+		
+		@Override
+		public String getUserStatus() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getUserName() {
+			// TODO Auto-generated method stub
+			return "John";
+		}
+		
+		@Override
+		public String getUserId() {
+			// TODO Auto-generated method stub
+			return "Bob1@emblem.com";
+		}
+		
+		@Override
+		public String getTenantUUID() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getTenantTimezone() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getTenantTimeFormat() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getTenantId() {
+			// TODO Auto-generated method stub
+			return "EMBL0001";
+		}
+		
+		@Override
+		public String getTenantEnrollmentId() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getTenantDateFormat() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getSubscriberId() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getRoleCategory() {
+			// TODO Auto-generated method stub
+			return "PROVIDER";
+		}
+		
+		@Override
+		public String getPreferredLanguage() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getCorrelationId() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getClientId() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public Collection<? extends GrantedAuthority> getAssignedRoles() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		@Override
+		public String getApplicationName() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	};
+	
+	private class MessageIds {
+
+		private String messageId;
+		
+		private String messageBody;
+		
+		/**
+		 * @return the messageId
+		 */
+		public String getMessageId() {
+			return messageId;
+		}
+
+		/**
+		 * @param messageId
+		 *            the messageId to set
+		 */
+		public void setMessageId(String messageId) {
+			this.messageId = messageId;
+		}
+		
+
+		/**
+		 * @return the messageBody
+		 */
+		public String getMessageBody() {
+			return messageBody;
+		}
+
+		/**
+		 * @param messageBody the messageBody to set
+		 */
+		public void setMessageBody(String messageBody) {
+			this.messageBody = messageBody;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "MessageIds [messageId=" + messageId + ", messageBody=" + messageBody + "]";
+		}
+	}
+
+}

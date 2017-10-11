@@ -1,0 +1,33 @@
+@import 'colors';
+@import 'font';
+
+$input-border: 1px solid $color-input-border;
+$input-border-radius: 2px;
+$input-font-size: $font-size-input;
+$input-height: 32px;
+$input-padding-side: 8px;
+$input-shadow: 0 1px 1px $color-input-shadow;
+
+@mixin input() {
+  -webkit-appearance: none;
+  background: $color-input-bg;
+  border: $input-border;
+  border-radius: $input-border-radius;
+  box-shadow: $input-shadow;
+  font-size: $input-font-size;
+  height: $input-height;
+  padding: 0 $input-padding-side;
+
+  &:not([disabled]):hover {
+    border-color: $color-input-border-hover;
+  }
+
+  &[disabled] {
+    background: #bfbfbf;
+    cursor: not-allowed;
+  }
+
+  &.ng-invalid.ng-touched {
+    border-color: #d93659;
+  }
+}

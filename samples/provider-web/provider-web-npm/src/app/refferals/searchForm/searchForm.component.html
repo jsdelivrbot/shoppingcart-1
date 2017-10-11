@@ -1,0 +1,96 @@
+<div id="searchform">
+  <h2 id="title" translate="REFERRALS.SEARCH.FORM.TITLE" class="h22b"></h2>
+  <p id="description" class="description">
+    <span translate="REFERRALS.SEARCH.FORM.DESC" id="title" class="p14m"></span>
+    <a class="p16b resetSearch" id="resetSearch" tabindex="-1" attr.title="{{'REFERRALS.SEARCH.FORM.RESET' | translate }}" (click)="formdata={};submissionRange=null;serviceRange=null;nameCriteria={};formComponent.form.markAsPristine()"
+      [inlineSVG]="'assets/icon_hide.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+          {{'REFERRALS.SEARCH.FORM.RESET' | translate }}
+  </a>
+  </p>
+  <form #formComponent="ngForm" role="search" (ngSubmit)="onFormSubmit();formComponent.form.markAsPristine()">
+    <tzf-form-fields>
+    <label tzfFormField [validation]="tenantenrollmentid" [validationMessages]="valMsg.tenantenrollmentid" label="REFERRALS.SEARCH.FORM.ELEMENTS.MEMBERID.LABEL">
+      <input type="text" #tenantenrollmentid="ngModel" pattern="{{ALPHANUMERIC_REGEX}}" maxlength="{{MEMBERID_MAX_LENGTH}}" [(ngModel)]="formdata.tenantenrollmentid" name="tenantenrollmentid" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.MEMBERID.PLACEHOLDER' | translate}}" >
+    </label>
+      <div tzfFormField label="REFERRALS.SEARCH.FORM.ELEMENTS.MEMBERNAME.LABEL" style="flex-grow: 2" [disabled]="buttonDisabled">
+        <tzf-form-field-popover id="formFields-memberName" actions="true" (prepare)="prepareNames()" (accept)="Object.assign(formdata,nameCriteria);formComponent.form.markAsDirty()" (reset)="resetNames();formComponent.form.markAsDirty()">
+          <span button>
+             {{ (formdata | formFieldName:orderValue) || ('REFERRALS.SEARCH.FORM.ELEMENTS.MEMBERNAME.PLACEHOLDER' | translate) }}
+          </span>
+          <tzf-form-fields content>
+            <label tzfFormField>
+              <input type="text" required [(ngModel)]="nameCriteria.memberfirstname" [ngModelOptions]="{standalone: true}" name="memberfirstname" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.MEMBERNAME.FIRSTNAME' | translate}}">
+            </label>
+            <label tzfFormField>
+               <input type="text"  [(ngModel)]="nameCriteria.membermiddlename"[ngModelOptions]="{standalone: true}"  name="membermiddlename" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.MEMBERNAME.MIDDLENAME' | translate}}">
+            </label>
+            <label tzfFormField>
+               <input type="text" required [(ngModel)]="nameCriteria.memberlastname"[ngModelOptions]="{standalone: true}"  name="memberlastname" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.MEMBERNAME.LASTNAME' | translate}}">
+            </label>
+          </tzf-form-fields>
+        </tzf-form-field-popover>
+      </div>
+      <label tzfFormField [validation]="authorizationid" [validationMessages]="valMsg.authorizationid" label="REFERRALS.SEARCH.FORM.ELEMENTS.AUTHORIZATIONNUMBER.LABEL">
+      <input type="text" #authorizationid="ngModel" pattern="{{ALPHANUMERIC_REGEX}}" maxlength="{{AUTHORIZATION_MAX_LENGTH}}" [(ngModel)]="formdata.authorizationid" name="authorizationid" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.AUTHORIZATIONNUMBER.PLACEHOLDER' | translate}}" >
+    </label>
+      <div tzfFormField label="REFERRALS.SEARCH.FORM.ELEMENTS.REFERRALTYPE.LABEL">
+        <tzf-form-field-dropdown id="authreferraltype" [multi]="true" [options]="referralDataList?.ep_referraltypes" [(ngModel)]="formdata.authreferraltype"
+          name="authreferraltype" valueField="code" textField="value" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.REFERRALTYPE.PLACEHOLDER' | translate}}"></tzf-form-field-dropdown>
+      </div>
+      <div tzfFormField label="REFERRALS.SEARCH.FORM.ELEMENTS.SERVICETYPE.LABEL">
+        <tzf-form-field-dropdown maxSelectedVisible="2" id="referralServiceType" [multi]="true" [options]="referralDataList?.ep_referralservicetypes" [(ngModel)]="formdata.servicetype"
+          name="servicetype" valueField="code" textField="value" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.SERVICETYPE.PLACEHOLDER' | translate}}"></tzf-form-field-dropdown>
+      </div>
+      <div tzfFormField label="REFERRALS.SEARCH.FORM.ELEMENTS.STATUS.LABEL">
+        <tzf-form-field-dropdown id="referralStatus" [multi]="true" [options]="referralDataList?.ep_referralstatus" [(ngModel)]="formdata.status"
+          name="status" valueField="code" textField="value" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.STATUS.PLACEHOLDER' | translate}}"></tzf-form-field-dropdown>
+      </div>
+    </tzf-form-fields>
+    <tzf-form-fields>
+      <div id="submissionDateField" tzfFormField [validation]="dateRangeValue" [validationMessages]="valMsg.dateRangeValue" label="REFERRALS.SEARCH.FORM.ELEMENTS.SUBMISSIONDATE.LABEL">
+        <tzf-form-field-daterange
+        id="submissionDateRange"
+        name="submissiondate"
+        startField="submissionstartdate"
+        endField="submissionenddate"
+        [(ngModel)]="submissionRange"
+        (fields)="updateDateRange($event)"
+        [predefinedRanges]="ranges"
+        [defaultPredefined]="predefinedDateRange"
+        placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.SUBMISSIONDATE.PLACEHOLDER' | translate}}"
+        required #dateRangeValue="ngModel"
+        format="MM/dd/yyyy"
+        [validateDateRange]="{fromdate:'submissionstartdate',todate:'submissionenddate'}"
+        [dateMinMaxValidator]="{maxDate:boundRange.end}"
+        [minDate]="boundRange.start"
+        [maxDate]="boundRange.end">
+        </tzf-form-field-daterange>
+      </div>
+      <div id="serviceDateField" tzfFormField [validation]="serviceDateRange" [validationMessages]="valMsg.serviceDateRange" label="REFERRALS.SEARCH.FORM.ELEMENTS.SERVICEDATE.LABEL">
+        <tzf-form-field-daterange
+        id="serviceDateRange"
+        name="servicedate"
+        startField="startdate"
+        endField="enddate"
+        [(ngModel)]="serviceRange"
+        (fields)="updateDateRange($event)"
+        [predefinedRanges]="ranges"
+        [defaultPredefined]="predefinedDateRange"
+        placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.SERVICEDATE.PLACEHOLDER' | translate}}"
+        #serviceDateRange="ngModel"
+        format="MM/dd/yyyy"
+        [validateDateRange]="{fromdate:'startdate',todate:'enddate'}"
+        [dateMinMaxValidator]="{maxDate:boundRange.end}"
+        [minDate]="boundRange.start">
+        </tzf-form-field-daterange>
+      </div>
+      <label tzfFormField [validation]="requestingprovider" [validationMessages]="valMsg.requestingprovider" label="REFERRALS.SEARCH.FORM.ELEMENTS.REQUESTINGPROVIDER.LABEL">
+      <input type="text" #requestingprovider="ngModel" pattern="{{ALPHANUMERICANDSPACE_REGEX}}" maxlength="{{REQ_PROVIDER_MAX_LENGTH}}" [(ngModel)]="formdata.requestingprovider" name="requestingprovider" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.REQUESTINGPROVIDER.PLACEHOLDER' | translate}}" >
+    </label>
+      <label tzfFormField [validation]="renderingprovider" [validationMessages]="valMsg.renderingprovider" label="REFERRALS.SEARCH.FORM.ELEMENTS.RENDERINGPROVIDER.LABEL">
+      <input type="text" #renderingprovider="ngModel" pattern="{{ALPHANUMERICANDSPACE_REGEX}}" maxlength="{{REN_PROVIDER_MAX_LENGTH}}" [(ngModel)]="formdata.renderingprovider" name="renderingprovider" placeholder="{{'REFERRALS.SEARCH.FORM.ELEMENTS.RENDERINGPROVIDER.PLACEHOLDER' | translate}}" >
+    </label>
+      <button type="submit" [disabled]="formComponent.invalid || formComponent.pristine" id="submit" translate>REFERRALS.SEARCH.TITLE</button>
+    </tzf-form-fields>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+.eligibility-patient-information{
+    #eligibility-payer,
+    #eligibility-subscriber{
+        .col-lg-5{
+            &::before{
+                content: ":";
+                padding-right: 20px;
+            }
+        }
+    }
+    #eligibility-patient-right, 
+    #eligibility-patient-left
+    {
+        .col-lg-7{
+            &::before{
+                content: ":";
+                padding-right: 20px;
+            }
+        }
+    }
+    @include media-breakpoint-up(lg) {
+        #eligibility-patient-right{
+            border-left: 1px solid $color-neurtral-whitish-grey;
+            padding: 0 5em 0 10em;
+        }
+    }
+}

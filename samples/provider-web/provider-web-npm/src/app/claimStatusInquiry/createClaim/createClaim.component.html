@@ -1,0 +1,160 @@
+<!---------------------------------- NDC LOOKUP TEMPLATE -->
+
+
+
+<ng-template #memberSearchResult>
+  <tzf-modal-content class="member-look-up" [modal]="modalRef" headerText="{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.TITLE'|translate}}"
+    (submit)="submitModal($event)" (action)="modalAction($event)" [cancelButton]="false" [submitButton]="false">
+    <div main class="member-modal">
+      <div class="row">
+        <div class="col-md-12 col-lg-12"><span class="title">{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.SUBTITLE'|translate}}</span></div>
+        <div class="col-md-12 col-lg-12">{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.DESCRIPTION'|translate}}</div>
+
+        <div *ngFor="let member of members" class="col-md-12 col-lg-12 member-list" [class.selected]="selectedMemberId===member.tenantEnrollmentId">
+          <div class="row">
+            <div class="col-lg-1 col-md-1 input-radio">
+              <label>
+                    <input type="radio" [checked]="selectedMemberId===member.memberDetails.tenantEnrollmentId"
+                    name="member-{{member.memberDetails.tenantEnrollmentId}}" id="member-{{member.memberDetails.tenantEnrollmentId}}"
+                    [value]="member.memberDetails.tenantEnrollmentId" (change)="this.selectedMemberId = $event.target.checked ? $event.target.defaultValue : null">
+                    <span class="styledInput"></span>
+              </label>
+            </div>
+            <div class="col-md-5 col-lg-5">
+              <div class="row">
+                <div class="col-md-4 col-lg-4"><span>{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.MEMBERID'|translate}}</span></div>
+                <div class="col-md-6 col-lg-6"><span>{{member.memberDetails.tenantEnrollmentId}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-lg-4"><span>{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.GROUP'|translate}}</span></div>
+                <div class="col-md-6 col-lg-6"><span>{{member?.memberDetails.groupId}}</span></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 border-left">
+              <div class="row">
+                <div class="col-md-4 col-lg-4"><span>{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.NAME'|translate}}</span></div>
+                <div class="col-md-8 col-lg-8"><span>{{member?.memberDetails.lastName}}<span *ngIf="member?.memberDetails.lastName">,&nbsp;</span>{{member?.memberDetails.firstName}}
+                  {{member?.memberDetails.middleName}}
+                  </span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-lg-4"><span>{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.DOB'|translate}}</span></div>
+                <div class="col-md-8 col-lg-8"><span>{{member?.memberDetails.dob |date:AppConfig.DateFormat}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-lg-4"><span>{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.GENDER'|translate}}</span></div>
+                <div class="col-md-8 col-lg-8"><span translate>{{member?.memberDetails.gender===male?'ELIGIBILITY.PATIENTOVERVIEW.MALE':'ELIGIBILITY.PATIENTOVERVIEW.FEMALE'}}</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="div-btn" id="footer">
+        <div clas="row">
+          <div class="compose-model-bottom">
+            <div class="compose-model-buttons">
+              <button type="button" id="modal-cancel" class="btn btn-primary" [disabled]="!selectedMemberId" (click)="modalRef.close()"
+                translate>{{'CLAIM.CREATECLAIM.MEMBERINFO.MODEL.BUTTON' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </tzf-modal-content>
+</ng-template>
+
+
+
+
+
+
+
+<app-create-claim-tabs selected="memberinfo">
+  <app-create-claim-tab tzfTabContent #memberinfoTab  (next)="memberinfoTab.goToNextTab()" id="memberinfo" tabLabel="CLAIM.CREATECLAIM.MEMBERINFO.TITLE" [disableNext]="!selectedMember"
+    (next)="nextHandler($event)">
+    <app-member-information (onSearch)="searchMembers($event)" (onReset)="searchMembers()"></app-member-information>
+    <!-- DISPLAY MEMBER INFO ONCE MEMBER IS SELECTED-->
+    <ng-template *ngIf="selectedMember" let-mem [ngTemplateOutletContext]="{ $implicit: selectedMember }" [ngTemplateOutlet]="t"
+      #t>
+      <hr>
+      <p class="memberinfo-title" id="title">
+        <span class="label h18r" id="label" *ngIf="mem?.memberDetails?.tenantEnrollmentId===mem?.subscriberDetails?.tenantEnrollmentId"
+          translate>CREATECLAIMMEMBERINFO.MEMBERANDSUBSCRIBER</span>
+        <span class="label h18r" id="label" *ngIf="mem?.memberDetails?.tenantEnrollmentId!==mem?.subscriberDetails?.tenantEnrollmentId"
+          translate>CREATECLAIMMEMBERINFO.MEMBER</span>
+        <span class="value h18b" id="value">
+          {{mem.memberDetails.lastName+','+mem.memberDetails.firstName}}</span>
+      </p>
+      <app-create-claim-member-info [memberInfo]="mem.memberDetails"></app-create-claim-member-info>
+    </ng-template>
+    <br>
+    <ng-template *ngIf="selectedMember?.memberDetails?.tenantEnrollmentId!==selectedMember?.subscriberDetails?.tenantEnrollmentId"
+      let-mem [ngTemplateOutletContext]="{ $implicit: selectedMember }" [ngTemplateOutlet]="s" #s>
+      <p class="memberinfo-title" id="title">
+        <span class="label h18r" id="label" translate>CREATECLAIMMEMBERINFO.SUBSCRIBER</span>
+        <span class="value h18b" id="value">
+          {{mem.subscriberDetails.lastName+','+mem.subscriberDetails.firstName}}</span>
+      </p>
+      <app-create-claim-member-info [memberInfo]="mem.subscriberDetails"></app-create-claim-member-info>
+    </ng-template>
+  </app-create-claim-tab>
+  <app-create-claim-tab tzfTabContent #providerinfoTab
+  (next)="providerinfoTab.goToNextTab()"
+  id="providerinfo"
+  [disableNext]="!selectedMember"
+  [disabled]="!selectedMember"
+  tabLabel="CLAIM.CREATECLAIM.PROVIDERINFO.TITLE">
+    <app-provider-information *ngIf="selectedMember" (onProviderSelect)="selectedProviders=$event" [providerform]="providerform"></app-provider-information>
+  </app-create-claim-tab>
+  <!------------------------------ CLAIM DETAIL TAB STARTS -------------------------->
+
+  <app-create-claim-tab #claimDetailTab  (next)="claimDetailTab.goToNextTab()"
+  [disableNext]="claimDetailForm?.invalid" [disabled]="!selectedMember"
+  tzfTabContent
+    id="claimdetail" tabLabel="CLAIM.CREATECLAIM.CLAIMDETAIL.TITLE" >
+    <app-claim-detail-tab-content *ngIf="selectedMember" (onFormChange)="claimDetailForm = $event"></app-claim-detail-tab-content>
+  </app-create-claim-tab>
+  <!--------------------------------------- END OF  CLAIM DETAIL TAB STARTS -------------------------->
+
+  <!----------------------------- SERVICE DETAIL TAB STARTS ---------------------->
+
+
+  <app-create-claim-tab #serviceDetailTab tzfTabContent id="servicedetail" [disableNext]="serviceDetailForm?.errors" [disabled]="!selectedMember"
+    tabLabel="CLAIM.CREATECLAIM.SERVICEDETAILS.TITLE" (action)="estimateClaim($event)"
+    (next)="submitClaim($event)"
+    [actions]= "[{'id':'viewestimate','text':'View Estimate','disabled':serviceDetailForm?.errors}]"
+    [nextButtonText]="'Submit Claim'">
+    <app-service-detail *ngIf="selectedMember" (onFormChange)="serviceDetailForm = $event"></app-service-detail>
+
+
+  </app-create-claim-tab>
+  <app-create-claim-tab tzfTabContent (next)="submitClaim($event)" id="viewestimate" [disabled]="!estimatedClaimResponse || !selectedMember "
+    tabLabel="CLAIM.CREATECLAIM.VIEWESTIMATE.TITLE" [nextButtonText]="'Submit Claim'">
+    <div class="row">
+      <div class="col-6">
+        <h3 class="h20m" id="viewestimatetitle" translate>VIEWESTIMATE.TITLE</h3>
+        <div class="titledesc">
+          <span class="p17l " id="viewestimatedesc" translate>VIEWESTIMATE.TITLEDESC</span>
+        </div>
+      </div>
+      <div class="col-6">
+        <div id="submitclaim" class="submitclaim">
+          <button class="btn btn-primary" (click)="submitClaim($event)" translate>VIEWESTIMATE.SUBMIT</button>
+        </div>
+      </div>
+    </div>
+    <hr class="divider-line">
+    <app-claim-detail *ngIf="estimatedClaimResponse" [claimInfo]="estimatedClaimResponse"></app-claim-detail>
+  </app-create-claim-tab>
+  <app-create-claim-tab tzfTabContent id="submitclaim" [disabled]="!submittedClaimResponse || !selectedMember " tabLabel="CLAIM.CREATECLAIM.SUBMITCLAIM.TITLE"
+    [nextButtonText]="'View Sent Claim'">
+    <h3 class="h20m" id="submitClaimTitle" translate>CLAIM.CREATECLAIM.SUBMITCLAIM.TITLE</h3>
+    <div class="titledesc">
+      <span class="p17l" id="submitClaimDesc" translate>CLAIM.CREATECLAIM.SUBMITCLAIM.DESC</span>
+      <span class="p17l" id="submitClaimDesc"><b translate>CLAIM.CREATECLAIM.SUBMITCLAIM.DESC1</b></span>
+      <span class="p17l" id="submitClaimDesc" translate>CLAIM.CREATECLAIM.SUBMITCLAIM.DESC2</span>
+    </div>
+  </app-create-claim-tab>
+</app-create-claim-tabs>

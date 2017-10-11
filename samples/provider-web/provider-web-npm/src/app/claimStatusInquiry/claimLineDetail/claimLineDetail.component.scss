@@ -1,0 +1,124 @@
+@import "../../../styles/variables";
+
+@mixin svg-icon-span($color) {
+  cursor: pointer;
+  color:$color;
+  svg {
+    path{
+          fill: $color;
+      }
+      line {
+          stroke: $color;
+      }
+  }
+}
+span.h18m{
+   color:$color-h2;
+}
+.title{
+  border-bottom: 4px solid #257f8e;
+  padding: 10px 0 10px 0;
+  margin-bottom:30px;
+}
+.form {
+    width: 100%;
+    padding: 20px 0;
+}
+@include media-breakpoint-up(lg) {
+
+    [class^=col]+[class^=col] {
+    border-left: 1px solid #CCCCCC;
+    }
+
+}
+[tzfFormField]{
+  margin-bottom:20px;
+}
+
+.col-xl-4{
+  .bootstrap-style[tzfFormField] ::ng-deep {
+     > div {
+       > input[type=text], > input[type=number]{
+      width:20%;
+    }
+
+     }
+
+}
+.diagnosiscode[tzfFormField] ::ng-deep {
+    height:65px;
+     > div > input[type=text]{
+       width:95%;
+       display:inline-block
+    }
+}
+
+
+}
+
+button.lookup-button /deep/
+{
+          float: right;
+          outline: none;
+          position: relative;
+          bottom: 30px;
+          border: none;
+          cursor: pointer;
+          background: transparent;
+          right:13px;
+          svg{
+            width: 20px;
+            height:20px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+          }
+}
+
+
+.palceofservice[tzfFormField] ::ng-deep {
+  p.label-content{
+    margin-bottom: -30px;
+  }
+     span#placeofserviceicon{
+           position: relative;
+    top: auto;
+    right: auto;
+    left: 87%;
+    cursor:pointer;
+       svg{
+            width: 20px;
+            height:20px;
+            margin-bottom: 2px;
+            margin-top: 2px;
+            path{
+              fill:$color-pimary-light-blue;
+            }
+            line {
+              stroke: $color-pimary-light-blue;
+           }
+          }
+     }
+}
+
+
+// adding height for service from date to match other fileds height
+.servicefrom[tzfFormField] ::ng-deep {
+  height: 96px;
+}
+
+// icon related
+ span.add-remove ::ng-deep {
+   margin-left:10px;
+    svg {
+      width: 1.2em;
+      position: relative;
+      top: 3px;
+      right: 3px;
+    }
+  }
+  span.addlineitem ::ng-deep{
+    @include svg-icon-span($color-pimary-light-blue)
+  }
+  span.removelineitem ::ng-deep{
+    @include svg-icon-span(#D93659)
+  }

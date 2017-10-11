@@ -1,0 +1,30 @@
+<div class="msgHistory">
+  <h2 class="msgHisHeader">{{'MSGCENTER.MESSAGE_HISTORY' | translate}} ({{trailingMessages?.length}})</h2>
+  <ul class="msgHisContent">
+    <li class="card"  *ngFor="let trailMessage of trailingMessages let i = index">
+      <div class="card-block">
+        <div class="row top">
+          <div class="col-sm-10">
+            <p class="p12l">{{'MSGCENTER.NEWMSG.SUBJECT' |translate}}</p>
+            <p class="p14b subjectText">{{trailMessage?.subject}}</p>
+          </div>
+          <div class="col-sm-2 col-dateTime">
+            <span id="dateTimeId" class="dateIcon" [title]="calender" [inlineSVG]="'/assets/icon_calendar.svg'" [cacheSVG]="false" [prepend]="true"
+              [replaceContents]="false">
+            </span>
+            <span id="notif-date" class="dateTxt">
+                <span id="notif-timeId">{{createDate(trailMessage?.createdDate) | date: messageType.MESSAGE_DATE_FORMAT}}</span><br/>
+                <span id="notif-timeId">{{createDate(trailMessage?.createdDate) | date: messageType.MESSAGE_TIME_FORMAT}}</span><br/>
+            </span>
+          </div>
+        </div>
+        <div class="row middle">
+          <div class="col-sm-12 padding0">
+            <p class="p12l">{{'MSGCENTER.MESSAGE' |translate}}</p>
+            <p class="msg-content">{{trailMessage?.messageBody}}</p>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  </div>

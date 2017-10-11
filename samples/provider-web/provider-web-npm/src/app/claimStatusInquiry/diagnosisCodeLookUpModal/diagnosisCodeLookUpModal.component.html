@@ -1,0 +1,70 @@
+<tzf-modal-content [modal]="diagnosisModalRef" headerText="Diagnosis Code"
+[cancelButton]="false"
+ [submitButton]="true"
+ [submitText]="'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESC1'"
+ [disableSubmit]="diagnosisCodeFormArray.invalid || !diagnosisCodeFormArray.dirty"
+ (submit)="closeModal()">
+  <div main class="diagnosisTemplate">
+    <h2 class="h24m">Select Diagnosis Code</h2>
+    <p>Search Diagnosis Codes by number or description, then Select to add it to the claim.</p>
+    <p>Each claim can have upto 8 Diagnosis Codes in total </p>
+    <div class="row diagnosisSearchForm" [formGroup]="diagnosisLookupForm">
+      <div class="col-lg-4">
+        <div tzfFormField label="SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTCODE" [validation]="diagnosisLookupForm.controls.diagnocode"
+          [validationMessages]="valMsg.diagnocode" labelFor="diagnocode" class="bootstrap-style">
+          <input type="text" formControlName="diagnocode" id="diagnocode" name="diagnocode" maxlength="7" [required]="!diagnosisLookupForm.controls.diagnocodedesc.value"
+            placeholder="Enter Diagnosis Code">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div tzfFormField label="SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTDESC" [validation]="diagnosisLookupForm.controls.diagnocodedesc"
+          [validationMessages]="valMsg.diagnocodedesc" labelFor="diagnocodedesc" class="bootstrap-style">
+          <input type="text" formControlName="diagnocodedesc" id="diagnocodedesc" name="diagnocodedesc" [required]="!diagnosisLookupForm.controls.diagnocode.value"
+            maxlength="30" placeholder="Enter Diagnosis Description">
+        </div>
+      </div>
+      <div class="col-lg-1">
+        <button [inlineSVG]="'assets/common/icons/icon_search.svg'" [cacheSVG]="false" (click)="searchDiagnosisCode($event)" [disabled]="diagnosisLookupForm.invalid"
+          class="btn btn-primary lookupSearchButton"></button>
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-12" *ngIf="diagnosisData?.length">
+      <div class="row lookup-data-header">
+        <div class="col-lg-3 col-md-3">&nbsp;</div>
+        <div class="col-lg-3 col-md-3">{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTCODE' | translate}}</div>
+        <div class="col-lg-6 col-md-6">{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPINPUTDESC' | translate}}</div>
+      </div>
+      <div class="lookup-data-scroll">
+        <div class="row lookup-data" *ngFor="let data of diagnosisData">
+          <div class="col-lg-3 col-md-3">
+            <button type="button" (click)="addDiagnosisCode(data.diagnosisCode)" class="btn btn-secondary" [disabled]="isAllSelected()"
+              style="display:inline-block;">Add Code</button>
+          </div>
+          <div class="col-lg-3 col-md-3">{{data.diagnosisCode}}</div>
+          <div class="col-lg-6 col-md-6">{{data.diagnosisCodeDescription}}</div>
+        </div>
+      </div>
+    </div>
+    <p *ngIf="diagnosisData && !diagnosisData?.length">No data found</p>
+
+    <div class="row code-lookup-text">
+      <div class="col-lg-3" *ngFor="let item of diagnosisCodeFormArray.controls;let i=index">
+        <div tzfFormField [validation]="item.controls.data" [validationMessages]="valMsg.msg"[formGroup]="item" label="{{i===0?'Primary':''}} Diagnosis Code {{i===0?'':(i+1)}}" labelFor="diagnocode"
+          class="bootstrap-style">
+          <input type="text" formControlName="data" id="diagnocode" name="diagnocode" placeholder="Enter Code">
+        </div>
+      </div>
+    </div>
+
+    <!--<div class="div-btn" id="footer">
+      <div clas="row">
+        <div class="compose-model-bottom">
+          <div class="compose-model-buttons">
+            <button type="button" id="modal-cancel" class="btn btn-primary" [disabled]="!diagnosisCodeFormArray.dirty" (click)="diagnosisModalRef.close()"
+              translate>{{'SERVICEDETAIL.LINEITEM.CPT.LOOKUPDESC1' | translate }}</button>
+          </div>
+        </div>
+      </div>
+    </div>-->
+  </div>
+</tzf-modal-content>

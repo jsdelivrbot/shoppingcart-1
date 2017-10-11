@@ -1,0 +1,89 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "crosscutting"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        {
+          "glob": "**/*",
+          "input": "app/common/assets",
+          "output": "./assets/common/"
+        },
+        {
+          "glob": "**/*",
+          "input": "../node_modules/oidc-client/dist",
+          "output": "./"
+        },
+        "constants.js",
+        {
+          "glob": "**/*",
+          "input": "app/common/security/assets",
+          "output": "./"
+        },
+        {
+          "glob": ".htaccess",
+          "input": "app/common",
+          "output": "./"
+        },
+        "favicon.png",
+        "styleguide",
+        "documentation"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "tzf",
+      "styles": [
+        "app/common/styles/fonts/roboto.scss",
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "auth": "environments/environment.mockauth.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json"
+    },
+    {
+      "project": "src/tsconfig.spec.json"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    },
+    "codeCoverage": {
+      "exclude": [
+        "src/*",
+        "src/app/*",
+        "src/app/examples/**/*"
+      ]
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {}
+  }
+}

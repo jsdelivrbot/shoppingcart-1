@@ -1,0 +1,84 @@
+<h1 class="h20m" id="searchformtitle" translate>CSR.PAGETITLE</h1>
+<form #searchProviderForm="ngForm" id="providerSearchformmain" (ngSubmit)="searchProvider()" autocomplete="off" novalidate>
+    <div class="row">
+        <label class="col-sm-4" (click)="resetSearchForm()">
+        <input type="radio"
+        id="option-name"
+        name="providerSearchGrp"
+        [value]="CSR_CONST.SEARCHBY_NAME"
+        [(ngModel)]="selectedValue" />
+        <label for="option-name">{{ 'CSR.PROVIDER.BYLASTANDFIRSTNAME' | translate }}</label>
+        </label>
+        <label class="col-sm-4" (click)="resetSearchForm()">
+        <input type="radio"
+        id="option-userid"
+        name="providerSearchGrp"
+        [value]="CSR_CONST.SEARCHBY_USERID"
+        [(ngModel)]="selectedValue" />
+        <label for="option-userid">{{'CSR.PROVIDER.BYUSERID' | translate }}</label>
+        </label>
+        <label class="col-sm-4 resetSearchDiv" *ngIf="resetBtnVisible" (click)="resetSearchForm()">
+      <a  class="p14b resetSearch" id="resetSearch" tabindex="-1" [attr.title]="'CSR.PROVIDER.RESET'"
+        [inlineSVG]="'assets/icon_hide.svg'"
+        [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+        {{'CSR.RESET' | translate }}
+      </a>
+    </label>
+    </div>
+    <div class="row margin0" id="searchByFirstLastName" *ngIf="selectedValue ===CSR_CONST.SEARCHBY_NAME">
+        <label class="col-sm-4" tzfFormField>
+        <input type="text" [(ngModel)]="model.lastName" 
+        name="lastName"
+        #lastName="ngModel"
+        (ngModelChange)="enableSearch('',model.firstName,model.lastName)"
+         placeholder="{{'CSR.PROVIDER.LASTNAME' | translate}}">
+      </label>
+        <label class="col-sm-4" tzfFormField>
+        <input type="text"  [(ngModel)]="model.firstName"
+        name="firstName"
+        #firstName="ngModel"
+        (ngModelChange)="enableSearch('',model.firstName,model.lastName)"
+        placeholder="{{'CSR.PROVIDER.FIRSTNAME' | translate}}">
+      </label>
+        <button class="col-sm-4" type="submit" id="providerSearchSubmit" [disabled]="searchBtnEnable" translate>CSR.SEARCH</button>
+    </div>
+    <div class="row margin0" id="searchByUserId" *ngIf="selectedValue ===CSR_CONST.SEARCHBY_USERID">
+        <label class="col-sm-8" tzfFormField>
+        <input type="text" [(ngModel)]="model.userId"
+        #userId="ngModel"
+        name="userId"
+        (ngModelChange)="enableSearch(model.userId,'','')" 
+         placeholder="{{'CSR.PROVIDER.USERID' | translate}}">
+      </label>
+        <button class="col-sm-4" type="submit" id="providerSearchSubmit" [disabled]="searchBtnEnable" translate>CSR.SEARCH</button>
+    </div>
+</form>
+<div class="searchResultTable" *ngIf="providerSearchResult?.userList==undefined && isSearched">
+    <p-dataTable emptyMessage="{{'CSR.NORESULTFOUND' | translate}}"></p-dataTable>
+</div>
+<div class="searchResultTable" *ngIf="providerSearchResult?.userList!=undefined">
+    <p-dataTable [value]="providerSearchResult?.userList"
+        [expandableRows]="true" (responsiveColumns)="columns = $event" [responsiveExpander]="true"
+        [lazy]="true"
+       (onLazyLoad)="sort=$event;SearchByCriteria(page,$event)">
+        <!-- Always specify the "expander" styleClass for the expander column -->
+        <p-column expander="true" styleClass="expander"></p-column>
+        <p-column field="{{CSR_CONST.LAST_NAME}}" sortable="true" header="{{'CSR.PROVIDER.LASTNAME' | translate}}" [responsiveWidth]="CSR_CONST.RESPONSIVE_COLUMN_WIDTH"></p-column>
+        <p-column field="{{CSR_CONST.FIRST_NAME}}" sortable="true" header="{{'CSR.PROVIDER.FIRSTNAME' | translate}}" [responsiveWidth]="CSR_CONST.RESPONSIVE_COLUMN_WIDTH"></p-column>
+        <p-column field="{{CSR_CONST.MIDDLE_NAME}}" sortable="true" header="{{'CSR.PROVIDER.MIDDLENAME'| translate}}" [responsiveWidth]="CSR_CONST.RESPONSIVE_COLUMN_WIDTH"></p-column>
+        <p-column field="{{CSR_CONST.USER_ID}}" sortable="true" header="{{'CSR.PROVIDER.USERID' | translate}}" [responsiveWidth]="CSR_CONST.RESPONSIVE_COLUMN_WIDTH">
+            <ng-template let-col let-row="rowData" pTemplate="body">
+                <a (click)="providerView(row)" routerLink="">{{ row[col.field] }}</a>
+            </ng-template>
+        </p-column>
+        <p-column field="{{CSR_CONST.EMAIL_ADDRESS}}" sortable="true" header="{{'CSR.PROVIDER.EMAILADDRESS' | translate}}" [responsiveWidth]="CSR_CONST.RESPONSIVE_COLUMN_WIDTH"></p-column>
+        <ng-template pTemplate="rowexpansion" let-row>
+            <tzf-responsive-columns [row]="row" [columns]="columns">
+            </tzf-responsive-columns>
+        </ng-template>
+    </p-dataTable>
+
+    <tzf-pagination *ngIf="providerSearchResult?.totalRecordCount>CSR_CONST.PAGINATION_PAGE_SIZE" [collectionSize]="pageSize" [pageSize]="1"
+        (pageChange)="page={pagenumber: $event};SearchByCriteria({pagenumber: $event},sort)">
+    </tzf-pagination>
+</div>

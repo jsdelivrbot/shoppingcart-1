@@ -1,0 +1,42 @@
+.btn {
+  border: $standard-border;
+  border-radius: $button-radius;
+  box-shadow: $shadow-button;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: $font-size-button;
+  font-weight: $font-weight-button;
+  height: $button-height;
+  min-width: $button-width-min;
+  padding: 0 $button-padding-side;
+
+  &:disabled {
+    box-shadow: $shadow-button-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: $color-button-primary-bg;
+  border-color: $color-button-primary-border;
+  color: $color-button-primary;
+
+  &:disabled {
+    background: $color-button-primary-disabled-bg;
+    border-color: $color-button-primary-disabled-border;
+    color: $color-button-primary-disabled;
+  }
+}
+
+.btn-secondary {
+  background: $color-button-secondary-bg;
+  border-color: $color-button-secondary-border;
+  color: $color-button-secondary;
+
+  &:disabled {
+    background: $color-button-secondary-disabled-bg;
+    border-color: $color-button-secondary-disabled-border;
+    color: $color-button-secondary-disabled;
+  }
+}

@@ -1,0 +1,36 @@
+<ngb-accordion #acc="ngbAccordion" class="msgFilter">
+  <ngb-panel title="{{'MSGCENTER.FILTER_MESSAGES' | translate}}" class="p12r">
+    <ng-template ngbPanelContent>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <div class="fieldLbl">
+            <label for="category">
+              <span  class="p12b">{{'MSGCENTER.MESSAGE_CATEGORY' | translate}}</span>
+            </label>
+          </div>
+          <tzf-dropdown name="category" id="category" [options]="categories[0]?.data" 
+          placeholder="{{'MSGCENTER.NEWMSG.DEFAULT_SELECT' | translate}}" [(ngModel)]="category" 
+          textField="value" valueField="code" (ngModelChange)="changeFilter()">
+          </tzf-dropdown>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" *ngIf="type===(messageType.TYPE_INBOX)">
+          <div class="fieldLbl">
+            <label for="category">
+              <span  class="p12b">{{'MSGCENTER.MESSAGE_STATUS' | translate}}</span>
+            </label>
+          </div>
+          <tzf-dropdown name="messageStatus" id="messageStatus" [options]="messageStatuses[0]?.data"
+          placeholder="{{messageStatuses[0]?.data[0]?.value}}" [(ngModel)]="messageStatus" 
+          textField="value" valueField="code" (ngModelChange)="changeFilter()">
+          </tzf-dropdown>
+        </div>
+      </div>
+      <div class="row btnDiv">
+        <div>
+          <button id="filter-reset" (click)="resetFilter()" class="btn btn-secondary" >{{'MSGCENTER.RESET' | translate}}</button>
+          <button id="filter-apply" (click)="applyFilter()" class="btn tzf-primary-button" >{{'MSGCENTER.APPLY' | translate}}</button>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

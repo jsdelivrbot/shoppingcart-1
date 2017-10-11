@@ -1,0 +1,13 @@
+@import 'colors';
+
+// [inset] x y [radius] [spread] [color]
+
+$shadow-header: 0 1px 4px 0 rgba(black, 0.2);
+$shadow-user-menu: 0 1px 0 0 rgba(black, 0.2);
+
+$shadow-nav-expanded: 1px 0 3px 0 rgba(black, 0.2);
+
+$shadow-footer: 0 -2px 0 0 #f0f0f0;
+
+$shadow-button: 0 2px 0 0 rgba(black, 0.2);
+$shadow-button-disabled: 0 2px 0 0 rgba(black, 0.35);

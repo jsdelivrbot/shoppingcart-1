@@ -1,0 +1,30 @@
+@import "../../../styles/variables";
+.memberinfo{
+  padding: 15px;
+	border: 1px solid #CCCCCC;
+	border-radius: 4px;
+	background-color: #F7F7F7;
+  color:#5D5D5D;
+  span{
+    display:inline-block;
+    vertical-align: top;
+    width:45%;
+  }
+  span.label:after{
+    content:':';
+    float:right;
+  }
+  span.value {
+    margin-left:20px;
+    word-break: break-word;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .memberinfo{
+  [class^=col]+[class^=col] {
+    border-left: 1px solid #CCCCCC;
+    }
+}
+  }
+

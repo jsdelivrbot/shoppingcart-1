@@ -1,0 +1,157 @@
+tzf-form-fields {
+  > div {
+    display: flex;
+
+    > button {
+      background: #E3640F;
+      border: 0;
+      border-radius: 0 4px 4px 0;
+      color: white;
+      flex: auto;
+      font-size: 1.15em;
+      font-weight: bold;
+      padding: 0 1em;
+
+      &:not(:disabled) {
+        cursor: pointer;
+      }
+
+      &:disabled {
+        background: lighten(desaturate(#E3640F, 100%), 10%);
+      }
+    }
+  }
+
+  tzf-form-fields > div {
+    border: none; // Remove border for nested forms
+  }
+
+  + tzf-form-fields > div {
+    margin-top: 0.7em;
+  }
+
+  tzf-form-fields [tzfFormField] {
+    border: none; // Remove border for nested forms
+  }
+}
+
+[tzfFormField] {
+  margin: 0;
+  padding: $form-field-padding $form-field-padding-vertical * 0.85;
+  position: relative;
+
+  background: white;
+  border: $form-border;
+
+  &.fullWidth {
+    flex: auto;
+  }
+
+  &:not(.fullWidth) {
+    padding-top: 0.5em;
+    padding-bottom: 0.3em;
+  }
+
+  &.disabled {
+    color: #aaa;
+
+    > div > input[type=text],
+    tzf-form-field-popover > div > input,
+    button.toggle {
+      color: inherit;
+
+      &,
+      &::placeholder {
+        color: inherit;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(black, 0.1);
+      z-index: $z-disabled-form-field-mask;
+    }
+  }
+
+  &:not(:first-child) {
+    border-left: 0;
+  }
+
+  &:first-child {
+    border-radius: $form-border-radius 0 0 $form-border-radius;
+  }
+
+  &:last-child {
+    border-top-right-radius: $form-border-radius;
+    border-bottom-right-radius: $form-border-radius;
+  }
+
+  > div > input[type=text],
+  tzf-form-field-popover > div > input,
+  button.toggle {
+    background: $color-form-input-bg;
+    border: $form-input-border-style $color-form-input-border;
+    border-width: $form-input-border-width;
+    border-radius: $form-input-border-radius; // Only needed to override global member styles
+    box-shadow: $form-input-shadow; // Only needed to override global member styles
+    min-height: $form-input-height;
+    outline: none;
+    padding: 0 $form-input-padding-side;
+    text-align: left;
+    min-width: 150px;
+    width: 100%;
+
+    &,
+    &::placeholder {
+      color: $color-form-input-text;
+      font-size: $font-size-form-input-lg;
+      font-weight: $font-weight-form-input-lg;
+    }
+
+    &:focus,
+    &:focus + button.toggle {
+      border-bottom-color: $color-form-input-border-focus;
+    }
+  }
+
+  tzf-form-field-popover > input {
+    + button.toggle:focus {
+      border-bottom-color: $color-form-input-border !important;
+    }
+  }
+
+  > input[type=text] {
+    height: $form-input-height;
+  }
+
+  .label-content {
+    font-weight: $font-weight-medium;
+    margin-bottom: $form-field-label-margin-bottom;
+  }
+
+  .short-label-and-content {
+    display: flex;
+
+    .label-content {
+      margin: 1px 0.5em 0 0;
+
+      label::after {
+        content: ':';
+      }
+    }
+
+    > :last-child {
+      flex: auto;
+    }
+
+    input,
+    .toggle {
+      font-size: 0.9rem;
+    }
+  }
+}

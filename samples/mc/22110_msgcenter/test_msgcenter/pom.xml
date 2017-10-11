@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>testmsgcenterservice</groupId>
+   <artifactId>testmsgcenterservice</artifactId>
+   <version>1.0</version>
+   
+   <!--Add the SmartBear Ready! API plugin repository.--> 
+   <!--Maven will download the plugin from the specified URL.-->
+   <pluginRepositories>
+      <pluginRepository>
+         <id>SmartBearPluginRepository</id>
+         <url>http://smartbearsoftware.com/repository/maven2</url>
+      </pluginRepository>
+   </pluginRepositories>
+   <scm>
+      <connection>scm:git:http://pdstfs.trizetto.com:8080/tfs/HealthSystemSolutions/TranZform/_git/22110_msgcenter</connection>
+      <developerConnection>scm:git:http://pdstfs.trizetto.com:8080/tfs/HealthSystemSolutions/TranZform/_git/22110_msgcenter</developerConnection>
+      <url>http://pdstfs.trizetto.com:8080/tfs/HealthSystemSolutions/TranZform/_git/22110_msgcenter</url>
+      <tag>HEAD</tag>      
+    </scm>
+<dependencies>
+<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
+<dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcpkix-jdk15on</artifactId>
+    <version>1.51</version>
+</dependency>
+
+</dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+           <dependencies>    
+		<dependency>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongo-java-driver</artifactId>
+    <version>3.1.1</version>
+	<scope>runtime</scope>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+
+
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.6.3</version>    
+    
+</dependency>
+
+
+</dependencies>
+            <!--Plugin groupID used to uniquely identify the project with the plugin.-->
+            <groupId>com.smartbear</groupId>
+            <!--Plugin artifactId used to find the plugin in the project.-->
+            <artifactId>ready-api-maven-plugin</artifactId>
+            <!--Specifies your Ready! API version. Maven will use the appropriate plugin version.-->
+            <!-- IMPORTANT: Must be the same as your Ready! API version.-->
+            <version>1.7.0</version>
+
+            <executions>
+               <execution>
+
+                  <!--Specifies the lifecycle phase to run Ready! API tests .-->
+                  <!--We recommend using the test phase.-->
+                  <phase>test</phase>
+                  <goals>
+                     <!--Do not change. Commands Maven plugin to run a functional test.-->
+                     <goal>test</goal>
+                  </goals>
+
+                  <configuration>
+
+                     <!--Required. Specifies the path to the project to execute.-->
+                     <projectFile>test_msgcenter/HealthTranZform-Main/msgcenter-soapui-project.xml</projectFile>
+                     <reportFormat>PDF</reportFormat>
+                     <junitReport>true</junitReport>
+                     
+                     <reports>target/surefire-reports</reports>
+                     <printReport>true</printReport>
+                     <outputFolder>test_msgcenter/Results/HTMLResults</outputFolder>
+                     <!--exportAll>true</exportAll-->
+                     <settingsFile>C:\Users\pardhasaradhiprathiv\soapui-settings.xml</settingsFile>
+                     <testFailIgnore>true</testFailIgnore>
+                     <reportName>-r -a -j</reportName>
+                                  
+                    
+                     
+
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+
+         <!--Add Maven Site Plugin to improve test stability and prepare test data for Maven SureFire.-->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.5</version>
+            <configuration>
+               <locales>en,fr</locales>
+            </configuration>
+         </plugin>
+
+      </plugins>
+
+   </build>
+
+   <!--Add Maven SureFire Plugin to generate JUnit XML reports.-->
+   <reporting>
+   
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            
+            
+            <version>2.19.1</version>
+         </plugin>
+         
+      </plugins>
+   </reporting>
+
+</project>

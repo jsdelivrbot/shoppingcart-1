@@ -1,0 +1,133 @@
+swagger: '2.0'
+info:
+  title: TranZform - Message Center
+  version: 1.00.004.001
+  license:
+    name: ©TriZetto Corporation 2016.  All rights reserved. TriZetto Proprietary and Confidential Information.
+host: 127.0.0.1:8080 
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  '/conversation':
+   
+    post:
+      summary: Intiaties a conversation by the member in the specified category
+      description: The InitiateConversation API is used to initiate a conversation by the member within the specified category, such as Claims.
+      parameters:
+        - in: body
+          name: Conversation
+          required: true
+          schema:
+            $ref: '#/definitions/Conversation'
+      responses:
+        '200':
+          description: Conversation has been successfully initiated.           
+  '/message':
+    post:
+      summary: Send Message
+      description: The SendMessage API sends a message or a reply to an existing converstion.
+      parameters:
+        - in: body
+          name: Message
+          required: true
+          schema:
+            $ref: '#/definitions/Message'
+      responses:
+        '200':
+          description: Message successfully sent
+  '/message/{messageId}/status/{status}':
+    delete:
+      summary: Delete the message 
+      description: Delete Message API is for deleting an existing message from  Conversation.
+      parameters:
+        - name: messageId
+          in: path
+          required: true
+          type: string
+        - name: status
+          in: path
+          required: true
+          type: string    
+      responses:
+        '200':
+           description: Successful deletion of Message.      
+definitions:
+  Conversation:
+    type: object
+    properties:
+      messageId:
+        type: string
+        description: Unique ID of the message. 
+        maxLength: 20
+      conversationId:
+        type: string
+        maxLength: 20
+        description: Unique ID of the conversation.
+      tenantEnrollmentId:
+        type: string
+        maxLength: 20
+        description: Unique ID assigned by the Tenant to the member; internal Member ID; not external facing. 
+      conversationCategory:
+        type: string
+        description: The category associated with the content of the message.
+        maxLength: 50
+      subject:
+        type: string
+        maxLength: 100
+        description: The subject of conversation.
+      messageText:
+        type: string
+        maxLength: 1000
+        description: The content of the message.
+      createDateTime:
+        type: string
+        format: date
+        description:  The date the conversation and message was created in MM/DD/YYYY format.
+      conversationStatus:
+        type: string
+        maxLength: 20
+        description: Status of the conversation.
+    required:
+      - messageId
+      - conversationId
+      - tenantEnrollmentId
+      - conversationCategory
+      - subject
+      - messageText
+      - createDateTime
+      - conversationStatus
+ 
+  Message:
+    type: object
+    properties:
+      messageId:
+        type: string
+        description: Unique ID of the message. 
+        maxLength: 20
+      conversationId:
+        type: string
+        maxLength: 20
+        description: Unique ID of the conversation.
+      tenantEnrollmentId:
+        type: string
+        maxLength: 20
+        description: Unique ID assigned by the Tenant to the member; internal Member ID; not external facing. 
+      messageText:
+        type: string
+        maxLength: 1000
+        description: The content of the message.
+      createDateTime:
+        type: string
+        format: date
+        description:  The date the message was created in MM/DD/YYYY format.
+    required:
+      - messageId
+      - conversationId
+      - tenantEnrollmentId
+      - messageText
+      - createDateTime
+   
+ 
+

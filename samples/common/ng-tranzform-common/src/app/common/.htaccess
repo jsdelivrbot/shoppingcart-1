@@ -1,0 +1,22 @@
+# Enable HTML5 routing in Apache HTTP Server
+#
+# This requires AllowOverride FileInfo Options
+# to be set in httpd.conf for this directory.
+#
+# For better performance, these directives should
+# be configured directly in httpd.conf
+# https://httpd.apache.org/docs/current/howto/htaccess.html
+
+# SymLinks option required for rewriting
+Options +FollowSymLinks
+
+RewriteEngine on
+
+# Pass through requests for files that exist
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+
+# Otherwise, serve the index
+RewriteRule ^(.*) index.html [NC,L]

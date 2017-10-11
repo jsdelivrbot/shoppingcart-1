@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "search.exclude": {
+    "styleguide": true,
+    "documentation": true
+  },
+
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "genGetSet.spacedImportLine": true,
+  "tslint.autoFixOnSave": true
+}

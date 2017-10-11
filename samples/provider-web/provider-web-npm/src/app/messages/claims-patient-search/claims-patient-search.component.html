@@ -1,0 +1,73 @@
+<label class="p14r limitTxt" translate>{{'PATIENT_SERACH_FORM.CLAIMS_AND_MEMBER_LIMIT_TEXT.START_TEXT' | translate}} {{msg_const.CLAIMS_PER_MEMBER_LIMIT}} {{'PATIENT_SERACH_FORM.CLAIMS_AND_MEMBER_LIMIT_TEXT.MIDDLE_TEXT' | translate}} {{msg_const.MEMBER_LIMIT}} {{'PATIENT_SERACH_FORM.CLAIMS_AND_MEMBER_LIMIT_TEXT.END_TEXT' | translate}}</label>
+<div class="alert alert-info" *ngIf="memberCount == 0" role="alert">
+    {{'PATIENT_SERACH_FORM.NO_CLAIMS_ATTACHED' | translate}}
+</div>
+<form [hidden]="formSubmitted" #claimSearchForm="ngForm" id="searchformmain" (ngSubmit)="searchClaims()" autocomplete="off" novalidate>
+  <div class="alert alert-info attachedClaimsDiv" *ngIf="memberCount > 0" role="alert">
+    <span *ngFor="let key of searchedMemberClaimMapKeys" id="{{key}}">
+      <span *ngFor="let val of searchedMemberClaimMap[key].claims" class="attachedClaim">{{val.memberName}}-{{val.claimId}}
+        <span class="removeIcon" (click)="removeClaim(key, val.claimId)" [inlineSVG]="'assets/common/icons/icon_close.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false"></span>
+      </span>
+    </span>
+  </div>
+  <tzf-form-fields>
+    <div tzfFormField [validation]="memberId" [validationMessages]="valMsg.tenantenrollmentid" label="PATIENT_SERACH_FORM.MEMBERID.LABEL"
+      id="memberIdLabel">
+      <input type="text" #memberId="ngModel" pattern="[a-zA-Z0-9 ]*" required
+       [(ngModel)]="searchCriteria.tenantenrollmentid"
+        [maxLength]="12" name="memberId" placeholder="{{'ELIGIBILITY.SEARCHFORM.ELEMENTS.MEMBERID.PLACEHOLDER' | translate}}"
+      />
+    </div>
+    <div tzfFormField [validation]="dateofbirth" [validationMessages]="valMsg.dateofbirth" label="PATIENT_SERACH_FORM.DOB.LABEL"
+      id="dateOfBirthIdLabel">
+      <tzf-form-field-datepicker #dateofbirth="ngModel" [yearPicker]="true" required [(ngModel)]="searchCriteria.dateofbirth" name="birthDate"
+        [id]="'formFields-birthDate'" placeholder="{{'PATIENT_SERACH_FORM.DOB.PLACEHOLDER' | translate}}"></tzf-form-field-datepicker>
+    </div>
+    <button type="submit" [disabled]="claimSearchForm.invalid || claimSearchForm.pristine" id="claimSearchSubmit" translate>PATIENT_SERACH_FORM.SEARCH_BUTTON.LABEL</button>
+  </tzf-form-fields>
+  </form>
+  <div *ngIf="noMemberFound && !memberName" class="alert alert-info noMemberFoundTxt" role="alert">
+        {{'PATIENT_SERACH_FORM.NO_RESULT_FOUND' | translate}}
+  </div>
+  <div class="row memberListDiv" *ngIf="memberName">
+    <div class="col-sm-6">
+      <label class="p14r">{{memberName}}</label>
+      
+  </div>
+  <div class="col-sm-6 newPatientSearchDiv">
+    <a class="p14b" id="newPatientSearch" tabindex="-1" [attr.title]="'PATIENT_SERACH_FORM.NEW_PATIENT_SEARCH'" (click)="newPatientSearch()" [inlineSVG]="'assets/common/icons/SearchIcon.svg'" [cacheSVG]="false" [prepend]="true" [replaceContents]="false">
+      {{'PATIENT_SERACH_FORM.NEW_PATIENT_SEARCH' | translate }}
+    </a>
+  </div>
+  </div>
+<div *ngIf="formSubmitted && memberName" class="claimSearchResultDiv">
+  <div *ngIf="claimSearchResult; else noClaimsFound" class="claimListDiv">
+    <div class="selectClaimInfoTxt" role="alert">
+        {{'PATIENT_SERACH_FORM.SELECT_CLAIM_YOU_WANT_TO_ATTACH' | translate}}
+    </div>
+    <ul class="claimSearchResultList">
+      <li *ngFor="let claim of claimSearchResult">
+        <label for="chk-{{claim.claimId}}" id="claimInfoLabel1">
+            <input type="checkbox" class="form-control" id="chk-{{claim.claimId}}" name="claimChkBox"   
+            [checked]="isClaimChecked(claim.claimId)"
+            (change)="updateClaimList(claim.claimId, claim.claimType, $event.target.checked)" 
+            [disabled]="isClaimDisabled(claim.claimId)" />
+            <span class="styledInput"></span> 
+        </label>
+        <label id="claimInfoLabel2">                 
+            <span class="p14b">{{claim.claimId}}-{{claim.lowServiceDate |date:AppConfig.DateFormat}}</span>                       
+        </label>
+      </li>
+    </ul>
+    <div class="attachBtnDiv">
+      <button type="button" class="btn btn-primary" [disabled]="selectedClaims.length <= 0" id="claimAttachSubmit" 
+      (click)="attachClaims(selectedClaims)" translate>PATIENT_SERACH_FORM.ATTACH_BUTTON.LABEL</button>
+    </div>
+  </div>
+  <ng-template #noClaimsFound>
+    <div class="alert alert-info" role="alert">
+        {{'PATIENT_SERACH_FORM.NO_RESULT_FOUND' | translate}}
+    </div>
+  </ng-template>
+</div>
+

@@ -1,0 +1,88 @@
+<div [formGroup]="claimDetailForm">
+      <ngb-accordion #accone="ngbAccordion" activeIds="patient-control,prior-authorization,patient-condition">
+        <!-- Patient Control Information -->
+        <ngb-panel id="patient-control">
+          <ng-template ngbPanelTitle>
+            <span id="referral-status-title">{{'CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONTROLNUMBER' | translate }}</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div class="row">
+              <div class="col-4 col-xl-4 col-md-6">
+                <div tzfFormField label="CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONTROLINFO" labelFor="CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONTROLINFO"
+                  [validation]="claimDetailForm.controls.patientAccountNumber" [validationMessages]="valMsg.patientAccountNumber"
+                  class="bootstrap-style">
+                  <input type="text" pattern="[a-zA-Z0-9#-]*" [maxLength]="10" id="patientControlNumber" formControlName="patientAccountNumber"
+                    placeholder="{{'CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTACCOUNTNUMBER' | translate}}">
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-panel>
+
+        <!-- End of Patient Control Tabl Information -->
+        <!-- Prior Authorization Number -->
+        <ngb-panel id="prior-authorization">
+          <ng-template ngbPanelTitle>
+            <span id="referral-status-title">{{'CLAIM.CREATECLAIM.CLAIMDETAIL.PRIORAUTHNUMBER' | translate }}</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div class="row">
+              <div class="col-4 col-xl-4 col-md-6">
+                <div tzfFormField label="CLAIM.CREATECLAIM.CLAIMDETAIL.PRIORAUTH" labelFor="CLAIM.CREATECLAIM.CLAIMDETAIL.PRIORAUTH" class="bootstrap-style"
+                  [validation]="claimDetailForm.controls.priorAuthorizationNumber" [validationMessages]="valMsg.priorAuthorizationNumber">
+                  <input type="text" pattern="[a-zA-Z0-9#-]*" [maxLength]="10" id="priorAuthNumber" formControlName="priorAuthorizationNumber"
+                    placeholder="{{'CLAIM.CREATECLAIM.CLAIMDETAIL.PRIORAUTH' | translate}}">
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-panel>
+        <!-- End of Prior Authorization Number -->
+        <!-- Patient Condition Impact -->
+        <ngb-panel id="patient-condition">
+          <ng-template ngbPanelTitle>
+            <span id="referral-patient-condition-title">{{'CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONDITION.TITLE' | translate }}</span>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div [formGroup]="patientConditionForm" *ngFor="let patientConditionForm of claimDetailForm.get('patientConditions').controls; let i=index"
+              class="patient-condition-content" id="patient-condition-content">
+              <p translate class="desc p14r" id="desc">CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONDITION.DESC</p>
+              <div class="condition-types col-3 margin0">
+                <p class="p14b" translate>CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONDITION.CONDITION</p>
+                <label translate *ngFor="let item of conditionRelatedOptions">
+                    <input type="checkbox"
+                     [checked]="patientConditionForm.controls.conditionType.value===item.value"
+                     name="{{item.value}}" id="{{item.value}}"
+                     [value]="item.value"
+                     (change)="patientConditionForm.controls.conditionType.setValue($event.target.checked ? $event.target.defaultValue : null);patientConditionForm.controls.conditionType.markAsDirty()" >
+                    <span class="styledInput"></span>
+                    {{item.code}}
+              </label>
+              </div>
+              <div class="row margin0 accidentInfo" *ngIf="patientConditionForm.controls.conditionType.value===resultofaccident">
+                <div class="col-4">
+                  <div tzfFormField class="bootstrap-style" label="CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONDITION.ACCIDENTTYPE">
+                    <tzf-form-field-dropdown valueField="value" textField="code" [options]="accidentOptions" formControlName="accidentType" name="accidentType"
+                      [required]="patientConditionForm.controls.conditionType.value===resultofaccident" placeholder="Accident Type"></tzf-form-field-dropdown>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div id="dob" class="date-picker bootstrap-style" label="CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONDITION.ACCIDENTDATE" tzfFormField
+                    [validation]="patientConditionForm.controls.accidentDate" [validationMessages]="[{'validator': 'maxDateValidator','message': 'Accident Date cannot be greater than today'}]">
+                    <tzf-form-field-datepicker name="accidentDate" formControlName="accidentDate" [maxDate]="ngbToday" [required]="patientConditionForm.controls.conditionType?.value===resultofaccident"
+                      placeholder="MM/DD/YYYY"></tzf-form-field-datepicker>
+                  </div>
+                </div>
+                <div class="col-4" *ngIf="patientConditionForm.controls.accidentType.value===AUTO">
+                  <div tzfFormField class="bootstrap-style" label="CLAIM.CREATECLAIM.CLAIMDETAIL.PATIENTCONDITION.STATE">
+                    <tzf-form-field-dropdown textField="code" valueField="value" [options]="states" formControlName="accidentState" name="state"
+                      [required]="patientConditionForm.controls.conditionType.value===resultofaccident && patientConditionForm.controls.accidentType.value===AUTO"
+                      placeholder="State"></tzf-form-field-dropdown>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>

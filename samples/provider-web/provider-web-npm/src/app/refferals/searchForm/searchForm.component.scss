@@ -1,0 +1,33 @@
+@import "../../../styles/variables";
+@import "../../../styles/common.scss";
+
+.description{
+    display: flex;
+    justify-content: space-between;
+
+    .resetSearch{
+    color: $color-pimary-light-blue;
+    cursor:pointer;
+}
+
+a /deep/ {
+
+    svg {
+      width: 1.1em;
+      height:1.1em;
+      position: relative;
+      top: 3px;
+      path{
+          fill: $color-pimary-light-blue;
+          stroke: $color-pimary-light-blue;
+          stroke-width: 3px;
+      }
+    }
+  }
+}
+
+button{
+      min-width: 10em;
+}
+
+

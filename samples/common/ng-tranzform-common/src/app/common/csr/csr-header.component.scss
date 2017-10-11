@@ -1,0 +1,49 @@
+@import '../styles/font';
+@import '../styles/pro/layout';
+
+:host {
+  background: #0d5f7d;
+  color: white;
+  display: block;
+  line-height: 1em;
+  padding: 0 $side-padding;
+  padding: 0 var(--side-padding);
+}
+
+a {
+  color: #83e5ea;
+}
+
+ul {
+  margin: 0;
+}
+
+#csr-user {
+  padding: 1em 0;
+}
+
+li {
+  display: inline-block;
+
+  &:first-child {
+    border-right: 1px solid currentColor;
+    margin-right: 1.5em;
+    padding-right: 1.5em;
+  }
+}
+
+#csr-user {
+  font-size: 0.9em;
+}
+
+#csr-context {
+  border-top: 1px solid #3d7f97;
+  display: flex;
+  font-size: 1.1em;
+  font-weight: $font-weight-medium;
+  padding: 1.3em 0;
+
+  > ul {
+    flex: auto;
+  }
+}

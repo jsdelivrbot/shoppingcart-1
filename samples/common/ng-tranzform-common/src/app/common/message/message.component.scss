@@ -1,0 +1,43 @@
+div {
+  border: 2px solid;
+  border-radius: 3px;
+  display: inline-block;
+  min-width: 60%;
+  max-width: 800px;
+  padding: 0.8em 1.5em;
+  margin-bottom: 1em;
+
+  ::ng-deep {
+    svg {
+      float: left;
+      height: 1.5em;
+      width: 1.5em;
+    }
+  }
+}
+
+:host {
+  &.error {
+    div {
+      background: #fff3f7;
+      border-color: #ee7b94;
+      color: #d90c38;
+    }
+  }
+
+  &.success {
+    div {
+      background: #ebf4e4;
+      border-color: #7d9b76;
+      color: #386830;
+    }
+  }
+
+  ::ng-deep path {
+    fill: currentColor;
+  }
+}
+
+ul {
+  margin: 0 0 0 3em;
+}

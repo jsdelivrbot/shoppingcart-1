@@ -1,0 +1,31 @@
+{
+	"conversationId": "CONV1324",
+	"conversationStatus": "ACTIVE",
+	"msgCounter": 1,
+	"context": "Provider",
+	"createDateTime": "2017-07-20T09:17:28.481Z",
+	"messages": {
+		"from": {
+			"id": "M1001@tranzform.com",
+			"type": "SYSTEM",
+			"status": "ACTIVE"
+		},
+		"to": {
+			"id": "AD003",
+			"type": "Staff",
+			"userName": "Christopher R Turk",
+			"status": "ACTIVE",
+			"isRead": false
+		},
+		"conversationCategory": "General",
+		"conversationId" : "CONV1324",
+		"subject": "Subject:Sending Message83",
+		"messageId": "MSG2073",
+		"messageText": "76",
+		"messageStatus": "ACTIVE",
+		"createdDate": "2017-07-20T09:17:59.609Z",
+		"modifiedDate": "2017-07-20T09:17:59.609Z",
+		"trailMessageId": "MSG2072",
+		"isFwd": false
+	}
+}

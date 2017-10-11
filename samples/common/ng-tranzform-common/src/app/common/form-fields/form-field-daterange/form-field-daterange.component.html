@@ -1,0 +1,52 @@
+<tzf-form-field-popover
+  (prepare)="prepare()"
+  (accept)="accept()"
+  (reset)="reset()"
+  >
+  <span button>
+    <ng-container *ngIf="!range[startField] && !range[endField]">
+      {{ placeholder | translate }}
+    </ng-container>
+    <ng-container *ngIf="range[startField] || range[endField]">
+      {{ range[startField] | date:'M/d/y' }}
+      -
+      {{ range[endField] | date:'M/d/y' }}
+    </ng-container>
+  </span>
+  <div style="white-space: nowrap;" content>
+    <div *ngIf="predefinedRanges"
+      class="predefined"
+    >
+      <tzf-segmented
+        [options]="predefinedRanges"
+        [ngModel]="predefined"
+        (ngModelChange)="selectPredefined($event)"
+      ></tzf-segmented>
+    </div>
+    <div class="dates">
+      <tzf-form-field-daterange-date
+        [id]="id + '-start'"
+        [ngModel]="editRange.start"
+        (ngModelChange)="dateChanged($event, 'start')"
+        [overrideDate]="predefinedStart"
+        [label]="startLabel"
+        [format]="format"
+        [startDate]="true"
+        [maxDate]="delayedEndDate || maxDate"
+        [minDate]="minDate"
+        class="start"
+      ></tzf-form-field-daterange-date>
+      <tzf-form-field-daterange-date
+        [id]="id + '-end'"
+        [ngModel]="editRange.end"
+        (ngModelChange)="dateChanged($event, 'end')"
+        [overrideDate]="predefinedEnd"
+        [label]="endLabel"
+        [format]="format"
+        [minDate]="editRange.start || minDate"
+        [maxDate]="maxDate"
+        class="end"
+      ></tzf-form-field-daterange-date>
+    </div>
+  </div>
+</tzf-form-field-popover>

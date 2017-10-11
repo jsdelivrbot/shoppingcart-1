@@ -1,0 +1,5 @@
+<tzf-parent-route-content id="eligibility"
+  (fromChild)="fromChild($event)">
+<app-eligibility-search-form [(criteria)]="searchCriteria" (onSearch)="onEligibilitySearch($event)"></app-eligibility-search-form>
+<tzf-message *ngIf="showError" message="{{'ELIGIBILITY.ERRORMESSAGE' | translate}}"></tzf-message>
+</tzf-parent-route-content>

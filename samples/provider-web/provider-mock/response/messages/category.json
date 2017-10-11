@@ -1,0 +1,15 @@
+[
+  {
+    "category": "providerCategories",
+    "data": [
+      {
+        "code": "GENERAL",
+        "value": "General"
+      }
+    ],
+    "createdBy": "Admin",
+    "createdDate": "11/23/2016",
+    "modifiedDate": "11/23/2016",
+    "active": true
+  }
+]

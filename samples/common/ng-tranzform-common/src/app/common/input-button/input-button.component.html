@@ -1,0 +1,9 @@
+<ng-content selector="input"></ng-content>
+<button type="button"
+  *ngIf="btnIf"
+  [attr.id]="id"
+  (click)="btnClick.emit()"
+  [inlineSVG]="btnSVG"
+  [attr.title]="btnTitle | translate"
+  [attr.tabindex]="btnTabindex"
+></button>
