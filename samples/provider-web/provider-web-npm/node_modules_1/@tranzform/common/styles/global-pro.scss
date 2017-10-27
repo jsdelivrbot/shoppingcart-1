@@ -1,0 +1,7 @@
+@import '~bootstrap/scss/mixins/screen-reader';
+@import '~bootstrap/scss/utilities/screenreaders';
+@import 'pro/global';
+
+.focus-outline-hidden :focus {
+  outline: none;
+}

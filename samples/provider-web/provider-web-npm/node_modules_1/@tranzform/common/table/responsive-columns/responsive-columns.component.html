@@ -1,0 +1,22 @@
+<table
+  class="colTable"
+>
+  <tbody>
+    <tr *ngFor="let col of columns">
+      <th
+        scope="row"
+        class="rowHeader {{ col.styleClass }}"
+      >{{ col.header }}</th>
+      <td *ngIf="!col.bodyTemplate"
+        class="{{ col.styleClass }}"
+      >
+        {{ resolveFieldData(row, col.field) }}
+      </td>
+      <td *ngIf="col.bodyTemplate"
+        class="{{ col.styleClass }}"
+      >
+        <p-columnBodyTemplateLoader [column]="col" [rowData]="row"></p-columnBodyTemplateLoader>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<nav id="wizard-nav" #nav>
+  <ol id="wizard-nav-list">
+    <li
+      *ngFor="let step of steps; let i = index"
+      class="wizard-nav-item"
+      [class.complete]="activeIndex > i"
+      [class.active]="activeIndex === i"
+    >
+      <a [href]="backLink(i)"
+        [attr.id]="id && step.id && id + '-' + step.id + '-link'"
+        class="back-link"
+        *ngIf="activeIndex > i"
+      >
+        <span class="number" inlineSVG="assets/common/icons/Done.svg"></span>
+        <span class="title" translate>{{ step.name }}</span>
+      </a>
+      <ng-container *ngIf="activeIndex <= i">
+        <span class="number">{{ i + 1 }}</span>
+        <span class="title" translate>{{ step.name }}</span>
+      </ng-container>
+    </li>
+  </ol>
+</nav>
+
+<div class="content-box" [tzfLoading]="waiting">
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,66 @@
+@import '../../styles/pro';
+
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: $font-weight-light;
+  margin: 0;
+  padding: 0.2em 0 1em;
+  white-space: nowrap;
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+[content] {
+  max-height: 200px;
+}
+
+input {
+  opacity: 0;
+  width: 0;
+
+  + .styledInput {
+    border: 1px solid $color-checkbox-border;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px 0 $color-checkbox-checked-shadow;
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    position: relative;
+    top: 2px;
+    margin-right: 0.4em;
+  }
+
+  &[type=radio] + .styledInput {
+    border-radius: 100%;
+  }
+
+  &[type=checkbox] {
+    &:checked {
+      + .styledInput {
+        &::before {
+          content: '\2713';
+          color: $color-checkbox-checked;
+          display: inline-block;
+          position: relative;
+          font-size: 14px;
+          top: -4px;
+          font-weight: bold;
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+
+  &:checked + .styledInput {
+    background: $color-checkbox-checked-bg;
+    border-color: $color-checkbox-checked-bg;
+    overflow: hidden;
+  }
+
+  &:focus + .styledInput {
+    box-shadow: 0 1px 8px 0 $color-checkbox-focus-shadow;
+  }
+}

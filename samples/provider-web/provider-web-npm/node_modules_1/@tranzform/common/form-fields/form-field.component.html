@@ -1,0 +1,40 @@
+<div
+  [class.short-label-and-content]="short"
+>
+  <p class="label-content">
+    <label
+      [attr.for]="labelFor"
+      translate
+    >{{ label }}</label>
+    <span *ngIf="hasInfo"
+      class="info-container"
+      tzfClickOutside
+      (clickOutside)="showInfo = false"
+    >
+      <button type="button"
+        [attr.id]="id && id + '-infoBtn'"
+        class="info-btn"
+        inlineSVG="assets/common/icons/Icon_Info.svg"
+        (click)="showInfo = true"
+      ></button
+      ><div class="info-box">
+        <div class="info-box-content">
+          <ng-content select="[info]"></ng-content>
+        </div>
+        <button type="button"
+          [attr.id]="id && id + '-infoCloseBtn'"
+          class="info-close"
+          (click)="showInfo = false"
+        >✕</button>
+      </div>
+    </span>
+  </p>
+  <p *ngIf="hint && !short" class="hint" translate>{{ hint }}</p>
+  <ng-content></ng-content>
+</div>
+<p *ngIf="hint && short" class="hint" translate>{{ hint }}</p>
+<ng-container *ngIf="validation && validation.errors && (validation.dirty || validation.touched)">
+  <ng-container *ngFor="let msg of validationMessages">
+    <p style="color: red;" *ngIf="validation.errors[msg.validator]" translate>{{ msg.message }}</p>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,34 @@
+<tzf-form-field-popover
+  (prepare)="prepare()"
+  (accept)="updateFromDatepicker()"
+  (reset)="reset()"
+  [disableToggleKeyAccess]="true"
+  [disabled]="disabled"
+  >
+  <input type="text"
+    [id]="id"
+    [ngModel]="textValue"
+    (ngModelChange)="setTextValue($event)"
+    (blur)="checkUserInput()"
+    [disabled]="disabled"
+  >
+  <div class="cal-and-year" content>
+    <tzf-datepicker
+      [ngModel]="ngbDate"
+      (ngModelChange)="ngbDateChange($event)"
+      [minDate]="minDate"
+      [maxDate]="maxDate"
+      [dayTemplate]="dayTemplate"
+      [yearPicker]="yearPicker"
+    ></tzf-datepicker>
+  </div>
+  <span button>{{ textValue && textValue.length ? '' : placeholder }}</span>
+</tzf-form-field-popover>
+
+<ng-template #dayTemplate let-date="date" let-selected="selected">
+  <div
+    class="day"
+    [class.bg-primary]="selected"
+    (mousedown)="ngbDateChange(date)"
+  >{{ date.day }}</div>
+</ng-template>

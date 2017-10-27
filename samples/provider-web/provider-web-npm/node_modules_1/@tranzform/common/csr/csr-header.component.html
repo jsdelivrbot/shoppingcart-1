@@ -1,0 +1,23 @@
+<ul id="csr-user">
+  <li>{{ name }}</li
+  ><li>
+    <a href
+      (click)="!!logout.emit()"
+      translate
+    >CSR Log Out</a>
+  </li>
+</ul>
+<div id="csr-context"
+  *ngIf="context"
+>
+  <ul>
+    <li>{{ context }}</li
+    ><li>
+      <a href
+        (click)="!!exit.emit()"
+        translate
+      >{{ exitText }}</a>
+    </li>
+  </ul>
+  <ng-content select="[contextContent]"></ng-content>
+</div>

@@ -1,0 +1,21 @@
+<ul id="user-bar"
+  *ngIf="userService.user"
+  class="top-bar-options"
+>
+  <li>
+    <a
+      [routerLink]="['profile']"
+      translate
+    >HOME.HOME_ACCOUNT</a>
+  </li>
+  <li>
+    <a
+      href
+      translate
+    >HOME.HOME_LOGOUT</a>
+  </li>
+  <li>
+    {{ 'HOME.HOME_LASTLOGGEDIN' | translate }}
+    {{ userService.user.lastLoggedInDate }}
+  </li>
+</ul>

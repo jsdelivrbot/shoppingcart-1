@@ -1,0 +1,9 @@
+<div class="arrow" [class.disabled]="disabled"></div>
+<select
+  [attr.id]="id"
+  [(ngModel)]="value"
+  [attr.disabled]="disabled"
+>
+  <option *ngIf="placeholder" [value]="PLACEHOLDER_VALUE" style="display: none" disabled translate>{{placeholder}}</option>
+  <option *ngFor="let o of options" [value]="o[valueField]" translate>{{ o[textField] }}</option>
+</select>

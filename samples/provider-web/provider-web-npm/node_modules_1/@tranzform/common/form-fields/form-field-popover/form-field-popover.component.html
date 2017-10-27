@@ -1,0 +1,43 @@
+<div
+  [tzfClickOutside]="open"
+  [ignoreOrphanTargetClicks]="true"
+  (clickOutside)="doAccept()"
+>
+  <ng-content select="input"></ng-content>
+  <button #toggleButton
+    class="toggle"
+    type="button"
+    (click)="toggle()"
+    [disabled]="disabled"
+    [attr.aria-expanded]="open"
+    [attr.aria-controls]="id && id + '-popover'"
+    [attr.tabindex]="disableToggleKeyAccess && -1"
+  >
+    <ng-content select="[button]"></ng-content>
+    <div class="caret" [class.active]="open"></div>
+  </button>
+  <fieldset #popover
+    [attr.id]="id && id + '-popover'"
+    (window:resize)="keepPopoverOnScreen()"
+    [attr.aria-hidden]="!open"
+  >
+    <legend><!-- Should label be duplicated here? --></legend>
+    <div class="popover">
+      <div class="content" (keypress)="closeOnEnter($event)">
+        <ng-content select="[content]"></ng-content>
+      </div>
+      <div class="actions" *ngIf="actions">
+        <button type="button"
+          [attr.id]="id && id + '-resetBtn'"
+          class="cancel"
+          (click)="doReset()"
+        >Clear</button>
+        <button type="button"
+          [attr.id]="id && id + '-acceptBtn'"
+          class="accept"
+          (click)="doAccept()"
+        >Done</button>
+      </div>
+    </div>
+  </fieldset>
+</div>

@@ -1,0 +1,40 @@
+<ul
+  role="tablist"
+>
+  <li *ngFor="let tab of items; let i = index"
+    role="presentation"
+    class="tab"
+  >
+    <a *ngIf="routing"
+      [attr.id]="tab.id && tab.id + '-tab'"
+      role="tab"
+      [class.disabled]="tab.disabled"
+      [routerLink]="tab.routerPath"
+      routerLinkActive="active"
+      [inlineSVG]="tab.svgPath"
+      [prepend]="true"
+    >
+      {{ tab.label | translate }}
+      <strong class="badge" *ngIf="showBadge(tab.badge)" translate>
+        <span class="badge-value">{{ tab.badge }}</span>
+      </strong>
+    </a>
+    <button *ngIf="!routing"
+      [attr.id]="tab.id && tab.id + '-tab'"
+      (click)="select(tab.instance)"
+      role="tab"
+      [disabled]="tab.disabled"
+      [attr.aria-selected]="tab.id === selected"
+      [attr.aria-controls]="tab.id"
+      [inlineSVG]="tab.svgPath"
+      [prepend]="true"
+    >
+      {{ tab.label | translate }}
+      <strong class="badge" *ngIf="showBadge(tab.badge)" translate>
+        <span class="badge-value">{{ tab.badge }}</span>
+      </strong>
+    </button>
+  </li>
+</ul>
+
+<ng-content></ng-content>

@@ -1,0 +1,49 @@
+<tzf-form-field-popover [id]="id && id + '-popover'" (prepare)="updateValueMap()" (accept)="accept()" (reset)="reset()">
+  <span button>
+    <span *ngIf="multi && selectedOptions.length && selectedOptions.length === options.length" translate>
+      {{ allText }}
+    </span>
+    <span *ngIf="multi && selectedOptions.length && selectedOptions.length < options.length">
+      <span *ngFor="let option of selectedOptions; let last = last; let i = index">
+        <ng-container *ngIf="i < maxSelectedVisible">
+          <span class="option-{{ option[valueField] }}" translate>{{ option[textField] }}</span>{{ !last ? ',' : '' }}
+        </ng-container>
+      </span>
+      <span *ngIf="selectedOptions.length > maxSelectedVisible">
+        {{ selectedOptions.length - maxSelectedVisible }} more...
+      </span>
+    </span>
+    <span *ngIf="value" translate>
+      {{ valueMap[value] }}
+    </span>
+    <span *ngIf="multi ? !selectedOptions.length : !value" translate>
+      {{ placeholder }}
+    </span>
+  </span>
+  <div content>
+    <ng-container *ngIf="options.length">
+      <label *ngIf="multi">
+        <input type="checkbox" [checked]="allSelected" (click)="toggleAll($event.target.checked)"
+        ><span class="styledInput"></span>
+        {{ allText | translate }}
+      </label>
+      <label *ngFor="let option of options" class="option-{{ option[valueField] }}">
+        <input *ngIf="!multi"
+          type="radio"
+          name="{{ id }}-radio"
+          [ngModel]="editValue"
+          (ngModelChange)="editValueChanged($event)"
+          [value]="option[valueField]"
+        ><input *ngIf="multi"
+          type="checkbox"
+          [(ngModel)]="selectedValueMap[option[valueField]]"
+          (change)="updateAll()"
+        ><span class="styledInput"></span>
+        {{ option[textField] | translate }}
+      </label>
+    </ng-container>
+    <span *ngIf="!options.length" translate>
+      {{ noOptionsText }}
+    </span>
+  </div>
+</tzf-form-field-popover>

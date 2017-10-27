@@ -1,0 +1,11 @@
+<tzf-modal-content
+  [modal]="modal"
+  [headerText]="headerText"
+  [submitText]="okText"
+  [cancelText]="cancelText"
+  [cancelButton]="cancelText.length"
+  (submit)="onSubmit()"
+  (dismiss)="onDismiss($event)"
+>
+  <p main *ngFor="let m of messages" translate>{{ m }}</p>
+</tzf-modal-content>

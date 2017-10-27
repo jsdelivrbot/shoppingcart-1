@@ -1,0 +1,60 @@
+@import '../styles/pro';
+
+.outer-list {
+  border: $standard-border-style $color-pagination-border;
+  border-width: $standard-border-width 0;
+  margin: 1em 0 0;
+  padding: 0.8em 0;
+  text-align: center;
+
+  ::ng-deep {
+    .page-item {
+      display: inline-block;
+    }
+
+    .page-link {
+      color: $color-pagination;
+      display: inline-block;
+    }
+
+    .pagination {
+      margin: 0 0.8em;
+
+      .page-item {
+        margin: 0 0.2em;
+      }
+
+      .page-link {
+        line-height: 1.7em;
+        min-width: 1.7em;
+        padding: 0 0.5em;
+      }
+    }
+
+    .active {
+      .page-link {
+        background: $color-pagination-active-bg;
+        border-radius: 2px;
+        color: $color-pagination-active;
+      }
+    }
+  }
+}
+
+.page-link {
+  padding: 0 1.3em;
+}
+
+.left,
+.right {
+  border: 0 $standard-border-style $color-pagination-separator;
+  line-height: 1em;
+}
+
+.left {
+  border-right-width: $standard-border-width;
+}
+
+.right {
+  border-left-width: $standard-border-width;
+}

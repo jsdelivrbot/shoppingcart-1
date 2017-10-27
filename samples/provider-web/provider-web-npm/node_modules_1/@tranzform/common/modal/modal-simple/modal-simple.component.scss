@@ -1,0 +1,5 @@
+::ng-deep {
+  body.two-modals .modal-backdrop {
+    opacity: .75 * 2/3; // Compute so that 2 backdrops have the same mixed opacity as a single one
+  }
+}

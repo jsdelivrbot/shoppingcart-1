@@ -1,0 +1,59 @@
+@import '../pro';
+
+ngb-accordion {
+  .card-header:not(.active),
+  .card-body {
+    margin-bottom: 1.2em;
+  }
+
+  .card-header {
+    background: $color-accordion-heading-bg;
+    border: $standard-border $color-accordion-border;
+    border-radius: $accordion-radius;
+    box-shadow: inset 4px 0 0 0 $color-accordion-heading-shadow;
+    position: relative;
+
+    &::before {
+      border: solid $color-accordion-arrow;
+      border-width: $accordion-arrow-width $accordion-arrow-width 0 0;
+      content: '';
+      display: inline-block;
+      height: $accordion-arrow-size;
+      width: $accordion-arrow-size;
+      pointer-events: none;
+      position: absolute;
+      left: 1.3em;
+      top: 1.15em;
+      transition: all $transition-accordion-arrow;
+      transform: rotate(135deg);
+      transform-origin: 5px 3px;
+    }
+
+    &.active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &::before {
+        top: 1.25em;
+        transform: rotate(-45deg);
+      }
+    }
+
+    a {
+      color: $color-accordion-heading;
+      display: block;
+      font-size: $font-size-accordion-heading;
+      font-weight: $font-weight-medium;
+      line-height: 2.9em;
+      padding: 0.1em 1em 0 3em;
+    }
+  }
+
+  .card-body {
+    background: $color-accordion-bg;
+    border: $standard-border $color-accordion-border;
+    border-top-width: 0;
+    border-radius: 0 0 $accordion-radius $accordion-radius;
+    padding: 1em 3em;
+  }
+}

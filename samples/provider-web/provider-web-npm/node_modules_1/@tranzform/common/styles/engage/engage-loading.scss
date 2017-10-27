@@ -1,0 +1,15 @@
+.loading-mask {
+  background: rgba(#efeeee, 0.85);
+
+  .outer {
+    color: $body-bg;
+  }
+
+  .middle {
+    color: #77b75f;
+  }
+
+  .inner {
+    color: $body-color;
+  }
+}
