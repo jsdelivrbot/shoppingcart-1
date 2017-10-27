@@ -1,0 +1,30 @@
+@import "../font";
+
+@mixin roboto($name, $weight) {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: $weight;
+  // These paths are relative to the file importing this file
+  src: url('../../fonts/roboto/Roboto-#{$name}-webfont.eot');
+  src:
+    url('../../fonts/roboto/Roboto-#{$name}-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../fonts/roboto/Roboto-#{$name}-webfont.woff') format('woff'),
+    url('../../fonts/roboto/Roboto-#{$name}-webfont.ttf') format('truetype'),
+    url('../../fonts/roboto/Roboto-#{$name}-webfont.svg#Roboto#{$name}') format('svg');
+}
+
+@font-face {
+  @include roboto('Regular', normal);
+}
+
+@font-face {
+  @include roboto('Light', $font-weight-light);
+}
+
+@font-face {
+  @include roboto('Medium', $font-weight-medium);
+}
+
+@font-face {
+  @include roboto('Bold', bold);
+}

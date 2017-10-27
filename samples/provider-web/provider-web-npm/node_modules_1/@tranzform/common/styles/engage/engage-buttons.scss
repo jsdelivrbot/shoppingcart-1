@@ -1,0 +1,63 @@
+button {
+  &.btn {
+    background: $color-btn-bg;
+    border: 2px solid $color-btn-border;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(black, 0.3);
+    color: $color-btn;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1.2em;
+    font-weight: $font-weight-medium;
+    padding: 0.4em 1em;
+
+    &:hover {
+      border-color: $color-btn-hover-border;
+    }
+
+    &:active {
+      border-color: $color-btn-pressed-border;
+    }
+
+    &:disabled {
+      background: $color-btn-bg-disabled;
+      border-color: $color-btn-border-disabled;
+      color: $color-btn-disabled;
+      cursor: not-allowed;
+    }
+  }
+
+  &.btn:not(.no-min-width) {
+    min-width: 7em;
+  }
+
+  &.btn-primary,
+  &.btn-default {
+    background: $color-btn-primary-bg;
+    border-color: $color-btn-primary-border;
+    color: $color-btn-primary;
+
+    &:hover {
+      background: $color-btn-primary-hover-bg;
+      border-color: $color-btn-primary-hover-border;
+    }
+
+    &:active {
+      background: $color-btn-primary-pressed-bg;
+      border-color: $color-btn-primary-pressed-border;
+    }
+
+    &:disabled {
+      background: $color-btn-primary-bg-disabled;
+      border-color: $color-btn-primary-border-disabled;
+      color: $color-btn-primary-disabled;
+    }
+  }
+
+  @include condensed {
+    &.btn {
+      display: block;
+      width: 100%;
+    }
+  }
+}

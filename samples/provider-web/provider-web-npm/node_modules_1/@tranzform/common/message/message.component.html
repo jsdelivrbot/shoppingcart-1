@@ -1,0 +1,11 @@
+<div
+  *ngIf="_messages.length || valMessages.length"
+  role="alert"
+  [inlineSVG]="icons[type]"
+  [prepend]="true"
+>
+  <ul>
+    <li *ngFor="let valMsg of valMessages" translate>{{ valMsg }}</li>
+    <li *ngFor="let msg of _messages" translate>{{ msg }}</li>
+  </ul>
+</div>

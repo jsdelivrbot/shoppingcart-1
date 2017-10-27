@@ -1,0 +1,39 @@
+@import '../font';
+
+/*** Bootstrap Reboot variables ***/
+$font-family-base: Roboto, Helvetica, sans-serif;
+$font-size-base: 0.9rem;//14px;
+/**********************************/
+
+$font-style-header-search-placeholder: italic;
+$font-size-header-notification-count: 0.9em;
+$font-size-user-greeting: 0.8em;
+$font-size-user-name: 0.9em;
+$font-size-user-menu: 0.9em;
+$font-size-user-menu-header: 0.8em;
+$font-weight-user-last-login: bold;
+
+$font-weight-nav-active: bold;
+
+$font-size-breadcrumbs: 0.9em;
+$breadcrumb-separator-width: 2px;
+$breadcrumb-separator-size: 8px;
+$breadcrumb-separator-margin: 6px;
+
+$font-size-accordion-heading: 0.95em;
+$accordion-arrow-width: 2px;
+$accordion-arrow-size: 8px;
+
+$font-size-copyright: 0.85em;
+
+$font-size-h1: 1.5em;
+$font-weight-h1: normal;
+$font-size-h2: 1.2em;
+$font-weight-h2: $font-weight-medium;
+
+$font-size-button: 1.1rem;
+$font-weight-button: $font-weight-medium;
+
+$font-size-form-input-lg: 16px;
+$font-weight-form-input-lg: $font-weight-light;
+$font-weight-form-popover-ok: bold;

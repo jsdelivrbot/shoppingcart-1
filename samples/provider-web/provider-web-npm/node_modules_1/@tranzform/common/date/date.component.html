@@ -1,0 +1,39 @@
+<div *ngIf="!supportsHtml5Date"
+  class="wrapper"
+  [tzfClickOutside]="showPicker"
+  (clickOutside)="closePicker()"
+>
+  <tzf-input-button
+    [id]="id && id + '-calBtn'"
+    (btnClick)="togglePicker()"
+    [btnSVG]="'assets/common/icons/Calendar.svg'"
+    btnTitle="Open calendar"
+    [btnTabindex]="-1"
+  >
+    <input
+      [attr.id]="id"
+      type="text"
+      [attr.placeholder]="placeholder"
+      [ngModel]="textValue"
+      (ngModelChange)="setTextValue($event)"
+      (blur)="checkUserInput()"
+      (focus)="showPicker = false"
+    >
+  </tzf-input-button>
+  <tzf-datepicker
+    *ngIf="showPicker"
+    [id]="id && id + '-picker'"
+    [class.above]="pickerAbove"
+    [ngModel]="pickerValue"
+    (ngModelChange)="pickDate($event)"
+    [yearPicker]="yearPicker"
+  ></tzf-datepicker>
+</div>
+<input type="date"
+  *ngIf="supportsHtml5Date"
+  [attr.id]="id"
+  [ngModel]="html5Value"
+  (ngModelChange)="setHtml5Date($event)"
+  (blur)="propagateTouched()"
+>
+

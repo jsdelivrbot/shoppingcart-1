@@ -1,0 +1,135 @@
+@import '../styles/pro';
+
+.calendar {
+  padding: 0.5em;
+}
+
+.monthYear {
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 3em;
+  margin-bottom: -2.4em;
+  text-align: center;
+}
+
+.year {
+  font-size: 0.9em;
+  font-weight: $font-weight-light;
+}
+
+:host {
+  display: flex;
+
+  ::ng-deep {
+    .justify-content-between {
+      justify-content: space-between;
+    }
+
+    .d-flex {
+      display: flex;
+    }
+
+    ngb-datepicker {
+      border: 0;
+    }
+
+    div.ngb-dp-header {
+      border-bottom: 0;
+    }
+
+    button {
+      background: none;
+      border: 0;
+      padding: 0 0.8em;
+    }
+
+    .ngb-dp-navigation-chevron::before {
+      border-color: $color-primary;
+    }
+
+    div.ngb-dp-month-name {
+      display: none;
+    }
+
+    .ngb-dp-month,
+    .ngb-dp-weekday,
+    .ngb-dp-day {
+      flex: auto;
+      text-align: center;
+    }
+
+    .ngb-dp-month {
+      padding-top: 2.5em;
+    }
+
+    .ngb-dp-week {
+      font-size: 0.85em;
+      font-weight: $font-weight-medium;
+    }
+
+    div.ngb-dp-day {
+      color: $color-datepicker-day;
+      width: 4em;
+
+      div {
+        display: inline-block;
+        max-width: 4em;
+        width: 100%;
+      }
+    }
+
+    .ngb-dp-weekday,
+    div.disabled {
+      color: $color-datepicker-weekday;
+      font-weight: $font-weight-light;
+      text-transform: uppercase;
+    }
+
+    div.bg-primary {
+      background: $color-datepicker-active-bg;
+      border-radius: 0;
+      color: $color-datepicker-active;
+    }
+  }
+}
+
+.year-picker {
+  background: #f5f5f5;
+  border-left: 1px solid $color-form-popover-border;
+  height: 290px;
+  margin: 0;
+  overflow: auto;
+}
+
+.year-label {
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  overflow: hidden;
+  padding: 0.3em 2em;
+  position: relative;
+}
+
+.year-text {
+  position: relative;
+}
+
+.year-radio {
+  position: absolute;
+  left: -50px;
+
+  &:checked {
+    + .selected-bg {
+      background: $color-primary;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    ~ .year-text {
+      color: white;
+    }
+  }
+}

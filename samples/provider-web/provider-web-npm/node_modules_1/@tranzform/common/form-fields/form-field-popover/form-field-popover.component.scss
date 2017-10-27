@@ -1,0 +1,109 @@
+@import '../../styles/caret';
+@import '../../styles/pro';
+
+div ::ng-deep > input {
+  background: transparent !important;
+  border-bottom-color: transparent !important;
+  display: block;
+  margin-bottom: -$form-input-height;
+  position: relative;
+  width: auto;
+  z-index: 1;
+
+  // Move it over to uncover the right side of the toggle button. Kind of weird though since the textbox now goes off the left edge.
+  left: -1.5em;
+  padding-left: 1.5em !important;
+}
+
+.toggle {
+  padding-right: 1.5em !important; // Overrides style from form-field
+  position: relative;
+
+  .caret {
+    @include caret($form-caret-height, $form-caret-thickness, currentColor, $color-form-input-bg);
+  }
+}
+
+.toggle,
+.actions button {
+  cursor: pointer;
+}
+
+fieldset {
+  height: 0;
+  overflow: hidden;
+  padding: 0 $side-padding $form-field-padding-horizontal 0;
+  padding-right: var(--side-padding); // Override for non-IE browsers
+  position: absolute;
+  right: 0; // Position from the right so hidden content doesn't overflow to right adding scrollbars
+  top: 100%;
+  visibility: hidden;
+  display: block; // Override none due to aria-hidden
+  z-index: $z-form-field-popover;
+
+  // Give dropdown a minimum size of its parent
+  box-sizing: content-box;
+  min-width: 101%; // +1% helps align borders with parent
+}
+
+:host-context([tzfFormField]:last-child) {
+  fieldset {
+    // Lock to right and override position calculation if this is the rightmost field.
+    left: auto !important;
+    right: -1px !important;
+    padding-right: 0;
+  }
+}
+
+// The legend is required for accessibility but unnecessary for sighted users
+legend {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+.popover {
+  background: $color-form-bg;
+  border: $standard-border $color-form-popover-border;
+  box-shadow: $form-popover-shadow;
+}
+
+.content {
+  overflow: auto;
+
+  ::ng-deep > div {
+    padding: 1.5em;
+  }
+}
+
+[aria-hidden=false] {
+  height: auto;
+  right: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.actions {
+  background-color: #f1f8fd;
+  border-top: $form-popover-divider;
+  padding: ($form-field-padding-vertical * 0.8) $form-field-padding-horizontal $form-field-padding-vertical;
+  text-align: right;
+
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+}
+
+.cancel {
+  color: $color-form-popover-cancel;
+  float: left;
+  margin-top: 1px;
+}
+
+.accept {
+  color: $color-form-popover-ok;
+  font-weight: $font-weight-form-popover-ok;
+}

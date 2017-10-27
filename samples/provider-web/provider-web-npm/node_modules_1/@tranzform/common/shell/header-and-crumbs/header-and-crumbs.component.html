@@ -1,0 +1,37 @@
+<nav *ngIf="singleCrumb || (crumbs && crumbs.length)">
+  <ol
+    *ngIf="!singleCrumb"
+    id="crumbs"
+  >
+    <li *ngFor="let crumb of crumbs, let i = index, let last = last"
+      class="crumb"
+    >
+      <ng-container *ngIf="i === 0 || !last">
+        <a *ngIf="crumb.path"
+          class="crumbLink"
+          [skipLocationChange]="crumb.skipLocationChange"
+          [routerLink]="crumb.path"
+        >{{ crumb.text | translate:crumbParams[i] }}</a
+        ><a *ngIf="crumb.url"
+          class="crumbLink"
+          [href]="crumb.url"
+        >{{ crumb.text | translate:crumbParams[i] }}</a
+      ></ng-container
+      >{{ i === 0 || !last ? '' : crumb.text | translate:crumbParams[i] }}</li>
+  </ol>
+  <ng-container *ngIf="singleCrumb">
+    <a *ngIf="singleCrumb.path"
+      id="simple-crumb"
+      [routerLink]="singleCrumb.path"
+    >{{ singleCrumb.text | translate:singleCrumbParams }}</a>
+    <a *ngIf="singleCrumb.url"
+      id="simple-crumb"
+      [href]="singleCrumb.url"
+    >{{ singleCrumb.text | translate:singleCrumbParams }}</a>
+  </ng-container>
+</nav>
+<h1
+  *ngIf="routeTitle"
+  translate
+  [translateParams]="titleParams"
+>{{ routeTitle }}</h1>

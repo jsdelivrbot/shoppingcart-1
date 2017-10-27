@@ -1,0 +1,28 @@
+:host {
+  display: inline-block;
+  position: relative;
+
+  &.has-btn {
+    ::ng-deep input {
+      padding-right: 3em;
+    }
+  }
+}
+
+button {
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  top: 1px;
+  right: 0;
+  height: 100%;
+  width: 2.5em;
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+
+  ::ng-deep svg {
+    height: 100%;
+    max-width: 100%;
+  }
+}

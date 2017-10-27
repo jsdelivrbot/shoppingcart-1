@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Logging in...</title>
+</head>
+
+<body>
+  <p id="error"></p>
+  <script src="oidc-client.min.js"></script>
+  <script>
+    new Oidc.UserManager().signinRedirectCallback().then(function (user) {
+      if (!user) {
+        console.warn('No user found.');
+      }
+      window.location = '.';
+    })
+    .catch(function (err) {
+      console.error(err);
+      document.getElementById('error').innerText = err.message;
+    });
+  </script>
+</body>
+
+</html>

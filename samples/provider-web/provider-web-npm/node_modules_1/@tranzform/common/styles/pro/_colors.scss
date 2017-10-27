@@ -1,0 +1,169 @@
+/*** Bootstrap Reboot variables ***/
+$body-bg: #fcfcfc;
+$body-color: #5d5d5d;
+
+/**
+ * The default color for links.
+ *
+ * @color
+ * @section Color palette
+ */
+$link-color: #1f7c99;
+/**********************************/
+
+/**
+ * The primary color used for the page header, links, and checkboxes.
+ *
+ * @color
+ * @section Color palette
+ */
+$color-primary: #257f8e !default;
+
+/**
+ * The first color used in the gradient in the header and navigation indicator.
+ *
+ * @color
+ * @section Color palette
+ */
+$color-brand-1: #54c0dd !default;
+
+/**
+ * The second color used in the gradient in the header and navigation indicator.
+ *
+ * @color
+ * @section Color palette
+ */
+$color-brand-2: #67af56 !default;
+
+$color-active: white;
+$color-active-bg: #00873f;
+
+$color-header-strip-left: $color-brand-1;
+$color-header-strip-right: $color-brand-2;
+$color-header-strip: linear-gradient(90deg, $color-header-strip-left 0%, $color-header-strip-right 100%);
+$color-header-bg: white;
+$color-header-search-border: #d7d7d7;
+$color-header-search-bg: #fbfbfb;
+$color-header-notifications-count: white;
+$color-header-notifications-count-bg: #dd5435;
+
+$color-user: $link-color;
+$color-user-name: $color-user;
+
+/**
+ * Arrow indicating button opens menu.
+ *
+ * @color
+ * @section User menu
+ */
+$color-user-arrow: #6d6d6d;
+$color-user-menu: $color-user;
+$color-user-menu-bg: white;
+
+/**
+ * Dropdown menu border.
+ *
+ * @color
+ * @section User menu
+ */
+$color-user-menu-border: #e3e3e3;
+
+/**
+ * Dropdown menu border (top).
+ *
+ * @color
+ * @section User menu
+ */
+$color-user-menu-border-top: #d0d0d0;
+
+/**
+ * Menu header background.
+ *
+ * @color
+ * @section User menu
+ */
+$color-user-menu-header-bg: #f4f4f4;
+
+/**
+ * Menu header text.
+ *
+ * @color
+ * @section User menu
+ */
+$color-user-menu-header-color: #475c66;
+
+$color-nav-bg: linear-gradient(90deg, rgba(250, 250, 250, 0), #f6f6f6) !default;
+$color-nav-border-left: transparent !default;
+$color-nav-border-right: #e5e5e5 !default;
+$color-nav-icon: #5a6f7f !default;
+$color-nav-expand-icon: $color-nav-icon !default;
+$color-nav-active-icon: #117962 !default;
+$color-nav-expanded-bg: #f3f3f3 !default;
+$color-nav-expanded-active-bg: white !default;
+$color-nav-expanded-content-mask: rgba(black, 0.5);
+$color-nav-active-ind: linear-gradient(0deg, $color-brand-1, $color-brand-2);
+
+$color-main-bg: #fafafa;
+
+$color-breadcrumb-link: $color-primary;
+$color-breadcrumb-separator: $color-primary;
+
+$color-button-primary: white;
+$color-button-primary-bg: #e3640f;
+$color-button-primary-border: #e3640f;
+$color-button-primary-disabled: $color-button-primary;
+$color-button-primary-disabled-bg: #8c8c8c;
+$color-button-primary-disabled-border: #8c8c8c;
+$color-button-secondary: #5d5d5d;
+$color-button-secondary-bg: white;
+$color-button-secondary-border: #e3640f;
+$color-button-secondary-disabled: $color-button-secondary;
+$color-button-secondary-disabled-bg: $color-button-secondary-bg;
+$color-button-secondary-disabled-border: #8c8c8c;
+
+$color-pagination-border: #e3e9eb;
+$color-pagination-separator: $color-pagination-border;
+$color-pagination: $link-color;
+$color-pagination-active: $color-active;
+$color-pagination-active-bg: $color-active-bg;
+
+$color-datepicker-weekday: #bbb;
+$color-datepicker-day: #5d5d5d;
+$color-datepicker-active:$color-active;
+$color-datepicker-active-bg: $color-active-bg;
+$color-datepicker-range: $color-datepicker-day;
+$color-datepicker-range-bg: #cce7d9;
+
+$color-h1: $color-primary;
+$color-h2: #405a6d;
+
+$color-copyright: #5d5d5d;
+
+$color-accordion-border: #ddd;
+$color-accordion-heading: #404040;
+$color-accordion-heading-bg: #f4f4f4;
+$color-accordion-heading-shadow: #257f8e;
+$color-accordion-arrow: #5d5d5d;
+$color-accordion-bg: white;
+
+$color-form-input-text: $body-color;
+$color-form-input-bg: white;
+$color-form-input-border: transparent;
+$color-form-input-border-focus: #117962;
+$color-form-input-border-hover: inherit;
+$color-form-input-shadow: rgba(black, 0.2);
+
+$color-form-bg: white;
+$color-form-border: #ccc;
+
+$color-form-popover-ok: $color-primary;
+$color-form-popover-cancel: $body-color;
+$color-form-popover-border: #c2cbd4;
+$color-form-popover-divider: #aad0ea;
+$color-form-popover-shadow: rgba(black, 0.1);
+
+$color-checkbox-border: #bfbfbf;
+$color-checkbox-checked: white;
+$color-checkbox-checked-bg: $color-primary;
+$color-checkbox-checked-shadow: rgba(black, 0.2);
+$color-checkbox-focus-shadow: rgba(black, 0.6);

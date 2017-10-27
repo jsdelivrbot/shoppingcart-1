@@ -1,0 +1,21 @@
+<div
+  [attr.id]="id"
+  class="segmented-container"
+  [class.focus]="focus"
+  role="group"
+>
+  <label *ngFor="let option of options; let i = index" class="option">
+    <input type="radio"
+      class="input"
+      name="{{ id }}-radio"
+      (focus)="focus = true"
+      (blur)="focus = false"
+      [ngModel]="value"
+      (ngModelChange)="changed($event)"
+      [value]="valueField ? option[valueField] : i"
+    >
+    <span class="content" translate>
+      {{ option[textField] }}
+    </span>
+  </label>
+</div>

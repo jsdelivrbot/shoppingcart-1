@@ -1,0 +1,30 @@
+<div class="field">
+  <tzf-form-fields>
+    <div class="calIcon" inlineSVG="assets/common/icons/Calendar.svg"></div>
+    <label tzfFormField [label]="label">
+      <input
+        type="text"
+        [attr.id]="id"
+        [(ngModel)]="textValue"
+        (blur)="checkUserInput()"
+        (keydown.enter)="checkUserInput()"
+      >
+    </label>
+  </tzf-form-fields>
+</div>
+<tzf-datepicker
+  [(ngModel)]="pickerDate"
+  (ngModelChange)="pickDate($event)"
+  [minDate]="ngbMinDate"
+  [maxDate]="ngbMaxDate"
+  [dayTemplate]="dayTemplate"
+></tzf-datepicker>
+
+<ng-template #dayTemplate let-date="date" let-selected="selected">
+  <div
+    class="day"
+    [class.range]="!selected && inRange(date)"
+    [class.bg-primary]="selected"
+    (mousedown)="setDateOnClick(date)"
+  >{{ date.day }}</div>
+</ng-template>

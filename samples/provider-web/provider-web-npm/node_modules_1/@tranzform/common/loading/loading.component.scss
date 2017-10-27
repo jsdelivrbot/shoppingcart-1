@@ -1,0 +1,79 @@
+@keyframes load-ind-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+:host(.loading) {
+  position: relative;
+
+  .loading-mask {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    cursor: wait;
+
+    .ring {
+      display: inline-block;
+      padding: 10px;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        border: 4px solid;
+        border-radius: 100%;
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      &::after {
+        transform: rotate(150deg);
+      }
+    }
+
+    .outer,
+    .middle,
+    .inner {
+      &::before,
+      &::after {
+        border-color: currentColor currentColor transparent transparent;
+      }
+    }
+
+    .outer {
+      animation: 1s linear infinite load-ind-spin;
+      margin: -35px 0 0 -35px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+
+    .middle {
+      animation: 0.5s linear infinite reverse load-ind-spin;
+      width: 50px;
+      height: 50px;
+    }
+
+    .inner {
+      animation: 0.5s linear infinite load-ind-spin;
+      height: 30px;
+      width: 30px;
+
+      &::after {
+        transform: rotate(-150deg);
+      }
+    }
+  }
+}

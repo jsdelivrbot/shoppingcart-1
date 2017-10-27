@@ -1,0 +1,38 @@
+<div class="calendar">
+  <p class="monthYear">
+    <span class="month">{{ monthNames[datepickerMonth - 1] }}</span>
+    <span class="year">{{ datepickerYear }}</span>
+  </p>
+  <ngb-datepicker
+    [(ngModel)]="model"
+    (ngModelChange)="modelChanged()"
+    [startDate]="model"
+    [firstDayOfWeek]="7"
+    navigation="arrows"
+    outsideDays="hidden"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    (navigate)="updateMonthAndYear($event.next)"
+    [dayTemplate]="dayTemplate"
+  ></ngb-datepicker>
+</div>
+<ol *ngIf="yearPicker"
+  #yearList
+  class="year-picker"
+>
+  <li *ngFor="let y of years"
+    class="year-item"
+  >
+    <label class="year-label">
+      <input type="radio"
+        class="year-radio"
+        [attr.name]="id + '-radio'"
+        [value]="y"
+        [ngModel]="model?.year"
+        (ngModelChange)="selectYear($event)"
+      >
+      <span class="selected-bg"></span>
+      <span class="year-text">{{ y }}</span>
+    </label>
+  </li>
+</ol>

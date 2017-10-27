@@ -1,0 +1,78 @@
+@import '../pro';
+@import 'reboot';
+@import 'shell';
+@import 'accordion';
+@import 'buttons';
+@import 'form-fields';
+@import 'tables';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/**
+ * Heading above main content.
+ *
+ * @atom Page heading
+ * @section Headings
+ *
+ * @markup
+ *  <h1>Sample Page Heading</h1>
+ */
+h1 {
+	color: $color-h1;
+	font-size: $font-size-h1;
+  font-weight: $font-weight-h1;
+  line-height: 1em;
+  margin-bottom: $h1-margin-bottom;
+}
+
+/**
+ * Heading above a section of a page.
+ *
+ * @atom Section heading
+ * @section Headings
+ *
+ * @markup
+ *  <h2>Sample Section Heading</h2>
+ */
+h2 {
+  color: $color-h2;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-h2;
+  margin: $h2-margin-top 0 $h2-margin-bottom;
+}
+
+/**
+ * Elements with aria-hidden=true are automatically hidden.
+ *
+ * @atom ARIA Hidden
+ * @section Freebies
+ *
+ * @markup
+ *  <ul>
+ *    <li>You should see me</li>
+ *    <li aria-hidden="true">You should not see me!</li>
+ *    <li>You should see me too</li>
+ *  </ul>
+ */
+[aria-hidden=true] {
+  display: none;
+}
+
+[aria-disabled=true] {
+  cursor: not-allowed;
+}
+
+a[aria-disabled=true] {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,7 @@
+<div class="container">
+  <div *ngIf="value > 0"
+    class="bar"
+    [class.filled]="value >= 1"
+    [style.width.%]="value * 200"
+  ></div>
+</div>
